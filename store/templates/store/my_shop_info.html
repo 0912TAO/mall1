@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+my_shop_info
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'mall/css/app/open_shop.css' %}">
+{% endblock %}
+
+{% block navnav %}
+{% endblock %}
+
+{% block baner %}
+{% endblock %}
+
+{% block main %}
+
+<style>
+    table tr th,
+    table tr td{
+        text-align: center;
+    }
+</style>
+<div class="container pd">
+    <div class="row">
+        <!--左-->
+        <div class="col-md-3 left_menu">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span>店铺管理</span>
+                    <a href="">我要开店</a>
+                    <a href="">店铺信息</a>
+                </li>
+                <li class="list-group-item">
+                    <span>交易管理</span>
+                    <a href="">已卖出的宝贝</a>
+                    <a href="">评价管理</a>
+                </li>
+                <li class="list-group-item">
+                    <span>物流管理</span>
+                    <a href="">发货</a>
+                </li>
+                <li class="list-group-item">
+                    <span>宝贝管理</span>
+                    <a href="">发布宝贝</a>
+                    <a href="">管理宝贝</a>
+                </li>
+                <li class="list-group-item">
+                    <span>客户服务</span>
+                    <a href="">举报管理</a>
+                </li>
+            </ul>
+        </div>
+
+        <!--# 右-->
+        <div class="col-md-9 right_menu">                <h2>店铺信息</h2>
+
+            <div class="row col-md-10 col-md-offset-1" style="margin-top: 30px;text-align: center;">
+                <br>
+                <img src="{% static 'image/default.jpg' %}" class="img-circle" width="110px" height="110px">
+                <h4><b>店铺名称</b></h4><br>
+                <p>这是店铺描述</p><br>
+                <span style="padding:10px 15px;background-color: #f54b07;color: #fff;">财源广进</span>
+
+</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

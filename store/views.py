@@ -1,5 +1,6 @@
-from django.shortcuts import render
-
+from django.shortcuts import render,reverse,redirect
+from django.contrib.auth.decorators import login_required   # 需要登陆的装饰器
+from . import models
 # Create your views here.
 
 
@@ -14,8 +15,27 @@ def my_cart(request):
         pass
 
 
+@login_required
 def open_shop(request):
+    store = models.store.objects.filter(user_id=request.user.id)
+    print(store)
+
+    return render(request, 'store/open_shop.html', {"store": store})
+
+
+@login_required
+def i_want_open_shop(request):
     if request.method == 'GET':
-        return render(request, 'store/open_shop.html', {})
-    else:
-        pass
+        return render(request, 'store/i_want_open_shop.html', {})
+    if request.method == 'POST':
+        name = request.POST['name']
+        intro = request.POST['intro']
+        try:
+            cover = request.FILES['cover']
+            store = models.store(name=name, intro=intro, cover=cover, user=request.user)
+
+        except:
+            store = models.store(name=name, intro=intro, user=request.user)
+        store.save()
+        # 跳转有问题
+        return redirect(reverse("store:open_shop", kwargs={"store": store}))
