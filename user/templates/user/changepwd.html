@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		 {% load static %}
+        <meta charset="UTF-8">
+        <title>个人中心--修改密码</title>
+        <link href="{% static 'user/css/app/style.css' %}" rel="stylesheet" type="text/css"/>
+       	<script type="text/javascript" src="{% static 'commons/js/lib/jquery2.2.4/jquery-2.2.4.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'commons/js/app/tab.js '%}"></script>
+		<link rel="stylesheet" href="{% static 'commons/js/lib/bootstrap-3.3.7-dist/css/bootstrap.css '%}">
+
+		<script src="{% static 'commons/js/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js '%}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'user/css/app/yangshi.css '%}" />
+    </head>
+    <body style="background-color: #f5f5f5;">
+		<div class="container" style="margin-top: 10px;">
+			<div class=" col-lg-offset-2 col-md-8">
+				<div style="margin-bottom: 30px;">
+					<h3 style="display: inline-block;" ><a id="back_personal" href="javascript:void(0);">修改密码</a></h3>
+                    <div class="other" style="float: right;padding-top: 30px;">
+                        <a  href="{% url 'user:personal' %}" style="font-weight: 600;">个人中心</a>
+                        <a  href="{% url 'user:changeheader' %}">修改头像</a>
+                        <a  href="{% url 'user:changeinfo' %}">个人信息</a>
+					    <a  href="{% url 'user:user_logout' %}">退出</a>
+                    </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-lg-offset-2 col-md-3">
+						<div class="panel">
+							<div class="panel-body">
+								<ul class="nav text-center" role="tablist">
+									<img src="/{{userA.header}}" style="height: 122px;width: 122px; margin-bottom: 30px;margin-top: 30px;"  alt="..." class="img-circle tt_img">
+									<h4>{{user.username}}</h4>
+
+									<!--<li role="presentation" class="active"><a href="#" >查看信息</a></li>-->
+									<!--<li role="presentation"><a href="#">修改信息</a></li>-->
+									<!--<li role="presentation"><a href="#xgmm" aria-controls="xgmm" role="tab" data-toggle="tab">修改密码</a></li>-->
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="panel">
+							<div class="panel-body">
+								<div class="tab-content">
+									<!--<div>-->
+										<!--<h3>密码修改</h3>-->
+									<!--</div>-->
+									<div role="tabpanel" class="tab-pane active" id="xgmm">
+										<div class="aui-flex b-line">
+											<div  class="aui-invoice-name">原密码：</div>
+											<div class="aui-flex-box">
+												<input name="oldpassword" id="oldpassword" type="text" placeholder="输入原密码">
+											</div>
+										</div>
+										<div class="aui-flex b-line">
+											<div class="aui-invoice-name">新密码</div>
+											<div class="aui-flex-box">
+												<input name="password" id="password" type="password" placeholder="输入新密码">
+											</div>
+										</div>
+										<div class="aui-flex b-line">
+											<div class="aui-invoice-name">确认密码</div>
+											<div class="aui-flex-box">
+												<input name="querenpassword" id="querenpassword" type="password" placeholder="确认密码">
+											</div>
+										</div>
+                                        <p id="msg" class="text-center"></p>
+										<div class="aui-flex b-line">
+											<div class="aui-invoice-name"></div>
+											<div class="aui-flex-box">
+
+												<button style="height: 40px;width: 70px;" class="btn btn-danger" type="submit" onclick="xiugai_mima()">保存</button>
+												<button style="height: 40px;width: 70px;" class="btn btn-default" type="reset">重置</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script>
+
+            $(function () {
+				    $("#oldpassword").on("blur",function () {
+				        oldpassword = $(this).val()
+						console.log(oldpassword)
+						if (oldpassword.length < 1 ) {
+						    $("#msg").html("旧密码不能为空")
+						}else if (oldpassword.length < 6){
+						    $("#msg").html("<span style='color:red;'>" + "旧密码不能小于6位" + "</span>")
+
+                        }else {
+						    $("#msg").html("<span style='color:green;'>" + "请继续" + "</span>")
+
+						}
+			        })
+			    })
+
+
+                // 验证密码
+    $(function () {
+        $("#oldpassword").on("blur", function () {
+            console.log("abc")
+            oldpassword = $("#oldpassword").val()
+            console.log(oldpassword)
+            $.ajax({
+                url: "/user/" + oldpassword + "/check_password/",
+                method: "POST",
+                dataType: "json",
+                data: {"csrfmiddlewaretoken": "{{ csrf_token }}"},
+                success: function (data) {
+                    console.log(data)
+                    if (data.success) {
+                        $("#sub_btn").removeAttr("disabled")
+                        $("#msg").html("<span style='color:green;'>" + data.msg + "</span>")
+                    // } else {
+                    //     $("#sub_btn").attr("disabled", true)
+                    //     $("#msg").html("<span style='color:red;font-size: 12px;line-height: 5px;'>" + data.msg + "</span>")
+                    }
+                }
+            })
+        })
+
+    })
+
+
+
+
+
+// 第一次密码验证
+				$(function () {
+				    $("#password").on("blur",function () {
+				        password = $(this).val()
+						console.log(password)
+						if (password.length < 1 ) {
+						    $("#msg").html("新密码不能为空")
+						}else if (password.length < 6){
+						    $("#msg").html("<span style='color:red;'>" + "新密码不能小于6位" + "</span>")
+
+                        }else {
+						    $("#msg").html("<span style='color:green;'>" + "请继续输入" + "</span>")
+
+						}
+			        })
+			    })
+
+
+            // 第二次密码验证
+        $(function () {
+            $("#querenpassword").on("blur", function () {
+                console.log("abc")
+                querenpassword = $("#querenpassword").val()
+                console.log(querenpassword.length)
+                if (querenpassword != password) {
+                    // $("#pwb2").addClass("has-error")
+                    $("#sub_btn").attr("disabled", true)
+                    $("#msg").html("<span style='color:red;'>" + "两次密码不一致，请重新输入" + "</span>")
+                } else {
+                    // $("#pwb2").addClass("has-success")
+                    $("#sub_btn").removeAttr("disabled")
+                    $("#msg").html("<span style='color:green;'>" + "两次密码一致,请修改" + "</span>")
+                }
+            })
+        })
+
+            function xiugai_mima(){
+					oldpassword = $("#oldpassword").val()
+					password = $("#password").val()
+					querenpassword = $("#querenpassword").val()
+
+					console.info(oldpassword)
+					console.info(password)
+					console.info(querenpassword)
+
+					$.ajax({
+						url: "/user/changepwd/",
+						method: "POST",
+						data: {"old_password": oldpassword, "password": password, "two_password":querenpassword, "csrfmiddlewaretoken":"{{ csrf_token }}"},
+						dataType: "json",
+						success: function (data) {
+                            console.log(data)
+                            if (data.success) {
+                                $("#sub_btn").removeAttr("disabled")
+                                $("#msg").html("<span style='color:green;'>" + data.msg + "</span>")
+                                window.location.href="/mall/user_logout";
+                            } else {
+                                $("#sub_btn").attr("disabled", true)
+                                $("#msg").html("<span style='color:red;font-size: 12px;line-height: 5px;'>" + data.msg + "</span>")
+                            }
+                        }
+					})
+				}
+
+		</script>
+    </body>
+</html>
