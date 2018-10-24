@@ -5,18 +5,17 @@ from django.views.decorators.http import require_GET
 from . import models
 import logging
 
-from goods.models import GoodType,Goods
+from goods.models import GoodType, Goods
 
 
-# 获取logger的一个实例
-logger = logging.getLogger(__name__)
 # 我的购物车
 def my_cart(request):
     # GET方式打开页面
     if request.method == 'GET':
         # 记录一条信息
         a = request.META['REMOTE_ADDR']
-        logger.error(a, '打开了购物车')
+        logger = logging.getLogger('require_django')
+        logger.info(a + '打开购物车')
         return render(request, 'store/my_cart.html', {})
 
     # POST方式打开页面
@@ -114,11 +113,21 @@ def update(request,s_id):
             pass
         store.save()
         return redirect(reverse("store:detail", kwargs={"s_id": store.id}))
+
+
 # 确认订单
 def confirm(request):
+    # 记录一条信息
+    a = request.META['REMOTE_ADDR']
+    logger = logging.getLogger('require_django')
+    logger.info(a + '确认订单页面')
     return render(request, 'store/confirm.html', {})
 
 
 # 结算
 def pay(request):
+    # 记录一条信息
+    a = request.META['REMOTE_ADDR']
+    logger = logging.getLogger('require_django')
+    logger.info(a + '结算页面')
     return render(request, 'store/pay.html', {})

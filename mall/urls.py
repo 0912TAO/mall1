@@ -17,10 +17,10 @@ from django.conf.urls import url
 from django.conf.urls import include
 from django.contrib import admin
 
-# import xadmin
-# from xadmin.plugins import xversion
-# xadmin.autodiscover()
-# xversion.register_models()
+import xadmin
+from xadmin.plugins import xversion
+xadmin.autodiscover()
+xversion.register_models()
 
 
 urlpatterns = [

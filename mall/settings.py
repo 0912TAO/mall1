@@ -166,3 +166,35 @@ EMAIL_HOST_USER = 'tom_tao0912@163.com'
 EMAIL_HOST_PASSWORD = 'meng0912'
 # 收件人看到的发件人
 EMAIL_FROM = 'tom_tao0912@163.com'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR + '/log/log.log',
+        },
+        'console': {
+            'level': 'WARNING',
+            'class': 'logging.StreamHandler',
+        }
+
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file', 'console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+
+        'require_django': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'maxBytes': 1024 * 1024 * 5,
+            'propagate': True,
+        },
+    },
+}
