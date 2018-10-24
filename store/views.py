@@ -14,8 +14,19 @@ def my_cart(request):
         pass
 
 
+# 开店
 def open_shop(request):
     if request.method == 'GET':
         return render(request, 'store/open_shop.html', {})
     else:
         pass
+
+
+# 确认订单
+def confirm(request):
+    return render(request, 'store/confirm.html', {})
+
+
+# 结算
+def pay(request):
+    return render(request, 'store/pay.html', {})
