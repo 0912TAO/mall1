@@ -3,15 +3,20 @@ from django.shortcuts import HttpResponse
 
 from io import BytesIO
 from . import utils
-from store import models
-
+from store.models import store
+from goods.models import Goods
+from goods.models import GoodsImage
+from goods.models import GoodType
 # Create your views here.
 
 
 # 主页
 def index(request):
-    store = models.store.objects.filter(user_id=request.user.id)
-    return render(request, "commons/index.html", {"store":store})
+    s = store.objects.filter(user_id=request.user.id)
+    goods = GoodType.objects.filter(parent__isnull=True)
+    shangpin = Goods.objects.all()
+    # tupian = GoodsImage.objects.get(pk=shangpin)
+    return render(request, "commons/index.html", {"store": s, "goods": goods, "shangpin":shangpin})
 
 
 # 验证码
