@@ -18,6 +18,7 @@ def my_cart(request):
         pass
 
 
+# 开店
 def open_shop(request):
     if request.method == 'GET':
         return render(request, 'store/open_shop.html', {})
@@ -25,6 +26,7 @@ def open_shop(request):
         pass
 
 
+<<<<<<< HEAD
 # 添加商铺
 @login_required()
 def shop(request):
@@ -99,3 +101,13 @@ def update(request,s_id):
             pass
         store.save()
         return redirect(reverse("store:detail", kwargs={"s_id": store.id}))
+=======
+# 确认订单
+def confirm(request):
+    return render(request, 'store/confirm.html', {})
+
+
+# 结算
+def pay(request):
+    return render(request, 'store/pay.html', {})
+>>>>>>> bad801507888049a45a0e9f338bc8fb8cda42e39
