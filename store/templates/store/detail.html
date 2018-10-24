@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>店铺详情</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+open_shop
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'store/css/app/open_shop.css' %}">
+{% endblock %}
+
+{% block navnav %}
+{% endblock %}
+
+{% block baner %}
+{% endblock %}
+
+{% block main %}
     <h1>店铺详情</h1>
     <table border="1">
         <tr>
@@ -38,5 +48,68 @@
             <td><a href="{% url 'store:update' store.id %}">修改店铺信息</a></td>
         </tr>
     </table>
-</body>
-</html>
+    <hr >
+
+    <h1>商品展示</h1>
+    {% for g in goods %}
+    <!--<img style="width: 200px;height: 200px" src="{{g.goodsimage_set.all.first}}" alt="">-->
+    <img style="width: 200px;height: 200px" src="/{{g.goodsimage_set.all.first.path}}" alt=""><br></br>
+    商品名：<p>{{g.name}}</p>
+    商品单价<p>{{g.price}}</p>
+    商品库存：<p>{{g.stock}}</p>
+    {% empty %}
+    <p>当前没有商品请上架商品</p>
+    {% endfor %}
+<hr>
+<h1>上架商品</h1>
+    <form action="{% url 'goods:add' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token  %}
+        商品名称：<input type="text" name="name" id="name"><br>
+        商品单价：<input type="number" name="price"><br>
+        商品库存：<input type="number" name="stock"><br>
+        <input type="hidden" name="store" value="{{store.id}}"><br>
+        商品图片：<input type="file" name="cover">
+        <!--扩充点击BUTTON继续添加图片-->
+        <br>
+        商品类型：
+        <select name="type1" id="type1">
+            {%for t in type1 %}
+            <option value="{{t.id}}">{{t.name}}</option>
+            {% endfor %}
+        </select>
+        <select name="type2" id="type2">
+
+        </select><br>
+        商品介绍：<textarea name="intro" id="" cols="30" rows="10"></textarea><br>
+        <button type="submit">上架商品</button>
+    </form>
+
+<script>
+    $(function () {
+        $("#type1").on("change",function () {
+            $.ajax({
+                url:"/goods/findTypeByPID/",
+                type:"get",
+                data:{"parent_id":$(this).val()},
+                success:function (data) {
+                     $("#type2").empty()
+                    data = JSON.parse(data);
+                    // console.info(data)
+                    for (var i= 0;i<data.length;i++)
+                    {
+                        var type = data[i];
+                        $op = $("<option>");
+                        $op.attr("value",type.pk)
+                        $op.text(type.fields.name)
+                        $("#type2").append($op)
+                    }
+                },
+                error:function () {
+                    alert("网络异常请联系管理员")
+
+                }
+            })
+        })
+    })
+</script>
+{% endblock %}

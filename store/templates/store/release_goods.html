@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加商品</title>
+</head>
+<body>
+    <h1>添加商品</h1>
+    <hr >
+    <h1>上架商品</h1>
+    <form action="#" method="post">
+        {% csrf_token  %}
+        商品名称：<input type="text" name="name" id="name"><br>
+        商品单价：<input type="number" name="price"><br>
+        商品库存：<input type="number" name="stock">
+        <input type="hidden" name="store" value="{[store.id}}">
+        商品图片：<input type="file" name="cover">
+        <!--扩充点击BUTTON继续添加图片-->
+        <br>
+        商品类型：
+        <select name="type1" id="type1">
+            {%for t in type1 %}
+            <option value="{{t.id}}">{{t.name}}</option>
+            {% endfor %}
+        </select>
+        <select name="type2" id="type2">
+            <option value=""></option>
+        </select>
+        商品介绍：<textarea name="intro" id="" cols="30" rows="10"></textarea>
+    </form>
+</body>
+</html>

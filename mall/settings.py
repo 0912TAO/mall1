@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'mall.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shop',
+        'NAME': 'shopping',
         'HOST': '192.168.13.14',
         'PORT': 3306,
         'USER': 'manbanzhen',

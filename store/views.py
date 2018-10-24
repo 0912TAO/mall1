@@ -9,6 +9,8 @@ from django.views.decorators.http import require_GET
 
 from . import models
 
+from goods.models import GoodType,Goods
+
 
 # 我的购物车
 def my_cart(request):
@@ -63,7 +65,9 @@ def list(request):
 @login_required()
 def detail(request,s_id):
     store = models.store.objects.get(pk=s_id)
-    return render(request,"store/detail.html",{"store":store})
+    type1 = GoodType.objects.filter(parent__isnull=True)
+    goods = Goods.objects.filter(stores=store)
+    return render(request,"store/detail.html",{"store":store,"type1":type1,"goods":goods})
 
 
 # 店铺状态更改
