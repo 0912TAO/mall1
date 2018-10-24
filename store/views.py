@@ -21,11 +21,9 @@ def my_cart(request):
         pass
 
 
-<<<<<<< HEAD
+
 @login_required
-=======
 # 开店
->>>>>>> ca8defcd1c61002d02d2df97188c5d02789def04
 def open_shop(request):
     store = models.store.objects.filter(user_id=request.user.id)
     print(store)
@@ -33,30 +31,6 @@ def open_shop(request):
     return render(request, 'store/open_shop.html', {"store": store})
 
 
-@login_required
-def i_want_open_shop(request):
-    if request.method == 'GET':
-<<<<<<< HEAD
-        return render(request, 'store/i_want_open_shop.html', {})
-    if request.method == 'POST':
-        name = request.POST['name']
-        intro = request.POST['intro']
-        try:
-            cover = request.FILES['cover']
-            store = models.store(name=name, intro=intro, cover=cover, user=request.user)
-
-        except:
-            store = models.store(name=name, intro=intro, user=request.user)
-        store.save()
-        # 跳转有问题
-        return redirect(reverse("store:open_shop", kwargs={"store": store}))
-=======
-        return render(request, 'store/open_shop.html', {})
-    else:
-        pass
-
-
-<<<<<<< HEAD
 # 添加商铺
 @login_required()
 def shop(request):
@@ -131,7 +105,6 @@ def update(request,s_id):
             pass
         store.save()
         return redirect(reverse("store:detail", kwargs={"s_id": store.id}))
-=======
 # 确认订单
 def confirm(request):
     return render(request, 'store/confirm.html', {})
@@ -140,5 +113,3 @@ def confirm(request):
 # 结算
 def pay(request):
     return render(request, 'store/pay.html', {})
->>>>>>> bad801507888049a45a0e9f338bc8fb8cda42e39
->>>>>>> ca8defcd1c61002d02d2df97188c5d02789def04
