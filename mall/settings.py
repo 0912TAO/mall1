@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'goods',    # 产品
     'store',    # 商店
     'user',     # 用户
+    "shopcat"   # 购物车
     # 'xadmin',
     # 'crispy_forms',
     # 'reversion',

@@ -70,6 +70,7 @@ def shop(request):
 @login_required()
 def detail(request,s_id):
     store = models.store.objects.get(pk=s_id)
+    # 获取分类
     type1 = GoodType.objects.filter(parent__isnull=True)
     goods = Goods.objects.filter(stores=store)
     return render(request,"store/detail.html",{"store":store,"type1":type1,"goods":goods})
