@@ -9,6 +9,7 @@ from goods.models import GoodType, Goods
 
 
 # 我的购物车
+@login_required
 def my_cart(request):
     # GET方式打开页面
     if request.method == 'GET':
@@ -87,7 +88,8 @@ def change(request,s_id,status):
 
 
 # 永久删除
-def delete(request,s_id):
+@login_required
+def delete(request, s_id):
     pass
 
 
@@ -116,6 +118,7 @@ def update(request,s_id):
 
 
 # 确认订单
+@login_required
 def confirm(request):
     # 记录一条信息
     a = request.META['REMOTE_ADDR']
@@ -125,9 +128,20 @@ def confirm(request):
 
 
 # 结算
+@login_required
 def pay(request):
     # 记录一条信息
     a = request.META['REMOTE_ADDR']
     logger = logging.getLogger('require_django')
     logger.info(a + '结算页面')
     return render(request, 'store/pay.html', {})
+
+
+# 宝贝
+@login_required
+def baobei(request, s_id):
+    store = models.store.objects.get(pk=s_id)
+    type1 = GoodType.objects.filter(parent__isnull=True)
+    goods = Goods.objects.filter(stores=store)
+    return render(request, "store/baobei.html", {"store": store, "type1": type1, "goods": goods})
+    # return render(request, "store/baobei.html", {})

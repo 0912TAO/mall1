@@ -12,7 +12,7 @@ class GoodType(models.Model):
     # 商品类型名称
     name  = models.CharField(max_length=255,unique=True,verbose_name="商品类型名称")
     # 商品展示图片
-    cover = models.ImageField( upload_to="static/images/goods", default="static/images/goods/default.jpg", verbose_name="商品展示图片")
+    cover = models.ImageField(upload_to="static/images/goods", default="static/images/goods/default.jpg", verbose_name="商品展示图片")
     # 商品类型描述
     intro = models.TextField(verbose_name="商品类别描述")
     # 关联类型（商品类型自关联）

@@ -18,166 +18,166 @@ open_shop
 
 {% block main %}
 
-    <h1>店铺详情</h1>
-    <table border="1">
-        <tr>
-            <td>店铺封面</td>
-            <td><img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt=""></td>
-        </tr>
-        <tr>
-            <td>店铺名称</td>
-            <td>{{store.name}}</td>
-        </tr>
-        <tr>
-            <td>店铺状态</td>
-            <td>
-                {% ifequal store.status  0 %}
-                    <p>正在营业</p>
+<h1>店铺详情</h1>
+<table border="1">
+    <tr>
+        <td>店铺封面</td>
+        <td><img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt=""></td>
+    </tr>
+    <tr>
+        <td>店铺名称</td>
+        <td>{{store.name}}</td>
+    </tr>
+    <tr>
+        <td>店铺状态</td>
+        <td>
+            {% ifequal store.status 0 %}
+            <p>正在营业</p>
 
-<div class="container pd">
-    <div class="row">
-        <!--左-->
-        <div class="col-md-3 left_menu">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <span>店铺管理</span>
-                    <a href="/store/open_shop/">我要开店</a>
-                      <a href="/store/{{store.id}}/detail/">店铺信息</a>
-                </li>
-                <li class="list-group-item">
-                    <span>交易管理</span>
-                    <a href="">已卖出的宝贝</a>
-                    <a href="">评价管理</a>
-                </li>
-                <li class="list-group-item">
-                    <span>物流管理</span>
-                    <a href="">发货</a>
-                </li>
-                <li class="list-group-item">
-                    <span>宝贝管理</span>
-                    <a href="">发布宝贝</a>
-                    <a href="">管理宝贝</a>
-                </li>
-                <li class="list-group-item">
-                    <span>客户服务</span>
-                    <a href="">举报管理</a>
-                </li>
-            </ul>
-        </div>
+            <div class="container pd">
+                <div class="row">
+                    <!--左-->
+                    <div class="col-md-3 left_menu">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span>店铺管理</span>
+                                <a href="/store/open_shop/">我要开店</a>
+                                <a href="/store/{{store.id}}/detail/">店铺信息</a>
+                            </li>
+                            <li class="list-group-item">
+                                <span>交易管理</span>
+                                <a href="">已卖出的宝贝</a>
+                                <a href="">评价管理</a>
+                            </li>
+                            <li class="list-group-item">
+                                <span>物流管理</span>
+                                <a href="">发货</a>
+                            </li>
+                            <li class="list-group-item">
+                                <span>宝贝管理</span>
+                                <a href="">发布宝贝</a>
+                                <a href="">管理宝贝</a>
+                            </li>
+                            <li class="list-group-item">
+                                <span>客户服务</span>
+                                <a href="">举报管理</a>
+                            </li>
+                        </ul>
+                    </div>
 
-        <!--# 右-->
-        <div class="col-md-9 right_menu">
+                    <!--# 右-->
+                    <div class="col-md-9 right_menu">
 
-            <div class="row col-md-10 col-md-offset-1" style="margin-top: 30px;text-align: center;">
-                <br>
-                <img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt="">
-                <h4><b>{{store.name}}</b></h4><br>
-                <p>{{store.intro}}</p><br>
+                        <div class="row col-md-10 col-md-offset-1" style="margin-top: 30px;text-align: center;">
+                            <br>
+                            <img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt="">
+                            <h4><b>{{store.name}}</b></h4><br>
+                            <p>{{store.intro}}</p><br>
 
-                <table class="table table-striped table-bordered">
-                    <tr style="font-weight: 800;">
+                            <table class="table table-striped table-bordered">
+                                <tr style="font-weight: 800;">
 
-                        <td>店铺状态</td>
-                        <td>你可以选择</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            {% ifequal store.status  0 %}
-                    <p style="font-weight: 700;color: #f54b07;">正在营业</p>
-                        </td>
-                    <td>
+                                    <td>店铺状态</td>
+                                    <td>你可以选择</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        {% ifequal store.status 0 %}
+                                        <p style="font-weight: 700;color: #f54b07;">正在营业</p>
+                                    </td>
+                                    <td>
 
-                    <a href="{% url 'store:change' store.id  1%}">暂停营业</a>
-                    <a href="{% url 'store:change' store.id  2%}">删除店铺</a>
-                    </td>
-                {% else %}
+                                        <a href="{% url 'store:change' store.id  1%}">暂停营业</a>
+                                        <a href="{% url 'store:change' store.id  2%}">删除店铺</a>
+                                    </td>
+                                    {% else %}
 
-                     {% ifequal store.status  1 %}
-                        <p style="font-weight: 700;color: #f54b07;">暂停营业</p>
-                        <td><a href="{% url 'store:change' store.id  0%}">开始营业</a>
-                        <a href="{% url 'store:change' store.id  2%}">删除店铺</a></td>
-                    {% else %}
-                        <td><p style="font-weight: 700;color: #f54b07;">亲，您的店铺已移除如有疑问请联系管理员</p></td>
-                    {% endifequal %}
-                {% endifequal %}
-            </td>
-        </tr>
-        <tr>
-            <td>操作</td>
-            <td><a href="{% url 'store:update' store.id %}">修改店铺信息</a></td>
-        </tr>
-    </table>
-    <hr >
+                                    {% ifequal store.status 1 %}
+                                    <p style="font-weight: 700;color: #f54b07;">暂停营业</p>
+                                    <td><a href="{% url 'store:change' store.id  0%}">开始营业</a>
+                                        <a href="{% url 'store:change' store.id  2%}">删除店铺</a></td>
+                                    {% else %}
+                                    <td><p style="font-weight: 700;color: #f54b07;">亲，您的店铺已移除如有疑问请联系管理员</p></td>
+                                    {% endifequal %}
+                                    {% endifequal %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>操作</td>
+                                    <td><a href="{% url 'store:update' store.id %}">修改店铺信息</a></td>
+                                </tr>
+                            </table>
+                            <hr>
 
-    <h1>商品展示</h1>
-    {% for g in goods %}
-    <!--<img style="width: 200px;height: 200px" src="{{g.goodsimage_set.all.first}}" alt="">-->
-    <img style="width: 200px;height: 200px" src="/{{g.goodsimage_set.all.first.path}}" alt=""><br></br>
-    商品名：<p>{{g.name}}</p>
-    商品单价<p>{{g.price}}</p>
-    商品库存：<p>{{g.stock}}</p>
-    {% empty %}
-    <p>当前没有商品请上架商品</p>
-    {% endfor %}
-<hr>
-<h1>上架商品</h1>
-    <form action="{% url 'goods:add' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token  %}
-        商品名称：<input type="text" name="name" id="name"><br>
-        商品单价：<input type="number" name="price"><br>
-        商品库存：<input type="number" name="stock"><br>
-        <input type="hidden" name="store" value="{{store.id}}"><br>
-        商品图片：<input type="file" name="cover">
-        <!--扩充点击BUTTON继续添加图片-->
-        <br>
-        商品类型：
-        <select name="type1" id="type1">
-            {%for t in type1 %}
-            <option value="{{t.id}}">{{t.name}}</option>
-            {% endfor %}
-        </select>
-        <select name="type2" id="type2">
+                            <h1>商品展示</h1>
+                            {% for g in goods %}
+                            <!--<img style="width: 200px;height: 200px" src="{{g.goodsimage_set.all.first}}" alt="">-->
+                            <img style="width: 200px;height: 200px" src="/{{g.goodsimage_set.all.first.path}}"
+                                 alt=""><br></br>
+                            商品名：<p>{{g.name}}</p>
+                            商品单价<p>{{g.price}}</p>
+                            商品库存：<p>{{g.stock}}</p>
+                            {% empty %}
+                            <p>当前没有商品请上架商品</p>
+                            {% endfor %}
+                            <hr>
+                            <h1>上架商品</h1>
+                            <form action="{% url 'goods:add' %}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                商品名称：<input type="text" name="name" id="name"><br>
+                                商品单价：<input type="number" name="price"><br>
+                                商品库存：<input type="number" name="stock"><br>
+                                <input type="hidden" name="store" value="{{store.id}}"><br>
+                                商品图片：<input type="file" name="cover">
+                                <!--扩充点击BUTTON继续添加图片-->
+                                <br>
+                                商品类型：
+                                <select name="type1" id="type1">
+                                    {%for t in type1 %}
+                                    <option value="{{t.id}}">{{t.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <select name="type2" id="type2">
 
-        </select><br>
-        商品介绍：<textarea name="intro" id="" cols="30" rows="10"></textarea><br>
-        <button type="submit">上架商品</button>
-    </form>
+                                </select><br>
+                                商品介绍：<textarea name="intro" id="" cols="30" rows="10"></textarea><br>
+                                <button type="submit">上架商品</button>
+                            </form>
 
-<script>
-    $(function () {
-        $("#type1").on("change",function () {
-            $.ajax({
-                url:"/goods/findTypeByPID/",
-                type:"get",
-                data:{"parent_id":$(this).val()},
-                success:function (data) {
-                     $("#type2").empty()
-                    data = JSON.parse(data);
-                    // console.info(data)
-                    for (var i= 0;i<data.length;i++)
-                    {
-                        var type = data[i];
-                        $op = $("<option>");
-                        $op.attr("value",type.pk)
-                        $op.text(type.fields.name)
-                        $("#type2").append($op)
-                    }
-                },
-                error:function () {
-                    alert("网络异常请联系管理员")
+                            <script>
+                                $(function () {
+                                    $("#type1").on("change", function () {
+                                        $.ajax({
+                                            url: "/goods/findTypeByPID/",
+                                            type: "get",
+                                            data: {"parent_id": $(this).val()},
+                                            success: function (data) {
+                                                $("#type2").empty()
+                                                data = JSON.parse(data);
+                                                // console.info(data)
+                                                for (var i = 0; i < data.length; i++) {
+                                                    var type = data[i];
+                                                    $op = $("<option>");
+                                                    $op.attr("value", type.pk)
+                                                    $op.text(type.fields.name)
+                                                    $("#type2").append($op)
+                                                }
+                                            },
+                                            error: function () {
+                                                alert("网络异常请联系管理员")
 
-                }
-            })
-        })
-    })
-</script>
+                                            }
+                                        })
+                                    })
+                                })
+                            </script>
 
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
+        </td>
+    </tr>
+</table>
+</div>
+</div>
+</div>
 </div>
 
 {% endblock %}
