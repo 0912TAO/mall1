@@ -26,7 +26,7 @@
     <div class="content">
         <div class="left top-nav-content-l">
             <ul>
-                <li><a href="{% url 'commons:index' %}">小米商城</a></li>
+                <li><a href="{% url 'commons:index' %}">商城首页</a></li>
                 <li><a href="#">MIUI</a></li>
                 <li><a href="#">oT</a></li>
                 <li><a href="#">云服务</a></li>
@@ -49,7 +49,11 @@
                         <ul class="dropdown-menu">
                             <li class="login-ya"><a href="{% url 'user:personal' %}">个人中心</a></li>
                             <li role="separator" class="divider"></li>
+                            {% if store %}
+                            <li class="login-ya"><a href="{% url 'store:open_shop' %}">我的店铺</a></li>
+                            {% else %}
                             <li class="login-ya"><a href="{% url 'store:open_shop' %}">我要开店</a></li>
+                            {% endif %}
                             <li role="separator" class="divider"></li>
                             <li class="login-ya"><a href="{% url 'user:user_logout' %}">安全退出</a></li>
                         </ul>

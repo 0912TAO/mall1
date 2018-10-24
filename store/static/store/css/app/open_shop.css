@@ -60,7 +60,9 @@
     display: block;
     text-decoration: none;
     color: #ffffff;
-    font-size: 30px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 19px;
     font-weight: 600;
     background: #ff6700;
     border: 1px solid #ff6700;

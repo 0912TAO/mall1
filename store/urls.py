@@ -11,7 +11,7 @@ urlpatterns = [
     # 添加商铺
     url(r'^shop/$', views.shop, name='shop'),
     # 商铺列表
-    url(r"^list",views.list,name="list"),
+    # url(r"^list",views.list,name="list"),
     # 细节（店铺详情）
     url(r"^(?P<s_id>\d+)/detail/",views.detail,name="detail"),
     # 添加商品

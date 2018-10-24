@@ -17,11 +17,21 @@ from django.conf.urls import url
 from django.conf.urls import include
 from django.contrib import admin
 
+# import xadmin
+# from xadmin.plugins import xversion
+# xadmin.autodiscover()
+# xversion.register_models()
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    # url(r'^xadmin/', xadmin.site.urls),
+
     url(r'^', include('commons.urls', namespace='commons')),
     url(r'^user/', include('user.urls', namespace='user')),
     url(r'^store/', include('store.urls', namespace='store')),
     url(r'^goods/', include('goods.urls', namespace='goods')),
     url(r'^commons/', include('commons.urls', namespace='commons')),
+
 ]
+

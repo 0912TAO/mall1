@@ -49,7 +49,7 @@ i_want_open_shop
         <!--# 右-->
         <div class="col-md-9 right_menu">
 
-            <form class="form-horizontal" method="post" action="{% url 'store:i_want_open_shop' %}">
+            <form class="form-horizontal" method="post" action="{% url 'store:shop' %}">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="name" class="col-md-2 control-label">店铺名称</label>
