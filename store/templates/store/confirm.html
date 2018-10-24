@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     {% block css %}
         <link rel="stylesheet" href="{% static 'store/css/app/confirm.css' %}">
+        <script src="{% static 'commons/js/distpicker/distpicker.data.js' %}"></script>
+        <script src="{% static 'commons/js/distpicker/distpicker.js' %}"></script>
     {% endblock %}
 
 
@@ -59,7 +61,13 @@
             <div class="address_input">
                 <input type="text" id="" name="" placeholder="收货人姓名" class="address_input_small">
                 <input type="text" id="" name="" placeholder="手机号" class="address_input_small"><br/>
-                <input type="text" id="" name="" placeholder="三级联动默认占坑" class="address_input_big"><br/>
+
+                <div id="distpicker1">
+                    <select id="province" name="province" class="select" style="width:198px;height:40px;"></select>
+                    <select id="city" name="city" class="select" style="width:198px;height:40px;" ></select>
+                    <select id="district" name="district" class="select" style="width:198px;height:40px;" ></select>
+                </div>
+
                 <textarea id="" name="" placeholder="详细地址" style="resize: vertical;" class="address_input_big"></textarea><br/>
                 <input type="text" id="" name="" placeholder="邮政编码" class="address_input_small">
                 <input type="text" id="" name="" placeholder="地址标签/家/公司" class="address_input_small">
@@ -70,7 +78,7 @@
         <div class="commodity">
             <div class="commodity_title">
                 <h4 class="inline_block">商品</h4>
-                <a class="right" href="javascript:void(0)">返回购物车 ></a>
+                <a class="right" href="{% url 'store:my_cart' %}">返回购物车 ></a>
             </div>
 
             <div class="commodity_sum">
@@ -138,10 +146,25 @@
     </div>
 
     <div class="container go_shopping">
+        <a id="t" href="javascript:void(0);" class="right">去结算</a>
         <a href="{% url 'store:pay' %}" class="right">去结算</a>
     </div>
 </div>
 {% endblock %}
+{% block script %}
+<script>
 
+
+    $().ready(function () {
+        /*城市选择控件*/
+	    $("#distpicker1").distpicker();
+	    
+	    // 点击提交
+        $('#t').click(function () {
+            console.log($("#province").val()+" "+$('#city').val()+" "+$('#district').val());
+        })
+    })
+</script>
+{% endblock %}
 </body>
 </html>

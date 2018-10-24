@@ -63,3 +63,118 @@
     line-height:50px;
 }
 /*------------------------- 头 -------------------------*/
+
+/*------------------------- 订单信息 -------------------------*/
+
+
+
+.span{
+    color: #ff6700;
+}
+
+.order{
+
+}
+
+.order > ul{
+    list-style: none;
+    margin-top: 20px;
+}
+
+.order > ul >li{
+    margin: 10px 0;
+}
+
+.order > ul > li > p{
+    display: inline-block;
+    width: 100px;
+}
+
+.order_li_1 > span{
+    display: inline-block;
+    float: right;
+    line-height: 60px;
+    color: #ff6700;
+}
+
+.order_li_2{
+    font-size: 12px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+/*------------------------- 订单信息 -------------------------*/
+
+
+/*------------------------- 付款方式 -------------------------*/
+.mode{
+    background: #ffffff;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.mode_title{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.mode_select{
+    float: left;
+    padding-top: 20px;
+}
+
+.mode_select > div:nth-of-type(1){
+    padding: 10px;
+}
+
+.mode_select > a{
+
+    display: block;
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    text-decoration: none;
+    color: #757575;
+
+}
+
+.mode_select > a:hover{
+    background: #e0e0e0;
+}
+
+.mode_select > a:focus{
+    background: #e0e0e0;
+}
+
+/*------------------------- 付款方式 -------------------------*/
+
+/*------------------------- 弹出结算 -------------------------*/
+.knot{
+    margin-top: 10px;
+    background: #ffffff;
+    padding: 10px;
+    border: 2px solid #ff6700;
+}
+
+.knot_title{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.knot_info{
+    margin-top: 10px;
+}
+
+.knot_info > a{
+    display: block;
+    float: right;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 20px 50px;
+    background: #ff6700;
+}
+/*------------------------- 弹出结算 -------------------------*/
+
+
+

@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
+    {% extends 'base.html' %}
     {% load static %}
     <meta charset="UTF-8">
-    <title>支付</title>
-    <link rel="stylesheet" href="{% static 'commons/js/lib/bootstrap-3.3.7-dist/css/bootstrap.css' %}">
+    <title>{% block title %}pay{% endblock %}</title>
+    <!--<link rel="stylesheet" href="{% static 'commons/js/lib/bootstrap-3.3.7-dist/css/bootstrap.css' %}">-->
+    <!--<script src="{% static 'commons/js/lib/jquery2.2.4/jquery-2.2.4.js' %}"></script>-->
+    <!--<script src="{% static 'commons/js/lib/bootstrap-3.3.7-dist/js/bootstrap.js' %}"></script>-->
+    {% block css %}
     <link rel="stylesheet" href="{% static 'store/css/app/pay.css' %}">
+    {% endblock %}
 </head>
 <body>
+
+{% block nav %}
+{% endblock %}
+
+{% block baner %}
+{% endblock %}
+
+{% block main %}
 
     <div class="container_fluid button">
 
@@ -35,37 +48,123 @@
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="container">
+    <div style="background: #e0e0e0;" class="container-fluid">
+        <div style="background: #ffffff;" class="container">
             <!--订单信息-->
             <div class="row">
                 <div class="col-md-2">
                     <img src="">
                 </div>
 
-                <div class="col-md-10">
+                <div class="col-md-10 order">
                     <ul>
-                        <li>
-                            <h3>订单提交成功！去付款咯~</h3>
+                        <li class="order_li_1">
+                            <h3 style="display: inline-block;">订单提交成功!去付款咯~</h3>
+                            <span class="span">2499元</span>
                         </li>
-                        <li>
-                            <h4>请在0小时30分内完成支付，超时候将取消订单</h4>
+
+                        <li class="order_li_2">
+                            请在 <span class="span">0小时30分</span> 内完成支付，超时后将取消订单
                         </li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+
+                        <li class="order_li_3">
+                            <p>订单号：</p><span class="span">5181021126302063</span>
+                        </li>
+
+                        <li class="order_li_4">
+                            <p>收货信息：</p>
+                            <span>地雷 185****0517 河南 郑州市 金水区 杜岭街道 河南省郑州市金水区东三街奇酷教育3f</span>
+                        </li>
+
+                        <li class="order_li_5">
+                            <p>商品名称：</p>
+                            <span>红米6 全网通版 32GB内存 巴厘蓝</span>
+                        </li>
+
+                        <li class="order_li_6">
+                            <p></p>
+                            <span>小米平板4 Plus 10 英寸 LET版 4GB内存 黑色 128GB</span>
+                        </li>
+
+                        <li>
+                            <p>发票信息：</p>
+                            <span>电子发票 个人</span>
+                        </li>
                     </ul>
                 </div>
             </div>
 
-            <!--付款方式-->
-            <div>
+        </div>
 
+        <!--付款方式-->
+        <div class="container mode">
+            <div class="mode_title">
+                <div><h3>选择以下方式付款</h3></div>
+            </div>
+
+            <div class="mode_select">
+                <div class="mode_select">
+                    <a id="wallet" class="text-center" href="javascript:void(0);">
+                        <img src="{% static 'store/images/钱包.png' %}">钱包
+                    </a>
+                </div>
+            </div>
+
+            <div id="wechar" class="mode_select">
+                <div class="mode_select">
+                    <a  tabindex="0"  class="text-center btn" href="javascript:void(0);" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-html="true" data-content='<img src="{% static "store/images/二维码.png" %}">'>
+                        <img src="{% static 'store/images/微信.png' %}">微信付款
+                    </a>
+                </div>
+            </div>
+
+            <div id="alipay" class="mode_select">
+                <div class="mode_select">
+                    <a  tabindex="0"  class="text-center btn" href="javascript:void(0);" role="button" data-toggle="popover" data-trigger="focus" title="" data-html="true" data-content='<img src="{% static "store/images/二维码.png" %}">'>
+                        <img src="{% static 'store/images/支付宝.png' %}">支付宝付款
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="knot" class="container knot">
+            <div class="knot_title">
+                <h3>请确认</h3>
+            </div>
+
+            <div class="knot_info">
+                请输入支付密码：<input type="text" id="" name="">
+                <a href="javascript:void(0);" class="text-center">支付</a>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        $().ready(function(){
+
+            // bootstrap
+            $('[data-toggle="popover"]').popover();
+
+            // 默认隐藏结算
+            $('#knot').hide();
+
+            // 点击微信
+            $('#wechar').click(function () {
+                $('#knot').slideUp('slow');
+            });
+
+            // 点击支付宝
+            $('#alipay').click(function () {
+                $('#knot').slideUp('slow');
+            });
+
+            // 点击我的钱包
+            $('#wallet').click(function () {
+                $('#knot').slideToggle('slow');
+            })
+        })
+    </script>
+{% endblock %}
 </body>
-</html>
