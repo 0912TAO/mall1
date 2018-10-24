@@ -1,13 +1,10 @@
-<<<<<<< HEAD
 from django.shortcuts import render,reverse,redirect
 from django.contrib.auth.decorators import login_required   # 需要登陆的装饰器
-from . import models
-=======
+
 from django.shortcuts import render,redirect,reverse
 
->>>>>>> ca8defcd1c61002d02d2df97188c5d02789def04
 # Create your views here.
-from django.contrib.auth.decorators import login_required
+
 from django.views.decorators.http import require_GET
 
 from . import models
