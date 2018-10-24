@@ -35,4 +35,14 @@ urlpatterns = [
 
     # 退出登录
     url(r'^user_logout/$', views.user_logout, name="user_logout"),
+
+    # 绑定邮箱
+    url(r'^email/$', views.email, name="email"),
+
+    # 发送邮箱
+    url(r"^start_send_email/",views.start_send_email, name='start_send_email'),
+    url(r"^reg_login/", views.reg_login, name='reg_login'),
+    url(r"^save_email/", views.save_email, name='save_email'),
+
+
 ]

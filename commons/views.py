@@ -3,13 +3,15 @@ from django.shortcuts import HttpResponse
 
 from io import BytesIO
 from . import utils
+from store import models
 
 # Create your views here.
 
 
 # 主页
 def index(request):
-        return render(request, "commons/index.html", {})
+    store = models.store.objects.filter(user_id=request.user.id)
+    return render(request, "commons/index.html", {"store":store})
 
 
 # 验证码

@@ -5,6 +5,8 @@ from django.views.decorators.http import require_GET
 from . import models
 import logging
 
+from goods.models import GoodType,Goods
+
 
 # 获取logger的一个实例
 logger = logging.getLogger(__name__)
@@ -26,10 +28,14 @@ def my_cart(request):
 @login_required
 # 开店
 def open_shop(request):
-    store = models.store.objects.filter(user_id=request.user.id)
-    print(store)
-
-    return render(request, 'store/open_shop.html', {"store": store})
+    print("*****")
+    try:
+        store = models.store.objects.get(user_id=request.user.id)
+        print(store)
+        return render(request, 'store/open_shop.html', {"store": store})
+    except:
+        store = models.store.objects.filter(user_id=request.user.id)
+        return render(request, 'store/open_shop.html', {"store": store})
 
 
 # 添加商铺
@@ -52,11 +58,11 @@ def shop(request):
 
 
 # 商铺列表
-@require_GET
-@login_required()
-def list(request):
-    stores = models.store.objects.filter(user=request.user,status__in =[0,1])
-    return render(request,"store/list.html",{"stores":stores})
+# @require_GET
+# @login_required()
+# def list(request):
+#     stores = models.store.objects.filter(user=request.user,status__in =[0,1])
+#     return render(request,"store/list.html",{"stores":stores})
 
 
 # 细节（店铺详情）
@@ -64,7 +70,9 @@ def list(request):
 @login_required()
 def detail(request,s_id):
     store = models.store.objects.get(pk=s_id)
-    return render(request,"store/detail.html",{"store":store})
+    type1 = GoodType.objects.filter(parent__isnull=True)
+    goods = Goods.objects.filter(stores=store)
+    return render(request,"store/detail.html",{"store":store,"type1":type1,"goods":goods})
 
 
 # 店铺状态更改
@@ -74,9 +82,9 @@ def change(request,s_id,status):
     store.status = int(status)
     store.save()
     if store.status == 2:
-        return redirect(reverse("store:list"))
+        return redirect(reverse("store:open_shop"))
     else:
-        return render(request, "store/detail.html", {"store": store})
+        return render(request, "store/open_shop.html", {"store": store})
 
 
 # 永久删除

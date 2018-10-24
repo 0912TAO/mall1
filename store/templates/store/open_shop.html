@@ -15,6 +15,7 @@ open_shop
 {% endblock %}
 
 {% block main %}
+<<<<<<< HEAD
     <div class="container pd">
         <div class="row">
          <!--左-->
@@ -35,7 +36,7 @@ open_shop
                   </li>
                   <li class="list-group-item">
                       <span>宝贝管理</span>
-                      <a href="">发布宝贝</a>
+                      <a href="{% url 'store:release_goods' %}">发布宝贝</a>
                       <a href="">管理宝贝</a>
                   </li>
                   <li class="list-group-item">
@@ -44,24 +45,100 @@ open_shop
                   </li>
                 </ul>
             </div>
+=======
+<div class="container pd">
+    <div class="row">
+        <!--左-->
+        <div class="col-md-3 left_menu">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span>店铺管理</span>
+                    {% if store %}
+                    <a href="/store/{{store.id}}/detail/">店铺信息</a>
+                    {% else %}
+                    <a href="/store/open_shop/">我要开店</a>
+                    {% endif %}
+                </li>
+                <li class="list-group-item">
+                    <span>交易管理</span>
+                    <a href="">已卖出的宝贝</a>
+                    <a href="">评价管理</a>
+                </li>
+                <li class="list-group-item">
+                    <span>物流管理</span>
+                    <a href="">发货</a>
+                </li>
+                <li class="list-group-item">
+                    <span>宝贝管理</span>
+                    <a href="">发布宝贝</a>
+                    <a href="">管理宝贝</a>
+                </li>
+                <li class="list-group-item">
+                    <span>客户服务</span>
+                    <a href="">举报管理</a>
+                </li>
+            </ul>
+        </div>
 
-            <!--# 右-->
-            <div class="col-md-9 right_menu">
-                <ul class="list-group-item">
-                    <li>我要开店</li>
-                    <li>一个身份只能开一家店; 开店后店铺无法注销; 申请到正式开通预计需1~3个工作日。了解更多请看开店规则必看</li>
-                    <li class="text-center">
-                        <img src="{% static 'commons/image/default.jpg' %}" class="img-circle" width="200" height="200">
-                        <h3>个人店铺</h3>
-                        <p>通过支付宝个人实名认证的商家创建<br/>的店铺, 就是个人店铺。</p>
-                        {% if store.state == Null %}
-                            <a href="{% url 'store:shop' %}">创建个人店铺</a>
+        <!--# 右-->
+        <div class="col-md-9 right_menu">
+            {% if store %}
+
+            <div class="row col-md-10 col-md-offset-1" style="margin-top: 30px;text-align: center;">
+                <br>
+                <img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt="">
+                <h4><b>{{store.name}}</b></h4><br>
+                <p>{{store.intro}}</p><br>
+                <table class="table table-striped table-bordered">
+                    <tr style="font-weight: 800;">
+
+                        <td>店铺状态</td>
+                        <td>你可以选择</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% ifequal store.status 0 %}
+                            <p style="font-weight: 700;color: #f54b07;">正在营业</p>
+                        </td>
+                        <td>
+                            <a href="{% url 'store:change' store.id  1%}">暂停营业</a>
+                            <a href="{% url 'store:change' store.id  2%}">删除店铺</a>
+                        </td>
                         {% else %}
-                        查看
-                        {% endif %}
-                    </li>
-                </ul>
+>>>>>>> 602ddcfd152581e9a1e162b4d1f895851c653645
+
+                        {% ifequal store.status 1 %}
+                        <p style="font-weight: 700;color: #f54b07;">暂停营业</p>
+                        <td><a href="{% url 'store:change' store.id  0%}">开始营业</a>
+                            <a href="{% url 'store:change' store.id  2%}">删除店铺</a></td>
+                        {% else %}
+                        <td><p style="font-weight: 700;color: #f54b07;">亲，您的店铺已移除如有疑问请联系管理员</p></td>
+                        {% endifequal %}
+                        {% endifequal %}
+                        </td>
+                    </tr>
+                </table>
             </div>
+
+            {% else %}
+            <ul class="list-group-item">
+                <li>我要开店</li>
+                <li><b>一个身份只能开一家店; 开店后店铺无法注销; 申请到正式开通预计需1~3个工作日。了解更多请看开店规则必看</b></li>
+                <li class="text-center">
+                    <img src="{% static 'commons/image/default.jpg' %}" class="img-circle" width="200" height="200">
+                    <h3>个人店铺</h3>
+                    <p>通过个人实名认证的商家创建<br/>的店铺, 就是个人店铺。</p>
+
+                    <a href="{% url 'store:shop' %}">创建个人店铺</a>
+
+
+                    <!--<a href="/store/{{store.id}}/detail">查看个人店铺</a>-->
+
+                </li>
+            </ul>
+
+            {% endif %}
         </div>
     </div>
+</div>
 {% endblock %}

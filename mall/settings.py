@@ -26,9 +26,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'u(v)u41ff085z1kn97%k@xjp(@otu_8jrpjdyx^r-4$n74j38o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = False
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -44,6 +45,9 @@ INSTALLED_APPS = [
     'goods',    # 产品
     'store',    # 商店
     'user',     # 用户
+    # 'xadmin',
+    # 'crispy_forms',
+    # 'reversion',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +153,16 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 # 判断是否登录的装饰器
 LOGIN_URL = "/user/user_login/"
+
+
+# 邮箱验证
+# 163 SMTP 配置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25  # 端口号
+# 发送邮件的邮箱
+EMAIL_HOST_USER = 'tom_tao0912@163.com'
+# 在邮箱中设置的客户端授权密码
+EMAIL_HOST_PASSWORD = 'meng0912'
+# 收件人看到的发件人
+EMAIL_FROM = 'tom_tao0912@163.com'
