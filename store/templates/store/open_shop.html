@@ -54,10 +54,10 @@ open_shop
                         <img src="{% static 'commons/image/default.jpg' %}" class="img-circle" width="200" height="200">
                         <h3>个人店铺</h3>
                         <p>通过支付宝个人实名认证的商家创建<br/>的店铺, 就是个人店铺。</p>
-                        {% if store.state == Null %}
+                        {% if store == Null %}
                             <a href="{% url 'store:shop' %}">创建个人店铺</a>
                         {% else %}
-                        查看
+                            <a href="{% url 'store:shop' %}">查看个人店铺</a>
                         {% endif %}
                     </li>
                 </ul>
