@@ -11,6 +11,7 @@ from goods.models import GoodType,Goods
 # 获取logger的一个实例
 logger = logging.getLogger(__name__)
 # 我的购物车
+@login_required
 def my_cart(request):
     # GET方式打开页面
     if request.method == 'GET':
@@ -88,6 +89,7 @@ def change(request,s_id,status):
 
 
 # 永久删除
+@login_required
 def delete(request, s_id):
     pass
 
@@ -117,16 +119,19 @@ def update(request,s_id):
 
 
 # 确认订单
+@login_required
 def confirm(request):
     return render(request, 'store/confirm.html', {})
 
 
 # 结算
+@login_required
 def pay(request):
     return render(request, 'store/pay.html', {})
 
 
 # 宝贝
+@login_required
 def baobei(request, s_id):
     store = models.store.objects.get(pk=s_id)
     type1 = GoodType.objects.filter(parent__isnull=True)

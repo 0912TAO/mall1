@@ -19,15 +19,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <span class="navbar-brand">手机贵族——百岁山</span>
+            <span class="navbar-brand">{{goods.name}}</span>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'goods:xiangqing' %}">商品详情</a></li>
-                <li><a href="{% url 'goods:pinglun' %}" style="color:#f54b07;">用户评价</a></li>
+                <li><a href="{% url 'goods:xiangqing' goods.id %}">商品详情</a></li>
+                <li><a href="{% url 'goods:pinglun' goods.id %}" style="color:#f54b07;">用户评价</a></li>
                 <li>
-                    <button onclick="window.location ='/goods/product/';" style="margin-top: 10px;"
+                    <button onclick="window.location ='goods/{{goods.id}}/product/';" style="margin-top: 10px;"
                             class="btn btn-block btn-danger">购买
                     </button>
                 </li>

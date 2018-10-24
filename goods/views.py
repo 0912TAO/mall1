@@ -2,17 +2,16 @@ from django.shortcuts import render,redirect,reverse
 from django.views.decorators.http import require_GET
 from django.core.serializers import serialize
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 from . import models
 from store.models import store
 
-# 商品购买
-def product(request):
-    return render(request, "goods/product.html", {})
 
 
 # 商品添加
+@login_required
 def add(request):
     if request.method == "GET":
         return render(request,"goods/add.html",{})
@@ -41,14 +40,22 @@ def findTypeByPID(request):
     return HttpResponse(serialize("json",type2s))
 
 
-def product(request):
-    return render(request, "goods/product.html", {})
+def product(request, sp_id):
+    print(sp_id)
+    goods = models.Goods.objects.get(pk=sp_id)
+    # print(goods)
+    # print("******")
+    # return
+    return render(request, "goods/product.html", {"goods": goods})
     # return redirect(reverse("goods:product"))
 
 
-def xiangqing(request):
-    return render(request, "goods/xiangqing.html", {})
+def xiangqing(request, goods_id):
+    goods = models.Goods.objects.get(pk=goods_id)
+    return render(request, "goods/xiangqing.html", {"goods": goods})
 
 
-def pinglun(request):
-    return render(request, "goods/pinglun.html", {})
+@login_required
+def pinglun(request, goods_id):
+    goods = models.Goods.objects.get(pk=goods_id)
+    return render(request, "goods/pinglun.html", {"goods": goods})

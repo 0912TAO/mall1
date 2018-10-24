@@ -523,7 +523,7 @@
                     <div class="index2">
                         <div class="top">
                             <span class="top-note">新品</span>
-                            <a href="/goods/product/">
+                            <a href="/goods/{{sp.id}}/product/">
                                 <img src="/{{sp.goodsimage_set.all.first.path}}">
                             </a>
                             <h5 class="tit"><a href="/goods/product/">{{sp.name}}</a></h5>
@@ -636,7 +636,7 @@
 <div class="bar">
     <ul>
         <li>
-            <a href="javascript:void(0);" title="会员中心" id="ren">
+            <a href="{% url 'user:personal' %}" title="会员中心" id="ren">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </li>
