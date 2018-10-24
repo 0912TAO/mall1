@@ -16,6 +16,6 @@ class store(models.Model):
     # 开店时间：
     opener_time = models.DateTimeField(auto_now_add=True)
     # 店铺状态：0 1 2 3
-    status  = models.IntegerField(default=0,verbose_name="店铺状态")  #0 正常营业  1 暂停营业  2 删除店铺（永久删除）
+    status = models.IntegerField(default=0,verbose_name="店铺状态")  # 0 正常营业  1 暂停营业  2 删除店铺（永久删除）
     # 所属用户：
     user = models.ForeignKey(User,on_delete=models.CASCADE,verbose_name="店铺所属用户")
