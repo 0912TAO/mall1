@@ -26,7 +26,7 @@ def open_shop(request):
         pass
 
 
-<<<<<<< HEAD
+
 # 添加商铺
 @login_required()
 def shop(request):
@@ -101,7 +101,7 @@ def update(request,s_id):
             pass
         store.save()
         return redirect(reverse("store:detail", kwargs={"s_id": store.id}))
-=======
+
 # 确认订单
 def confirm(request):
     return render(request, 'store/confirm.html', {})
@@ -110,4 +110,4 @@ def confirm(request):
 # 结算
 def pay(request):
     return render(request, 'store/pay.html', {})
->>>>>>> bad801507888049a45a0e9f338bc8fb8cda42e39
+
