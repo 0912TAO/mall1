@@ -1,11 +1,11 @@
-<<<<<<< HEAD
+
 from django.shortcuts import render,reverse,redirect
 from django.contrib.auth.decorators import login_required   # 需要登陆的装饰器
 from . import models
-=======
+
 from django.shortcuts import render,redirect,reverse
 
->>>>>>> ca8defcd1c61002d02d2df97188c5d02789def04
+
 # Create your views here.
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_GET
@@ -24,40 +24,11 @@ def my_cart(request):
         pass
 
 
-<<<<<<< HEAD
 @login_required
-=======
-# 开店
->>>>>>> ca8defcd1c61002d02d2df97188c5d02789def04
 def open_shop(request):
     store = models.store.objects.filter(user_id=request.user.id)
     print(store)
-
     return render(request, 'store/open_shop.html', {"store": store})
-
-
-@login_required
-def i_want_open_shop(request):
-    if request.method == 'GET':
-<<<<<<< HEAD
-        return render(request, 'store/i_want_open_shop.html', {})
-    if request.method == 'POST':
-        name = request.POST['name']
-        intro = request.POST['intro']
-        try:
-            cover = request.FILES['cover']
-            store = models.store(name=name, intro=intro, cover=cover, user=request.user)
-
-        except:
-            store = models.store(name=name, intro=intro, user=request.user)
-        store.save()
-        # 跳转有问题
-        return redirect(reverse("store:open_shop", kwargs={"store": store}))
-=======
-        return render(request, 'store/open_shop.html', {})
-    else:
-        pass
-
 
 
 # 添加商铺
@@ -143,9 +114,4 @@ def confirm(request):
 # 结算
 def pay(request):
     return render(request, 'store/pay.html', {})
-<<<<<<< HEAD
 
-=======
->>>>>>> bad801507888049a45a0e9f338bc8fb8cda42e39
->>>>>>> ca8defcd1c61002d02d2df97188c5d02789def04
->>>>>>> 3b102c1f87cde6f2b626b5c8b867bd8c54d52147
