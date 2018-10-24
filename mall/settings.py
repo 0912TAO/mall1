@@ -91,11 +91,11 @@ WSGI_APPLICATION = 'mall.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shopping',
-        'HOST': 'localhost',
+        'NAME': 'shop',
+        'HOST': '192.168.13.14',
         'PORT': 3306,
-        'USER': 'root',
-        'PASSWORD': 'tomtao'
+        'USER': 'manbanzhen',
+        'PASSWORD': '123456'
     }
 }
 

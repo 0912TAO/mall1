@@ -1,13 +1,10 @@
-
 from django.shortcuts import render,reverse,redirect
 from django.contrib.auth.decorators import login_required   # 需要登陆的装饰器
-from . import models
 
 from django.shortcuts import render,redirect,reverse
 
-
 # Create your views here.
-from django.contrib.auth.decorators import login_required
+
 from django.views.decorators.http import require_GET
 
 from . import models
@@ -24,10 +21,13 @@ def my_cart(request):
         pass
 
 
+
 @login_required
+# 开店
 def open_shop(request):
     store = models.store.objects.filter(user_id=request.user.id)
     print(store)
+
     return render(request, 'store/open_shop.html', {"store": store})
 
 
@@ -105,7 +105,6 @@ def update(request,s_id):
             pass
         store.save()
         return redirect(reverse("store:detail", kwargs={"s_id": store.id}))
-
 # 确认订单
 def confirm(request):
     return render(request, 'store/confirm.html', {})
@@ -114,4 +113,3 @@ def confirm(request):
 # 结算
 def pay(request):
     return render(request, 'store/pay.html', {})
-
