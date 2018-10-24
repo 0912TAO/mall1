@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+开启店铺
+{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'store/css/app/open_shop.css' %}">
+{% endblock %}
+
+{% block navnav %}
+{% endblock %}
+
+{% block baner %}
+{% endblock %}
+
+{% block main %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-offset-2  col-md-8">
+            <div><h1>我要开店</h1></div>
+            <div class="panel">
+                <form action="{% url 'store:shop' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="panel-footer">
+                        店铺名： <input type="text" name="name"><br>
+                        图片： <input type="file" name="cover" id="cover"><br>
+                        店铺描述： <textarea name="intro" id="" cols="30" rows="10"></textarea><br>
+
+                        <input type="submit" value="开业大吉">
+
+                       
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

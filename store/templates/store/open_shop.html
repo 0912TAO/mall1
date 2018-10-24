@@ -51,6 +51,7 @@ open_shop
                     <li>我要开店</li>
                     <li>一个身份只能开一家店; 开店后店铺无法注销; 申请到正式开通预计需1~3个工作日。了解更多请看开店规则必看</li>
                     <li class="text-center">
+<<<<<<< HEAD
                         <img src="{% static 'commons/image/default.jpg' %}" class="img-circle" width="200" height="200">
                         <h3>个人店铺</h3>
                         <p>通过支付宝个人实名认证的商家创建<br/>的店铺, 就是个人店铺。</p>
@@ -59,6 +60,13 @@ open_shop
                         {% else %}
                         查看
                         {% endif %}
+=======
+                        <img style="height: 120px;width: 120px;" src="{% static 'commons/image/default.jpg' %}">
+                        <h3>个人店铺</h3>
+                        <p>通过支付宝个人实名认证的商家创建<br/>的店铺, 就是个人店铺。</p>
+
+                        <a href="{% url 'store:shop' %}">创建个人店铺</a>
+>>>>>>> ca8defcd1c61002d02d2df97188c5d02789def04
                     </li>
                 </ul>
             </div>

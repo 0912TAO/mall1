@@ -1,0 +1,304 @@
+*{
+    margin: 0;
+    padding: 0;
+    font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+
+.right{
+    float:right;
+}
+.left{
+    float:left;
+}
+
+.inline_block{
+    display: inline-block;
+}
+
+.button{
+    height: 100px;
+    border-bottom: 2px solid #ff6700;
+}
+/*------------------------- 头 -------------------------*/
+.title{
+    padding-top: 30px;
+}
+
+.title_left{
+    width: 48px;
+    height: 48px;
+}
+
+.title_in{
+
+}
+
+.title_in > p{
+    font-size: 28px;
+    font-weight: 500;
+    margin-left: 35px;
+}
+
+
+.title_in > span{
+    margin-left: 20px;
+    font-size: 12px;
+    color: #757575;
+    line-height:50px;
+}
+
+.title_right{
+
+}
+
+.title_right > span{
+    color: #757575;
+}
+
+.title_right > a{
+    font-size: 12px;
+    color: #757575;
+    text-decoration: none;
+    line-height:50px;
+}
+/*------------------------- 头 -------------------------*/
+
+/*------------------------- 商品结算 -------------------------*/
+.bg{
+    background: #f5f5f5;
+}
+
+.cookbook{
+    margin-top: 40px;
+}
+
+.cookbook > li{
+    /*border: none;*/
+}
+
+.cookbook_top{
+
+}
+
+.cookbook_top div{
+    height: 60px;
+    line-height: 50px;
+
+}
+
+.cookbook_in{
+
+}
+
+.cookbook_in_left{
+
+}
+
+.cookbook_in_right{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.cookbook_in_right_top{
+
+}
+
+.cookbook_in_right_top > div >a{
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    text-decoration: none;
+}
+
+.cookbook_in_right_top > div >span{
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+}
+
+.cookbook_in_right_top > div:nth-of-type(2){
+    padding-left: 20px;
+}
+
+.cookbook_in_right_top > div:nth-of-type(5){
+    padding-left: 60px;
+    color: #ff6700;
+}
+
+.cookbook_in_right_top > div:nth-of-type(4){
+    width: 120px;
+    padding-left: 0;
+    padding-right: 0;
+    border: 1px solid #e0e0e0;
+}
+
+.cookbook_in_right_top > div:not(:first-child){
+    margin: 25px 0;
+}
+
+.cookbook_in_right_in{
+    margin-right: 0;
+    background-color: #f5f5f5;
+    margin-left: 0;
+}
+
+.cookbook_in_right_in > div{
+    padding: 25px 0;
+}
+
+.cookbook_in_right_lower{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.cookbook_in_right_lower > div{
+    padding: 10px 0;
+    border: 1px solid #e0e0e0;
+}
+
+.cookbook_in_right_lower > div >a{
+    text-decoration: none;
+    color: black;
+}
+
+.cookbook_in_right_lower > div > a >img{
+    width: 25px;
+    height: 25px;
+    margin: 0 20px;
+}
+
+.cookbook_lower{
+    background: #ffffff;
+
+}
+
+.cookbook_lower_left{
+    padding: 15px;
+}
+
+.cookbook_lower_left > a,span{
+    color:#757575;
+    text-decoration: none;
+}
+
+.cookbook_lower_right{
+
+}
+
+.cookbook_lower_right_p{
+    font-size: 25px;
+    color: #ff6700;
+}
+
+.cookbook_lower_right > div > a{
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px 50px;
+    color: #ffffff;
+    background: #f25807;
+    margin-left: 50px;
+}
+
+/*------------------------- 商品结算 -------------------------*/
+
+/*------------------------- 商品推荐 -------------------------*/
+.propose{
+    margin-top: 50px;
+}
+
+.propose_title{
+    border-top: 1px solid #e0e0e0;
+    /*margin: 0;*/
+    position: relative;
+
+}
+
+.propose_title > span{
+    position: absolute;
+    font-size: 35px;
+    top:-25px;
+    left: 345px;
+    width: 450px;
+    background-color: #f5f5f5;
+}
+
+.propose_shop{
+    margin-top: 40px;
+    padding-bottom: 40px;
+    height: 620px;
+    overflow: hidden;
+
+}
+
+.propose_shop ul{
+    list-style: none;
+}
+
+.propose_shop ul li{
+    position: relative;
+    float: left;
+    width: 218px;
+    height: 300px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background: #ffffff;
+}
+
+.propose_shop ul li a img{
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+.propose_shop ul li:nth-of-type(1) img{
+    padding: 0;
+}
+
+.propose_shop ul li a div{
+    padding: 0 10px;
+}
+
+.propose_shop ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.propose_shop ul li a:hover{
+
+}
+
+.propose_shop ul li a div dd:nth-of-type(1){
+    padding: 5px 0;
+}
+
+.propose_shop ul li a div dd:nth-of-type(2){
+    color: #ff6700;
+    padding: 5px 0;
+}
+
+.propose_shop ul li a div span{
+    font-size: 16px;
+    color: #757575;
+    padding: 10px 0;
+}
+
+.propose_shop ul li a:nth-of-type(2){
+    position: absolute;
+    bottom: 18px;
+    left: 60px;
+    border: 1px solid #ff6700;
+    color: #ff6700;
+    padding: 5px 15px;
+    font-size: 12px;
+    /*left: 50%;*/
+    /*margin-left: -36px;*/
+
+}
+
+.propose_shop ul li a:nth-of-type(2):hover{
+    color: #ffffff;
+    background: #ff6700;
+}
+
+
+
+/*------------------------- 商品推荐 -------------------------*/

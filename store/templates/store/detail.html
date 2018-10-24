@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>店铺详情</title>
+</head>
+<body>
+    <h1>店铺详情</h1>
+    <table border="1">
+        <tr>
+            <td>店铺封面</td>
+            <td><img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt=""></td>
+        </tr>
+        <tr>
+            <td>店铺名称</td>
+            <td>{{store.name}}</td>
+        </tr>
+        <tr>
+            <td>店铺状态</td>
+            <td>
+                {% ifequal store.status  0 %}
+                    <p>正在营业</p>
+                    <a href="{% url 'store:change' store.id  1%}">暂停营业</a>
+                    <a href="{% url 'store:change' store.id  2%}">删除店铺</a>
+                {% else %}
+                     {% ifequal store.status  1 %}
+                        <p>暂停营业</p>
+                        <a href="{% url 'store:change' store.id  0%}">开始营业</a>
+                        <a href="{% url 'store:change' store.id  2%}">删除店铺</a>
+                    {% else %}
+                        <p>亲，您的店铺已移除如有疑问请联系管理员</p>
+                	{% endifequal %}
+                {% endifequal %}
+            </td>
+        </tr>
+        <tr>
+            <td>操作</td>
+            <td><a href="{% url 'store:update' store.id %}">修改店铺信息</a></td>
+        </tr>
+    </table>
+</body>
+</html>
