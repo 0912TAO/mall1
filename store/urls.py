@@ -23,7 +23,8 @@ urlpatterns = [
     # 确认订单
     url(r'^confirm/$', views.confirm, name='confirm'),
     # 结算页面
-    url(r'^pay/$', views.pay, name='pay')
-
+    url(r'^pay/$', views.pay, name='pay'),
+    # 宝贝
+    url(r'^(?P<s_id>\d+)/baobei/$', views.baobei, name='baobei'),
 
 ]

@@ -42,7 +42,7 @@
             <div class="user">
                 <ul>
 
-                {% if user.username %}
+                    {% if user.username %}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">欢迎你 {{user.username}} <span class="caret"></span></a>
@@ -58,17 +58,17 @@
                             <li class="login-ya"><a href="{% url 'user:user_logout' %}">安全退出</a></li>
                         </ul>
                     </li>
-{% else %}
+                    {% else %}
                     <li><a href="{% url 'user:user_login' %}">登录</a></li>
                     <li><a href="{% url 'user:register' %}">注册</a></li>
-{% endif %}
+                    {% endif %}
                     <li><a href="#" class="end">消息通知</a></li>
 
                 </ul>
             </div>
             <div class="car">
                 <a href="{% url 'store:my_cart' %}"><span class="glyphicon glyphicon-shopping-cart"
-                                                         aria-hidden="true"></span>购物车(0)</a>
+                                                          aria-hidden="true"></span>购物车(0)</a>
             </div>
             <div class="car-neirong" hidden="hidden" style="z-index:auto">
                 购物车中还没有商品，赶紧选购吧！
@@ -222,161 +222,30 @@
 <div id="baner">
     <div class="row">
         <div class="left two-nav">
-            <ul>
-                <li id="one"><a href="javascript:void(0);">手机 电话卡 </a><span class="right">&gt;</span>
-                    <div class="content" id="one-con">
-                        <ul>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li id="two"><a href="javascript:void(0);">电视 盒子 </a><span class="right">&gt;</span>
-                    <div class="content" id="two-con">
-                        <ul>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li id="three"><a href="javascript:void(0);">笔记本 平板</a><span class="right">&gt;</span>
-                    <div class="content" id="three-con">
-                        <ul>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li id="four"><a href="javascript:void(0);">出行 穿戴</a><span class="right">&gt;</span>
-                    <div class="content" id="four-con">
-                        <ul>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li id="five"><a href="javascript:void(0);">耳机 音箱</a><span class="right">&gt;</span>
-                    <div class="content" id="five-con">
-                        <ul>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li id="six"><a href="javascript:void(0);">生活 箱包</a><span class="right">&gt;</span>
-                    <div class="content" id="six-con">
-                        <ul>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
-                            <li><a href="javascript:void(0);"><img src="{% static 'image/1.png' %}" alt="">小米8 青春版</a>
-                            </li>
 
-                        </ul>
+            <ul>
+                {% for g in goods %}
+                <li>
+                    <a herf="javascript:;">{{g.name}}</a> <span class="right" style="color: #fff;">&gt;</span>
+                    <div class="submenu">
+                        <div class="subleft">
+                            <ul>
+                                {% for g2 in g.goodtype_set.all %}
+                                <li><a href="">{{g2.name}}</a></li>
+                                {% empty %}
+                                没有数据
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                        <div class="subright" style="background-color: antiquewhite"></div>
                     </div>
                 </li>
+                {% empty %}
+                没有数据
+                {% endfor %}
             </ul>
+
         </div>
         <div id="carousel-example-generic" class="carousel slide right" data-ride="carousel" style="width: 80%;">
             <!-- Indicators -->
@@ -636,32 +505,34 @@
                         </div>
                     </div>
                 </li>
+                <!--<li>-->
+                    <!--<div class="index2">-->
+                        <!--<div class="top">-->
+                            <!--<span class="top-note">新品</span>-->
+                            <!--<a href="">-->
+                                <!--<img src="{% static 'image/sj2.jpg' %}">-->
+                            <!--</a>-->
+                            <!--<h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>-->
+                            <!--<p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>-->
+                            <!--<div class="jiage text-center">1399元</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+                {% for sp in shangpin %}
                 <li>
                     <div class="index2">
                         <div class="top">
                             <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
+                            <a href="/goods/product/">
+                                <img src="/{{sp.goodsimage_set.all.first.path}}">
                             </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
+                            <h5 class="tit"><a href="/goods/product/">{{sp.name}}</a></h5>
+                            <p class="xiangqing text-center">{{sp.intro|truncatechars:20}}</p>
+                            <div class="jiage text-center">{{sp.price}}</div>
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
+                {% endfor %}
             </ul>
             <!--<div class="index2 left">-->
 

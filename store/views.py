@@ -88,7 +88,7 @@ def change(request,s_id,status):
 
 
 # 永久删除
-def delete(request,s_id):
+def delete(request, s_id):
     pass
 
 
@@ -114,6 +114,8 @@ def update(request,s_id):
             pass
         store.save()
         return redirect(reverse("store:detail", kwargs={"s_id": store.id}))
+
+
 # 确认订单
 def confirm(request):
     return render(request, 'store/confirm.html', {})
@@ -122,3 +124,12 @@ def confirm(request):
 # 结算
 def pay(request):
     return render(request, 'store/pay.html', {})
+
+
+# 宝贝
+def baobei(request, s_id):
+    store = models.store.objects.get(pk=s_id)
+    type1 = GoodType.objects.filter(parent__isnull=True)
+    goods = Goods.objects.filter(stores=store)
+    return render(request, "store/baobei.html", {"store": store, "type1": type1, "goods": goods})
+    # return render(request, "store/baobei.html", {})

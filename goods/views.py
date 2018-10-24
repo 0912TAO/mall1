@@ -32,10 +32,23 @@ def add(request):
         # 保存商品图片
         goodImage = models.GoodsImage(path=cover,goods=goods)
         goodImage.save()
-        return redirect(reverse("store:detail",kwargs={"s_id":store_id}))
+        return redirect(reverse("store:baobei",kwargs={"s_id":store_id}))
 
 @require_GET
 def findTypeByPID(request):
     parent_id = request.GET["parent_id"]
     type2s = models.GoodType.objects.filter(parent=parent_id)
     return HttpResponse(serialize("json",type2s))
+
+
+def product(request):
+    return render(request, "goods/product.html", {})
+    # return redirect(reverse("goods:product"))
+
+
+def xiangqing(request):
+    return render(request, "goods/xiangqing.html", {})
+
+
+def pinglun(request):
+    return render(request, "goods/pinglun.html", {})

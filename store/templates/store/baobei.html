@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+
+open_shop
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'store/css/app/open_shop.css' %}">
+{% endblock %}
+
+{% block navnav %}
+{% endblock %}
+
+{% block baner %}
+{% endblock %}
+
+
+{% block main %}
+
+<div class="container pd">
+    <div class="row">
+        <!--左-->
+        <div class="col-md-3 left_menu">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span>店铺管理</span>
+                    <a href="/store/open_shop/">我要开店</a>
+                    <a href="/store/{{store.id}}/detail/">店铺信息</a>
+                </li>
+                <li class="list-group-item">
+                    <span>交易管理</span>
+                    <a href="">已卖出的宝贝</a>
+                    <a href="">评价管理</a>
+                </li>
+                <li class="list-group-item">
+                    <span>物流管理</span>
+                    <a href="">发货</a>
+                </li>
+                <li class="list-group-item">
+                    <span>宝贝管理</span>
+                    <a href="javascript:void(0);" id="f">发布宝贝</a>
+                    <a href="javascript:void(0);" id="g">管理宝贝</a>
+                </li>
+                <li class="list-group-item">
+                    <span>客户服务</span>
+                    <a href="">举报管理</a>
+                </li>
+            </ul>
+        </div>
+
+        <!--# 右-->
+        <div class="col-md-9 right_menu">
+
+            <div id="manage">
+                <h1>管理宝贝</h1>
+                {% for g in goods %}
+                <!--<img style="width: 200px;height: 200px" src="{{g.goodsimage_set.all.first}}" alt="">-->
+                <img style="width: 200px;height: 200px" src="/{{g.goodsimage_set.all.first.path}}" alt=""><br></br>
+                商品名：<p>{{g.name}}</p>
+                商品单价<p>{{g.price}}</p>
+                商品库存：<p>{{g.stock}}</p>
+                {% empty %}
+                <p>当前没有商品请上架商品</p>
+                {% endfor %}
+            </div>
+
+
+            <div id="fabu" style="display: none;">
+                <h1>发布宝贝</h1>
+                <form action="{% url 'goods:add' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="store" value="{{store.id}}">
+                    <table class="table table-bordered table-hover table-responsive">
+                        <tr>
+                            <th>商品名称：</th>
+                            <td><input type="text" name="name" id="name"></td>
+                            <th>商品单价：</th>
+                            <td><input type="number" name="price"></td>
+
+                        </tr>
+                        <tr>
+                            <th>商品库存：</th>
+                            <td><input type="number" name="stock"></td>
+                            <th>商品类型：</th>
+                            <td colspan="5">
+                                <select name="type1" id="type1">
+                                    {%for t in type1 %}
+                                    <option value="{{t.id}}">{{t.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <select name="type2" id="type2">
+
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>商品介绍：</th>
+                            <td colspan="3">
+                                <textarea name="intro" id="intro" cols="100" rows="10"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="3">
+                                <input type="file" name="cover" id="cover">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td colspan="3"> <button type="submit">上架商品</button></td>
+                        </tr>
+                    </table>
+                </form>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        $("#type1").on("change", function () {
+            $.ajax({
+                url: "/goods/findTypeByPID/",
+                type: "get",
+                data: {"parent_id": $(this).val()},
+                success: function (data) {
+                    $("#type2").empty()
+                    data = JSON.parse(data);
+                    // console.info(data)
+                    for (var i = 0; i < data.length; i++) {
+                        var type = data[i];
+                        $op = $("<option>");
+                        $op.attr("value", type.pk)
+                        $op.text(type.fields.name)
+                        $("#type2").append($op)
+                    }
+                },
+                error: function () {
+                    alert("网络异常请联系管理员")
+
+                }
+            })
+        })
+    })
+
+
+    $("#g").click(function () {
+        $("#fabu").css("display","none");
+        $("#manage").css("display","block");
+    });
+
+    $("#f").click(function () {
+        $("#manage").css("display","none");
+        $("#fabu").css("display","block");
+    });
+</script>
+
+{% endblock %}
