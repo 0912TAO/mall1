@@ -8,8 +8,12 @@ from django.contrib.auth import authenticate, login, logout     # 内置的用�
 from django.contrib.auth.decorators import login_required   # 需要登陆的装饰器
 from django.contrib.auth.models import User     # 引入django的User表
 
+from .utils import login_email
+
+
 from io import BytesIO  # 在内存中读写bytes
 from commons import utils     # 工具模块
+
 from . import models    # 模型模块
 # Create your views here.
 
@@ -18,14 +22,12 @@ from . import models    # 模型模块
 def user_login(request):
     # GET方式打开页面
     if request.method == 'GET':
-
         try:
             next_url = request.GET['next']
         except:
-            next_url = "/commons/"
-
-        if next_url == "/user/user_logout/":
-            next_url = "/user_login/"
+            next_url = "/commons/index/"
+        # if next_url == "/user/user_logout/":
+        #     next_url = "/commons/index/"
         print(next_url)
         return render(request, 'user/user_login.html', {"next_url": next_url})
 
@@ -34,11 +36,11 @@ def user_login(request):
         # 点击登录post传值
         username = request.POST['username']
         password = request.POST['password']
-        next_url = request.POST.get("next", "/user/")
+        next_url = request.POST.get("next", "/commons/index/")
 
-        if next_url == "/user/user_logout/":
-            next_url = "/user_login/"
-            print(next_url)
+        # if next_url == "/user/user_logout/":
+        #     next_url = "/commons/index/"
+        print(next_url)
 
         # 验证账号密码
         user = authenticate(username=username, password=password)
@@ -207,7 +209,7 @@ def checkusername(requess ,uname):
 @login_required
 def user_logout(request):
     logout(request)
-    return render(request, 'user/user_login.html', {"msg": "您已成功退出！"})
+    return render(request, 'user/user_logout.html', {"msg": "您已成功退出！"})
 
 
 # ajax检测验证码
@@ -215,7 +217,7 @@ def checkcode(request, yzm):
     my_code = request.session['code']
     print(my_code)
     if yzm.upper() != my_code.upper():
-        return JsonResponse({"msg":"验证码错误，请重新输入","success":False})
+        return JsonResponse({"msg": "验证码错误，请重新输入","success":False})
     else:
         return JsonResponse({"msg":"验证码正确", "success":True})
 
@@ -230,3 +232,46 @@ def code(request):
     img.save(file, 'PNG')
 
     return HttpResponse(file.getvalue(), "image/png")
+
+
+# 绑定邮箱
+def email(request):
+    return render(request, "user/email.html", {})
+
+
+def save_email(request):
+    u = User.objects.get(id=request.user.id)
+    userA = models.UserA.objects.get(user_id=request.user.id)
+    email = request.POST['email']
+    code = int(request.POST['ma'])
+    if code == 6666:
+        u.email = email
+        u.save()
+        return render(request, "user/personal.html", {"userA": userA})
+    else:
+        return render(request, "user/email.html", {"msg": "验证码错误"})
+
+
+
+
+# 发送邮件
+def start_send_email(request):
+    try:
+        email1 = request.POST["email"]
+        print("你的邮箱"+email1)
+        login_email(email1)
+        return HttpResponse()
+    except Exception as e:
+        print(e)
+        return render(request, "user/reg_test.html",{})
+
+
+# 邮箱登录
+def reg_login(request):
+    ma = request.POST['ma']
+    if ma == 6666:
+        try:
+            email = request.POST['email']
+            print("你的邮箱"+email)
+        except Exception as e:
+            pass

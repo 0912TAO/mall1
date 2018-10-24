@@ -1,42 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>店铺详情</title>
-</head>
-<body>
-    <h1>店铺详情</h1>
-    <table border="1">
-        <tr>
-            <td>店铺封面</td>
-            <td><img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt=""></td>
-        </tr>
-        <tr>
-            <td>店铺名称</td>
-            <td>{{store.name}}</td>
-        </tr>
-        <tr>
-            <td>店铺状态</td>
-            <td>
-                {% ifequal store.status  0 %}
-                    <p>正在营业</p>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+i_want_open_shop
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'store/css/app/open_shop.css' %}">
+{% endblock %}
+
+{% block navnav %}
+{% endblock %}
+
+{% block baner %}
+{% endblock %}
+
+{% block main %}
+<div class="container pd">
+    <div class="row">
+        <!--左-->
+        <div class="col-md-3 left_menu">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span>店铺管理</span>
+                    <a href="/store/open_shop/">我要开店</a>
+                      <a href="/store/{{store.id}}/detail/">店铺信息</a>
+                </li>
+                <li class="list-group-item">
+                    <span>交易管理</span>
+                    <a href="">已卖出的宝贝</a>
+                    <a href="">评价管理</a>
+                </li>
+                <li class="list-group-item">
+                    <span>物流管理</span>
+                    <a href="">发货</a>
+                </li>
+                <li class="list-group-item">
+                    <span>宝贝管理</span>
+                    <a href="">发布宝贝</a>
+                    <a href="">管理宝贝</a>
+                </li>
+                <li class="list-group-item">
+                    <span>客户服务</span>
+                    <a href="">举报管理</a>
+                </li>
+            </ul>
+        </div>
+
+        <!--# 右-->
+        <div class="col-md-9 right_menu">
+
+            <div class="row col-md-10 col-md-offset-1" style="margin-top: 30px;text-align: center;">
+                <br>
+                <img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt="">
+                <h4><b>{{store.name}}</b></h4><br>
+                <p>{{store.intro}}</p><br>
+
+                <table class="table table-striped table-bordered">
+                    <tr style="font-weight: 800;">
+
+                        <td>店铺状态</td>
+                        <td>你可以选择</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% ifequal store.status  0 %}
+                    <p style="font-weight: 700;color: #f54b07;">正在营业</p>
+                        </td>
+                    <td>
                     <a href="{% url 'store:change' store.id  1%}">暂停营业</a>
                     <a href="{% url 'store:change' store.id  2%}">删除店铺</a>
+                    </td>
                 {% else %}
+
                      {% ifequal store.status  1 %}
-                        <p>暂停营业</p>
-                        <a href="{% url 'store:change' store.id  0%}">开始营业</a>
-                        <a href="{% url 'store:change' store.id  2%}">删除店铺</a>
+                        <p style="font-weight: 700;color: #f54b07;">暂停营业</p>
+                        <td><a href="{% url 'store:change' store.id  0%}">开始营业</a>
+                        <a href="{% url 'store:change' store.id  2%}">删除店铺</a></td>
                     {% else %}
-                        <p>亲，您的店铺已移除如有疑问请联系管理员</p>
-                	{% endifequal %}
+                        <td><p style="font-weight: 700;color: #f54b07;">亲，您的店铺已移除如有疑问请联系管理员</p></td>
+                    {% endifequal %}
                 {% endifequal %}
-            </td>
-        </tr>
-        <tr>
-            <td>操作</td>
-            <td><a href="{% url 'store:update' store.id %}">修改店铺信息</a></td>
-        </tr>
-    </table>
-</body>
-</html>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}

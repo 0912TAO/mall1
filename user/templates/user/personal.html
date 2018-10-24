@@ -78,7 +78,7 @@
 											<div>
 												<h2>{{user.username}}</h2>
 												<!--根据时间判定输出话语：早，中，下，晚上好-->
-												<a href="javascript:void(0);">晚上好</a>
+												<a href="javascript:void(0);">How Are You!!!</a>
 											</div>
 											<div style="padding-top: 10px;">
 												<a style="color: orangered;" href="{% url 'user:changeinfo' %}">修改个人信息></a>
@@ -93,7 +93,13 @@
 											<p>绑定手机: <span>{{userA.phone}}</span></p>
 										</div>
 										<div>
-											<p>绑定邮箱: <span><a style="color: orangered;" href="">未绑定</a></span></p>
+											<p>绑定邮箱: <span>
+												{% if user.email %}
+                                                <a title="点击换绑" style="color: orangered;" href="/user/email/">已绑定</a>
+                                                {% else %}
+												<a title="点击绑定" style="color: orangered;" href="/user/email/">未绑定</a>
+                                                {% endif %}
+											</span></p>
 										</div>
 									</div>
 
