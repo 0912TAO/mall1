@@ -6,7 +6,7 @@ from . import models
 import logging
 
 from goods.models import GoodType, Goods
-
+from user.models import Address,User
 
 # 我的购物车
 @login_required
@@ -118,9 +118,48 @@ def update(request,s_id):
         return redirect(reverse("store:detail", kwargs={"s_id": store.id}))
 
 
+# 添加地址
+@login_required()
+def address(request):
+    if request.method =="GET":
+        return render(request, 'store/address.html', {})
+    else:
+        # 收货人
+        recr_name = request.POST["recr_name"]
+        # 收货人电话
+        recr_tel = request.POST["recr_tel"]
+        # 收货人所在省份
+        province = request.POST["province"]
+        # 收货人所在城市
+        city = request.POST["city"]
+        # 收货人所在县区
+        area = request.POST["area"]
+        # 收货人详细地址
+        street = request.POST["street"]
+        # 邮政编码
+        postal = request.POST["postal"]
+        # 地址标签
+        add_label = request.POST["add_label"]
+        try:
+            # 默认地址
+            is_default = request.POST["is_default"]
+            addresses = Address.objects.filter(user=request.user)
+            for address in addresses:
+                address.is_default = False
+                address.save()
+            address=  Address(recr_name=recr_name,recr_tel=recr_tel,province=province,city=city,area=area,street=street,postal=postal,add_label=add_label,user=request.user,is_default=True)
+            address.save()
+        except:
+            address = Address(recr_name=recr_name, recr_tel=recr_tel, province=province, city=city, area=area,
+                              street=street, postal=postal, add_label=add_label, user=request.user)
+            address.save()
+        return redirect(reverse("store:confirm"))
+
+
 # 确认订单
 @login_required
 def confirm(request):
+
     # 记录一条信息
     a = request.META['REMOTE_ADDR']
     logger = logging.getLogger('require_django')

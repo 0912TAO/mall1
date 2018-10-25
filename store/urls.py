@@ -22,6 +22,8 @@ urlpatterns = [
     url(r"^(?P<s_id>\d+)/(?P<status>\d+)/change/",views.change,name="change"),
     # 确认订单
     url(r'^confirm/$', views.confirm, name='confirm'),
+    # 添加地址
+    url(r'^address/$', views.address, name='address'),
     # 结算页面
     url(r'^pay/$', views.pay, name='pay'),
     # 宝贝

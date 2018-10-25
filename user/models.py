@@ -21,3 +21,29 @@ class UserA(models.Model):
     add = models.CharField(max_length=500, verbose_name="用户收货地址")
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+
+# 收货地址
+class Address(models.Model):
+    # 地址编号
+    id = models.AutoField(primary_key=True)
+    # 收货人
+    recr_name = models.CharField(max_length=100,verbose_name="收货人")
+    # 收货人电话
+    recr_tel = models.CharField(max_length=20,verbose_name="收货人的电话号码")
+    # 收货人所在省份
+    province = models.CharField(max_length=100,verbose_name="收货人所在省份")
+    # 收货人所在城市
+    city = models.CharField(max_length=100,verbose_name="收货人所在城市")
+    # 收货人所在区县
+    area = models.CharField(max_length=100,verbose_name="收货人所在区县")
+    # 收货人详细地址
+    street = models.CharField(max_length=100,verbose_name="收货人详细地址")
+    # 邮政编码
+    postal = models.IntegerField(verbose_name="邮政编码")
+    # 地址标签
+    add_label = models.CharField(max_length=20,verbose_name="地址标签")  #0 家 1 公司 2 学校
+    # 默认地址
+    is_default = models.BooleanField(default=False,verbose_name="默认地址")# Flase 默认地址，True 非默认地址
+    # 地址所属用户
+    user = models.ForeignKey(User,on_delete=models.CASCADE,verbose_name="地址所属用户")

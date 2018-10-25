@@ -86,6 +86,7 @@ open_shop
                             <th>商品类型：</th>
                             <td colspan="5">
                                 <select name="type1" id="type1">
+                                    <option value="-1">请选择</option>
                                     {%for t in type1 %}
                                     <option value="{{t.id}}">{{t.name}}</option>
                                     {% endfor %}
@@ -95,6 +96,10 @@ open_shop
                                 </select>
                             </td>
                         </tr>
+                        <!--<tr>-->
+                            <!--<th>商品封面</th>-->
+                            <!--<td colspan="3"><input type="file" name="cover1" id="cover1"></td>-->
+                        <!--</tr>-->
                         <tr>
                             <th>商品介绍：</th>
                             <td colspan="3">
@@ -102,9 +107,15 @@ open_shop
                             </td>
                         </tr>
                         <tr>
-                            <td></td>
+                            <th>商品配图</th>
                             <td colspan="3">
-                                <input type="file" name="cover" id="cover">
+                                <input type="file" name="cover" id="cover" multiple />
+                            </td>
+                        </tr>
+                         <tr>
+                            <th>图片描述</th>
+                            <td colspan="3">
+                                <textarea  name="intro1" id="intro1" cols="100" rows="10"></textarea>
                             </td>
                         </tr>
                         <tr>

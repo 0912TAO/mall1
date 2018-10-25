@@ -4,7 +4,7 @@ from django.core.serializers import serialize
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-
+import uuid
 from . import models
 from store.models import store
 
@@ -22,15 +22,25 @@ def add(request):
         store_id = request.POST["store"]
         type2 = request.POST["type2"]
         intro = request.POST["intro"]
-        cover = request.FILES["cover"]
+        intro1 = request.POST["intro1"]
+        print("商品介绍"+intro)
+        # 单张图片
+        # cover1 = request.FILES["cover1"]
+        # 多张图片处理
+        cover = request.FILES.getlist("cover")
+
         stores = store.objects.get(pk=store_id)
         goodsType = models.GoodType.objects.get(pk=type2)
         # 保存商品
         goods = models.Goods(name=name,price=price,stock=stock,intro=intro,stores=stores,goodstype=goodsType)
         goods.save()
+        # 保存商品封面
+        # goodsType = models.GoodType(cover=cover1,goodstype=goodsType)
+        # goodsType.save()
         # 保存商品图片
-        goodImage = models.GoodsImage(path=cover,goods=goods)
-        goodImage.save()
+        for p in cover:
+            goodImage = models.GoodsImage(path=p,intro=intro1, goods=goods)
+            goodImage.save()
         return redirect(reverse("store:baobei",kwargs={"s_id":store_id}))
 
 @require_GET
