@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+分类
+{% endblock %}
+{% block baner %}
+{% endblock %}
+{% block main %}
+
+
+{% load static %}
+<div class="box" style="background-color: #f1f1f1;width: 100%;padding-top: 12px;">
+    <div class="sj">
+        <div class="main">
+
+
+            <ul>
+                {% for g in goods %}
+                <li>
+                    <div class="index2">
+                        <div class="top">
+                            <span class="top-note">新品</span>
+                            <a href="/goods/{{g.id}}/product/">
+                                <img src="/{{g.goodsimage_set.all.first.path}}">
+                            </a>
+                            <h5 class="tit"><a href="/goods/product/">{{g.name}}</a></h5>
+                            <p class="xiangqing text-center">{{g.intro|truncatechars:20}}</p>
+                            <div class="jiage text-center">{{g.price}}</div>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

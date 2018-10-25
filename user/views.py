@@ -36,7 +36,9 @@ def user_login(request):
         username = request.POST['username']
         password = request.POST['password']
         next_url = request.POST.get("next", "/commons/index/")
-
+        islong = request.POST.get("islong", "no")
+        # print(is_long)
+        # return
         print(next_url)
 
         # 验证账号密码
@@ -46,6 +48,11 @@ def user_login(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
+                request.session["LoginUser"] = user
+                if islong == "on":
+                    request.session.set_expiry(3600 * 24 * 7)
+                elif islong == "no":
+                    request.session.set_expiry(0)
                 return redirect(next_url)
                 # return render(request, 'user/index.html', {"user": user})
             else:
