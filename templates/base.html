@@ -204,11 +204,13 @@
         </ul>
     </div>
     <div id="serch" class="right">
-        <form class="navbar-form navbar-left">
+
+        <form method='get' action="/search/" class="navbar-form navbar-left">
+
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control"  name="q" placeholder="Search">
             </div>
-            <input type="submit" value="搜索" hidden>
+            <input type="submit" value="查询" hidden>
         </form>
     </div>
 </div>

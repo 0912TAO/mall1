@@ -26,8 +26,7 @@ def user_login(request):
             next_url = request.GET['next']
         except:
             next_url = "/commons/index/"
-        # if next_url == "/user/user_logout/":
-        #     next_url = "/commons/index/"
+
         print(next_url)
         return render(request, 'user/user_login.html', {"next_url": next_url})
 
@@ -38,8 +37,6 @@ def user_login(request):
         password = request.POST['password']
         next_url = request.POST.get("next", "/commons/index/")
 
-        # if next_url == "/user/user_logout/":
-        #     next_url = "/commons/index/"
         print(next_url)
 
         # 验证账号密码
@@ -96,11 +93,15 @@ def register(request):
                 transaction.savepoint_commit(hyd)
                 # session
                 request.session["loginUser"] = user
-                return render(request, "user/user_login.html", {"msg": "恭喜注册成功，请登录"})
+                return render(request, "user/tiaozhuan.html", {"msg": "恭喜注册成功，请登录"})
             except:
                 # 事物
                 transaction.savepoint_rollback(hyd)
                 return render(request, "user/register.html", {"msg": "注册失败，请重新注册"})
+
+
+def tiaozhuan(request):
+    return render(request, "user/tiaozhuan.html", {{"msg": "恭喜注册成功，请登录"}})
 
 
 # 个人中心
