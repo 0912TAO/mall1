@@ -44,10 +44,7 @@ open_shop
                   </li>
                 </ul>
             </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> f85ebc37ff19e5d0844e7ca832274bc06b53fda4
         <!--# 右-->
         <div class="col-md-9 right_menu">
             {% if store %}
@@ -72,10 +69,7 @@ open_shop
                             <a href="{% url 'store:change' store.id  2%}">删除店铺</a>
                         </td>
                         {% else %}
-<<<<<<< HEAD
-=======
 
->>>>>>> f85ebc37ff19e5d0844e7ca832274bc06b53fda4
                         {% ifequal store.status 1 %}
                         <p style="font-weight: 700;color: #f54b07;">暂停营业</p>
                         <td><a href="{% url 'store:change' store.id  0%}">开始营业</a>

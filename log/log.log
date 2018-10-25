@@ -70,3 +70,1437 @@ ALTER TABLE `goods_goodtype` ALTER COLUMN `cover` DROP DEFAULT; (params ())
 (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'user' AND `django_content_type`.`model` = 'usera'); args=('user', 'usera')
 (0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (8) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(8,)
 (0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'user'; args=('user',)
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.004) SHOW FULL TABLES; args=None
+CREATE TABLE `django_migrations` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `app` varchar(255) NOT NULL, `name` varchar(255) NOT NULL, `applied` datetime(6) NOT NULL); (params None)
+(0.435) CREATE TABLE `django_migrations` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `app` varchar(255) NOT NULL, `name` varchar(255) NOT NULL, `applied` datetime(6) NOT NULL); args=None
+(0.005) SELECT engine FROM information_schema.tables WHERE table_name = 'django_migrations'; args=['django_migrations']
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'django_migrations'; args=['django_migrations']
+(0.001) SELECT engine FROM information_schema.tables WHERE table_name = 'django_migrations'; args=['django_migrations']
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'django_migrations'; args=['django_migrations']
+(0.002) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT @@sql_mode; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.002) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+CREATE TABLE `django_content_type` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(100) NOT NULL, `app_label` varchar(100) NOT NULL, `model` varchar(100) NOT NULL); (params None)
+(0.790) CREATE TABLE `django_content_type` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(100) NOT NULL, `app_label` varchar(100) NOT NULL, `model` varchar(100) NOT NULL); args=None
+(0.005) SELECT engine FROM information_schema.tables WHERE table_name = 'django_content_type'; args=['django_content_type']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'django_content_type'; args=['django_content_type']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'django_content_type'; args=['django_content_type']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'django_content_type'; args=['django_content_type']
+ALTER TABLE `django_content_type` ADD CONSTRAINT `django_content_type_app_label_model_76bd3d3b_uniq` UNIQUE (`app_label`, `model`); (params ())
+(0.280) ALTER TABLE `django_content_type` ADD CONSTRAINT `django_content_type_app_label_model_76bd3d3b_uniq` UNIQUE (`app_label`, `model`); args=()
+(0.002) SHOW FULL TABLES; args=None
+(0.000) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('contenttypes', '0001_initial', '2018-10-24 16:35:17.843746'); args=['contenttypes', '0001_initial', '2018-10-24 16:35:17.843746']
+CREATE TABLE `auth_permission` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(50) NOT NULL, `content_type_id` integer NOT NULL, `codename` varchar(100) NOT NULL); (params None)
+(0.517) CREATE TABLE `auth_permission` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(50) NOT NULL, `content_type_id` integer NOT NULL, `codename` varchar(100) NOT NULL); args=None
+(0.005) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_permission'; args=['auth_permission']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_permission'; args=['auth_permission']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_permission'; args=['auth_permission']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_permission'; args=['auth_permission']
+CREATE TABLE `auth_group` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(80) NOT NULL UNIQUE); (params None)
+(0.430) CREATE TABLE `auth_group` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(80) NOT NULL UNIQUE); args=None
+(0.005) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_group'; args=['auth_group']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_group'; args=['auth_group']
+CREATE TABLE `auth_group_permissions` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `group_id` integer NOT NULL, `permission_id` integer NOT NULL); (params None)
+(0.467) CREATE TABLE `auth_group_permissions` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `group_id` integer NOT NULL, `permission_id` integer NOT NULL); args=None
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_group_permissions'; args=['auth_group_permissions']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_group_permissions'; args=['auth_group_permissions']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_group_permissions'; args=['auth_group_permissions']
+CREATE TABLE `auth_user` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `password` varchar(128) NOT NULL, `last_login` datetime(6) NOT NULL, `is_superuser` bool NOT NULL, `username` varchar(30) NOT NULL UNIQUE, `first_name` varchar(30) NOT NULL, `last_name` varchar(30) NOT NULL, `email` varchar(75) NOT NULL, `is_staff` bool NOT NULL, `is_active` bool NOT NULL, `date_joined` datetime(6) NOT NULL); (params None)
+(0.784) CREATE TABLE `auth_user` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `password` varchar(128) NOT NULL, `last_login` datetime(6) NOT NULL, `is_superuser` bool NOT NULL, `username` varchar(30) NOT NULL UNIQUE, `first_name` varchar(30) NOT NULL, `last_name` varchar(30) NOT NULL, `email` varchar(75) NOT NULL, `is_staff` bool NOT NULL, `is_active` bool NOT NULL, `date_joined` datetime(6) NOT NULL); args=None
+(0.005) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user'; args=['auth_user']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user'; args=['auth_user']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user'; args=['auth_user']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user'; args=['auth_user']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user'; args=['auth_user']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user'; args=['auth_user']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user'; args=['auth_user']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user'; args=['auth_user']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user'; args=['auth_user']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user'; args=['auth_user']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user'; args=['auth_user']
+CREATE TABLE `auth_user_groups` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `user_id` integer NOT NULL, `group_id` integer NOT NULL); (params None)
+(0.394) CREATE TABLE `auth_user_groups` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `user_id` integer NOT NULL, `group_id` integer NOT NULL); args=None
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user_groups'; args=['auth_user_groups']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user_groups'; args=['auth_user_groups']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user_groups'; args=['auth_user_groups']
+CREATE TABLE `auth_user_user_permissions` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `user_id` integer NOT NULL, `permission_id` integer NOT NULL); (params None)
+(0.346) CREATE TABLE `auth_user_user_permissions` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `user_id` integer NOT NULL, `permission_id` integer NOT NULL); args=None
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user_user_permissions'; args=['auth_user_user_permissions']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user_user_permissions'; args=['auth_user_user_permissions']
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'auth_user_user_permissions'; args=['auth_user_user_permissions']
+ALTER TABLE `auth_permission` ADD CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`); (params ())
+(0.882) ALTER TABLE `auth_permission` ADD CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`); args=()
+ALTER TABLE `auth_permission` ADD CONSTRAINT `auth_permission_content_type_id_codename_01ab375a_uniq` UNIQUE (`content_type_id`, `codename`); (params ())
+(0.289) ALTER TABLE `auth_permission` ADD CONSTRAINT `auth_permission_content_type_id_codename_01ab375a_uniq` UNIQUE (`content_type_id`, `codename`); args=()
+ALTER TABLE `auth_group_permissions` ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`); (params ())
+(0.831) ALTER TABLE `auth_group_permissions` ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`); args=()
+ALTER TABLE `auth_group_permissions` ADD CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`); (params ())
+(1.165) ALTER TABLE `auth_group_permissions` ADD CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`); args=()
+ALTER TABLE `auth_group_permissions` ADD CONSTRAINT `auth_group_permissions_group_id_permission_id_0cd325b0_uniq` UNIQUE (`group_id`, `permission_id`); (params ())
+(0.347) ALTER TABLE `auth_group_permissions` ADD CONSTRAINT `auth_group_permissions_group_id_permission_id_0cd325b0_uniq` UNIQUE (`group_id`, `permission_id`); args=()
+ALTER TABLE `auth_user_groups` ADD CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`); (params ())
+(1.028) ALTER TABLE `auth_user_groups` ADD CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`); args=()
+ALTER TABLE `auth_user_groups` ADD CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`); (params ())
+(1.108) ALTER TABLE `auth_user_groups` ADD CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`); args=()
+ALTER TABLE `auth_user_groups` ADD CONSTRAINT `auth_user_groups_user_id_group_id_94350c0c_uniq` UNIQUE (`user_id`, `group_id`); (params ())
+(0.331) ALTER TABLE `auth_user_groups` ADD CONSTRAINT `auth_user_groups_user_id_group_id_94350c0c_uniq` UNIQUE (`user_id`, `group_id`); args=()
+ALTER TABLE `auth_user_user_permissions` ADD CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`); (params ())
+(0.929) ALTER TABLE `auth_user_user_permissions` ADD CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`); args=()
+ALTER TABLE `auth_user_user_permissions` ADD CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`); (params ())
+(1.054) ALTER TABLE `auth_user_user_permissions` ADD CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`); args=()
+ALTER TABLE `auth_user_user_permissions` ADD CONSTRAINT `auth_user_user_permissions_user_id_permission_id_14a6b632_uniq` UNIQUE (`user_id`, `permission_id`); (params ())
+(0.400) ALTER TABLE `auth_user_user_permissions` ADD CONSTRAINT `auth_user_user_permissions_user_id_permission_id_14a6b632_uniq` UNIQUE (`user_id`, `permission_id`); args=()
+(0.005) SHOW FULL TABLES; args=None
+(0.002) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('auth', '0001_initial', '2018-10-24 16:35:29.428442'); args=['auth', '0001_initial', '2018-10-24 16:35:29.428442']
+CREATE TABLE `django_admin_log` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `action_time` datetime(6) NOT NULL, `object_id` longtext NULL, `object_repr` varchar(200) NOT NULL, `action_flag` smallint UNSIGNED NOT NULL, `change_message` longtext NOT NULL, `content_type_id` integer NULL, `user_id` integer NOT NULL); (params None)
+(0.299) CREATE TABLE `django_admin_log` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `action_time` datetime(6) NOT NULL, `object_id` longtext NULL, `object_repr` varchar(200) NOT NULL, `action_flag` smallint UNSIGNED NOT NULL, `change_message` longtext NOT NULL, `content_type_id` integer NULL, `user_id` integer NOT NULL); args=None
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'django_admin_log'; args=['django_admin_log']
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'django_admin_log'; args=['django_admin_log']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'django_admin_log'; args=['django_admin_log']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'django_admin_log'; args=['django_admin_log']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'django_admin_log'; args=['django_admin_log']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'django_admin_log'; args=['django_admin_log']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'django_admin_log'; args=['django_admin_log']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'django_admin_log'; args=['django_admin_log']
+ALTER TABLE `django_admin_log` ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`); (params ())
+(0.902) ALTER TABLE `django_admin_log` ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`); args=()
+ALTER TABLE `django_admin_log` ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`); (params ())
+(1.377) ALTER TABLE `django_admin_log` ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`); args=()
+(0.004) SHOW FULL TABLES; args=None
+(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('admin', '0001_initial', '2018-10-24 16:35:32.180269'); args=['admin', '0001_initial', '2018-10-24 16:35:32.180269']
+(0.006) SHOW FULL TABLES; args=None
+(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('admin', '0002_logentry_remove_auto_add', '2018-10-24 16:35:32.295341'); args=['admin', '0002_logentry_remove_auto_add', '2018-10-24 16:35:32.295341']
+ALTER TABLE `django_content_type` MODIFY `name` varchar(100) NULL; (params [])
+(0.942) ALTER TABLE `django_content_type` MODIFY `name` varchar(100) NULL; args=[]
+ALTER TABLE `django_content_type` DROP COLUMN `name`; (params ())
+(0.852) ALTER TABLE `django_content_type` DROP COLUMN `name`; args=()
+(0.004) SHOW FULL TABLES; args=None
+(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('contenttypes', '0002_remove_content_type_name', '2018-10-24 16:35:34.231626'); args=['contenttypes', '0002_remove_content_type_name', '2018-10-24 16:35:34.231626']
+ALTER TABLE `auth_permission` MODIFY `name` varchar(255) NOT NULL; (params [])
+(1.054) ALTER TABLE `auth_permission` MODIFY `name` varchar(255) NOT NULL; args=[]
+(0.003) SHOW FULL TABLES; args=None
+(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('auth', '0002_alter_permission_name_max_length', '2018-10-24 16:35:35.381391'); args=['auth', '0002_alter_permission_name_max_length', '2018-10-24 16:35:35.381391']
+ALTER TABLE `auth_user` MODIFY `email` varchar(254) NOT NULL; (params [])
+(1.343) ALTER TABLE `auth_user` MODIFY `email` varchar(254) NOT NULL; args=[]
+(0.004) SHOW FULL TABLES; args=None
+(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('auth', '0003_alter_user_email_max_length', '2018-10-24 16:35:36.829356'); args=['auth', '0003_alter_user_email_max_length', '2018-10-24 16:35:36.829356']
+(0.006) SHOW FULL TABLES; args=None
+(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('auth', '0004_alter_user_username_opts', '2018-10-24 16:35:37.036489'); args=['auth', '0004_alter_user_username_opts', '2018-10-24 16:35:37.036489']
+ALTER TABLE `auth_user` MODIFY `last_login` datetime(6) NULL; (params [])
+(0.917) ALTER TABLE `auth_user` MODIFY `last_login` datetime(6) NULL; args=[]
+(0.004) SHOW FULL TABLES; args=None
+(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('auth', '0005_alter_user_last_login_null', '2018-10-24 16:35:38.056168'); args=['auth', '0005_alter_user_last_login_null', '2018-10-24 16:35:38.056168']
+(0.004) SHOW FULL TABLES; args=None
+(0.000) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('auth', '0006_require_contenttypes_0002', '2018-10-24 16:35:38.167236'); args=['auth', '0006_require_contenttypes_0002', '2018-10-24 16:35:38.167236']
+(0.002) SHOW FULL TABLES; args=None
+(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('auth', '0007_alter_validators_add_error_messages', '2018-10-24 16:35:38.267307'); args=['auth', '0007_alter_validators_add_error_messages', '2018-10-24 16:35:38.267307']
+ALTER TABLE `auth_user` MODIFY `username` varchar(150) NOT NULL; (params [])
+(1.248) ALTER TABLE `auth_user` MODIFY `username` varchar(150) NOT NULL; args=[]
+(0.003) SHOW FULL TABLES; args=None
+(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('auth', '0008_alter_user_username_max_length', '2018-10-24 16:35:39.637214'); args=['auth', '0008_alter_user_username_max_length', '2018-10-24 16:35:39.637214']
+CREATE TABLE `store_store` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(20) NOT NULL, `cover` varchar(100) NOT NULL, `intro` longtext NOT NULL, `opener_time` datetime(6) NOT NULL, `status` integer NOT NULL, `user_id` integer NOT NULL UNIQUE); (params None)
+(0.569) CREATE TABLE `store_store` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(20) NOT NULL, `cover` varchar(100) NOT NULL, `intro` longtext NOT NULL, `opener_time` datetime(6) NOT NULL, `status` integer NOT NULL, `user_id` integer NOT NULL UNIQUE); args=None
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'store_store'; args=['store_store']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'store_store'; args=['store_store']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'store_store'; args=['store_store']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'store_store'; args=['store_store']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'store_store'; args=['store_store']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'store_store'; args=['store_store']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'store_store'; args=['store_store']
+ALTER TABLE `store_store` ADD CONSTRAINT `store_store_user_id_b5ebe390_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`); (params ())
+(1.034) ALTER TABLE `store_store` ADD CONSTRAINT `store_store_user_id_b5ebe390_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`); args=()
+(0.004) SHOW FULL TABLES; args=None
+(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('store', '0001_initial', '2018-10-24 16:35:41.378375'); args=['store', '0001_initial', '2018-10-24 16:35:41.378375']
+CREATE TABLE `goods_goods` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(255) NOT NULL UNIQUE, `price` double precision NOT NULL, `stock` integer NOT NULL, `count` integer NOT NULL, `creatTime` datetime(6) NOT NULL, `intro` longtext NOT NULL); (params None)
+(0.573) CREATE TABLE `goods_goods` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(255) NOT NULL UNIQUE, `price` double precision NOT NULL, `stock` integer NOT NULL, `count` integer NOT NULL, `creatTime` datetime(6) NOT NULL, `intro` longtext NOT NULL); args=None
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goods'; args=['goods_goods']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goods'; args=['goods_goods']
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goods'; args=['goods_goods']
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goods'; args=['goods_goods']
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goods'; args=['goods_goods']
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goods'; args=['goods_goods']
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goods'; args=['goods_goods']
+CREATE TABLE `goods_goodsimage` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `path` varchar(100) NOT NULL, `status` bool NOT NULL, `intro` longtext NULL, `goods_id` integer NOT NULL); (params None)
+(0.365) CREATE TABLE `goods_goodsimage` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `path` varchar(100) NOT NULL, `status` bool NOT NULL, `intro` longtext NULL, `goods_id` integer NOT NULL); args=None
+(0.001) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goodsimage'; args=['goods_goodsimage']
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goodsimage'; args=['goods_goodsimage']
+(0.001) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goodsimage'; args=['goods_goodsimage']
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goodsimage'; args=['goods_goodsimage']
+(0.001) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goodsimage'; args=['goods_goodsimage']
+CREATE TABLE `goods_goodtype` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(255) NOT NULL UNIQUE, `cover` varchar(100) NOT NULL, `intro` longtext NOT NULL, `parent_id` integer NULL); (params None)
+(0.567) CREATE TABLE `goods_goodtype` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(255) NOT NULL UNIQUE, `cover` varchar(100) NOT NULL, `intro` longtext NOT NULL, `parent_id` integer NULL); args=None
+(0.006) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goodtype'; args=['goods_goodtype']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goodtype'; args=['goods_goodtype']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goodtype'; args=['goods_goodtype']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goodtype'; args=['goods_goodtype']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goodtype'; args=['goods_goodtype']
+ALTER TABLE `goods_goods` ADD COLUMN `goodstype_id` integer NOT NULL; (params [])
+(0.230) ALTER TABLE `goods_goods` ADD COLUMN `goodstype_id` integer NOT NULL; args=[]
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goods'; args=['goods_goods']
+ALTER TABLE `goods_goods` ADD COLUMN `stores_id` integer NOT NULL; (params [])
+(0.224) ALTER TABLE `goods_goods` ADD COLUMN `stores_id` integer NOT NULL; args=[]
+(0.002) SELECT engine FROM information_schema.tables WHERE table_name = 'goods_goods'; args=['goods_goods']
+ALTER TABLE `goods_goodsimage` ADD CONSTRAINT `goods_goodsimage_goods_id_08cb23b1_fk_goods_goods_id` FOREIGN KEY (`goods_id`) REFERENCES `goods_goods` (`id`); (params ())
+(0.975) ALTER TABLE `goods_goodsimage` ADD CONSTRAINT `goods_goodsimage_goods_id_08cb23b1_fk_goods_goods_id` FOREIGN KEY (`goods_id`) REFERENCES `goods_goods` (`id`); args=()
+ALTER TABLE `goods_goodtype` ADD CONSTRAINT `goods_goodtype_parent_id_be33ce74_fk_goods_goodtype_id` FOREIGN KEY (`parent_id`) REFERENCES `goods_goodtype` (`id`); (params ())
+(1.053) ALTER TABLE `goods_goodtype` ADD CONSTRAINT `goods_goodtype_parent_id_be33ce74_fk_goods_goodtype_id` FOREIGN KEY (`parent_id`) REFERENCES `goods_goodtype` (`id`); args=()
+ALTER TABLE `goods_goods` ADD CONSTRAINT `goods_goods_goodstype_id_c16cf8af_fk_goods_goodtype_id` FOREIGN KEY (`goodstype_id`) REFERENCES `goods_goodtype` (`id`); (params ())
+(1.062) ALTER TABLE `goods_goods` ADD CONSTRAINT `goods_goods_goodstype_id_c16cf8af_fk_goods_goodtype_id` FOREIGN KEY (`goodstype_id`) REFERENCES `goods_goodtype` (`id`); args=()
+ALTER TABLE `goods_goods` ADD CONSTRAINT `goods_goods_stores_id_90704a2f_fk_store_store_id` FOREIGN KEY (`stores_id`) REFERENCES `store_store` (`id`); (params ())
+(1.190) ALTER TABLE `goods_goods` ADD CONSTRAINT `goods_goods_stores_id_90704a2f_fk_store_store_id` FOREIGN KEY (`stores_id`) REFERENCES `store_store` (`id`); args=()
+(0.004) SHOW FULL TABLES; args=None
+(0.000) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('goods', '0001_initial', '2018-10-24 16:35:47.813641'); args=['goods', '0001_initial', '2018-10-24 16:35:47.813641']
+CREATE TABLE `django_session` (`session_key` varchar(40) NOT NULL PRIMARY KEY, `session_data` longtext NOT NULL, `expire_date` datetime(6) NOT NULL); (params None)
+(0.351) CREATE TABLE `django_session` (`session_key` varchar(40) NOT NULL PRIMARY KEY, `session_data` longtext NOT NULL, `expire_date` datetime(6) NOT NULL); args=None
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'django_session'; args=['django_session']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'django_session'; args=['django_session']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'django_session'; args=['django_session']
+CREATE INDEX `django_session_expire_date_a5c62663` ON `django_session` (`expire_date`); (params ())
+(0.250) CREATE INDEX `django_session_expire_date_a5c62663` ON `django_session` (`expire_date`); args=()
+(0.002) SHOW FULL TABLES; args=None
+(0.000) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('sessions', '0001_initial', '2018-10-24 16:35:48.605169'); args=['sessions', '0001_initial', '2018-10-24 16:35:48.605169']
+CREATE TABLE `shopcat_shopcart` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `count` integer NOT NULL, `addTime` datetime(6) NOT NULL, `allTotal` double precision NOT NULL, `goods_id` integer NOT NULL, `user_id` integer NOT NULL); (params None)
+(0.358) CREATE TABLE `shopcat_shopcart` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `count` integer NOT NULL, `addTime` datetime(6) NOT NULL, `allTotal` double precision NOT NULL, `goods_id` integer NOT NULL, `user_id` integer NOT NULL); args=None
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'shopcat_shopcart'; args=['shopcat_shopcart']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'shopcat_shopcart'; args=['shopcat_shopcart']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'shopcat_shopcart'; args=['shopcat_shopcart']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'shopcat_shopcart'; args=['shopcat_shopcart']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'shopcat_shopcart'; args=['shopcat_shopcart']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'shopcat_shopcart'; args=['shopcat_shopcart']
+ALTER TABLE `shopcat_shopcart` ADD CONSTRAINT `shopcat_shopcart_goods_id_98fe18f7_fk_goods_goods_id` FOREIGN KEY (`goods_id`) REFERENCES `goods_goods` (`id`); (params ())
+(1.043) ALTER TABLE `shopcat_shopcart` ADD CONSTRAINT `shopcat_shopcart_goods_id_98fe18f7_fk_goods_goods_id` FOREIGN KEY (`goods_id`) REFERENCES `goods_goods` (`id`); args=()
+ALTER TABLE `shopcat_shopcart` ADD CONSTRAINT `shopcat_shopcart_user_id_a282430b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`); (params ())
+(1.416) ALTER TABLE `shopcat_shopcart` ADD CONSTRAINT `shopcat_shopcart_user_id_a282430b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`); args=()
+(0.004) SHOW FULL TABLES; args=None
+(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('shopcat', '0001_initial', '2018-10-24 16:35:51.626173'); args=['shopcat', '0001_initial', '2018-10-24 16:35:51.626173']
+CREATE TABLE `user_usera` (`uid` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `phone` varchar(11) NOT NULL, `umaney` varchar(255) NOT NULL, `age` integer NOT NULL, `gender` varchar(10) NOT NULL, `header` varchar(100) NOT NULL, `collection` varchar(255) NOT NULL, `add` varchar(500) NOT NULL, `user_id` integer NOT NULL UNIQUE); (params None)
+(0.517) CREATE TABLE `user_usera` (`uid` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `phone` varchar(11) NOT NULL, `umaney` varchar(255) NOT NULL, `age` integer NOT NULL, `gender` varchar(10) NOT NULL, `header` varchar(100) NOT NULL, `collection` varchar(255) NOT NULL, `add` varchar(500) NOT NULL, `user_id` integer NOT NULL UNIQUE); args=None
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'user_usera'; args=['user_usera']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'user_usera'; args=['user_usera']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'user_usera'; args=['user_usera']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'user_usera'; args=['user_usera']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'user_usera'; args=['user_usera']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'user_usera'; args=['user_usera']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'user_usera'; args=['user_usera']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'user_usera'; args=['user_usera']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'user_usera'; args=['user_usera']
+ALTER TABLE `user_usera` ADD CONSTRAINT `user_usera_user_id_75979e23_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`); (params ())
+(1.342) ALTER TABLE `user_usera` ADD CONSTRAINT `user_usera_user_id_75979e23_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`); args=()
+(0.005) SHOW FULL TABLES; args=None
+(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('user', '0001_initial', '2018-10-24 16:35:53.737561'); args=['user', '0001_initial', '2018-10-24 16:35:53.737561']
+(0.004) SHOW FULL TABLES; args=None
+(0.002) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'admin' AND `django_content_type`.`model` = 'logentry'); args=('admin', 'logentry')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'admin' AND `django_content_type`.`model` = 'logentry'); args=('admin', 'logentry')
+(0.004) INSERT INTO `django_content_type` (`app_label`, `model`) VALUES ('admin', 'logentry'); args=['admin', 'logentry']
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (1) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1,)
+(0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add log entry', 1, 'add_logentry'), ('Can change log entry', 1, 'change_logentry'), ('Can delete log entry', 1, 'delete_logentry'); args=('Can add log entry', 1, 'add_logentry', 'Can change log entry', 1, 'change_logentry', 'Can delete log entry', 1, 'delete_logentry')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'admin'; args=('admin',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'permission'); args=('auth', 'permission')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'permission'); args=('auth', 'permission')
+(0.000) INSERT INTO `django_content_type` (`app_label`, `model`) VALUES ('auth', 'permission'); args=['auth', 'permission']
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'group'); args=('auth', 'group')
+(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'group'); args=('auth', 'group')
+(0.001) INSERT INTO `django_content_type` (`app_label`, `model`) VALUES ('auth', 'group'); args=['auth', 'group']
+(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'user'); args=('auth', 'user')
+(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'user'); args=('auth', 'user')
+(0.001) INSERT INTO `django_content_type` (`app_label`, `model`) VALUES ('auth', 'user'); args=['auth', 'user']
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (2, 3, 4) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2, 3, 4)
+(0.001) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add permission', 2, 'add_permission'), ('Can change permission', 2, 'change_permission'), ('Can delete permission', 2, 'delete_permission'), ('Can add group', 3, 'add_group'), ('Can change group', 3, 'change_group'), ('Can delete group', 3, 'delete_group'), ('Can add user', 4, 'add_user'), ('Can change user', 4, 'change_user'), ('Can delete user', 4, 'delete_user'); args=('Can add permission', 2, 'add_permission', 'Can change permission', 2, 'change_permission', 'Can delete permission', 2, 'delete_permission', 'Can add group', 3, 'add_group', 'Can change group', 3, 'change_group', 'Can delete group', 3, 'delete_group', 'Can add user', 4, 'add_user', 'Can change user', 4, 'change_user', 'Can delete user', 4, 'delete_user')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'; args=('auth',)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'contenttypes' AND `django_content_type`.`model` = 'contenttype'); args=('contenttypes', 'contenttype')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'contenttypes' AND `django_content_type`.`model` = 'contenttype'); args=('contenttypes', 'contenttype')
+(0.001) INSERT INTO `django_content_type` (`app_label`, `model`) VALUES ('contenttypes', 'contenttype'); args=['contenttypes', 'contenttype']
+(0.002) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(5,)
+(0.001) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add content type', 5, 'add_contenttype'), ('Can change content type', 5, 'change_contenttype'), ('Can delete content type', 5, 'delete_contenttype'); args=('Can add content type', 5, 'add_contenttype', 'Can change content type', 5, 'change_contenttype', 'Can delete content type', 5, 'delete_contenttype')
+(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'; args=('contenttypes',)
+(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'sessions' AND `django_content_type`.`model` = 'session'); args=('sessions', 'session')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'sessions' AND `django_content_type`.`model` = 'session'); args=('sessions', 'session')
+(0.001) INSERT INTO `django_content_type` (`app_label`, `model`) VALUES ('sessions', 'session'); args=['sessions', 'session']
+(0.002) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+(0.001) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add session', 6, 'add_session'), ('Can change session', 6, 'change_session'), ('Can delete session', 6, 'delete_session'); args=('Can add session', 6, 'add_session', 'Can change session', 6, 'change_session', 'Can delete session', 6, 'delete_session')
+(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'; args=('sessions',)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'goods' AND `django_content_type`.`model` = 'goods'); args=('goods', 'goods')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'goods' AND `django_content_type`.`model` = 'goods'); args=('goods', 'goods')
+(0.001) INSERT INTO `django_content_type` (`app_label`, `model`) VALUES ('goods', 'goods'); args=['goods', 'goods']
+(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'goods' AND `django_content_type`.`model` = 'goodsimage'); args=('goods', 'goodsimage')
+(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'goods' AND `django_content_type`.`model` = 'goodsimage'); args=('goods', 'goodsimage')
+(0.001) INSERT INTO `django_content_type` (`app_label`, `model`) VALUES ('goods', 'goodsimage'); args=['goods', 'goodsimage']
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'goods' AND `django_content_type`.`model` = 'goodtype'); args=('goods', 'goodtype')
+(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'goods' AND `django_content_type`.`model` = 'goodtype'); args=('goods', 'goodtype')
+(0.001) INSERT INTO `django_content_type` (`app_label`, `model`) VALUES ('goods', 'goodtype'); args=['goods', 'goodtype']
+(0.002) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (8, 9, 7) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(8, 9, 7)
+(0.002) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add goods', 7, 'add_goods'), ('Can change goods', 7, 'change_goods'), ('Can delete goods', 7, 'delete_goods'), ('Can add goods image', 8, 'add_goodsimage'), ('Can change goods image', 8, 'change_goodsimage'), ('Can delete goods image', 8, 'delete_goodsimage'), ('Can add good type', 9, 'add_goodtype'), ('Can change good type', 9, 'change_goodtype'), ('Can delete good type', 9, 'delete_goodtype'); args=('Can add goods', 7, 'add_goods', 'Can change goods', 7, 'change_goods', 'Can delete goods', 7, 'delete_goods', 'Can add goods image', 8, 'add_goodsimage', 'Can change goods image', 8, 'change_goodsimage', 'Can delete goods image', 8, 'delete_goodsimage', 'Can add good type', 9, 'add_goodtype', 'Can change good type', 9, 'change_goodtype', 'Can delete good type', 9, 'delete_goodtype')
+(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'goods'; args=('goods',)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'store' AND `django_content_type`.`model` = 'store'); args=('store', 'store')
+(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'store' AND `django_content_type`.`model` = 'store'); args=('store', 'store')
+(0.001) INSERT INTO `django_content_type` (`app_label`, `model`) VALUES ('store', 'store'); args=['store', 'store']
+(0.002) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (10) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(10,)
+(0.001) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add store', 10, 'add_store'), ('Can change store', 10, 'change_store'), ('Can delete store', 10, 'delete_store'); args=('Can add store', 10, 'add_store', 'Can change store', 10, 'change_store', 'Can delete store', 10, 'delete_store')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'store'; args=('store',)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'user' AND `django_content_type`.`model` = 'usera'); args=('user', 'usera')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'user' AND `django_content_type`.`model` = 'usera'); args=('user', 'usera')
+(0.001) INSERT INTO `django_content_type` (`app_label`, `model`) VALUES ('user', 'usera'); args=['user', 'usera']
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (11) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(11,)
+(0.001) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add user a', 11, 'add_usera'), ('Can change user a', 11, 'change_usera'), ('Can delete user a', 11, 'delete_usera'); args=('Can add user a', 11, 'add_usera', 'Can change user a', 11, 'change_usera', 'Can delete user a', 11, 'delete_usera')
+(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'user'; args=('user',)
+(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'shopcat' AND `django_content_type`.`model` = 'shopcart'); args=('shopcat', 'shopcart')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'shopcat' AND `django_content_type`.`model` = 'shopcart'); args=('shopcat', 'shopcart')
+(0.001) INSERT INTO `django_content_type` (`app_label`, `model`) VALUES ('shopcat', 'shopcart'); args=['shopcat', 'shopcart']
+(0.002) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (12) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(12,)
+(0.002) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add shop cart', 12, 'add_shopcart'), ('Can change shop cart', 12, 'change_shopcart'), ('Can delete shop cart', 12, 'delete_shopcart'); args=('Can add shop cart', 12, 'add_shopcart', 'Can change shop cart', 12, 'change_shopcart', 'Can delete shop cart', 12, 'delete_shopcart')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'shopcat'; args=('shopcat',)
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.004) SHOW FULL TABLES; args=None
+(0.002) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'afpebbg84fbg3itpvzxtluu1gw1vkwue' AND `django_session`.`expire_date` > '2018-10-24 16:36:38.428753'); args=('afpebbg84fbg3itpvzxtluu1gw1vkwue', '2018-10-24 16:36:38.428753')
+(0.003) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.004) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods`; args=()
+"GET / HTTP/1.1" 200 25423
+"GET /static/commons/css/app/base.css HTTP/1.1" 200 12301
+"GET /static/commons/js/lib/jquery2.2.4/jquery-2.2.4.js HTTP/1.1" 200 267365
+"GET /static/image/1.png HTTP/1.1" 200 84394
+"GET /static/commons/js/lib/bootstrap-3.3.7-dist/js/bootstrap.js HTTP/1.1" 200 72084
+"GET /static/image/baner1.jpg HTTP/1.1" 200 218218
+"GET /static/commons/js/lib/bootstrap-3.3.7-dist/css/bootstrap.css HTTP/1.1" 200 152767
+"GET /static/image/baner.jpg HTTP/1.1" 200 187982
+"GET /static/image/sj2.jpg HTTP/1.1" 200 21241
+"GET /static/image/ds1.jpg HTTP/1.1" 200 205145
+"GET /static/image/renzheng2.png HTTP/1.1" 200 3692
+"GET /static/image/renzheng3.png HTTP/1.1" 200 1923
+"GET /static/image/renzheng1.png HTTP/1.1" 200 3803
+"GET /static/image/renzheng4.png HTTP/1.1" 200 2301
+"GET /static/image/sj1.jpg HTTP/1.1" 200 296327
+"GET /static/image/renzheng5.png HTTP/1.1" 200 24364
+"GET /static/commons/image/footer.png HTTP/1.1" 200 3190
+"GET /static/commons/js/lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "F:\TESST\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^index/$>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern code ^code/$>], [<RegexURLResolver <module 'user.urls' from 'F:\\DOME\\demo1\\mall1\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'store.urls' from 'F:\\DOME\\demo1\\mall1\\store\\urls.py'> (None:store) ^store/>], [<RegexURLResolver <module 'goods.urls' from 'F:\\DOME\\demo1\\mall1\\goods\\urls.py'> (None:goods) ^goods/>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^commons/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "F:\TESST\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^index/$>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern code ^code/$>], [<RegexURLResolver <module 'user.urls' from 'F:\\DOME\\demo1\\mall1\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'store.urls' from 'F:\\DOME\\demo1\\mall1\\store\\urls.py'> (None:store) ^store/>], [<RegexURLResolver <module 'goods.urls' from 'F:\\DOME\\demo1\\mall1\\goods\\urls.py'> (None:goods) ^goods/>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^commons/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'user.urls' from 'F:\\\\DOME\\\\demo1\\\\mall1\\\\user\\\\urls.py'> (None:user) ^user/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "F:\TESST\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^index/$>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern code ^code/$>], [<RegexURLResolver <module 'user.urls' from 'F:\\DOME\\demo1\\mall1\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'store.urls' from 'F:\\DOME\\demo1\\mall1\\store\\urls.py'> (None:store) ^store/>], [<RegexURLResolver <module 'goods.urls' from 'F:\\DOME\\demo1\\mall1\\goods\\urls.py'> (None:goods) ^goods/>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^commons/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'store.urls' from 'F:\\\\DOME\\\\demo1\\\\mall1\\\\store\\\\urls.py'> (None:store) ^store/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "F:\TESST\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^index/$>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern code ^code/$>], [<RegexURLResolver <module 'user.urls' from 'F:\\DOME\\demo1\\mall1\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'store.urls' from 'F:\\DOME\\demo1\\mall1\\store\\urls.py'> (None:store) ^store/>], [<RegexURLResolver <module 'goods.urls' from 'F:\\DOME\\demo1\\mall1\\goods\\urls.py'> (None:goods) ^goods/>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^commons/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'goods.urls' from 'F:\\\\DOME\\\\demo1\\\\mall1\\\\goods\\\\urls.py'> (None:goods) ^goods/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "F:\TESST\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^index/$>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern code ^code/$>], [<RegexURLResolver <module 'user.urls' from 'F:\\DOME\\demo1\\mall1\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'store.urls' from 'F:\\DOME\\demo1\\mall1\\store\\urls.py'> (None:store) ^store/>], [<RegexURLResolver <module 'goods.urls' from 'F:\\DOME\\demo1\\mall1\\goods\\urls.py'> (None:goods) ^goods/>], [<RegexURLResolver <module 'commons.urls' from 'F:\\DOME\\demo1\\mall1\\commons\\urls.py'> (None:commons) ^commons/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'commons.urls' from 'F:\\\\DOME\\\\demo1\\\\mall1\\\\commons\\\\urls.py'> (None:commons) ^commons/>"
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2891
+Exception while resolving variable 'msg' in template 'user/user_login.html'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'msg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'msg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'msg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [msg] in "[{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'QHI7ro2b20ZbvhiKmXGBaRuRYKktLORXGgJQl3S2wjHKE7DsRDwc8l4NWskRLG8I'>, 'request': <WSGIRequest: GET '/user/user_login/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000020B54E63400>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000020B54E30DD8>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000020B54E30F98>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'next_url': '/commons/index/'}]"
+"GET /user/user_login/ HTTP/1.1" 200 6273
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh' LIMIT 1; args=('cc90v13fqkttj5wi0dszoaezfzwdw4eh',)
+(0.001) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('cc90v13fqkttj5wi0dszoaezfzwdw4eh', 'M2Y5NjYwMzFlN2ZhZjY1MTNlNDExZWVjZDRhMjVkMzMxOWU1MjlkZTqABJUSAAAAAAAAAH2UjARjb2RllIwEWU5wTJRzLg==', '2018-11-07 16:36:42.638591'); args=('cc90v13fqkttj5wi0dszoaezfzwdw4eh', 'M2Y5NjYwMzFlN2ZhZjY1MTNlNDExZWVjZDRhMjVkMzMxOWU1MjlkZTqABJUSAAAAAAAAAH2UjARjb2RllIwEWU5wTJRzLg==', '2018-11-07 16:36:42.638591')
+"GET /static/user/css/app/register.css HTTP/1.1" 200 834
+"GET /static/commons/js/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css HTTP/1.1" 200 121205
+"GET /static/commons/js/lib/jquery2.2.4/jquery-2.2.4.min.js HTTP/1.1" 200 85582
+"GET /code/ HTTP/1.1" 200 2102
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh' AND `django_session`.`expire_date` > '2018-10-24 16:37:00.096013'); args=('cc90v13fqkttj5wi0dszoaezfzwdw4eh', '2018-10-24 16:37:00.096013')
+"POST /user/ynpl/checkcode/ HTTP/1.1" 200 58
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.004) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'qwer'; args=('qwer',)
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh' AND `django_session`.`expire_date` > '2018-10-24 16:37:00.264153'); args=('cc90v13fqkttj5wi0dszoaezfzwdw4eh', '2018-10-24 16:37:00.264153')
+Exception while resolving variable 'next_url' in template 'user/user_login.html'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'next_url'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'next_url'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'next_url'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [next_url] in "[{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'vRxuJZ398WFnQN3s5kKjDBLxnzU5FayjlqydDET0CfnWZDoaA0AUB5ltlhUtF2P4'>, 'request': <WSGIRequest: POST '/user/user_login/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000020B54E63B70>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000020B54DE8DD8>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000020B54DE8278>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'msg': '账号或密码错误，请重新登录'}]"
+(0.001) UPDATE `django_session` SET `session_data` = 'ZmY3ZTM5NTA0ZTg3OTRlYTVmZWYwZTIyOWYwNWUyYzkzMzQzN2E1NTqABJUgAAAAAAAAAH2UKIwEY29kZZSMBFlOcEyUjAlsb2dpblVzZXKUTnUu', `expire_date` = '2018-11-07 16:37:00.283175' WHERE `django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh'; args=('ZmY3ZTM5NTA0ZTg3OTRlYTVmZWYwZTIyOWYwNWUyYzkzMzQzN2E1NTqABJUgAAAAAAAAAH2UKIwEY29kZZSMBFlOcEyUjAlsb2dpblVzZXKUTnUu', '2018-11-07 16:37:00.283175', 'cc90v13fqkttj5wi0dszoaezfzwdw4eh')
+"POST /user/user_login/ HTTP/1.1" 200 6297
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh' AND `django_session`.`expire_date` > '2018-10-24 16:37:00.419284'); args=('cc90v13fqkttj5wi0dszoaezfzwdw4eh', '2018-10-24 16:37:00.419284')
+(0.001) UPDATE `django_session` SET `session_data` = 'MGNhY2QwMmQzNDYxYWNjZWRkOWQ4NGE3YzRkMzRmOTUzNmY2YzYwMjqABJUgAAAAAAAAAH2UKIwEY29kZZSMBFoyeTOUjAlsb2dpblVzZXKUTnUu', `expire_date` = '2018-11-07 16:37:00.432293' WHERE `django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh'; args=('MGNhY2QwMmQzNDYxYWNjZWRkOWQ4NGE3YzRkMzRmOTUzNmY2YzYwMjqABJUgAAAAAAAAAH2UKIwEY29kZZSMBFoyeTOUjAlsb2dpblVzZXKUTnUu', '2018-11-07 16:37:00.432293', 'cc90v13fqkttj5wi0dszoaezfzwdw4eh')
+"GET /code/ HTTP/1.1" 200 2419
+Exception while resolving variable 'msg' in template 'user/user_login.html'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'msg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'msg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'msg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [msg] in "[{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'GbxFfYubyNtF5PZMOKDbNLTWfTdYV0oIwKyo9Dk226beeFkujqtMLftSdBdmVSFt'>, 'request': <WSGIRequest: GET '/user/user_login/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000020B54E63A60>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000020B54DE8A20>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000020B54E74AC8>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'next_url': '/commons/index/'}]"
+"GET /user/user_login/ HTTP/1.1" 200 6273
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+"GET /user/register/ HTTP/1.1" 200 8077
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh' AND `django_session`.`expire_date` > '2018-10-24 16:37:16.482030'); args=('cc90v13fqkttj5wi0dszoaezfzwdw4eh', '2018-10-24 16:37:16.482030')
+(0.001) UPDATE `django_session` SET `session_data` = 'N2E2OTBlNjViODI3NzZiNzBkOTcyZWM5OTgzYTcxOGRiMDcyYjlmYzqABJUgAAAAAAAAAH2UKIwEY29kZZSMBG1EamaUjAlsb2dpblVzZXKUTnUu', `expire_date` = '2018-11-07 16:37:16.497040' WHERE `django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh'; args=('N2E2OTBlNjViODI3NzZiNzBkOTcyZWM5OTgzYTcxOGRiMDcyYjlmYzqABJUgAAAAAAAAAH2UKIwEY29kZZSMBG1EamaUjAlsb2dpblVzZXKUTnUu', '2018-11-07 16:37:16.497040', 'cc90v13fqkttj5wi0dszoaezfzwdw4eh')
+"GET /code/ HTTP/1.1" 200 1936
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'qwer'; args=('qwer',)
+"POST /user/qwer/checkusername/ HTTP/1.1" 200 58
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh' AND `django_session`.`expire_date` > '2018-10-24 16:37:30.370518'); args=('cc90v13fqkttj5wi0dszoaezfzwdw4eh', '2018-10-24 16:37:30.370518')
+"POST /user/mdjf/checkcode/ HTTP/1.1" 200 58
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh' AND `django_session`.`expire_date` > '2018-10-24 16:37:30.481400'); args=('cc90v13fqkttj5wi0dszoaezfzwdw4eh', '2018-10-24 16:37:30.481400')
+(0.000) SAVEPOINT `s7712_x1`; args=None
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'qwer'; args=('qwer',)
+(0.002) INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$36000$CzyM1Vws9qVT$9QmxyjWZIMyHXlJWKw11h90ZtKc6OTPk7qwwiVhn3gc=', NULL, 0, 'qwer', '', '', '', 0, 1, '2018-10-24 16:37:30.491405'); args=['pbkdf2_sha256$36000$CzyM1Vws9qVT$9QmxyjWZIMyHXlJWKw11h90ZtKc6OTPk7qwwiVhn3gc=', None, False, 'qwer', '', '', '', False, True, '2018-10-24 16:37:30.491405']
+(0.000) UPDATE `auth_user` SET `password` = 'pbkdf2_sha256$36000$CzyM1Vws9qVT$9QmxyjWZIMyHXlJWKw11h90ZtKc6OTPk7qwwiVhn3gc=', `last_login` = NULL, `is_superuser` = 0, `username` = 'qwer', `first_name` = '', `last_name` = '', `email` = '', `is_staff` = 0, `is_active` = 1, `date_joined` = '2018-10-24 16:37:30.491405' WHERE `auth_user`.`id` = 1; args=('pbkdf2_sha256$36000$CzyM1Vws9qVT$9QmxyjWZIMyHXlJWKw11h90ZtKc6OTPk7qwwiVhn3gc=', False, 'qwer', '', '', '', False, True, '2018-10-24 16:37:30.491405', 1)
+(0.000) INSERT INTO `user_usera` (`phone`, `umaney`, `age`, `gender`, `header`, `collection`, `add`, `user_id`) VALUES ('未设置', '', 1, '0', 'static/images/default.jpg', '', '', 1); args=['未设置', '', 1, '0', 'static/images/default.jpg', '', '', 1]
+(0.000) RELEASE SAVEPOINT `s7712_x1`; args=None
+Exception while resolving variable 'next_url' in template 'user/user_login.html'.
+Traceback (most recent call last):
+  File "F:\DOME\demo1\mall1\user\views.py", line 86, in register
+    User.objects.get(username=username)
+  File "F:\TESST\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "F:\TESST\lib\site-packages\django\db\models\query.py", line 379, in get
+    self.model._meta.object_name
+django.contrib.auth.models.DoesNotExist: User matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'next_url'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'next_url'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'next_url'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [next_url] in "[{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: '2v5ZFuEpjgeUQxAePC2oG2cOp48Ptky1S46Iz9ugNzWtZnVWkiSZEwMKnM8dtcPM'>, 'request': <WSGIRequest: POST '/user/register/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000020B54E63598>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000020B556A2B70>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000020B54E6E048>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'msg': '恭喜注册成功，请登录'}]"
+(0.001) UPDATE `django_session` SET `session_data` = 'YTIxY2U2YzYzNDNlNDVjMzU3ZWQ1NzI2Y2U2ZjY3NWE0ZDI2OTRjYTqABJUdAwAAAAAAAH2UKIwEY29kZZSMBG1EamaUjAlsb2dpblVzZXKUjBVkamFuZ28uZGIubW9kZWxzLmJhc2WUjA5tb2RlbF91bnBpY2tsZZSTlIwEYXV0aJSMBFVzZXKUhpSFlFKUfZQojAZfc3RhdGWUaASMCk1vZGVsU3RhdGWUk5QpgZR9lCiMAmRilIwHZGVmYXVsdJSMBmFkZGluZ5SJdWKMAmlklEsBjAhwYXNzd29yZJSMTXBia2RmMl9zaGEyNTYkMzYwMDAkQ3p5TTFWd3M5cVZUJDlRbXh5aldaSU15SFhsSldLdzExaDkwWnRLYzZPVFBrN3F3d2lWaG4zZ2M9lIwKbGFzdF9sb2dpbpROjAxpc19zdXBlcnVzZXKUiYwIdXNlcm5hbWWUjARxd2VylIwKZmlyc3RfbmFtZZSMAJSMCWxhc3RfbmFtZZRoHYwFZW1haWyUaB2MCGlzX3N0YWZmlImMCWlzX2FjdGl2ZZSIjAtkYXRlX2pvaW5lZJSMCGRhdGV0aW1llIwIZGF0ZXRpbWWUk5RDCgfiChgQJR4Hf42UjARweXR6lIwEX1VUQ5STlClSlIaUUpSMCV9wYXNzd29yZJROjAxfdXNlcmFfY2FjaGWUaAaMBHVzZXKUjAVVc2VyQZSGlIWUUpR9lChoDWgPKYGUfZQoaBJoE2gUiXVijAN1aWSUSwGMBXBob25llIwJ5pyq6K6+572ulIwGdW1hbmV5lGgdjANhZ2WUSwGMBmdlbmRlcpRLAIwGaGVhZGVylIwdZGphbmdvLmRiLm1vZGVscy5maWVsZHMuZmlsZXOUjA5JbWFnZUZpZWxkRmlsZZSTlCmBlH2UKIwEbmFtZZSMGXN0YXRpYy9pbWFnZXMvZGVmYXVsdC5qcGeUjAZjbG9zZWSUiYwKX2NvbW1pdHRlZJSIjAVfZmlsZZROdWKMCmNvbGxlY3Rpb26UaB2MA2FkZJRoHYwHdXNlcl9pZJRLAYwLX3VzZXJfY2FjaGWUaAuMD19kamFuZ29fdmVyc2lvbpSMBDEuMTGUdWJoTIwEMS4xMZR1YnUu', `expire_date` = '2018-11-07 16:37:30.757617' WHERE `django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh'; args=('YTIxY2U2YzYzNDNlNDVjMzU3ZWQ1NzI2Y2U2ZjY3NWE0ZDI2OTRjYTqABJUdAwAAAAAAAH2UKIwEY29kZZSMBG1EamaUjAlsb2dpblVzZXKUjBVkamFuZ28uZGIubW9kZWxzLmJhc2WUjA5tb2RlbF91bnBpY2tsZZSTlIwEYXV0aJSMBFVzZXKUhpSFlFKUfZQojAZfc3RhdGWUaASMCk1vZGVsU3RhdGWUk5QpgZR9lCiMAmRilIwHZGVmYXVsdJSMBmFkZGluZ5SJdWKMAmlklEsBjAhwYXNzd29yZJSMTXBia2RmMl9zaGEyNTYkMzYwMDAkQ3p5TTFWd3M5cVZUJDlRbXh5aldaSU15SFhsSldLdzExaDkwWnRLYzZPVFBrN3F3d2lWaG4zZ2M9lIwKbGFzdF9sb2dpbpROjAxpc19zdXBlcnVzZXKUiYwIdXNlcm5hbWWUjARxd2VylIwKZmlyc3RfbmFtZZSMAJSMCWxhc3RfbmFtZZRoHYwFZW1haWyUaB2MCGlzX3N0YWZmlImMCWlzX2FjdGl2ZZSIjAtkYXRlX2pvaW5lZJSMCGRhdGV0aW1llIwIZGF0ZXRpbWWUk5RDCgfiChgQJR4Hf42UjARweXR6lIwEX1VUQ5STlClSlIaUUpSMCV9wYXNzd29yZJROjAxfdXNlcmFfY2FjaGWUaAaMBHVzZXKUjAVVc2VyQZSGlIWUUpR9lChoDWgPKYGUfZQoaBJoE2gUiXVijAN1aWSUSwGMBXBob25llIwJ5pyq6K6+572ulIwGdW1hbmV5lGgdjANhZ2WUSwGMBmdlbmRlcpRLAIwGaGVhZGVylIwdZGphbmdvLmRiLm1vZGVscy5maWVsZHMuZmlsZXOUjA5JbWFnZUZpZWxkRmlsZZSTlCmBlH2UKIwEbmFtZZSMGXN0YXRpYy9pbWFnZXMvZGVmYXVsdC5qcGeUjAZjbG9zZWSUiYwKX2NvbW1pdHRlZJSIjAVfZmlsZZROdWKMCmNvbGxlY3Rpb26UaB2MA2FkZJRoHYwHdXNlcl9pZJRLAYwLX3VzZXJfY2FjaGWUaAuMD19kamFuZ29fdmVyc2lvbpSMBDEuMTGUdWJoTIwEMS4xMZR1YnUu', '2018-11-07 16:37:30.757617', 'cc90v13fqkttj5wi0dszoaezfzwdw4eh')
+"POST /user/register/ HTTP/1.1" 200 6288
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh' AND `django_session`.`expire_date` > '2018-10-24 16:37:30.875696'); args=('cc90v13fqkttj5wi0dszoaezfzwdw4eh', '2018-10-24 16:37:30.875696')
+(0.001) UPDATE `django_session` SET `session_data` = 'YzkxZWU5MzAxOTFhY2JjYWIzMjNkNzU1ZTU2NDYwYmMwNTNlODYwYzqABJUdAwAAAAAAAH2UKIwEY29kZZSMBFhCY0KUjAlsb2dpblVzZXKUjBVkamFuZ28uZGIubW9kZWxzLmJhc2WUjA5tb2RlbF91bnBpY2tsZZSTlIwEYXV0aJSMBFVzZXKUhpSFlFKUfZQojAZfc3RhdGWUaASMCk1vZGVsU3RhdGWUk5QpgZR9lCiMAmRilIwHZGVmYXVsdJSMBmFkZGluZ5SJdWKMAmlklEsBjAhwYXNzd29yZJSMTXBia2RmMl9zaGEyNTYkMzYwMDAkQ3p5TTFWd3M5cVZUJDlRbXh5aldaSU15SFhsSldLdzExaDkwWnRLYzZPVFBrN3F3d2lWaG4zZ2M9lIwKbGFzdF9sb2dpbpROjAxpc19zdXBlcnVzZXKUiYwIdXNlcm5hbWWUjARxd2VylIwKZmlyc3RfbmFtZZSMAJSMCWxhc3RfbmFtZZRoHYwFZW1haWyUaB2MCGlzX3N0YWZmlImMCWlzX2FjdGl2ZZSIjAtkYXRlX2pvaW5lZJSMCGRhdGV0aW1llIwIZGF0ZXRpbWWUk5RDCgfiChgQJR4Hf42UjARweXR6lIwEX1VUQ5STlClSlIaUUpSMCV9wYXNzd29yZJROjAxfdXNlcmFfY2FjaGWUaAaMBHVzZXKUjAVVc2VyQZSGlIWUUpR9lChoDWgPKYGUfZQoaBJoE2gUiXVijAN1aWSUSwGMBXBob25llIwJ5pyq6K6+572ulIwGdW1hbmV5lGgdjANhZ2WUSwGMBmdlbmRlcpRLAIwGaGVhZGVylIwdZGphbmdvLmRiLm1vZGVscy5maWVsZHMuZmlsZXOUjA5JbWFnZUZpZWxkRmlsZZSTlCmBlH2UKIwEbmFtZZSMGXN0YXRpYy9pbWFnZXMvZGVmYXVsdC5qcGeUjAZjbG9zZWSUiYwKX2NvbW1pdHRlZJSIjAVfZmlsZZROdWKMCmNvbGxlY3Rpb26UaB2MA2FkZJRoHYwHdXNlcl9pZJRLAYwLX3VzZXJfY2FjaGWUaAuMD19kamFuZ29fdmVyc2lvbpSMBDEuMTGUdWJoTIwEMS4xMZR1YnUu', `expire_date` = '2018-11-07 16:37:30.888708' WHERE `django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh'; args=('YzkxZWU5MzAxOTFhY2JjYWIzMjNkNzU1ZTU2NDYwYmMwNTNlODYwYzqABJUdAwAAAAAAAH2UKIwEY29kZZSMBFhCY0KUjAlsb2dpblVzZXKUjBVkamFuZ28uZGIubW9kZWxzLmJhc2WUjA5tb2RlbF91bnBpY2tsZZSTlIwEYXV0aJSMBFVzZXKUhpSFlFKUfZQojAZfc3RhdGWUaASMCk1vZGVsU3RhdGWUk5QpgZR9lCiMAmRilIwHZGVmYXVsdJSMBmFkZGluZ5SJdWKMAmlklEsBjAhwYXNzd29yZJSMTXBia2RmMl9zaGEyNTYkMzYwMDAkQ3p5TTFWd3M5cVZUJDlRbXh5aldaSU15SFhsSldLdzExaDkwWnRLYzZPVFBrN3F3d2lWaG4zZ2M9lIwKbGFzdF9sb2dpbpROjAxpc19zdXBlcnVzZXKUiYwIdXNlcm5hbWWUjARxd2VylIwKZmlyc3RfbmFtZZSMAJSMCWxhc3RfbmFtZZRoHYwFZW1haWyUaB2MCGlzX3N0YWZmlImMCWlzX2FjdGl2ZZSIjAtkYXRlX2pvaW5lZJSMCGRhdGV0aW1llIwIZGF0ZXRpbWWUk5RDCgfiChgQJR4Hf42UjARweXR6lIwEX1VUQ5STlClSlIaUUpSMCV9wYXNzd29yZJROjAxfdXNlcmFfY2FjaGWUaAaMBHVzZXKUjAVVc2VyQZSGlIWUUpR9lChoDWgPKYGUfZQoaBJoE2gUiXVijAN1aWSUSwGMBXBob25llIwJ5pyq6K6+572ulIwGdW1hbmV5lGgdjANhZ2WUSwGMBmdlbmRlcpRLAIwGaGVhZGVylIwdZGphbmdvLmRiLm1vZGVscy5maWVsZHMuZmlsZXOUjA5JbWFnZUZpZWxkRmlsZZSTlCmBlH2UKIwEbmFtZZSMGXN0YXRpYy9pbWFnZXMvZGVmYXVsdC5qcGeUjAZjbG9zZWSUiYwKX2NvbW1pdHRlZJSIjAVfZmlsZZROdWKMCmNvbGxlY3Rpb26UaB2MA2FkZJRoHYwHdXNlcl9pZJRLAYwLX3VzZXJfY2FjaGWUaAuMD19kamFuZ29fdmVyc2lvbpSMBDEuMTGUdWJoTIwEMS4xMZR1YnUu', '2018-11-07 16:37:30.888708', 'cc90v13fqkttj5wi0dszoaezfzwdw4eh')
+"GET /code/ HTTP/1.1" 200 2448
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh' AND `django_session`.`expire_date` > '2018-10-24 16:37:42.278836'); args=('cc90v13fqkttj5wi0dszoaezfzwdw4eh', '2018-10-24 16:37:42.278836')
+"POST /user/xbcb/checkcode/ HTTP/1.1" 200 58
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'qwer'; args=('qwer',)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh' AND `django_session`.`expire_date` > '2018-10-24 16:37:42.483830'); args=('cc90v13fqkttj5wi0dszoaezfzwdw4eh', '2018-10-24 16:37:42.483830')
+(0.001) SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = 'h8ypy5zoo2qgwdpy3fcwy50r0sc3a8fn' LIMIT 1; args=('h8ypy5zoo2qgwdpy3fcwy50r0sc3a8fn',)
+(0.000) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('h8ypy5zoo2qgwdpy3fcwy50r0sc3a8fn', 'ZjU4NDkwMGQ2ZGUzYzQ5YzgwMDFiZjI0ZTRkMWUyODAwNWM0YmY0ZjqABJUXAgAAAAAAAH2UKIwEY29kZZSMBFhCY0KUjAlsb2dpblVzZXKUjBVkamFuZ28uZGIubW9kZWxzLmJhc2WUjA5tb2RlbF91bnBpY2tsZZSTlIwEYXV0aJSMBFVzZXKUhpSFlFKUfZQojAZfc3RhdGWUaASMCk1vZGVsU3RhdGWUk5QpgZR9lCiMAmRilIwHZGVmYXVsdJSMBmFkZGluZ5SJdWKMAmlklEsBjAhwYXNzd29yZJSMTXBia2RmMl9zaGEyNTYkMzYwMDAkQ3p5TTFWd3M5cVZUJDlRbXh5aldaSU15SFhsSldLdzExaDkwWnRLYzZPVFBrN3F3d2lWaG4zZ2M9lIwKbGFzdF9sb2dpbpROjAxpc19zdXBlcnVzZXKUiYwIdXNlcm5hbWWUjARxd2VylIwKZmlyc3RfbmFtZZSMAJSMCWxhc3RfbmFtZZRoHYwFZW1haWyUaB2MCGlzX3N0YWZmlImMCWlzX2FjdGl2ZZSIjAtkYXRlX2pvaW5lZJSMCGRhdGV0aW1llIwIZGF0ZXRpbWWUk5RDCgfiChgQJR4Hf42UjARweXR6lIwEX1VUQ5STlClSlIaUUpSMCV9wYXNzd29yZJROjAdiYWNrZW5klIwpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmSUjA9fZGphbmdvX3ZlcnNpb26UjAQxLjExlHVidS4=', '2018-11-07 16:37:42.487836'); args=('h8ypy5zoo2qgwdpy3fcwy50r0sc3a8fn', 'ZjU4NDkwMGQ2ZGUzYzQ5YzgwMDFiZjI0ZTRkMWUyODAwNWM0YmY0ZjqABJUXAgAAAAAAAH2UKIwEY29kZZSMBFhCY0KUjAlsb2dpblVzZXKUjBVkamFuZ28uZGIubW9kZWxzLmJhc2WUjA5tb2RlbF91bnBpY2tsZZSTlIwEYXV0aJSMBFVzZXKUhpSFlFKUfZQojAZfc3RhdGWUaASMCk1vZGVsU3RhdGWUk5QpgZR9lCiMAmRilIwHZGVmYXVsdJSMBmFkZGluZ5SJdWKMAmlklEsBjAhwYXNzd29yZJSMTXBia2RmMl9zaGEyNTYkMzYwMDAkQ3p5TTFWd3M5cVZUJDlRbXh5aldaSU15SFhsSldLdzExaDkwWnRLYzZPVFBrN3F3d2lWaG4zZ2M9lIwKbGFzdF9sb2dpbpROjAxpc19zdXBlcnVzZXKUiYwIdXNlcm5hbWWUjARxd2VylIwKZmlyc3RfbmFtZZSMAJSMCWxhc3RfbmFtZZRoHYwFZW1haWyUaB2MCGlzX3N0YWZmlImMCWlzX2FjdGl2ZZSIjAtkYXRlX2pvaW5lZJSMCGRhdGV0aW1llIwIZGF0ZXRpbWWUk5RDCgfiChgQJR4Hf42UjARweXR6lIwEX1VUQ5STlClSlIaUUpSMCV9wYXNzd29yZJROjAdiYWNrZW5klIwpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmSUjA9fZGphbmdvX3ZlcnNpb26UjAQxLjExlHVidS4=', '2018-11-07 16:37:42.487836')
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh'; args=('cc90v13fqkttj5wi0dszoaezfzwdw4eh',)
+(0.000) DELETE FROM `django_session` WHERE `django_session`.`session_key` IN ('cc90v13fqkttj5wi0dszoaezfzwdw4eh'); args=('cc90v13fqkttj5wi0dszoaezfzwdw4eh',)
+(0.002) UPDATE `auth_user` SET `last_login` = '2018-10-24 16:37:42.656950' WHERE `auth_user`.`id` = 1; args=('2018-10-24 16:37:42.656950', 1)
+Internal Server Error: /user/user_login/
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\DOME\demo1\mall1\user\views.py", line 52, in user_login
+    return redirect(next_url)
+  File "F:\TESST\lib\site-packages\django\shortcuts.py", line 56, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "F:\TESST\lib\site-packages\django\shortcuts.py", line 147, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "F:\TESST\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "F:\TESST\lib\site-packages\django\urls\resolvers.py", line 497, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '' not found. '' is not a valid view function or pattern name.
+"POST /user/user_login/ HTTP/1.1" 500 88036
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+"GET /user/register/ HTTP/1.1" 200 8077
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'cc90v13fqkttj5wi0dszoaezfzwdw4eh' AND `django_session`.`expire_date` > '2018-10-24 16:37:51.948003'); args=('cc90v13fqkttj5wi0dszoaezfzwdw4eh', '2018-10-24 16:37:51.948003')
+(0.000) SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = 'o4pmii1svy6hkunjzo0qxhk7kg3li0mx' LIMIT 1; args=('o4pmii1svy6hkunjzo0qxhk7kg3li0mx',)
+(0.000) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('o4pmii1svy6hkunjzo0qxhk7kg3li0mx', 'ZmQ2MDI0ZGNkMWVhMGNlMmNkMzg5YTFjZjE1Zjk5M2Y3NWUyYzE5MzqABJUSAAAAAAAAAH2UjARjb2RllIwEY1c2QpRzLg==', '2018-11-07 16:37:51.972019'); args=('o4pmii1svy6hkunjzo0qxhk7kg3li0mx', 'ZmQ2MDI0ZGNkMWVhMGNlMmNkMzg5YTFjZjE1Zjk5M2Y3NWUyYzE5MzqABJUSAAAAAAAAAH2UjARjb2RllIwEY1c2QpRzLg==', '2018-11-07 16:37:51.972019')
+"GET /code/ HTTP/1.1" 200 2265
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'o4pmii1svy6hkunjzo0qxhk7kg3li0mx' AND `django_session`.`expire_date` > '2018-10-24 16:37:56.278600'); args=('o4pmii1svy6hkunjzo0qxhk7kg3li0mx', '2018-10-24 16:37:56.278600')
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods`; args=()
+"GET / HTTP/1.1" 200 25423
+Exception while resolving variable 'msg' in template 'user/user_login.html'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'msg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'msg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'msg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [msg] in "[{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'yFFRYOPpt3MDQmY2Cz49kyo1UT9tuL0bT62PulKvKuCVKBCBfBEBTITWU3YhYnGx'>, 'request': <WSGIRequest: GET '/user/user_login/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000020B556D0950>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000020B556E79E8>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000020B54D40080>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'next_url': '/commons/index/'}]"
+"GET /user/user_login/ HTTP/1.1" 200 6273
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'o4pmii1svy6hkunjzo0qxhk7kg3li0mx' AND `django_session`.`expire_date` > '2018-10-24 16:37:57.904896'); args=('o4pmii1svy6hkunjzo0qxhk7kg3li0mx', '2018-10-24 16:37:57.904896')
+(0.001) UPDATE `django_session` SET `session_data` = 'ZmNiNmM2OGVhOTUxZmYwMjk3ZDFkZTE5Zjk1YTRkMTRjODRhOWNjZTqABJUSAAAAAAAAAH2UjARjb2RllIwEOUNBRZRzLg==', `expire_date` = '2018-11-07 16:37:57.916904' WHERE `django_session`.`session_key` = 'o4pmii1svy6hkunjzo0qxhk7kg3li0mx'; args=('ZmNiNmM2OGVhOTUxZmYwMjk3ZDFkZTE5Zjk1YTRkMTRjODRhOWNjZTqABJUSAAAAAAAAAH2UjARjb2RllIwEOUNBRZRzLg==', '2018-11-07 16:37:57.916904', 'o4pmii1svy6hkunjzo0qxhk7kg3li0mx')
+"GET /code/ HTTP/1.1" 200 2538
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'o4pmii1svy6hkunjzo0qxhk7kg3li0mx' AND `django_session`.`expire_date` > '2018-10-24 16:38:09.434426'); args=('o4pmii1svy6hkunjzo0qxhk7kg3li0mx', '2018-10-24 16:38:09.434426')
+"POST /user/9cae/checkcode/ HTTP/1.1" 200 58
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'qwer'; args=('qwer',)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'o4pmii1svy6hkunjzo0qxhk7kg3li0mx' AND `django_session`.`expire_date` > '2018-10-24 16:38:09.592531'); args=('o4pmii1svy6hkunjzo0qxhk7kg3li0mx', '2018-10-24 16:38:09.592531')
+(0.000) SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' LIMIT 1; args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0',)
+(0.001) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('5e0szjd908tzpi39e5d8uffxh6jcr4x0', 'MmE1ZTJjYWQ0NDVkNTA1N2Q4Mzg1MjdiNWQxNmRhNmM1NTNmNGM3ZjqABJUrAgAAAAAAAH2UKIwEY29kZZSMBDlDQUWUjAlsb2dpblVzZXKUjBVkamFuZ28uZGIubW9kZWxzLmJhc2WUjA5tb2RlbF91bnBpY2tsZZSTlIwEYXV0aJSMBFVzZXKUhpSFlFKUfZQojAZfc3RhdGWUaASMCk1vZGVsU3RhdGWUk5QpgZR9lCiMAmRilIwHZGVmYXVsdJSMBmFkZGluZ5SJdWKMAmlklEsBjAhwYXNzd29yZJSMTXBia2RmMl9zaGEyNTYkMzYwMDAkQ3p5TTFWd3M5cVZUJDlRbXh5aldaSU15SFhsSldLdzExaDkwWnRLYzZPVFBrN3F3d2lWaG4zZ2M9lIwKbGFzdF9sb2dpbpSMCGRhdGV0aW1llIwIZGF0ZXRpbWWUk5RDCgfiChgQJSoKBjaUjARweXR6lIwEX1VUQ5STlClSlIaUUpSMDGlzX3N1cGVydXNlcpSJjAh1c2VybmFtZZSMBHF3ZXKUjApmaXJzdF9uYW1llIwAlIwJbGFzdF9uYW1llGgnjAVlbWFpbJRoJ4wIaXNfc3RhZmaUiYwJaXNfYWN0aXZllIiMC2RhdGVfam9pbmVklGgbQwoH4goYECUeB3+NlGgghpRSlIwJX3Bhc3N3b3JklE6MB2JhY2tlbmSUjClkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZJSMD19kamFuZ29fdmVyc2lvbpSMBDEuMTGUdWJ1Lg==', '2018-11-07 16:38:09.596534'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', 'MmE1ZTJjYWQ0NDVkNTA1N2Q4Mzg1MjdiNWQxNmRhNmM1NTNmNGM3ZjqABJUrAgAAAAAAAH2UKIwEY29kZZSMBDlDQUWUjAlsb2dpblVzZXKUjBVkamFuZ28uZGIubW9kZWxzLmJhc2WUjA5tb2RlbF91bnBpY2tsZZSTlIwEYXV0aJSMBFVzZXKUhpSFlFKUfZQojAZfc3RhdGWUaASMCk1vZGVsU3RhdGWUk5QpgZR9lCiMAmRilIwHZGVmYXVsdJSMBmFkZGluZ5SJdWKMAmlklEsBjAhwYXNzd29yZJSMTXBia2RmMl9zaGEyNTYkMzYwMDAkQ3p5TTFWd3M5cVZUJDlRbXh5aldaSU15SFhsSldLdzExaDkwWnRLYzZPVFBrN3F3d2lWaG4zZ2M9lIwKbGFzdF9sb2dpbpSMCGRhdGV0aW1llIwIZGF0ZXRpbWWUk5RDCgfiChgQJSoKBjaUjARweXR6lIwEX1VUQ5STlClSlIaUUpSMDGlzX3N1cGVydXNlcpSJjAh1c2VybmFtZZSMBHF3ZXKUjApmaXJzdF9uYW1llIwAlIwJbGFzdF9uYW1llGgnjAVlbWFpbJRoJ4wIaXNfc3RhZmaUiYwJaXNfYWN0aXZllIiMC2RhdGVfam9pbmVklGgbQwoH4goYECUeB3+NlGgghpRSlIwJX3Bhc3N3b3JklE6MB2JhY2tlbmSUjClkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZJSMD19kamFuZ29fdmVyc2lvbpSMBDEuMTGUdWJ1Lg==', '2018-11-07 16:38:09.596534')
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = 'o4pmii1svy6hkunjzo0qxhk7kg3li0mx'; args=('o4pmii1svy6hkunjzo0qxhk7kg3li0mx',)
+(0.001) DELETE FROM `django_session` WHERE `django_session`.`session_key` IN ('o4pmii1svy6hkunjzo0qxhk7kg3li0mx'); args=('o4pmii1svy6hkunjzo0qxhk7kg3li0mx',)
+(0.001) UPDATE `auth_user` SET `last_login` = '2018-10-24 16:38:09.801675' WHERE `auth_user`.`id` = 1; args=('2018-10-24 16:38:09.801675', 1)
+(0.001) UPDATE `django_session` SET `session_data` = 'NTkwNTM4ZTlmM2Y4YjEyZDJlZmViYjJjYjkwZmIzZGRiZGI2NjQxMTqABJWTAgAAAAAAAH2UKIwEY29kZZSMBDlDQUWUjAlsb2dpblVzZXKUjBVkamFuZ28uZGIubW9kZWxzLmJhc2WUjA5tb2RlbF91bnBpY2tsZZSTlIwEYXV0aJSMBFVzZXKUhpSFlFKUfZQojAZfc3RhdGWUaASMCk1vZGVsU3RhdGWUk5QpgZR9lCiMAmRilIwHZGVmYXVsdJSMBmFkZGluZ5SJdWKMAmlklEsBjAhwYXNzd29yZJSMTXBia2RmMl9zaGEyNTYkMzYwMDAkQ3p5TTFWd3M5cVZUJDlRbXh5aldaSU15SFhsSldLdzExaDkwWnRLYzZPVFBrN3F3d2lWaG4zZ2M9lIwKbGFzdF9sb2dpbpSMCGRhdGV0aW1llIwIZGF0ZXRpbWWUk5RDCgfiChgQJgkMO4uUjARweXR6lIwEX1VUQ5STlClSlIaUUpSMDGlzX3N1cGVydXNlcpSJjAh1c2VybmFtZZSMBHF3ZXKUjApmaXJzdF9uYW1llIwAlIwJbGFzdF9uYW1llGgnjAVlbWFpbJRoJ4wIaXNfc3RhZmaUiYwJaXNfYWN0aXZllIiMC2RhdGVfam9pbmVklGgbQwoH4goYECUeB3+NlGgghpRSlIwJX3Bhc3N3b3JklE6MB2JhY2tlbmSUjClkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZJSMD19kamFuZ29fdmVyc2lvbpSMBDEuMTGUdWKMDV9hdXRoX3VzZXJfaWSUjAExlIwSX2F1dGhfdXNlcl9iYWNrZW5klGgyjA9fYXV0aF91c2VyX2hhc2iUjCg5OTMzMDhjNjg0MTQwMTJmYjU2N2JkZWI0OWU4OThjMmRhYTQxMzVjlHUu', `expire_date` = '2018-11-07 16:38:09.940763' WHERE `django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0'; args=('NTkwNTM4ZTlmM2Y4YjEyZDJlZmViYjJjYjkwZmIzZGRiZGI2NjQxMTqABJWTAgAAAAAAAH2UKIwEY29kZZSMBDlDQUWUjAlsb2dpblVzZXKUjBVkamFuZ28uZGIubW9kZWxzLmJhc2WUjA5tb2RlbF91bnBpY2tsZZSTlIwEYXV0aJSMBFVzZXKUhpSFlFKUfZQojAZfc3RhdGWUaASMCk1vZGVsU3RhdGWUk5QpgZR9lCiMAmRilIwHZGVmYXVsdJSMBmFkZGluZ5SJdWKMAmlklEsBjAhwYXNzd29yZJSMTXBia2RmMl9zaGEyNTYkMzYwMDAkQ3p5TTFWd3M5cVZUJDlRbXh5aldaSU15SFhsSldLdzExaDkwWnRLYzZPVFBrN3F3d2lWaG4zZ2M9lIwKbGFzdF9sb2dpbpSMCGRhdGV0aW1llIwIZGF0ZXRpbWWUk5RDCgfiChgQJgkMO4uUjARweXR6lIwEX1VUQ5STlClSlIaUUpSMDGlzX3N1cGVydXNlcpSJjAh1c2VybmFtZZSMBHF3ZXKUjApmaXJzdF9uYW1llIwAlIwJbGFzdF9uYW1llGgnjAVlbWFpbJRoJ4wIaXNfc3RhZmaUiYwJaXNfYWN0aXZllIiMC2RhdGVfam9pbmVklGgbQwoH4goYECUeB3+NlGgghpRSlIwJX3Bhc3N3b3JklE6MB2JhY2tlbmSUjClkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZJSMD19kamFuZ29fdmVyc2lvbpSMBDEuMTGUdWKMDV9hdXRoX3VzZXJfaWSUjAExlIwSX2F1dGhfdXNlcl9iYWNrZW5klGgyjA9fYXV0aF91c2VyX2hhc2iUjCg5OTMzMDhjNjg0MTQwMTJmYjU2N2JkZWI0OWU4OThjMmRhYTQxMzVjlHUu', '2018-11-07 16:38:09.940763', '5e0szjd908tzpi39e5d8uffxh6jcr4x0')
+"POST /user/user_login/ HTTP/1.1" 302 0
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:38:10.096870'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:38:10.096870')
+(0.003) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.008) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`user_id` = 1; args=(1,)
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods`; args=()
+"GET /commons/index/ HTTP/1.1" 200 26148
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:38:13.895937'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:38:13.895937')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`user_id` = 1; args=(1,)
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`user_id` = 1; args=(1,)
+Exception while resolving variable 'id' in template 'store/open_shop.html'.
+Traceback (most recent call last):
+  File "F:\DOME\demo1\mall1\store\views.py", line 33, in open_shop
+    store = models.store.objects.get(user_id=request.user.id)
+  File "F:\TESST\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "F:\TESST\lib\site-packages\django\db\models\query.py", line 379, in get
+    self.model._meta.object_name
+store.models.DoesNotExist: store matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\db\models\query.py", line 265, in __getitem__
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QuerySet' object has no attribute 'id'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'id'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [id] in '<QuerySet []>'
+Exception while resolving variable 'id' in template 'store/open_shop.html'.
+Traceback (most recent call last):
+  File "F:\DOME\demo1\mall1\store\views.py", line 33, in open_shop
+    store = models.store.objects.get(user_id=request.user.id)
+  File "F:\TESST\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "F:\TESST\lib\site-packages\django\db\models\query.py", line 379, in get
+    self.model._meta.object_name
+store.models.DoesNotExist: store matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\db\models\query.py", line 265, in __getitem__
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QuerySet' object has no attribute 'id'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'id'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [id] in '<QuerySet []>'
+"GET /store/open_shop/ HTTP/1.1" 200 9907
+"GET /static/store/css/app/open_shop.css HTTP/1.1" 200 1143
+"GET /static/commons/image/default.jpg HTTP/1.1" 200 144681
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:38:57.881712'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:38:57.881712')
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`user_id` = 1; args=(1,)
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`user_id` = 1; args=(1,)
+Exception while resolving variable 'id' in template 'store/open_shop.html'.
+Traceback (most recent call last):
+  File "F:\DOME\demo1\mall1\store\views.py", line 33, in open_shop
+    store = models.store.objects.get(user_id=request.user.id)
+  File "F:\TESST\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "F:\TESST\lib\site-packages\django\db\models\query.py", line 379, in get
+    self.model._meta.object_name
+store.models.DoesNotExist: store matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\db\models\query.py", line 265, in __getitem__
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QuerySet' object has no attribute 'id'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'id'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [id] in '<QuerySet []>'
+Exception while resolving variable 'id' in template 'store/open_shop.html'.
+Traceback (most recent call last):
+  File "F:\DOME\demo1\mall1\store\views.py", line 33, in open_shop
+    store = models.store.objects.get(user_id=request.user.id)
+  File "F:\TESST\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "F:\TESST\lib\site-packages\django\db\models\query.py", line 379, in get
+    self.model._meta.object_name
+store.models.DoesNotExist: store matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\db\models\query.py", line 265, in __getitem__
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QuerySet' object has no attribute 'id'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'id'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [id] in '<QuerySet []>'
+"GET /store/open_shop/ HTTP/1.1" 200 9837
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:39:02.253727'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:39:02.253727')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+Exception while resolving variable 'store' in template 'store/shop.html'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [store] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000020B5392E9D8>>, \'request\': <WSGIRequest: GET \'/store/shop/\'>, \'user\': <SimpleLazyObject: <User: qwer>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x0000020B556F11D0>, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000020B556F1940>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'SUCCESS\': 25, \'WARNING\': 30, \'ERROR\': 40}}, {}, {\'block\': <Block Node: nav. Contents: [<TextNode: \'\\n<div class="top-nav" id=\'>, <django.template.defaulttags.URLNode object at 0x0000020B54E74BA8>, <TextNode: \'">商城首页</a></li>\\n         \'>, <IfNode>, <TextNode: \'\\n                    <li>\'>, <django.template.defaulttags.URLNode object at 0x0000020B556ECB38>, <TextNode: \'"><span class="glyphicon \'>, <Block Node: navnav. Contents: [<TextNode: \'\\n<div class="menu">\\n    <\'>, <django.template.defaulttags.URLNode object at 0x0000020B54E6E6D8>, <TextNode: \'">\\n            MI\\n       \'>, <django.templatetags.static.StaticNode object at 0x0000020B54E6E1D0>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B54E6E6A0>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B54E6E160>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B54E6EC88>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B54E6EC50>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B54E6E7F0>, <TextNode: \'" width="110" height="110\'>]>, <TextNode: \'\\n\'>]>}]'
+Exception while resolving variable 'store' in template 'store/shop.html'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [store] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000020B5392E9D8>>, \'request\': <WSGIRequest: GET \'/store/shop/\'>, \'user\': <SimpleLazyObject: <User: qwer>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x0000020B556F11D0>, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000020B556F1940>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'SUCCESS\': 25, \'WARNING\': 30, \'ERROR\': 40}}, {}, {\'block\': <Block Node: main. Contents: [<TextNode: \'\\n<div class="container pd\'>, <Variable Node: store.id>, <TextNode: \'/detail/">店铺信息</a>\\n      \'>, <django.template.defaulttags.URLNode object at 0x0000020B54DB8C50>, <TextNode: \'">\\n                \'>, <django.template.defaulttags.CsrfTokenNode object at 0x0000020B5571BB70>, <TextNode: \'\\n                <div cla\'>]>}]'
+"GET /store/shop/ HTTP/1.1" 200 10691
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:39:26.981754'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:39:26.981754')
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.001) INSERT INTO `store_store` (`name`, `cover`, `intro`, `opener_time`, `status`, `user_id`) VALUES ('小小铺', 'static/images/default.jpg', '小小铺小小铺小小铺小小铺小小铺小小铺', '2018-10-24 16:39:26.998763', 0, 1); args=['小小铺', 'static/images/default.jpg', '小小铺小小铺小小铺小小铺小小铺小小铺', '2018-10-24 16:39:26.998763', 0, 1]
+"POST /store/shop/ HTTP/1.1" 302 0
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:39:27.157100'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:39:27.157100')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`id` = 1; args=(1,)
+Internal Server Error: /store/1/detail/
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 507, in parse
+    compile_func = self.tags[command]
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\TESST\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "F:\TESST\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "F:\DOME\demo1\mall1\store\views.py", line 76, in detail
+    return render(request,"store/detail.html",{"store":store,"type1":type1,"goods":goods})
+  File "F:\TESST\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\TESST\lib\site-packages\django\template\loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "F:\TESST\lib\site-packages\django\template\loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "F:\TESST\lib\site-packages\django\template\backends\django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "F:\TESST\lib\site-packages\django\template\engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "F:\TESST\lib\site-packages\django\template\engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "F:\TESST\lib\site-packages\django\template\loaders\base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 515, in parse
+    raise self.error(token, e)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 513, in parse
+    compiled_result = compile_func(self, token)
+  File "F:\TESST\lib\site-packages\django\template\loader_tags.py", line 312, in do_extends
+    nodelist = parser.parse()
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 515, in parse
+    raise self.error(token, e)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 513, in parse
+    compiled_result = compile_func(self, token)
+  File "F:\TESST\lib\site-packages\django\template\loader_tags.py", line 255, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 515, in parse
+    raise self.error(token, e)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 513, in parse
+    compiled_result = compile_func(self, token)
+  File "F:\TESST\lib\site-packages\django\template\defaulttags.py", line 871, in ifequal
+    return do_ifequal(parser, token, False)
+  File "F:\TESST\lib\site-packages\django\template\defaulttags.py", line 842, in do_ifequal
+    nodelist_true = parser.parse(('else', end_tag))
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 509, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 565, in invalid_block_tag
+    get_text_list(["'%s'" % p for p in parse_until], 'or'),
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 149: 'endblock', expected 'else' or 'endifequal'. Did you forget to register or load this tag?
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`stores_id` = 1 LIMIT 21; args=(1,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL LIMIT 21; args=()
+(0.000) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`stores_id` = 1 LIMIT 21; args=(1,)
+(0.000) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL LIMIT 21; args=()
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`stores_id` = 1 LIMIT 21; args=(1,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL LIMIT 21; args=()
+"GET /store/1/detail/ HTTP/1.1" 500 205512
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:42:27.166450'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:42:27.166450')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`id` = 1; args=(1,)
+Internal Server Error: /store/1/detail/
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 507, in parse
+    compile_func = self.tags[command]
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\TESST\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "F:\TESST\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "F:\DOME\demo1\mall1\store\views.py", line 76, in detail
+    return render(request,"store/detail.html",{"store":store,"type1":type1,"goods":goods})
+  File "F:\TESST\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\TESST\lib\site-packages\django\template\loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "F:\TESST\lib\site-packages\django\template\loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "F:\TESST\lib\site-packages\django\template\backends\django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "F:\TESST\lib\site-packages\django\template\engine.py", line 162, in get_template
+    template, origin = self.find_template(template_name)
+  File "F:\TESST\lib\site-packages\django\template\engine.py", line 136, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "F:\TESST\lib\site-packages\django\template\loaders\base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 515, in parse
+    raise self.error(token, e)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 513, in parse
+    compiled_result = compile_func(self, token)
+  File "F:\TESST\lib\site-packages\django\template\loader_tags.py", line 312, in do_extends
+    nodelist = parser.parse()
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 515, in parse
+    raise self.error(token, e)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 513, in parse
+    compiled_result = compile_func(self, token)
+  File "F:\TESST\lib\site-packages\django\template\loader_tags.py", line 255, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 515, in parse
+    raise self.error(token, e)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 513, in parse
+    compiled_result = compile_func(self, token)
+  File "F:\TESST\lib\site-packages\django\template\defaulttags.py", line 871, in ifequal
+    return do_ifequal(parser, token, False)
+  File "F:\TESST\lib\site-packages\django\template\defaulttags.py", line 842, in do_ifequal
+    nodelist_true = parser.parse(('else', end_tag))
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 509, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 565, in invalid_block_tag
+    get_text_list(["'%s'" % p for p in parse_until], 'or'),
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 149: 'endblock', expected 'else' or 'endifequal'. Did you forget to register or load this tag?
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`stores_id` = 1 LIMIT 21; args=(1,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL LIMIT 21; args=()
+(0.000) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`stores_id` = 1 LIMIT 21; args=(1,)
+(0.000) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL LIMIT 21; args=()
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`stores_id` = 1 LIMIT 21; args=(1,)
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL LIMIT 21; args=()
+"GET /store/1/detail/ HTTP/1.1" 500 205513
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:42:28.364204'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:42:28.364204')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+Exception while resolving variable 'store' in template 'store/shop.html'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [store] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000020B556F8E18>>, \'request\': <WSGIRequest: GET \'/store/shop/\'>, \'user\': <SimpleLazyObject: <User: qwer>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x0000020B557250F0>, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000020B556F1E80>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'SUCCESS\': 25, \'WARNING\': 30, \'ERROR\': 40}}, {}, {\'block\': <Block Node: nav. Contents: [<TextNode: \'\\n<div class="top-nav" id=\'>, <django.template.defaulttags.URLNode object at 0x0000020B5575FEB8>, <TextNode: \'">商城首页</a></li>\\n         \'>, <IfNode>, <TextNode: \'\\n                    <li>\'>, <django.template.defaulttags.URLNode object at 0x0000020B5571B6D8>, <TextNode: \'"><span class="glyphicon \'>, <Block Node: navnav. Contents: [<TextNode: \'\\n<div class="menu">\\n    <\'>, <django.template.defaulttags.URLNode object at 0x0000020B557C2748>, <TextNode: \'">\\n            MI\\n       \'>, <django.templatetags.static.StaticNode object at 0x0000020B557C2828>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B557C28D0>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B557C2978>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B557C2A20>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B557C2AC8>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B557C2B70>, <TextNode: \'" width="110" height="110\'>]>, <TextNode: \'\\n\'>]>}]'
+Exception while resolving variable 'store' in template 'store/shop.html'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [store] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000020B556F8E18>>, \'request\': <WSGIRequest: GET \'/store/shop/\'>, \'user\': <SimpleLazyObject: <User: qwer>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x0000020B557250F0>, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000020B556F1E80>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'SUCCESS\': 25, \'WARNING\': 30, \'ERROR\': 40}}, {}, {\'block\': <Block Node: main. Contents: [<TextNode: \'\\n<div class="container pd\'>, <Variable Node: store.id>, <TextNode: \'/detail/">店铺信息</a>\\n      \'>, <django.template.defaulttags.URLNode object at 0x0000020B5571A6A0>, <TextNode: \'">\\n                \'>, <django.template.defaulttags.CsrfTokenNode object at 0x0000020B557110F0>, <TextNode: \'\\n                <div cla\'>]>}]'
+"GET /store/shop/ HTTP/1.1" 200 10691
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:42:30.238240'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:42:30.238240')
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+Exception while resolving variable 'store' in template 'store/shop.html'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [store] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000020B556F8EA0>>, \'request\': <WSGIRequest: GET \'/store/shop/\'>, \'user\': <SimpleLazyObject: <User: qwer>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x0000020B5571B828>, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000020B556F1240>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'SUCCESS\': 25, \'WARNING\': 30, \'ERROR\': 40}}, {}, {\'block\': <Block Node: nav. Contents: [<TextNode: \'\\n<div class="top-nav" id=\'>, <django.template.defaulttags.URLNode object at 0x0000020B557C41D0>, <TextNode: \'">商城首页</a></li>\\n         \'>, <IfNode>, <TextNode: \'\\n                    <li>\'>, <django.template.defaulttags.URLNode object at 0x0000020B557C4208>, <TextNode: \'"><span class="glyphicon \'>, <Block Node: navnav. Contents: [<TextNode: \'\\n<div class="menu">\\n    <\'>, <django.template.defaulttags.URLNode object at 0x0000020B557940B8>, <TextNode: \'">\\n            MI\\n       \'>, <django.templatetags.static.StaticNode object at 0x0000020B55794198>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B55794240>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B557942E8>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B55794390>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B55794438>, <TextNode: \'" width="110" height="110\'>, <django.templatetags.static.StaticNode object at 0x0000020B557944E0>, <TextNode: \'" width="110" height="110\'>]>, <TextNode: \'\\n\'>]>}]'
+Exception while resolving variable 'store' in template 'store/shop.html'.
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "F:\TESST\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'store'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [store] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000020B556F8EA0>>, \'request\': <WSGIRequest: GET \'/store/shop/\'>, \'user\': <SimpleLazyObject: <User: qwer>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x0000020B5571B828>, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000020B556F1240>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'SUCCESS\': 25, \'WARNING\': 30, \'ERROR\': 40}}, {}, {\'block\': <Block Node: main. Contents: [<TextNode: \'\\n<div class="container pd\'>, <Variable Node: store.id>, <TextNode: \'/detail/">店铺信息</a>\\n      \'>, <django.template.defaulttags.URLNode object at 0x0000020B5577BDA0>, <TextNode: \'">\\n                \'>, <django.template.defaulttags.CsrfTokenNode object at 0x0000020B5577BCC0>, <TextNode: \'\\n                <div cla\'>]>}]'
+"GET /store/shop/ HTTP/1.1" 200 10691
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:42:39.963217'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:42:39.963217')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`user_id` = 1; args=(1,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods`; args=()
+"GET /index/ HTTP/1.1" 200 26148
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:42:43.648674'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:42:43.648674')
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`user_id` = 1; args=(1,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods`; args=()
+"GET /index/ HTTP/1.1" 200 26148
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:42:47.315546'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:42:47.315546')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`user_id` = 1; args=(1,)
+"GET /store/open_shop/ HTTP/1.1" 200 10221
+"GET /static/images/default.jpg HTTP/1.1" 200 144681
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:43:05.656608'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:43:05.656608')
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`id` = 1; args=(1,)
+(0.001) UPDATE `store_store` SET `name` = '小小铺', `cover` = 'static/images/default.jpg', `intro` = '小小铺小小铺小小铺小小铺小小铺小小铺', `opener_time` = '2018-10-24 16:39:26.998763', `status` = 1, `user_id` = 1 WHERE `store_store`.`id` = 1; args=('小小铺', 'static/images/default.jpg', '小小铺小小铺小小铺小小铺小小铺小小铺', '2018-10-24 16:39:26.998763', 1, 1, 1)
+"GET /store/1/1/change/ HTTP/1.1" 200 10184
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:43:11.096132'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:43:11.096132')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+Internal Server Error: /store/release_goods/
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\TESST\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "F:\TESST\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+TypeError: detail() missing 1 required positional argument: 's_id'
+"GET /store/release_goods/ HTTP/1.1" 500 72812
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:43:29.353717'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:43:29.353717')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+Internal Server Error: /store/release_goods/
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\TESST\lib\site-packages\django\views\decorators\http.py", line 40, in inner
+    return func(request, *args, **kwargs)
+  File "F:\TESST\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+TypeError: detail() missing 1 required positional argument: 's_id'
+"GET /store/release_goods/ HTTP/1.1" 500 72812
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:44:34.541807'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:44:34.541807')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`id` = 1; args=(1,)
+(0.001) UPDATE `store_store` SET `name` = '小小铺', `cover` = 'static/images/default.jpg', `intro` = '小小铺小小铺小小铺小小铺小小铺小小铺', `opener_time` = '2018-10-24 16:39:26.998763', `status` = 1, `user_id` = 1 WHERE `store_store`.`id` = 1; args=('小小铺', 'static/images/default.jpg', '小小铺小小铺小小铺小小铺小小铺小小铺', '2018-10-24 16:39:26.998763', 1, 1, 1)
+Internal Server Error: /store/1/1/change/
+Traceback (most recent call last):
+  File "F:\TESST\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\TESST\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\TESST\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "F:\DOME\demo1\mall1\store\views.py", line 88, in change
+    return render(request, "store/open_shop.html", {"store": store})
+  File "F:\TESST\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\TESST\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "F:\TESST\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 207, in render
+    return self._render(context)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "F:\TESST\lib\site-packages\django\template\loader_tags.py", line 177, in render
+    return compiled_parent._render(context)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "F:\TESST\lib\site-packages\django\template\loader_tags.py", line 72, in render
+    result = block.nodelist.render(context)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "F:\TESST\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "F:\TESST\lib\site-packages\django\template\defaulttags.py", line 458, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\TESST\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "F:\TESST\lib\site-packages\django\urls\resolvers.py", line 497, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'release_goods' with arguments '(1,)' not found. 1 pattern(s) tried: ['store/release_goods/']
+"GET /store/1/1/change/ HTTP/1.1" 500 181451
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:44:49.123083'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:44:49.123083')
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`id` = 1; args=(1,)
+(0.001) UPDATE `store_store` SET `name` = '小小铺', `cover` = 'static/images/default.jpg', `intro` = '小小铺小小铺小小铺小小铺小小铺小小铺', `opener_time` = '2018-10-24 16:39:26.998763', `status` = 1, `user_id` = 1 WHERE `store_store`.`id` = 1; args=('小小铺', 'static/images/default.jpg', '小小铺小小铺小小铺小小铺小小铺小小铺', '2018-10-24 16:39:26.998763', 1, 1, 1)
+"GET /store/1/1/change/ HTTP/1.1" 200 10184
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '5e0szjd908tzpi39e5d8uffxh6jcr4x0' AND `django_session`.`expire_date` > '2018-10-24 16:45:42.854705'); args=('5e0szjd908tzpi39e5d8uffxh6jcr4x0', '2018-10-24 16:45:42.854705')
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.002) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`user_id` = 1; args=(1,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.000) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods`; args=()
+"GET /index/ HTTP/1.1" 200 26148

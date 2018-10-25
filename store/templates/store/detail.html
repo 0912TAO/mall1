@@ -1,4 +1,153 @@
-<<<<<<< HEAD
+
+<!--&lt;!&ndash;{% extends 'base.html' %}&ndash;&gt;-->
+<!--&lt;!&ndash;{% load static %}&ndash;&gt;-->
+<!--&lt;!&ndash;{% block title %}&ndash;&gt;-->
+
+<!--&lt;!&ndash;open_shop&ndash;&gt;-->
+
+<!--&lt;!&ndash;{% endblock %}&ndash;&gt;-->
+
+<!--&lt;!&ndash;{% block css %}&ndash;&gt;-->
+<!--&lt;!&ndash;<link rel="stylesheet" href="{% static 'store/css/app/open_shop.css' %}">&ndash;&gt;-->
+<!--&lt;!&ndash;{% endblock %}&ndash;&gt;-->
+
+<!--&lt;!&ndash;{% block navnav %}&ndash;&gt;-->
+<!--&lt;!&ndash;{% endblock %}&ndash;&gt;-->
+
+<!--&lt;!&ndash;{% block baner %}&ndash;&gt;-->
+<!--&lt;!&ndash;{% endblock %}&ndash;&gt;-->
+
+<!--&lt;!&ndash;{% block main %}&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<h1>店铺详情</h1>&ndash;&gt;-->
+    <!--&lt;!&ndash;<table border="1">&ndash;&gt;-->
+        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>店铺封面</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt=""></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>店铺名称</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>{{store.name}}</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>店铺状态</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                <!--&lt;!&ndash;{% ifequal store.status  0 %}&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p>正在营业</p>&ndash;&gt;-->
+
+
+
+        <!--&lt;!&ndash;&lt;!&ndash;# 右&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="col-md-9 right_menu">&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<div class="row col-md-10 col-md-offset-1" style="margin-top: 30px;text-align: center;">&ndash;&gt;-->
+                <!--&lt;!&ndash;<br>&ndash;&gt;-->
+                <!--&lt;!&ndash;<img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt="">&ndash;&gt;-->
+                <!--&lt;!&ndash;<h4><b>{{store.name}}</b></h4><br>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>{{store.intro}}</p><br>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<table class="table table-striped table-bordered">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<tr style="font-weight: 800;">&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<td>店铺状态</td>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td>你可以选择</td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;{% ifequal store.status  0 %}&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p style="font-weight: 700;color: #f54b07;">正在营业</p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td>&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;<a href="{% url 'store:change' store.id  1%}">暂停营业</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a href="{% url 'store:change' store.id  2%}">删除店铺</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                <!--&lt;!&ndash;{% else %}&ndash;&gt;-->
+
+                     <!--&lt;!&ndash;{% ifequal store.status  1 %}&ndash;&gt;-->
+                        <!--&lt;!&ndash;<p style="font-weight: 700;color: #f54b07;">暂停营业</p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td><a href="{% url 'store:change' store.id  0%}">开始营业</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="{% url 'store:change' store.id  2%}">删除店铺</a></td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;{% else %}&ndash;&gt;-->
+                        <!--&lt;!&ndash;<td><p style="font-weight: 700;color: #f54b07;">亲，您的店铺已移除如有疑问请联系管理员</p></td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;{% endifequal %}&ndash;&gt;-->
+                <!--&lt;!&ndash;{% endifequal %}&ndash;&gt;-->
+            <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>操作</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><a href="{% url 'store:update' store.id %}">修改店铺信息</a></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+    <!--&lt;!&ndash;</table>&ndash;&gt;-->
+    <!--&lt;!&ndash;<hr >&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<h1>商品展示</h1>&ndash;&gt;-->
+    <!--&lt;!&ndash;{% for g in goods %}&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;<img style="width: 200px;height: 200px" src="{{g.goodsimage_set.all.first}}" alt="">&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<img style="width: 200px;height: 200px" src="/{{g.goodsimage_set.all.first.path}}" alt=""><br></br>&ndash;&gt;-->
+    <!--&lt;!&ndash;商品名：<p>{{g.name}}</p>&ndash;&gt;-->
+    <!--&lt;!&ndash;商品单价<p>{{g.price}}</p>&ndash;&gt;-->
+    <!--&lt;!&ndash;商品库存：<p>{{g.stock}}</p>&ndash;&gt;-->
+    <!--&lt;!&ndash;{% empty %}&ndash;&gt;-->
+    <!--&lt;!&ndash;<p>当前没有商品请上架商品</p>&ndash;&gt;-->
+    <!--&lt;!&ndash;{% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;<hr>&ndash;&gt;-->
+<!--&lt;!&ndash;<h1>上架商品</h1>&ndash;&gt;-->
+    <!--&lt;!&ndash;<form action="{% url 'goods:add' %}" method="post" enctype="multipart/form-data">&ndash;&gt;-->
+        <!--&lt;!&ndash;{% csrf_token  %}&ndash;&gt;-->
+        <!--&lt;!&ndash;商品名称：<input type="text" name="name" id="name"><br>&ndash;&gt;-->
+        <!--&lt;!&ndash;商品单价：<input type="number" name="price"><br>&ndash;&gt;-->
+        <!--&lt;!&ndash;商品库存：<input type="number" name="stock"><br>&ndash;&gt;-->
+        <!--&lt;!&ndash;<input type="hidden" name="store" value="{{store.id}}"><br>&ndash;&gt;-->
+        <!--&lt;!&ndash;商品图片：<input type="file" name="cover">&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash;扩充点击BUTTON继续添加图片&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<br>&ndash;&gt;-->
+        <!--&lt;!&ndash;商品类型：&ndash;&gt;-->
+        <!--&lt;!&ndash;<select name="type1" id="type1">&ndash;&gt;-->
+            <!--&lt;!&ndash;{%for t in type1 %}&ndash;&gt;-->
+            <!--&lt;!&ndash;<option value="{{t.id}}">{{t.name}}</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;{% endfor %}&ndash;&gt;-->
+        <!--&lt;!&ndash;</select>&ndash;&gt;-->
+        <!--&lt;!&ndash;<select name="type2" id="type2">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;</select><br>&ndash;&gt;-->
+        <!--&lt;!&ndash;商品介绍：<textarea name="intro" id="" cols="30" rows="10"></textarea><br>&ndash;&gt;-->
+        <!--&lt;!&ndash;<button type="submit">上架商品</button>&ndash;&gt;-->
+    <!--&lt;!&ndash;</form>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+    <!--&lt;!&ndash;$(function () {&ndash;&gt;-->
+        <!--&lt;!&ndash;$("#type1").on("change",function () {&ndash;&gt;-->
+            <!--&lt;!&ndash;$.ajax({&ndash;&gt;-->
+                <!--&lt;!&ndash;url:"/goods/findTypeByPID/",&ndash;&gt;-->
+                <!--&lt;!&ndash;type:"get",&ndash;&gt;-->
+                <!--&lt;!&ndash;data:{"parent_id":$(this).val()},&ndash;&gt;-->
+                <!--&lt;!&ndash;success:function (data) {&ndash;&gt;-->
+                     <!--&lt;!&ndash;$("#type2").empty()&ndash;&gt;-->
+                    <!--&lt;!&ndash;data = JSON.parse(data);&ndash;&gt;-->
+                    <!--&lt;!&ndash;// console.info(data)&ndash;&gt;-->
+                    <!--&lt;!&ndash;for (var i= 0;i<data.length;i++)&ndash;&gt;-->
+                    <!--&lt;!&ndash;{&ndash;&gt;-->
+                        <!--&lt;!&ndash;var type = data[i];&ndash;&gt;-->
+                        <!--&lt;!&ndash;$op = $("<option>");&ndash;&gt;-->
+                        <!--&lt;!&ndash;$op.attr("value",type.pk)&ndash;&gt;-->
+                        <!--&lt;!&ndash;$op.text(type.fields.name)&ndash;&gt;-->
+                        <!--&lt;!&ndash;$("#type2").append($op)&ndash;&gt;-->
+                    <!--&lt;!&ndash;}&ndash;&gt;-->
+                <!--&lt;!&ndash;},&ndash;&gt;-->
+                <!--&lt;!&ndash;error:function () {&ndash;&gt;-->
+                    <!--&lt;!&ndash;alert("网络异常请联系管理员")&ndash;&gt;-->
+
+                <!--&lt;!&ndash;}&ndash;&gt;-->
+            <!--&lt;!&ndash;})&ndash;&gt;-->
+        <!--&lt;!&ndash;})&ndash;&gt;-->
+    <!--&lt;!&ndash;})&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;{% endblock %}&ndash;&gt;-->
+<!--=======-->
 <!--{% extends 'base.html' %}-->
 <!--{% load static %}-->
 <!--{% block title %}-->
@@ -19,316 +168,167 @@
 
 <!--{% block main %}-->
 
-    <!--<h1>店铺详情</h1>-->
-    <!--<table border="1">-->
-        <!--<tr>-->
-            <!--<td>店铺封面</td>-->
-            <!--<td><img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt=""></td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td>店铺名称</td>-->
-            <!--<td>{{store.name}}</td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td>店铺状态</td>-->
-            <!--<td>-->
-                <!--{% ifequal store.status  0 %}-->
-                    <!--<p>正在营业</p>-->
+<!--<h1>店铺详情</h1>-->
+<!--<table border="1">-->
+    <!--<tr>-->
+        <!--<td>店铺封面</td>-->
+        <!--<td><img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt=""></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td>店铺名称</td>-->
+        <!--<td>{{store.name}}</td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td>店铺状态</td>-->
+        <!--<td>-->
+            <!--{% ifequal store.status 0 %}-->
+            <!--<p>正在营业</p>-->
 
+            <!--<div class="container pd">-->
+                <!--<div class="row">-->
+                    <!--&lt;!&ndash;左&ndash;&gt;-->
+                    <!--<div class="col-md-3 left_menu">-->
+                        <!--<ul class="list-group">-->
+                            <!--<li class="list-group-item">-->
+                                <!--<span>店铺管理</span>-->
+                                <!--<a href="/store/open_shop/">我要开店</a>-->
+                                <!--<a href="/store/{{store.id}}/detail/">店铺信息</a>-->
+                            <!--</li>-->
+                            <!--<li class="list-group-item">-->
+                                <!--<span>交易管理</span>-->
+                                <!--<a href="">已卖出的宝贝</a>-->
+                                <!--<a href="">评价管理</a>-->
+                            <!--</li>-->
+                            <!--<li class="list-group-item">-->
+                                <!--<span>物流管理</span>-->
+                                <!--<a href="">发货</a>-->
+                            <!--</li>-->
+                            <!--<li class="list-group-item">-->
+                                <!--<span>宝贝管理</span>-->
+                                <!--<a href="">发布宝贝</a>-->
+                                <!--<a href="">管理宝贝</a>-->
+                            <!--</li>-->
+                            <!--<li class="list-group-item">-->
+                                <!--<span>客户服务</span>-->
+                                <!--<a href="">举报管理</a>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
 
+                    <!--&lt;!&ndash;# 右&ndash;&gt;-->
+                    <!--<div class="col-md-9 right_menu">-->
 
-        <!--&lt;!&ndash;# 右&ndash;&gt;-->
-        <!--<div class="col-md-9 right_menu">-->
+                        <!--<div class="row col-md-10 col-md-offset-1" style="margin-top: 30px;text-align: center;">-->
+                            <!--<br>-->
+                            <!--<img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt="">-->
+                            <!--<h4><b>{{store.name}}</b></h4><br>-->
+                            <!--<p>{{store.intro}}</p><br>-->
 
-            <!--<div class="row col-md-10 col-md-offset-1" style="margin-top: 30px;text-align: center;">-->
-                <!--<br>-->
-                <!--<img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt="">-->
-                <!--<h4><b>{{store.name}}</b></h4><br>-->
-                <!--<p>{{store.intro}}</p><br>-->
+                            <!--<table class="table table-striped table-bordered">-->
+                                <!--<tr style="font-weight: 800;">-->
 
-                <!--<table class="table table-striped table-bordered">-->
-                    <!--<tr style="font-weight: 800;">-->
+                                    <!--<td>店铺状态</td>-->
+                                    <!--<td>你可以选择</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>-->
+                                        <!--{% ifequal store.status 0 %}-->
+                                        <!--<p style="font-weight: 700;color: #f54b07;">正在营业</p>-->
+                                    <!--</td>-->
+                                    <!--<td>-->
 
-                        <!--<td>店铺状态</td>-->
-                        <!--<td>你可以选择</td>-->
-                    <!--</tr>-->
-                    <!--<tr>-->
-                        <!--<td>-->
-                            <!--{% ifequal store.status  0 %}-->
-                    <!--<p style="font-weight: 700;color: #f54b07;">正在营业</p>-->
-                        <!--</td>-->
-                    <!--<td>-->
+                                        <!--<a href="{% url 'store:change' store.id  1%}">暂停营业</a>-->
+                                        <!--<a href="{% url 'store:change' store.id  2%}">删除店铺</a>-->
+                                    <!--</td>-->
+                                    <!--{% else %}-->
 
-                    <!--<a href="{% url 'store:change' store.id  1%}">暂停营业</a>-->
-                    <!--<a href="{% url 'store:change' store.id  2%}">删除店铺</a>-->
-                    <!--</td>-->
-                <!--{% else %}-->
+                                    <!--{% ifequal store.status 1 %}-->
+                                    <!--<p style="font-weight: 700;color: #f54b07;">暂停营业</p>-->
+                                    <!--<td><a href="{% url 'store:change' store.id  0%}">开始营业</a>-->
+                                        <!--<a href="{% url 'store:change' store.id  2%}">删除店铺</a></td>-->
+                                    <!--{% else %}-->
+                                    <!--<td><p style="font-weight: 700;color: #f54b07;">亲，您的店铺已移除如有疑问请联系管理员</p></td>-->
+                                    <!--{% endifequal %}-->
+                                    <!--{% endifequal %}-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<td>操作</td>-->
+                                    <!--<td><a href="{% url 'store:update' store.id %}">修改店铺信息</a></td>-->
+                                <!--</tr>-->
+                            <!--</table>-->
+                            <!--<hr>-->
 
-                     <!--{% ifequal store.status  1 %}-->
-                        <!--<p style="font-weight: 700;color: #f54b07;">暂停营业</p>-->
-                        <!--<td><a href="{% url 'store:change' store.id  0%}">开始营业</a>-->
-                        <!--<a href="{% url 'store:change' store.id  2%}">删除店铺</a></td>-->
-                    <!--{% else %}-->
-                        <!--<td><p style="font-weight: 700;color: #f54b07;">亲，您的店铺已移除如有疑问请联系管理员</p></td>-->
-                    <!--{% endifequal %}-->
-                <!--{% endifequal %}-->
-            <!--</td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td>操作</td>-->
-            <!--<td><a href="{% url 'store:update' store.id %}">修改店铺信息</a></td>-->
-        <!--</tr>-->
-    <!--</table>-->
-    <!--<hr >-->
+                            <!--<h1>商品展示</h1>-->
+                            <!--{% for g in goods %}-->
+                            <!--&lt;!&ndash;<img style="width: 200px;height: 200px" src="{{g.goodsimage_set.all.first}}" alt="">&ndash;&gt;-->
+                            <!--<img style="width: 200px;height: 200px" src="/{{g.goodsimage_set.all.first.path}}"-->
+                                 <!--alt=""><br></br>-->
+                            <!--商品名：<p>{{g.name}}</p>-->
+                            <!--商品单价<p>{{g.price}}</p>-->
+                            <!--商品库存：<p>{{g.stock}}</p>-->
+                            <!--{% empty %}-->
+                            <!--<p>当前没有商品请上架商品</p>-->
+                            <!--{% endfor %}-->
+                            <!--<hr>-->
+                            <!--<h1>上架商品</h1>-->
+                            <!--<form action="{% url 'goods:add' %}" method="post" enctype="multipart/form-data">-->
+                                <!--{% csrf_token %}-->
+                                <!--商品名称：<input type="text" name="name" id="name"><br>-->
+                                <!--商品单价：<input type="number" name="price"><br>-->
+                                <!--商品库存：<input type="number" name="stock"><br>-->
+                                <!--<input type="hidden" name="store" value="{{store.id}}"><br>-->
+                                <!--商品图片：<input type="file" name="cover">-->
+                                <!--&lt;!&ndash;扩充点击BUTTON继续添加图片&ndash;&gt;-->
+                                <!--<br>-->
+                                <!--商品类型：-->
+                                <!--<select name="type1" id="type1">-->
+                                    <!--{%for t in type1 %}-->
+                                    <!--<option value="{{t.id}}">{{t.name}}</option>-->
+                                    <!--{% endfor %}-->
+                                <!--</select>-->
+                                <!--<select name="type2" id="type2">-->
 
-    <!--<h1>商品展示</h1>-->
-    <!--{% for g in goods %}-->
-    <!--&lt;!&ndash;<img style="width: 200px;height: 200px" src="{{g.goodsimage_set.all.first}}" alt="">&ndash;&gt;-->
-    <!--<img style="width: 200px;height: 200px" src="/{{g.goodsimage_set.all.first.path}}" alt=""><br></br>-->
-    <!--商品名：<p>{{g.name}}</p>-->
-    <!--商品单价<p>{{g.price}}</p>-->
-    <!--商品库存：<p>{{g.stock}}</p>-->
-    <!--{% empty %}-->
-    <!--<p>当前没有商品请上架商品</p>-->
-    <!--{% endfor %}-->
-<!--<hr>-->
-<!--<h1>上架商品</h1>-->
-    <!--<form action="{% url 'goods:add' %}" method="post" enctype="multipart/form-data">-->
-        <!--{% csrf_token  %}-->
-        <!--商品名称：<input type="text" name="name" id="name"><br>-->
-        <!--商品单价：<input type="number" name="price"><br>-->
-        <!--商品库存：<input type="number" name="stock"><br>-->
-        <!--<input type="hidden" name="store" value="{{store.id}}"><br>-->
-        <!--商品图片：<input type="file" name="cover">-->
-        <!--&lt;!&ndash;扩充点击BUTTON继续添加图片&ndash;&gt;-->
-        <!--<br>-->
-        <!--商品类型：-->
-        <!--<select name="type1" id="type1">-->
-            <!--{%for t in type1 %}-->
-            <!--<option value="{{t.id}}">{{t.name}}</option>-->
-            <!--{% endfor %}-->
-        <!--</select>-->
-        <!--<select name="type2" id="type2">-->
+                                <!--</select><br>-->
+                                <!--商品介绍：<textarea name="intro" id="" cols="30" rows="10"></textarea><br>-->
+                                <!--<button type="submit">上架商品</button>-->
+                            <!--</form>-->
 
-        <!--</select><br>-->
-        <!--商品介绍：<textarea name="intro" id="" cols="30" rows="10"></textarea><br>-->
-        <!--<button type="submit">上架商品</button>-->
-    <!--</form>-->
+                            <!--<script>-->
+                                <!--$(function () {-->
+                                    <!--$("#type1").on("change", function () {-->
+                                        <!--$.ajax({-->
+                                            <!--url: "/goods/findTypeByPID/",-->
+                                            <!--type: "get",-->
+                                            <!--data: {"parent_id": $(this).val()},-->
+                                            <!--success: function (data) {-->
+                                                <!--$("#type2").empty()-->
+                                                <!--data = JSON.parse(data);-->
+                                                <!--// console.info(data)-->
+                                                <!--for (var i = 0; i < data.length; i++) {-->
+                                                    <!--var type = data[i];-->
+                                                    <!--$op = $("<option>");-->
+                                                    <!--$op.attr("value", type.pk)-->
+                                                    <!--$op.text(type.fields.name)-->
+                                                    <!--$("#type2").append($op)-->
+                                                <!--}-->
+                                            <!--},-->
+                                            <!--error: function () {-->
+                                                <!--alert("网络异常请联系管理员")-->
 
+                                            <!--}-->
+                                        <!--})-->
+                                    <!--})-->
+                                <!--})-->
+                            <!--</script>-->
 
-<!--<script>-->
-    <!--$(function () {-->
-        <!--$("#type1").on("change",function () {-->
-            <!--$.ajax({-->
-                <!--url:"/goods/findTypeByPID/",-->
-                <!--type:"get",-->
-                <!--data:{"parent_id":$(this).val()},-->
-                <!--success:function (data) {-->
-                     <!--$("#type2").empty()-->
-                    <!--data = JSON.parse(data);-->
-                    <!--// console.info(data)-->
-                    <!--for (var i= 0;i<data.length;i++)-->
-                    <!--{-->
-                        <!--var type = data[i];-->
-                        <!--$op = $("<option>");-->
-                        <!--$op.attr("value",type.pk)-->
-                        <!--$op.text(type.fields.name)-->
-                        <!--$("#type2").append($op)-->
-                    <!--}-->
-                <!--},-->
-                <!--error:function () {-->
-                    <!--alert("网络异常请联系管理员")-->
-
-                <!--}-->
-            <!--})-->
-        <!--})-->
-    <!--})-->
-<!--</script>-->
-
+        <!--</td>-->
+    <!--</tr>-->
+<!--</table>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 
 <!--{% endblock %}-->
-=======
-{% extends 'base.html' %}
-{% load static %}
-{% block title %}
 
-open_shop
-
-{% endblock %}
-
-{% block css %}
-<link rel="stylesheet" href="{% static 'store/css/app/open_shop.css' %}">
-{% endblock %}
-
-{% block navnav %}
-{% endblock %}
-
-{% block baner %}
-{% endblock %}
-
-{% block main %}
-
-<h1>店铺详情</h1>
-<table border="1">
-    <tr>
-        <td>店铺封面</td>
-        <td><img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt=""></td>
-    </tr>
-    <tr>
-        <td>店铺名称</td>
-        <td>{{store.name}}</td>
-    </tr>
-    <tr>
-        <td>店铺状态</td>
-        <td>
-            {% ifequal store.status 0 %}
-            <p>正在营业</p>
-
-            <div class="container pd">
-                <div class="row">
-                    <!--左-->
-                    <div class="col-md-3 left_menu">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <span>店铺管理</span>
-                                <a href="/store/open_shop/">我要开店</a>
-                                <a href="/store/{{store.id}}/detail/">店铺信息</a>
-                            </li>
-                            <li class="list-group-item">
-                                <span>交易管理</span>
-                                <a href="">已卖出的宝贝</a>
-                                <a href="">评价管理</a>
-                            </li>
-                            <li class="list-group-item">
-                                <span>物流管理</span>
-                                <a href="">发货</a>
-                            </li>
-                            <li class="list-group-item">
-                                <span>宝贝管理</span>
-                                <a href="">发布宝贝</a>
-                                <a href="">管理宝贝</a>
-                            </li>
-                            <li class="list-group-item">
-                                <span>客户服务</span>
-                                <a href="">举报管理</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!--# 右-->
-                    <div class="col-md-9 right_menu">
-
-                        <div class="row col-md-10 col-md-offset-1" style="margin-top: 30px;text-align: center;">
-                            <br>
-                            <img style="height: 120px;width: 120px;" src="/{{store.cover}}" alt="">
-                            <h4><b>{{store.name}}</b></h4><br>
-                            <p>{{store.intro}}</p><br>
-
-                            <table class="table table-striped table-bordered">
-                                <tr style="font-weight: 800;">
-
-                                    <td>店铺状态</td>
-                                    <td>你可以选择</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        {% ifequal store.status 0 %}
-                                        <p style="font-weight: 700;color: #f54b07;">正在营业</p>
-                                    </td>
-                                    <td>
-
-                                        <a href="{% url 'store:change' store.id  1%}">暂停营业</a>
-                                        <a href="{% url 'store:change' store.id  2%}">删除店铺</a>
-                                    </td>
-                                    {% else %}
-
-                                    {% ifequal store.status 1 %}
-                                    <p style="font-weight: 700;color: #f54b07;">暂停营业</p>
-                                    <td><a href="{% url 'store:change' store.id  0%}">开始营业</a>
-                                        <a href="{% url 'store:change' store.id  2%}">删除店铺</a></td>
-                                    {% else %}
-                                    <td><p style="font-weight: 700;color: #f54b07;">亲，您的店铺已移除如有疑问请联系管理员</p></td>
-                                    {% endifequal %}
-                                    {% endifequal %}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>操作</td>
-                                    <td><a href="{% url 'store:update' store.id %}">修改店铺信息</a></td>
-                                </tr>
-                            </table>
-                            <hr>
-
-                            <h1>商品展示</h1>
-                            {% for g in goods %}
-                            <!--<img style="width: 200px;height: 200px" src="{{g.goodsimage_set.all.first}}" alt="">-->
-                            <img style="width: 200px;height: 200px" src="/{{g.goodsimage_set.all.first.path}}"
-                                 alt=""><br></br>
-                            商品名：<p>{{g.name}}</p>
-                            商品单价<p>{{g.price}}</p>
-                            商品库存：<p>{{g.stock}}</p>
-                            {% empty %}
-                            <p>当前没有商品请上架商品</p>
-                            {% endfor %}
-                            <hr>
-                            <h1>上架商品</h1>
-                            <form action="{% url 'goods:add' %}" method="post" enctype="multipart/form-data">
-                                {% csrf_token %}
-                                商品名称：<input type="text" name="name" id="name"><br>
-                                商品单价：<input type="number" name="price"><br>
-                                商品库存：<input type="number" name="stock"><br>
-                                <input type="hidden" name="store" value="{{store.id}}"><br>
-                                商品图片：<input type="file" name="cover">
-                                <!--扩充点击BUTTON继续添加图片-->
-                                <br>
-                                商品类型：
-                                <select name="type1" id="type1">
-                                    {%for t in type1 %}
-                                    <option value="{{t.id}}">{{t.name}}</option>
-                                    {% endfor %}
-                                </select>
-                                <select name="type2" id="type2">
-
-                                </select><br>
-                                商品介绍：<textarea name="intro" id="" cols="30" rows="10"></textarea><br>
-                                <button type="submit">上架商品</button>
-                            </form>
-
-                            <script>
-                                $(function () {
-                                    $("#type1").on("change", function () {
-                                        $.ajax({
-                                            url: "/goods/findTypeByPID/",
-                                            type: "get",
-                                            data: {"parent_id": $(this).val()},
-                                            success: function (data) {
-                                                $("#type2").empty()
-                                                data = JSON.parse(data);
-                                                // console.info(data)
-                                                for (var i = 0; i < data.length; i++) {
-                                                    var type = data[i];
-                                                    $op = $("<option>");
-                                                    $op.attr("value", type.pk)
-                                                    $op.text(type.fields.name)
-                                                    $("#type2").append($op)
-                                                }
-                                            },
-                                            error: function () {
-                                                alert("网络异常请联系管理员")
-
-                                            }
-                                        })
-                                    })
-                                })
-                            </script>
-
-        </td>
-    </tr>
-</table>
-</div>
-</div>
-</div>
-</div>
-
-{% endblock %}
->>>>>>> f85ebc37ff19e5d0844e7ca832274bc06b53fda4
