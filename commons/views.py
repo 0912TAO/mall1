@@ -15,6 +15,11 @@ def index(request):
     s = store.objects.filter(user_id=request.user.id)
     goods = GoodType.objects.filter(parent__isnull=True)
     shangpin = Goods.objects.all()
+    print("******************")
+    print(s)
+    print(goods)
+    print(shangpin)
+    print("******************")
     # tupian = GoodsImage.objects.get(pk=shangpin)
     return render(request, "commons/index.html", {"store": s, "goods": goods, "shangpin":shangpin})
 

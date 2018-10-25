@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^store/', include('store.urls', namespace='store')),
     url(r'^goods/', include('goods.urls', namespace='goods')),
     url(r'^commons/', include('commons.urls', namespace='commons')),
+    # url(r'^shopcat/', include('shopcat.urls', namespace='shopcat')),
 
 ]
 
