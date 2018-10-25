@@ -6540,3 +6540,169 @@ django.template.base.VariableDoesNotExist: Failed lookup for key [goodimage_set]
 (0.001) SELECT VERSION(); args=None
 (0.002) SHOW FULL TABLES; args=None
 (0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.006) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.002) SELECT VERSION(); args=None
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.002) SELECT VERSION(); args=None
+(0.006) SHOW FULL TABLES; args=None
+(0.005) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.003) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.002) SELECT VERSION(); args=None
+(0.006) SHOW FULL TABLES; args=None
+(0.007) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.002) SELECT VERSION(); args=None
+(0.005) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:06:08.437851'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:06:08.437851')
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10001; args=(10001,)
+(0.003) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10002; args=(10002,)
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10003; args=(10003,)
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10004; args=(10004,)
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10002)); args=(10002,)
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10001)); args=(10001,)
+(0.002) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 2 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(2,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 3 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(3,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 5 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(5,)
+(0.005) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10003)); args=(10003,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10004)); args=(10004,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 1 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(1,)
+"GET / HTTP/1.1" 200 23408
+"GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVZURvYXVtUVAvSzBCRzQ0bHlXTmdSSXVBSzZMWGVtbUdRPT0.jpg HTTP/1.1" 404 1889
+"GET /static/images/goods/b6f9463a80a948c4f74a2c10ef368b4a.jpg HTTP/1.1" 404 1760
+"GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVV1RxSWF1RDQ2TnVLREpnaVY3djlmWWFmZklGajVJckdnPT0.jpg HTTP/1.1" 404 1889
+"GET /static/images/goods/5cf303b248c2ebcd0c8592e6f953f8a0.jpg HTTP/1.1" 404 1760
+Internal Server Error: /search/
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\views.py", line 51, in __call__
+    return self.create_response()
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\views.py", line 150, in create_response
+    context = self.get_context()
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\views.py", line 128, in get_context
+    (paginator, page) = self.build_page()
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\views.py", line 108, in build_page
+    self.results[start_offset:start_offset + self.results_per_page]
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\query.py", line 307, in __getitem__
+    self._fill_cache(start, bound)
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\query.py", line 231, in _fill_cache
+    results = self.query.get_results(**kwargs)
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\backends\__init__.py", line 638, in get_results
+    self.run(**kwargs)
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\backends\__init__.py", line 556, in run
+    results = self.backend.search(final_query, **search_kwargs)
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\backends\__init__.py", line 33, in wrapper
+    return func(obj, query_string, *args, **kwargs)
+  File "E:\python\myself\web\project\mall1\mysearch\whoosh_cn_backend.py", line 308, in search
+    self.setup()
+  File "E:\python\myself\web\project\mall1\mysearch\whoosh_cn_backend.py", line 119, in setup
+    self.content_field_name, self.schema = self.build_schema(connections[self.connection_alias].get_unified_index().all_searchfields())
+  File "E:\python\myself\web\project\mall1\mysearch\whoosh_cn_backend.py", line 172, in build_schema
+    raise SearchBackendError("No fields were found in any search_indexes. Please correct this before attempting to search.")
+haystack.exceptions.SearchBackendError: No fields were found in any search_indexes. Please correct this before attempting to search.
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.003) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:06:12.152149'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:06:12.152149')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 500 117223
+Internal Server Error: /search/
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\views.py", line 51, in __call__
+    return self.create_response()
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\views.py", line 150, in create_response
+    context = self.get_context()
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\views.py", line 128, in get_context
+    (paginator, page) = self.build_page()
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\views.py", line 108, in build_page
+    self.results[start_offset:start_offset + self.results_per_page]
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\query.py", line 307, in __getitem__
+    self._fill_cache(start, bound)
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\query.py", line 231, in _fill_cache
+    results = self.query.get_results(**kwargs)
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\backends\__init__.py", line 638, in get_results
+    self.run(**kwargs)
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\backends\__init__.py", line 556, in run
+    results = self.backend.search(final_query, **search_kwargs)
+  File "E:\python\myself\web\webxn\lib\site-packages\haystack\backends\__init__.py", line 33, in wrapper
+    return func(obj, query_string, *args, **kwargs)
+  File "E:\python\myself\web\project\mall1\mysearch\whoosh_cn_backend.py", line 308, in search
+    self.setup()
+  File "E:\python\myself\web\project\mall1\mysearch\whoosh_cn_backend.py", line 119, in setup
+    self.content_field_name, self.schema = self.build_schema(connections[self.connection_alias].get_unified_index().all_searchfields())
+  File "E:\python\myself\web\project\mall1\mysearch\whoosh_cn_backend.py", line 172, in build_schema
+    raise SearchBackendError("No fields were found in any search_indexes. Please correct this before attempting to search.")
+haystack.exceptions.SearchBackendError: No fields were found in any search_indexes. Please correct this before attempting to search.
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.003) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:06:33.128753'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:06:33.128753')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 500 117358
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.002) SELECT VERSION(); args=None
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.002) SELECT VERSION(); args=None
+(0.006) SHOW FULL TABLES; args=None
+(0.003) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.004) SHOW FULL TABLES; args=None
+(0.003) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.003) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:06:39.067537'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:06:39.067537')
+(0.004) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10001; args=(10001,)
+(0.003) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10002; args=(10002,)
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10003; args=(10003,)
+(0.003) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10004; args=(10004,)
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10002)); args=(10002,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10001)); args=(10001,)
+(0.002) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 2 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(2,)
+(0.002) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 3 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(3,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 5 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(5,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10003)); args=(10003,)
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10004)); args=(10004,)
+(0.002) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 1 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(1,)
+"GET / HTTP/1.1" 200 23408
+"GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVZURvYXVtUVAvSzBCRzQ0bHlXTmdSSXVBSzZMWGVtbUdRPT0.jpg HTTP/1.1" 404 1889
+"GET /static/images/goods/b6f9463a80a948c4f74a2c10ef368b4a.jpg HTTP/1.1" 404 1760
+"GET /static/images/goods/5cf303b248c2ebcd0c8592e6f953f8a0.jpg HTTP/1.1" 404 1760
+"GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVV1RxSWF1RDQ2TnVLREpnaVY3djlmWWFmZklGajVJckdnPT0.jpg HTTP/1.1" 404 1889
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:06:46.562600'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:06:46.562600')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13703
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.002) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:06:50.649796'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:06:50.649796')
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10001; args=(10001,)
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10002; args=(10002,)
+(0.003) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10003; args=(10003,)
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10004; args=(10004,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10002)); args=(10002,)
+(0.004) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10001)); args=(10001,)
+(0.002) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 2 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(2,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 3 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(3,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 5 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(5,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10003)); args=(10003,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10004)); args=(10004,)
+(0.002) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 1 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(1,)
+"GET /index/ HTTP/1.1" 200 23408
+"GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVZURvYXVtUVAvSzBCRzQ0bHlXTmdSSXVBSzZMWGVtbUdRPT0.jpg HTTP/1.1" 404 1889
+"GET /static/images/goods/b6f9463a80a948c4f74a2c10ef368b4a.jpg HTTP/1.1" 404 1760
+"GET /static/images/goods/5cf303b248c2ebcd0c8592e6f953f8a0.jpg HTTP/1.1" 404 1760
+"GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVV1RxSWF1RDQ2TnVLREpnaVY3djlmWWFmZklGajVJckdnPT0.jpg HTTP/1.1" 404 1889

@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'goods',    # 产品
     'store',    # 商店
     'user',     # 用户
-    "shopcat"   # 购物车
+    "shopcat",   # 购物车
     # 'xadmin',
     # 'crispy_forms',
     # 'reversion',
@@ -170,7 +170,6 @@ EMAIL_HOST_PASSWORD = 'meng0912'
 # 收件人看到的发件人
 EMAIL_FROM = 'tom_tao0912@163.com'
 
-<<<<<<< HEAD
 
 LOGGING = {
     'version': 1,
@@ -202,7 +201,7 @@ LOGGING = {
         },
     },
 }
-=======
+
 # django-haystack的配置信息
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -217,4 +216,3 @@ HAYSTACK_CONNECTIONS = {
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
 
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
->>>>>>> f5b0a80ae8b8a22b83ef2ad0b5530a92eaa1df40

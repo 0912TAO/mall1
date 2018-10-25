@@ -14,16 +14,14 @@ from goods.models import GoodType
 def index(request):
     s = store.objects.filter(user_id=request.user.id)
     goods = GoodType.objects.filter(parent__isnull=True)
-<<<<<<< HEAD
     shangpin = Goods.objects.all()
-    print("******************")
-    print(s)
-    print(goods)
-    print(shangpin)
-    print("******************")
+    # print("******************")
+    # print(s)
+    # print(goods)
+    # print(shangpin)
+    # print("******************")
     # tupian = GoodsImage.objects.get(pk=shangpin)
-    return render(request, "commons/index.html", {"store": s, "goods": goods, "shangpin":shangpin})
-=======
+    # return render(request, "commons/index.html", {"store": s, "goods": goods, "shangpin":shangpin})
     # 手机类型
     shouji_type1 = GoodType.objects.filter(pk=10001)
     shouji_type2 = GoodType.objects.filter(parent=shouji_type1)
@@ -47,7 +45,6 @@ def index(request):
     return render(request, "commons/index.html", {"store": s, "goods": goods, "shouji": shouji,
                                                   "jiadian": jiadian, "peijian": peijian, "shuma": shuma
                                                   })
->>>>>>> f5b0a80ae8b8a22b83ef2ad0b5530a92eaa1df40
 
 
 # 验证码
