@@ -6706,3 +6706,406 @@ haystack.exceptions.SearchBackendError: No fields were found in any search_index
 "GET /static/images/goods/b6f9463a80a948c4f74a2c10ef368b4a.jpg HTTP/1.1" 404 1760
 "GET /static/images/goods/5cf303b248c2ebcd0c8592e6f953f8a0.jpg HTTP/1.1" 404 1760
 "GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVV1RxSWF1RDQ2TnVLREpnaVY3djlmWWFmZklGajVJckdnPT0.jpg HTTP/1.1" 404 1889
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.006) SHOW FULL TABLES; args=None
+(0.002) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.002) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:35:18.217839'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:35:18.217839')
+(0.005) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.003) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10001; args=(10001,)
+(0.004) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10002; args=(10002,)
+(0.003) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10003; args=(10003,)
+(0.003) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10004; args=(10004,)
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10002)); args=(10002,)
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10001)); args=(10001,)
+(0.003) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 2 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(2,)
+(0.003) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 3 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(3,)
+(0.002) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 5 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(5,)
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10003)); args=(10003,)
+(0.004) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10004)); args=(10004,)
+(0.003) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 1 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(1,)
+"GET / HTTP/1.1" 200 23408
+"GET /static/commons/css/app/base.css HTTP/1.1" 304 0
+"GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVZURvYXVtUVAvSzBCRzQ0bHlXTmdSSXVBSzZMWGVtbUdRPT0.jpg HTTP/1.1" 404 1889
+"GET /static/images/goods/b6f9463a80a948c4f74a2c10ef368b4a.jpg HTTP/1.1" 404 1760
+"GET /static/images/goods/5cf303b248c2ebcd0c8592e6f953f8a0.jpg HTTP/1.1" 404 1760
+"GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVV1RxSWF1RDQ2TnVLREpnaVY3djlmWWFmZklGajVJckdnPT0.jpg HTTP/1.1" 404 1889
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'haystack.urls' from 'E:\\python\\myself\\web\\webxn\\lib\\site-packages\\haystack\\urls.py'> (None:None) ^search/>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^index/$>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern code ^code/$>], [<RegexURLResolver <module 'user.urls' from 'E:\\python\\myself\\web\\project\\mall1\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'store.urls' from 'E:\\python\\myself\\web\\project\\mall1\\store\\urls.py'> (None:store) ^store/>], [<RegexURLResolver <module 'goods.urls' from 'E:\\python\\myself\\web\\project\\mall1\\goods\\urls.py'> (None:goods) ^goods/>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^commons/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'haystack.urls' from 'E:\\python\\myself\\web\\webxn\\lib\\site-packages\\haystack\\urls.py'> (None:None) ^search/>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^index/$>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern code ^code/$>], [<RegexURLResolver <module 'user.urls' from 'E:\\python\\myself\\web\\project\\mall1\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'store.urls' from 'E:\\python\\myself\\web\\project\\mall1\\store\\urls.py'> (None:store) ^store/>], [<RegexURLResolver <module 'goods.urls' from 'E:\\python\\myself\\web\\project\\mall1\\goods\\urls.py'> (None:goods) ^goods/>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^commons/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'haystack.urls' from 'E:\\\\python\\\\myself\\\\web\\\\webxn\\\\lib\\\\site-packages\\\\haystack\\\\urls.py'> (None:None) ^search/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'haystack.urls' from 'E:\\python\\myself\\web\\webxn\\lib\\site-packages\\haystack\\urls.py'> (None:None) ^search/>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^index/$>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern code ^code/$>], [<RegexURLResolver <module 'user.urls' from 'E:\\python\\myself\\web\\project\\mall1\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'store.urls' from 'E:\\python\\myself\\web\\project\\mall1\\store\\urls.py'> (None:store) ^store/>], [<RegexURLResolver <module 'goods.urls' from 'E:\\python\\myself\\web\\project\\mall1\\goods\\urls.py'> (None:goods) ^goods/>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^commons/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'user.urls' from 'E:\\\\python\\\\myself\\\\web\\\\project\\\\mall1\\\\user\\\\urls.py'> (None:user) ^user/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'haystack.urls' from 'E:\\python\\myself\\web\\webxn\\lib\\site-packages\\haystack\\urls.py'> (None:None) ^search/>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^index/$>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern code ^code/$>], [<RegexURLResolver <module 'user.urls' from 'E:\\python\\myself\\web\\project\\mall1\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'store.urls' from 'E:\\python\\myself\\web\\project\\mall1\\store\\urls.py'> (None:store) ^store/>], [<RegexURLResolver <module 'goods.urls' from 'E:\\python\\myself\\web\\project\\mall1\\goods\\urls.py'> (None:goods) ^goods/>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^commons/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'store.urls' from 'E:\\\\python\\\\myself\\\\web\\\\project\\\\mall1\\\\store\\\\urls.py'> (None:store) ^store/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'haystack.urls' from 'E:\\python\\myself\\web\\webxn\\lib\\site-packages\\haystack\\urls.py'> (None:None) ^search/>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^index/$>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern code ^code/$>], [<RegexURLResolver <module 'user.urls' from 'E:\\python\\myself\\web\\project\\mall1\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'store.urls' from 'E:\\python\\myself\\web\\project\\mall1\\store\\urls.py'> (None:store) ^store/>], [<RegexURLResolver <module 'goods.urls' from 'E:\\python\\myself\\web\\project\\mall1\\goods\\urls.py'> (None:goods) ^goods/>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^commons/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'goods.urls' from 'E:\\\\python\\\\myself\\\\web\\\\project\\\\mall1\\\\goods\\\\urls.py'> (None:goods) ^goods/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "E:\python\myself\web\webxn\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'haystack.urls' from 'E:\\python\\myself\\web\\webxn\\lib\\site-packages\\haystack\\urls.py'> (None:None) ^search/>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern index ^index/$>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^>, <RegexURLPattern code ^code/$>], [<RegexURLResolver <module 'user.urls' from 'E:\\python\\myself\\web\\project\\mall1\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'store.urls' from 'E:\\python\\myself\\web\\project\\mall1\\store\\urls.py'> (None:store) ^store/>], [<RegexURLResolver <module 'goods.urls' from 'E:\\python\\myself\\web\\project\\mall1\\goods\\urls.py'> (None:goods) ^goods/>], [<RegexURLResolver <module 'commons.urls' from 'E:\\python\\myself\\web\\project\\mall1\\commons\\urls.py'> (None:commons) ^commons/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python\myself\web\webxn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'commons.urls' from 'E:\\\\python\\\\myself\\\\web\\\\project\\\\mall1\\\\commons\\\\urls.py'> (None:commons) ^commons/>"
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2999
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:35:32.353860'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:35:32.353860')
+"GET /search/?q=%E5%8D%8E%E4%B8%BA HTTP/1.1" 200 13025
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.002) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:35:58.004262'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:35:58.004262')
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10001; args=(10001,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10002; args=(10002,)
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10003; args=(10003,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10004; args=(10004,)
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10002)); args=(10002,)
+(0.004) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10001)); args=(10001,)
+(0.003) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 2 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(2,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 3 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(3,)
+(0.003) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 5 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(5,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10003)); args=(10003,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10004)); args=(10004,)
+(0.002) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 1 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(1,)
+"GET /index/ HTTP/1.1" 200 23408
+"GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVZURvYXVtUVAvSzBCRzQ0bHlXTmdSSXVBSzZMWGVtbUdRPT0.jpg HTTP/1.1" 404 1889
+"GET /static/images/goods/b6f9463a80a948c4f74a2c10ef368b4a.jpg HTTP/1.1" 404 1760
+"GET /static/images/goods/5cf303b248c2ebcd0c8592e6f953f8a0.jpg HTTP/1.1" 404 1760
+"GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVV1RxSWF1RDQ2TnVLREpnaVY3djlmWWFmZklGajVJckdnPT0.jpg HTTP/1.1" 404 1889
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.007) SHOW FULL TABLES; args=None
+(0.002) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.002) SELECT VERSION(); args=None
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:37:37.411312'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:37:37.411312')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13703
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:37:46.620944'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:37:46.620944')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13703
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:38:40.458853'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:38:40.458853')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13788
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.003) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:39:08.698581'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:39:08.698581')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13691
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.002) SELECT VERSION(); args=None
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:39:48.252128'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:39:48.252128')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13719
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:39:51.473159'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:39:51.473159')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13719
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.003) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:40:15.405280'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:40:15.405280')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13719
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:40:18.259106'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:40:18.259106')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13719
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:41:57.650357'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:41:57.650357')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13719
+(0.003) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.003) SELECT VERSION(); args=None
+(0.008) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:42:04.479487'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:42:04.479487')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13719
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.002) SELECT VERSION(); args=None
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:42:21.799413'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:42:21.799413')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13719
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:43:02.541045'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:43:02.541045')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13719
+"GET /static/commons/js/lib/jquery2.2.4/jquery-2.2.4.js HTTP/1.1" 200 267365
+"GET /static/commons/js/lib/bootstrap-3.3.7-dist/css/bootstrap.css HTTP/1.1" 200 152767
+"GET /static/commons/js/lib/bootstrap-3.3.7-dist/js/bootstrap.js HTTP/1.1" 200 72084
+"GET /static/commons/css/app/base.css HTTP/1.1" 200 12345
+"GET /static/image/sj2.jpg HTTP/1.1" 200 21241
+"GET /static/image/1.png HTTP/1.1" 200 84394
+"GET /static/image/renzheng1.png HTTP/1.1" 200 3803
+"GET /static/image/renzheng2.png HTTP/1.1" 200 3692
+"GET /static/image/renzheng3.png HTTP/1.1" 200 1923
+"GET /static/image/renzheng4.png HTTP/1.1" 200 2301
+"GET /static/image/renzheng5.png HTTP/1.1" 200 24364
+"GET /static/commons/image/footer.png HTTP/1.1" 200 3190
+"GET /static/commons/js/lib/bootstrap-3.3.7-dist/css/bootstrap.css.map HTTP/1.1" 200 389287
+"GET /static/commons/js/lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+(0.003) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.002) SELECT VERSION(); args=None
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:43:27.758835'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:43:27.758835')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13761
+"GET /static/commons/css/app/base.css HTTP/1.1" 304 0
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:43:36.443241'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:43:36.443241')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13753
+"GET /static/commons/css/app/base.css HTTP/1.1" 304 0
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:44:19.295839'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:44:19.295839')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13753
+"GET /static/commons/css/app/base.css HTTP/1.1" 200 12368
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` IN (1); args=(1,)
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:44:20.696487'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:44:20.696487')
+"GET /search/?q=%E7%B4%A2%E5%B0%BC HTTP/1.1" 200 13753
+"GET /static/commons/css/app/base.css HTTP/1.1" 304 0
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c48njqg5bn6l7tx0xvanwni5e3n1flp4' AND `django_session`.`expire_date` > '2018-10-25 09:44:28.369325'); args=('c48njqg5bn6l7tx0xvanwni5e3n1flp4', '2018-10-25 09:44:28.369325')
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10001; args=(10001,)
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10002; args=(10002,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10003; args=(10003,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10004; args=(10004,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10002)); args=(10002,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10001)); args=(10001,)
+(0.003) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 2 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(2,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 3 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(3,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 5 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(5,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10003)); args=(10003,)
+(0.005) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10004)); args=(10004,)
+(0.002) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 1 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(1,)
+"GET /index/ HTTP/1.1" 200 23408
+"GET /static/commons/css/app/base.css HTTP/1.1" 304 0
+"GET /static/image/baner1.jpg HTTP/1.1" 200 218218
+"GET /static/image/baner.jpg HTTP/1.1" 200 187982
+"GET /static/image/sj1.jpg HTTP/1.1" 200 296327
+"GET /static/image/ds1.jpg HTTP/1.1" 200 205145
+"GET /static/images/goods/b6f9463a80a948c4f74a2c10ef368b4a.jpg HTTP/1.1" 404 1760
+"GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVZURvYXVtUVAvSzBCRzQ0bHlXTmdSSXVBSzZMWGVtbUdRPT0.jpg HTTP/1.1" 404 1889
+"GET /static/images/goods/5cf303b248c2ebcd0c8592e6f953f8a0.jpg HTTP/1.1" 404 1760
+"GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVV1RxSWF1RDQ2TnVLREpnaVY3djlmWWFmZklGajVJckdnPT0.jpg HTTP/1.1" 404 1889
