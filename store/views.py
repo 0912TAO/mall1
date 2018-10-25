@@ -10,13 +10,15 @@ from goods.models import GoodType, Goods
 
 # 我的购物车
 @login_required
-def my_cart(request):
+def my_cart(request, count, goods_id):
     # GET方式打开页面
     if request.method == 'GET':
         # 记录一条信息
         a = request.META['REMOTE_ADDR']
         logger = logging.getLogger('require_django')
         logger.info(a + '打开购物车')
+
+        goods = Goods.objects.get(pk=goods_id)
         return render(request, 'store/my_cart.html', {})
 
     # POST方式打开页面

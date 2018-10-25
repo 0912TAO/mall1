@@ -1,72 +1,12 @@
 (0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
 (0.000) SELECT VERSION(); args=None
-(0.003) SHOW FULL TABLES; args=None
-(0.002) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
-127.0.0.1打开购物车
-"GET /store/my_cart/ HTTP/1.1" 200 18138
-127.0.0.1确认订单页面
-"GET /store/confirm/ HTTP/1.1" 200 10530
-127.0.0.1结算页面
-"GET /store/pay/ HTTP/1.1" 200 10030
-127.0.0.1打开购物车
-"GET /store/my_cart/ HTTP/1.1" 200 18138
-127.0.0.1确认订单页面
-"GET /store/confirm/ HTTP/1.1" 200 10530
-127.0.0.1结算页面
-"GET /store/pay/ HTTP/1.1" 200 10030
-127.0.0.1确认订单页面
-"GET /store/confirm/ HTTP/1.1" 200 10530
-"GET /static/store/css/app/confirm.css HTTP/1.1" 304 0
-"GET /static/commons/js/distpicker/distpicker.data.js HTTP/1.1" 304 0
-"GET /static/commons/js/distpicker/distpicker.js HTTP/1.1" 304 0
-127.0.0.1结算页面
-"GET /store/pay/ HTTP/1.1" 200 10030
-"GET /static/store/css/app/pay.css HTTP/1.1" 304 0
-"GET /static/store/images/%E9%92%B1%E5%8C%85.png HTTP/1.1" 304 0
-"GET /static/store/images/%E5%BE%AE%E4%BF%A1.png HTTP/1.1" 304 0
-"GET /static/store/images/%E6%94%AF%E4%BB%98%E5%AE%9D.png HTTP/1.1" 304 0
-"GET /static/store/images/%E4%BA%8C%E7%BB%B4%E7%A0%81.png HTTP/1.1" 304 0
-(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
-(0.001) SELECT VERSION(); args=None
-(0.002) SHOW FULL TABLES; args=None
-(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
-(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
-(0.001) SELECT @@sql_mode; args=None
-(0.000) SELECT VERSION(); args=None
-(0.006) SHOW FULL TABLES; args=None
-(0.005) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
 (0.004) SHOW FULL TABLES; args=None
+(0.002) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.006) SHOW FULL TABLES; args=None
 (0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
-ALTER TABLE `goods_goodtype` ALTER COLUMN `cover` SET DEFAULT %s; (params ['static/images/goods/default.jpg'])
-(0.142) ALTER TABLE `goods_goodtype` ALTER COLUMN `cover` SET DEFAULT 'static/images/goods/default.jpg'; args=['static/images/goods/default.jpg']
-ALTER TABLE `goods_goodtype` ALTER COLUMN `cover` DROP DEFAULT; (params ())
-(0.109) ALTER TABLE `goods_goodtype` ALTER COLUMN `cover` DROP DEFAULT; args=()
-(0.002) SHOW FULL TABLES; args=None
-(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('goods', '0002_auto_20181024_2240', '2018-10-24 14:41:17.648303'); args=['goods', '0002_auto_20181024_2240', '2018-10-24 14:41:17.648303']
-(0.002) SHOW FULL TABLES; args=None
-(0.003) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
-(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'admin' AND `django_content_type`.`model` = 'logentry'); args=('admin', 'logentry')
-(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (1) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1,)
-(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'admin'; args=('admin',)
-(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'permission'); args=('auth', 'permission')
-(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'group'); args=('auth', 'group')
-(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'user'); args=('auth', 'user')
-(0.002) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (2, 3, 4) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2, 3, 4)
-(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'; args=('auth',)
-(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'contenttypes' AND `django_content_type`.`model` = 'contenttype'); args=('contenttypes', 'contenttype')
-(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(5,)
-(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'; args=('contenttypes',)
-(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'sessions' AND `django_content_type`.`model` = 'session'); args=('sessions', 'session')
-(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
-(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'; args=('sessions',)
-(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'goods' AND `django_content_type`.`model` = 'goods'); args=('goods', 'goods')
-(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'goods' AND `django_content_type`.`model` = 'goodsimage'); args=('goods', 'goodsimage')
-(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'goods' AND `django_content_type`.`model` = 'goodtype'); args=('goods', 'goodtype')
-(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (9, 10, 11) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(9, 10, 11)
-(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'goods'; args=('goods',)
-(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'store' AND `django_content_type`.`model` = 'store'); args=('store', 'store')
-(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (7) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(7,)
-(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'store'; args=('store',)
-(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'user' AND `django_content_type`.`model` = 'usera'); args=('user', 'usera')
-(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (8) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(8,)
-(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'user'; args=('user',)
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.005) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
