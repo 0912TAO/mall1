@@ -204,11 +204,13 @@
         </ul>
     </div>
     <div id="serch" class="right">
-        <form class="navbar-form navbar-left">
+
+        <form method='get' action="/search/" class="navbar-form navbar-left">
+
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control"  name="q" placeholder="Search">
             </div>
-            <input type="submit" value="搜索" hidden>
+            <input type="submit" value="查询" hidden>
         </form>
     </div>
 </div>
@@ -231,7 +233,7 @@
                         <div class="subleft">
                             <ul>
                                 {% for g2 in g.goodtype_set.all %}
-                                <li><a href="">{{g2.name}}</a></li>
+                                <li><a href="/goods/{{g2.id}}/fenlei/">{{g2.name}}</a></li>
                                 {% empty %}
                                 没有数据
                                 {% endfor %}
@@ -291,7 +293,7 @@
 <main>
     <div class="sj">
         <div class="title">
-            <div class="name">手机</div>
+            <div class="name">家电</div>
         </div>
         <div class="main">
             <div class="index1 left">
@@ -300,110 +302,21 @@
                 </a>
             </div>
             <ul>
+                {% for jd in jiadian %}
                 <li>
                     <div class="index2">
                         <div class="top">
                             <span class="top-note">新品</span>
-                            <a href="{% url 'goods:product' %}">
-                                <img src="{% static 'image/sj2.jpg' %}">
+                            <a href="/goods/{{jd.id}}/product/">
+                                <img src="/{{jd.goodsimage_set.all.first.path}}">
                             </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
+                            <h5 class="tit"><a href="/goods/product/">{{jd.name}}</a></h5>
+                            <p class="xiangqing text-center">{{jd.intro|truncatechars:20}}</p>
+                            <div class="jiage text-center">{{jd.price}}</div>
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="{% url 'goods:product' %}">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
+                {% endfor %}
             </ul>
             <!--<div class="index2 left">-->
 
@@ -427,98 +340,7 @@
                 </a>
             </div>
             <ul>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                <!--<li>-->
-                    <!--<div class="index2">-->
-                        <!--<div class="top">-->
-                            <!--<span class="top-note">新品</span>-->
-                            <!--<a href="">-->
-                                <!--<img src="{% static 'image/sj2.jpg' %}">-->
-                            <!--</a>-->
-                            <!--<h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>-->
-                            <!--<p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>-->
-                            <!--<div class="jiage text-center">1399元</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</li>-->
-                {% for sp in shangpin %}
+                {% for sp in shouji %}
                 <li>
                     <div class="index2">
                         <div class="top">
@@ -529,6 +351,81 @@
                             <h5 class="tit"><a href="/goods/product/">{{sp.name}}</a></h5>
                             <p class="xiangqing text-center">{{sp.intro|truncatechars:20}}</p>
                             <div class="jiage text-center">{{sp.price}}</div>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <!--<div class="index2 left">-->
+
+            <!--</div>-->
+        </div>
+    </div>
+
+        <div class="guanggao">
+        <img src="{% static 'image/ds1.jpg' %}" alt="">
+    </div>
+
+       <div class="sj">
+        <div class="title">
+            <div class="name">配件</div>
+        </div>
+        <div class="main">
+            <div class="index1 left">
+                <a href="{% url 'goods:product' %}">
+                    <img src="{% static 'image/sj1.jpg' %}">
+                </a>
+            </div>
+            <ul>
+                {% for pj in peijian %}
+                <li>
+                    <div class="index2">
+                        <div class="top">
+                            <span class="top-note">新品</span>
+                            <a href="/goods/{{pj.id}}/product/">
+                                <img src="/{{pj.goodsimage_set.all.first.path}}">
+                            </a>
+                            <h5 class="tit"><a href="/goods/product/">{{pj.name}}</a></h5>
+                            <p class="xiangqing text-center">{{pj.intro|truncatechars:20}}</p>
+                            <div class="jiage text-center">{{pj.price}}</div>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <!--<div class="index2 left">-->
+
+            <!--</div>-->
+        </div>
+    </div>
+
+    <div class="guanggao">
+        <img src="{% static 'image/ds1.jpg' %}" alt="">
+    </div>
+
+
+    <div class="sj">
+        <div class="title">
+            <div class="name">数码</div>
+        </div>
+        <div class="main">
+            <div class="index1 left">
+                <a href="">
+                    <img src="{% static 'image/sj1.jpg' %}">
+                </a>
+            </div>
+            <ul>
+                {% for sm in shuma %}
+                <li>
+                    <div class="index2">
+                        <div class="top">
+                            <span class="top-note">新品</span>
+                            <a href="/goods/{{sm.id}}/product/">
+                                <img src="/{{sm.goodsimage_set.all.first.path}}">
+                            </a>
+                            <h5 class="tit"><a href="/goods/product/">{{sm.name}}</a></h5>
+                            <p class="xiangqing text-center">{{sm.intro|truncatechars:20}}</p>
+                            <div class="jiage text-center">{{sm.price}}</div>
                         </div>
                     </div>
                 </li>

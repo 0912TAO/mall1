@@ -13,4 +13,6 @@ urlpatterns = [
     url(r'(?P<goods_id>\d+)/pinglun/$', views.pinglun, name="pinglun"),
     # 详情
     url(r'(?P<goods_id>\d+)/xiangqing/$', views.xiangqing, name="xiangqing"),
+    # 分类
+    url(r'(?P<g2_id>\d+)/fenlei/$', views.fenlei, name="fenlei"),
 ]

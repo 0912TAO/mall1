@@ -22,7 +22,11 @@ open_shop
                 <ul class="list-group">
                   <li class="list-group-item">
                       <span>店铺管理</span>
-                      <a href="">我要开店</a>
+                      {% if store %}
+                      <a href="/store/open_shop/">店铺信息</a>
+                      {% else %}
+                      <a href="/store/open_shop/">我要开店</a>
+                      {% endif %}
                   </li>
                   <li class="list-group-item">
                       <span>交易管理</span>
@@ -35,7 +39,7 @@ open_shop
                   </li>
                   <li class="list-group-item">
                       <span>宝贝管理</span>
-                      <a href="{% url 'store:release_goods' %}">发布宝贝</a>
+                      <a href="/store/{{store.id}}/baobei/">发布宝贝</a>
                       <a href="/store/{{store.id}}/baobei/">管理宝贝</a>
                   </li>
                   <li class="list-group-item">

@@ -84,7 +84,7 @@ def open_shop(request):
 @login_required()
 def shop(request):
     if request.method == "GET":
-        return render(request,'store/shop.html',{})
+        return render(request, 'store/open_shop.html', {})
     else:
         name = request.POST["name"].strip()
         intro = request.POST["intro"].strip()
@@ -96,7 +96,7 @@ def shop(request):
 
         store1.save()
         # return redirect(reverse("store:list"))
-        return redirect(reverse("store:detail",kwargs={"s_id":store1.id}))
+        return redirect(reverse("store:open_shop", kwargs={"s_id":store1.id}))
 
 
 # 商铺列表
