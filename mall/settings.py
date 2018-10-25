@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'goods',    # 产品
     'store',    # 商店
     'user',     # 用户
+    "shopcat"   # 购物车
     # 'xadmin',
     # 'crispy_forms',
     # 'reversion',
@@ -98,8 +99,8 @@ DATABASES = {
         'NAME': 'shopping',
         'HOST': '192.168.13.14',
         'PORT': 3306,
-        'USER': 'manbanzhen',
-        'PASSWORD': '123456'
+        'USER': 'root',
+        'PASSWORD': 'tomtao'
     }
 }
 
