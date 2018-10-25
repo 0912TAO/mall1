@@ -25,10 +25,13 @@ open_shop
         <div class="col-md-3 left_menu">
             <ul class="list-group">
                 <li class="list-group-item">
-                    <span>店铺管理</span>
-                    <a href="/store/open_shop/">我要开店</a>
-                    <a href="/store/{{store.id}}/detail/">店铺信息</a>
-                </li>
+                      <span>店铺管理</span>
+                      {% if store %}
+                      <a href="/store/open_shop/">店铺信息</a>
+                      {% else %}
+                      <a href="/store/open_shop/">我要开店</a>
+                      {% endif %}
+                  </li>
                 <li class="list-group-item">
                     <span>交易管理</span>
                     <a href="">已卖出的宝贝</a>

@@ -28,5 +28,11 @@ urlpatterns = [
     url(r'^pay/$', views.pay, name='pay'),
     # 宝贝
     url(r'^(?P<s_id>\d+)/baobei/$', views.baobei, name='baobei'),
+    # 添加成功
+    url(r'^add_true/$', views.add_true, name='add_true'),
+    # 添加购物车商品
+    url(r'^(?P<goods_id>\d+)/add/$', views.add, name='add'),
+    # 删除购物车商品
+    url(r'^(?P<s_id>\d+)/delete/$', views.delete, name='delete')
 
 ]

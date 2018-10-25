@@ -127,8 +127,9 @@
                         </li>
                     </ul>
                 </div>
+
                 <div class="btn">
-                    <button class="join">加入购物车</button>
+                    <button class="join"><a href="{% url 'store:add' goods.id %}">加入购物车</a></button>
                     <button class="like">喜欢</button>
                 </div>
                 <p style="color: #8c8c8c"> 7天无理由退货   15天质量问题换货   365天保修</p>

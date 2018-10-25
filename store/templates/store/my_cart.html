@@ -22,130 +22,186 @@
 
 {% block main %}
 <!--标头-->
-    <div class="container_fluid button">
+<div class="container_fluid button">
 
-        <div class="container title">
+    <div class="container title">
 
-            <!--左-->
-            <a href="{% url 'commons:index' %}">
+        <!--左-->
+        <a href="{% url 'commons:index' %}">
             <img class="title_left left" src="{% static 'store/images/mi.png' %}">
-</a>
-            <!--中-->
-            <div class="title_in">
-                <p class="left">我的购物车</p>
-                <span class="left">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span>
-            </div>
+        </a>
+        <!--中-->
+        <div class="title_in">
+            <p class="left">我的购物车</p>
+            <span class="left">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span>
+        </div>
 
-            <!--右-->
-            <div class="title_right right">
-                <a href="{% url 'user:user_logout' %}">
-                    登录
-                </a>
-                <span>|</span>
-                <a href="{% url 'user:register' %}">
-                    注册
-                </a>
-            </div>
+        <!--右-->
+        <div class="title_right right">
+            <a href="{% url 'user:user_logout' %}">
+                登录
+            </a>
+            <span>|</span>
+            <a href="{% url 'user:register' %}">
+                注册
+            </a>
         </div>
     </div>
+</div>
 
-    <!--选择商品-->
-    <div class="container_fluid bg">
+<!--选择商品-->
+<div class="container_fluid bg">
 
-        <div class="container">
-            <ul class="list-group cookbook">
-                <!--上-->
-              <li class="list-group-item cookbook_top">
-                  <div class="row hidden-xs">
-                      <div class="col-lg-2 col-sm-2 "><input id="all_checkbox" type="checkbox">全选</div>
-                      <div class="col-lg-4 col-sm-4 ">商品名称</div>
-                      <div class="col-lg-1 col-sm-1  text-center">单价</div>
-                      <div class="col-lg-2 col-sm-2  text-center">数量</div>
-                      <div class="col-lg-1 col-sm-1  text-center">小计</div>
-                      <div class="col-lg-2 col-sm-2  text-center">操作</div>
-                  </div>
-              </li>
-                <!--中-->
-              <li class="list-group-item cookbook_in">
-                  <div style="margin-right: 0;" class="row">
-                      <div class="col-md-1  cookbook_in_left"><input class="checkbox" type="checkbox"></div>
+    <div class="container">
+        <ul class="list-group cookbook">
+            <!--上-->
+            <li class="list-group-item cookbook_top">
+                <div class="row hidden-xs">
+                    <div class="col-lg-2 col-sm-2 "><input id="all_checkbox" type="checkbox">全选</div>
+                    <div class="col-lg-4 col-sm-4 ">商品名称</div>
+                    <div class="col-lg-1 col-sm-1  text-center">单价</div>
+                    <div class="col-lg-2 col-sm-2  text-center">数量</div>
+                    <div class="col-lg-1 col-sm-1  text-center">小计</div>
+                    <div class="col-lg-2 col-sm-2  text-center">操作</div>
+                </div>
+            </li>
+            <!--中-->
+            <!--<li class="list-group-item cookbook_in">-->
+            <!--<div style="margin-right: 0;" class="row">-->
+            <!--<div class="col-md-1  cookbook_in_left"><input class="checkbox" type="checkbox"></div>-->
 
-                      <div class="col-md-11 cookbook_in_right">
-                          <div class="cookbook_in_right_top row">
-                              <div class="col-md-1 col-sm-1">
-                                <img src="{% static 'store/images/phone80x80.jpg' %}">
-                              </div>
-                              <div class="col-md-4 col-sm-4"><a href="">小米8全网通 6G内存 64GB 黑色</a></div>
-                              <!--jq获取单价-->
-                              <div class="col-md-2 col-sm-2 text-center " >
-                                  <span class="price">2499元</span>
-                              </div>
-                              <div class="col-md-2 col-sm-2 text-center">
-                                  <a class="left" id="less" href="javascript:void(0)">&nbsp;&nbsp;-&nbsp; </a>
-                                  <!--jq总数-->
-                                  <span style="font-size: 18px;font-weight: 500;color: black;" class="sum" >1</span>
-                                  <a class="right" id="plus" href="javascript:void(0)"> &nbsp;+&nbsp;&nbsp;</a>
-                              </div>
-                              <!--jq输出总价-->
-                              <div class="col-md-2 col-sm-2 total_price">2499</div>
-                              <div class="col-md-1 col-sm-1 text-center"><a href="">x</a></div>
-                          </div>
+            <!--<div class="col-md-11 cookbook_in_right">-->
+            <!--<div class="cookbook_in_right_top row">-->
+            <!--<div class="col-md-1 col-sm-1">-->
+            <!--<img src="{% static 'store/images/phone80x80.jpg' %}">-->
+            <!--</div>-->
+            <!--<div class="col-md-4 col-sm-4"><a href="">小米8全网通 6G内存 64GB 黑色</a></div>-->
+            <!--&lt;!&ndash;jq获取单价&ndash;&gt;-->
+            <!--<div class="col-md-2 col-sm-2 text-center " >-->
+            <!--<span class="price">2499元</span>-->
+            <!--</div>-->
+            <!--<div class="col-md-2 col-sm-2 text-center">-->
+            <!--<a class="left" id="less" href="javascript:void(0)">&nbsp;&nbsp;-&nbsp; </a>-->
+            <!--&lt;!&ndash;jq总数&ndash;&gt;-->
+            <!--<span style="font-size: 18px;font-weight: 500;color: black;" class="sum" >1</span>-->
+            <!--<a class="right" id="plus" href="javascript:void(0)"> &nbsp;+&nbsp;&nbsp;</a>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;jq输出总价&ndash;&gt;-->
+            <!--<div class="col-md-2 col-sm-2 total_price">2499</div>-->
+            <!--<div class="col-md-1 col-sm-1 text-center"><a href="">x</a></div>-->
+            <!--</div>-->
 
-                          <div class="row cookbook_in_right_in">
-                                <div class="col-md-1 col-sm-1 text-center">图片</div>
-                                <div class="col-md-6 col-sm-6">赠品</div>
-                                <div class="col-md-1 col-sm-1 text-center">1</div>
-                                <div class="col-md-4 col-sm-4"></div>
-                          </div>
+            <!--&lt;!&ndash;<div class="row cookbook_in_right_in">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="col-md-1 col-sm-1 text-center">图片</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="col-md-6 col-sm-6">赠品</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="col-md-1 col-sm-1 text-center">1</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="col-md-4 col-sm-4"></div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
 
-                          <div class="cookbook_in_right_lower">
+            <!--<div class="cookbook_in_right_lower">-->
+            <!--<div style="margin-top: 10px;">-->
+            <!--<a href="">-->
+            <!--<img src="{% static 'store/images/+.png'%}">意外保障服务249元-->
+            <!--</a>-->
+            <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+            <!--<a style="color: #ff6700;" href="">了解保障服务></a>-->
+
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <form action="">
+                {% for s in shopcarts%}
+                <li class="list-group-item cookbook_in">
+                    <div style="margin-right: 0;" class="row">
+                        <div class="col-md-1  cookbook_in_left"><input class="checkbox" value="{{s.goods.id}}"
+                                                                       type="checkbox"></div>
+
+                        <div class="col-md-11 cookbook_in_right">
+                            <div class="cookbook_in_right_top row">
+                                <div class="col-md-1 col-sm-1">
+
+                                    <img src="/{{s.goods.goodimage_set.first.path}}">
+                                </div>
+                                <div class="col-md-4 col-sm-4"><a href="">{{s.goods.name}}</a></div>
+                                <!--jq获取单价-->
+                                <div class="col-md-2 col-sm-2 text-center ">
+                                    <span class="price">{{s.goods.price}}元</span>
+                                </div>
+                                <div class="col-md-2 col-sm-2 text-center">
+                                    <a class="left" id="less" href="javascript:void(0)">&nbsp;&nbsp;-&nbsp; </a>
+                                    <!--jq总数-->
+                                    <span style="font-size: 18px;font-weight: 500;color: black;"
+                                          class="sum">{{s.count}}</span>
+
+                                    <a class="right" id="plus" href="javascript:void(0)"> &nbsp;+&nbsp;&nbsp;</a>
+                                </div>
+                                <!--jq输出总价-->
+                                <div class="col-md-2 col-sm-2 total_price">2499</div>
+                                <!--删除商品-->
+                                <div class="col-md-1 col-sm-1 text-center"><a href="{% url 'store:delete' s.id %}">x</a>
+                                </div>
+                            </div>
+
+                            <!--<div class="row cookbook_in_right_in">-->
+                            <!--<div class="col-md-1 col-sm-1 text-center">图片</div>-->
+                            <!--<div class="col-md-6 col-sm-6">赠品</div>-->
+                            <!--<div class="col-md-1 col-sm-1 text-center">1</div>-->
+                            <!--<div class="col-md-4 col-sm-4"></div>-->
+                            <!--</div>-->
+
+                            <div class="cookbook_in_right_lower">
                                 <div style="margin-top: 10px;">
                                     <a href="">
                                         <img src="{% static 'store/images/+.png'%}">意外保障服务249元
                                     </a>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a style="color: #ff6700;" href="">了解保障服务></a>
 
                                 </div>
-                          </div>
-                      </div>
-                  </div>
-
-              </li>
-            </ul>
-        </div>
-        <!--总价-->
-
-        <div class="container cookbook_lower">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 left cookbook_lower_left">
-                    <a href="">继续购物</a>&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
-                    <span>共 1 件商品，已选择 1 件 </span>
-                </div>
-
-                <div class="col-md-6 col-sm-6 right cookbook_lower_right">
-                    <div class="right">
-                        <span>合计:</span>
-                        <p class="inline_block total_price cookbook_lower_right_p">????</p>元
-                        <a href="{% url 'store:confirm' %}">确认订单</a>
+                            </div>
+                        </div>
                     </div>
+                </li>
+                {% endfor %}
+        </ul>
+    </div>
+    <!--总价-->
+
+    <div class="container cookbook_lower">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 left cookbook_lower_left">
+                <a href="">继续购物</a>&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
+                <span>共 1 件商品，已选择 1 件 </span>
+            </div>
+
+            <div class="col-md-6 col-sm-6 right cookbook_lower_right">
+                <div class="right">
+                    <span>合计:</span>
+                    <p class="inline_block total_price cookbook_lower_right_p">????</p>元
+                    <button type="submit"><a href="{% url 'store:confirm'  %}">确认订单</a></button>
                 </div>
             </div>
-        </div>
 
-        <!--买商品的人还买了-->
-        <div class="container propose hidden-sm hidden-xs">
-            <h2 class="propose_title text-center">
-                <span>买购物车中商品的人还买了</span>
-            </h2>
+            </form>
         </div>
+    </div>
 
-        <!--推荐商品-->
-        <div class="container propose_shop hidden-sm hidden-xs">
-            <ul>
-                <li><img style="width: 218px; height: 300px;" src="https://c1.mifile.cn/f/i/2014/cn/10046/gouwuche!234x300.jpg"></li>
-                <li>
-                    <a id="show" href="">
+    <!--买商品的人还买了-->
+    <div class="container propose hidden-sm hidden-xs">
+        <h2 class="propose_title text-center">
+            <span>买购物车中商品的人还买了</span>
+        </h2>
+    </div>
+
+    <!--推荐商品-->
+    <div class="container propose_shop hidden-sm hidden-xs">
+        <ul>
+            <li><img style="width: 218px; height: 300px;"
+                     src="https://c1.mifile.cn/f/i/2014/cn/10046/gouwuche!234x300.jpg"></li>
+            <li>
+                <a id="show" href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
@@ -153,82 +209,82 @@
                         <span id="hp">xxx人好评</span>
 
                     </div>
-                    </a>
-                    <a id="add" href="" hidden>加入购物车</a>
-                </li>
-                <li>
-                    <a href="">
+                </a>
+                <a id="add" href="" hidden>加入购物车</a>
+            </li>
+            <li>
+                <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
                     </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
+                </a>
+            </li>
+            <li>
+                <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
                     </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
+                </a>
+            </li>
+            <li>
+                <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
                     </div>
-                    </a>
-                </li>
+                </a>
+            </li>
 
-                <li>
-                    <a href="">
+            <li>
+                <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
                     </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
+                </a>
+            </li>
+            <li>
+                <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
                     </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
+                </a>
+            </li>
+            <li>
+                <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
                     </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
+                </a>
+            </li>
+            <li>
+                <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
                         <dd>2099元</dd>
                         <dd>xxx人好评</dd>
                     </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
+                </a>
+            </li>
+            <li>
+                <a href="">
                     <div class="text-center">
                         <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
                         <dd>小米平板4 Plus 10英寸 LTE...</dd>
@@ -236,13 +292,13 @@
                         <dd>xxx人好评</dd>
 
                     </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
+                </a>
+            </li>
+        </ul>
     </div>
+</div>
 <script>
-    $().ready(function(){
+    $().ready(function () {
 
         // 获取单价
         var price = parseInt($('.price').text());
@@ -252,14 +308,14 @@
 
         // 减
         $('#less').click(function () {
-            sum = sum-1;
+            sum = sum - 1;
 
             // 如果总数小于1
-            if (sum < 1){
+            if (sum < 1) {
                 sum = 1;
                 $('.sum').text(sum);
             }
-            else{
+            else {
                 $('.sum').text(sum);
                 total_price = total_price - price;
                 $('.total_price').text(total_price)
@@ -267,14 +323,14 @@
         });
         // 加
         $('#plus').click(function () {
-            sum = sum+1;
+            sum = sum + 1;
 
             // 如果总数小于1
-            if (sum < 1){
+            if (sum < 1) {
                 sum = 1;
                 $('.sum').text(sum);
             }
-            else{
+            else {
                 $('.sum').text(sum);
                 total_price = price * sum;
                 $('.total_price').text(total_price)
@@ -288,17 +344,17 @@
             // console.log(selset);                         // 属性指的是“name，id”等等，特性指的是“selectedIndex, tagName, nodeName”等等
 
             // 全选
-            if(($(this).prop('checked')) == true){
+            if (($(this).prop('checked')) == true) {
                 // console.log($(this).prop('checked'));
 
-                $('.checkbox').prop('checked',true);
+                $('.checkbox').prop('checked', true);
             }
 
             // 反选
-            if(($(this).prop('checked')) == false){
+            if (($(this).prop('checked')) == false) {
                 // console.log($(this).prop('checked'));
 
-                $('.checkbox').prop('checked',false);
+                $('.checkbox').prop('checked', false);
             }
 
         });
@@ -315,14 +371,14 @@
             // console.log(selectcb);
 
             // 全部的checkbox 和被选中的checkbox相同的时候
-            if(cb.length == selectcb.length){
-                $('#all_checkbox').prop('checked',true);
+            if (cb.length == selectcb.length) {
+                $('#all_checkbox').prop('checked', true);
 
             }
 
             // 全部的checkbox 和被选中的checkbox不相同的时候
-            if(cb.length != selectcb.length){
-                $('#all_checkbox').prop('checked',false);
+            if (cb.length != selectcb.length) {
+                $('#all_checkbox').prop('checked', false);
             }
 
         });
@@ -339,11 +395,6 @@
             $('#add').hide();
             $('#hp').show();
         });
-
-
-
-
-
 
 
     })

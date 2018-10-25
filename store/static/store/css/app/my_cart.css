@@ -190,13 +190,13 @@
     color: #ff6700;
 }
 
-.cookbook_lower_right > div > a{
+.cookbook_lower_right > div > button > a{
     display: inline-block;
     text-decoration: none;
     padding: 15px 50px;
     color: #ffffff;
     background: #f25807;
-    margin-left: 50px;
+
 }
 
 /*------------------------- 商品结算 -------------------------*/

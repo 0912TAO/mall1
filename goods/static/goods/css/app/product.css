@@ -96,6 +96,7 @@
     margin:20px 0
 }
 .btn .join{
+
     width: 300px;
     height: 54px;
     background-color: #f54b07;
@@ -103,6 +104,16 @@
     margin-right: 15px;
         font-size: 18px;
 }
+
+.join > a{
+    display: block;
+    width: 300px;
+    height: 54px;
+    line-height: 50px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
 .btn .like{
     height: 54px;
     width: 140px;

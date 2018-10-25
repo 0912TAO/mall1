@@ -45,4 +45,7 @@ urlpatterns = [
     url(r"^save_email/", views.save_email, name='save_email'),
 
 
+    url(r"^tiaozhuan/", views.tiaozhuan, name='tiaozhuan'),
+
+
 ]

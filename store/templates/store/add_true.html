@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'store/css/app/add_true.css' %}">
+    {% endblock %}
+
+
+</head>
+<body>
+    {% block baner %}
+    {% endblock %}
+    {% block main %}
+    <div class="container info">
+        <img src="{% static 'store/images/对号2.png' %}">
+
+        <div class="info_in">
+            <h3>已成功加入购物车</h3>
+            <span>商品名称</span>
+        </div>
+
+        <div class="info_right">
+            <a href="javascript:void(0);" onclick='javascript:history.back(-1);'">返回上一级</a>
+            <a href="">去购物车结算</a>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -45,10 +45,12 @@ INSTALLED_APPS = [
     'goods',    # 产品
     'store',    # 商店
     'user',     # 用户
-    "shopcat"   # 购物车
+    "shopcat",   # 购物车
     # 'xadmin',
     # 'crispy_forms',
     # 'reversion',
+    'haystack',
+    'mysearch',
 ]
 
 MIDDLEWARE = [
@@ -199,3 +201,18 @@ LOGGING = {
         },
     },
 }
+
+# django-haystack的配置信息
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        # 使用whoosh引擎
+        'ENGINE': 'mysearch.whoosh_cn_backend.WhooshEngine', # 将来需要修改
+        # 表示索引存放的位置
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    }
+}
+
+# 搜索的分页
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
+
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

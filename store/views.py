@@ -7,9 +7,50 @@ import logging
 
 from goods.models import GoodType, Goods
 from user.models import Address,User
+from shopcat.models import ShopCart
+from . import models
+
+
+# 添加到购物车
+@login_required
+def add(request, goods_id):
+    # 商品ID
+    goods = Goods.objects.get(pk=goods_id)
+    print(goods.price)
+    user = request.user
+    shopCart = ShopCart.objects.filter(user=user, goods=goods)
+    # print('***************')
+    # print('shopcart',shopCart)
+    # print('***************')
+    # 查购物车
+    try:
+        # 如果有购物车
+        shopCart = ShopCart.objects.get(user=user, goods=goods)
+
+        # 更新数量
+        shopCart.count += 1
+
+        # 小计金额 = 数量 * 单价
+        shopCart.allTotal = goods.price * shopCart.count
+        # 保存
+        shopCart.save()
+    except:
+        # 如果没有购物车 添加购物车
+        shopCart = ShopCart(goods=goods, user=user)
+        # shopCart.count = int(count)
+
+        # 小计金额 = 数量 * 单价
+        shopCart.allTotal = goods.price
+
+        shopCart.save()
+
+    return redirect(reverse('store:add_true'))
+
+
 
 # 我的购物车
 @login_required
+@require_GET
 def my_cart(request):
     # GET方式打开页面
     if request.method == 'GET':
@@ -17,12 +58,15 @@ def my_cart(request):
         a = request.META['REMOTE_ADDR']
         logger = logging.getLogger('require_django')
         logger.info(a + '打开购物车')
-        return render(request, 'store/my_cart.html', {})
+
+        # 查询自己的商品
+        shopcarts = ShopCart.objects.filter(user=request.user)
+        # print(shopcarts)
+        return render(request, 'store/my_cart.html', {'shopcarts': shopcarts})
 
     # POST方式打开页面
     elif request.method == 'POST':
         pass
-
 
 
 @login_required
@@ -42,7 +86,7 @@ def open_shop(request):
 @login_required()
 def shop(request):
     if request.method == "GET":
-        return render(request,'store/shop.html',{})
+        return render(request, 'store/open_shop.html', {})
     else:
         name = request.POST["name"].strip()
         intro = request.POST["intro"].strip()
@@ -54,7 +98,7 @@ def shop(request):
 
         store1.save()
         # return redirect(reverse("store:list"))
-        return redirect(reverse("store:detail",kwargs={"s_id":store1.id}))
+        return redirect(reverse("store:open_shop", kwargs={"s_id":store1.id}))
 
 
 # 商铺列表
@@ -70,7 +114,6 @@ def shop(request):
 @login_required()
 def detail(request,s_id):
     store = models.store.objects.get(pk=s_id)
-    # 获取分类
     type1 = GoodType.objects.filter(parent__isnull=True)
     goods = Goods.objects.filter(stores=store)
     return render(request,"store/detail.html",{"store":store,"type1":type1,"goods":goods})
@@ -164,6 +207,17 @@ def confirm(request):
     a = request.META['REMOTE_ADDR']
     logger = logging.getLogger('require_django')
     logger.info(a + '确认订单页面')
+
+    # # 获取选择的多个数据 列表
+    # g_ids = request.POST.getlist('g_id')
+    # # 查询多个商品
+    # goods = ShopCart.goods.objects.filter(pk__in=g_ids)
+    #
+    # # 生成订单
+    # for g in goods:
+    #     models.OrderItem(good_id=g.id, goods_name=g.name,)
+
+
     return render(request, 'store/confirm.html', {})
 
 
@@ -185,3 +239,16 @@ def baobei(request, s_id):
     goods = Goods.objects.filter(stores=store)
     return render(request, "store/baobei.html", {"store": store, "type1": type1, "goods": goods})
     # return render(request, "store/baobei.html", {})
+
+
+# 添加成功
+def add_true(request):
+    return render(request, 'store/add_true.html', {})
+
+
+# 删除商品
+@login_required
+def delete(request, s_id):
+    at = ShopCart.objects.get(pk=s_id)
+    at.delete()
+    return redirect(reverse("store:my_cart"))

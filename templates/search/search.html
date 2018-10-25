@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}
+搜索结果
+{% endblock %}
+{% block baner %}
+{% endblock %}
+{% block main %}
+
+<style>
+    .qwer{
+        width: 100%;
+        height: 390px;
+        line-height: 50px;
+        margin: 30px auto;
+        background-color: #f1f1f1;
+    }
+    .qwer>h3{
+        text-align: center;
+        padding-top: 100px;
+    }
+</style>
+
+{% load static %}
+{% if query %}
+<!--<h3>搜索结果如下：</h3>-->
+{% for result in page.object_list %}
+
+<div class="box" style="background-color: #f1f1f1;width: 100%;">
+
+<div class="sj">
+        <div class="main">
+
+            <ul style="padding: 20px">
+                <li>
+                    <div class="index2">
+                        <div class="top">
+                            <span class="top-note">新品</span>
+                            <a href="/goods/{{ result.object.id }}/product/">
+                                <img src="{% static 'image/sj2.jpg' %}">
+                            </a>
+                            <h5 class="tit"><a href="/goods/{{ result.object.id }}/product/">{{ result.object.name }}</a></h5>
+                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
+                            <div class="jiage text-center">1399元</div>
+                        </div>
+                    </div>
+                </li>
+                {% empty %}
+
+                <div class="qwer">
+                    <h3>没找到你搜索的宝贝</h3>
+                </div>
+
+
+
+            </ul>
+            <!--<div class="index2 left">-->
+
+{% endfor %}
+{% if page.has_previous or page.has_next %}
+<div>
+    {% if page.has_previous %}
+    <a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">
+        {% endif %} &laquo; 上一页 {% if page.has_previous %} </a> {% endif %} | {% if page.has_next %} <a
+        href="?q={{ query }}&amp;page={{ page.next_page_number }}"> {% endif %} 下一页 &raquo; {% if page.has_next %}
+    Django
+</a> {% endif %}
+</div>
+{% endif %}
+{% endif %}
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

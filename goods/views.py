@@ -69,3 +69,9 @@ def xiangqing(request, goods_id):
 def pinglun(request, goods_id):
     goods = models.Goods.objects.get(pk=goods_id)
     return render(request, "goods/pinglun.html", {"goods": goods})
+
+
+def fenlei(request, g2_id):
+    # goods = models.GoodType.objects.filter(pk=g2_id)
+    goods = models.Goods.objects.filter(goodstype=g2_id)
+    return render(request, "goods/fenlei.html", {"goods":goods})
