@@ -27,7 +27,9 @@
         <div class="container title">
 
             <!--左-->
-            <img class="title_left left" src="{% static 'store/images/mi.png' %}">
+            <a href="{% url 'commons:index' %}">
+                <img class="title_left left" src="{% static 'store/images/mi.png' %}">
+            </a>
 
             <!--中-->
             <div class="title_in">
@@ -36,15 +38,15 @@
             </div>
 
             <!--右-->
-            <div class="title_right right">
-                <a href="javascript:void(0);">
-                    这里显示用户名
-                </a>
-                <span>|</span>
-                <a href="javascript:void(0);">
-                    我的订单
-                </a>
-            </div>
+            <!--<div class="title_right right">-->
+                <!--<a href="javascript:void(0);">-->
+                    <!--这里显示用户名-->
+                <!--</a>-->
+                <!--<span>|</span>-->
+                <!--<a href="javascript:void(0);">-->
+                    <!--我的订单-->
+                <!--</a>-->
+            <!--</div>-->
         </div>
     </div>
 
@@ -60,7 +62,7 @@
                     <ul>
                         <li class="order_li_1">
                             <h3 style="display: inline-block;">订单提交成功!去付款咯~</h3>
-                            <span class="span">2499元</span>
+                            <span class="span">????元</span>
                         </li>
 
                         <li class="order_li_2">
@@ -68,7 +70,7 @@
                         </li>
 
                         <li class="order_li_3">
-                            <p>订单号：</p><span class="span">5181021126302063</span>
+                            <p>订单号：</p><span class="span">000000000000000000</span>
                         </li>
 
                         <li class="order_li_4">
@@ -112,7 +114,7 @@
 
             <div id="wechar" class="mode_select">
                 <div class="mode_select">
-                    <a  tabindex="0"  class="text-center btn" href="javascript:void(0);" role="button" data-toggle="popover" data-placement="bottom" data-trigger="focus" title="" data-html="true" data-content='<img src="{% static "store/images/二维码.png" %}">'>
+                    <a  tabindex="0"  class="text-center btn" href="javascript:void(0);" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-html="true" data-content='<img style="width:100px; height:100px;" src="{% static "store/images/二维码.png" %}">'>
                         <img src="{% static 'store/images/微信.png' %}">微信付款
                     </a>
                 </div>
@@ -120,7 +122,7 @@
 
             <div id="alipay" class="mode_select">
                 <div class="mode_select">
-                    <a  tabindex="0"  class="text-center btn" href="javascript:void(0);" role="button" data-toggle="popover" data-trigger="focus" title="" data-html="true" data-content='<img src="{% static "store/images/二维码.png" %}">'>
+                    <a  tabindex="0"  class="text-center btn" href="javascript:void(0);" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-html="true" data-content='<img style="width:100px; height:100px;" src="{% static "store/images/二维码.png" %}">'>
                         <img src="{% static 'store/images/支付宝.png' %}">支付宝付款
                     </a>
                 </div>

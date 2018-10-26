@@ -24,34 +24,31 @@
 
 
     <div class="container_fluid button">
-
         <div class="container title">
-
             <!--左-->
-            <img class="title_left left" src="{% static 'store/images/mi.png' %}">
-
+            <a href="{% url 'commons:index' %}">
+                <img class="title_left left" src="{% static 'store/images/mi.png' %}">
+            </a>
             <!--中-->
             <div class="title_in">
                 <p class="left">确认订单</p>
                 <span class="left">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span>
             </div>
-
             <!--右-->
-            <div class="title_right right">
-                <a href="javascript:void(0);">
-                    这里显示用户名
-                </a>
-                <span>|</span>
-                <a href="javascript:void(0);">
-                    我的订单
-                </a>
-            </div>
+            <!--<div class="title_right right">-->
+                <!--<a href="javascript:void(0);">-->
+                    <!--这里显示用户名-->
+                <!--</a>-->
+                <!--<span>|</span>-->
+                <!--<a href="javascript:void(0);">-->
+                    <!--我的订单-->
+                <!--</a>-->
+            <!--</div>-->
         </div>
     </div>
 <div class="container-fluid bg">
     <div class="container prospect">
         <!--收货地址-->
-
         <form id="confirm_form" action="{% url 'store:qwe' %}" method="post">
         {% csrf_token %}
         <div class="address">
@@ -61,7 +58,6 @@
             </div>
             <div class="container">
             {% for address in addresses %}
-
                 <a href="javascript:void(0);" class="text-center address_a">
                     <input type="radio" class="rad" value="{{address.id}}" name="address">
                     {{address.province}}
@@ -69,36 +65,16 @@
                     {{address.area}}
                     <input id="hi" type="hidden">
                 </a>
-
             {% empty %}
-
                 <a href="{% url 'store:address' %}" class="text-center address_a">
                     点击添加收货地址
                 </a>
-
-
-
-            <!--<div class="address_input">-->
-                <!--<input type="text" id="recr_name" name="recr_name" placeholder="收货人姓名" class="address_input_small">-->
-                <!--<input type="text" id="recr_tel" name="recr_tel" placeholder="手机号" class="address_input_small"><br/>-->
-
-                <!--<div id="distpicker1">-->
-                    <!--<select id="province" name="province" class="select" style="width:198px;height:40px;"></select>-->
-                    <!--<select id="city" name="city" class="select" style="width:198px;height:40px;" ></select>-->
-                    <!--<select id="district" name="area" class="select" style="width:198px;height:40px;" ></select>-->
-                <!--</div>-->
-
-                <!--<textarea id="street" name="street" placeholder="详细地址" style="resize: vertical;" class="address_input_big"></textarea><br/>-->
-                <!--<input type="text" id="postal" name="postal" placeholder="邮政编码" class="address_input_small">-->
-                <!--<input type="text" id="add_label" name="add_label" placeholder="地址标签/家/公司" class="address_input_small"><br>-->
-                <!--<input type="checkbox" name="is_default" value="true" id=""><h5 style="display: inline-block" >设置为默认地址</h5>-->
-            <!--</div>-->
         {% endfor %}
                  <a href="{% url 'store:address' %}" class="text-center address_a">
                     点击添加收货地址
                 </a>
             </div>
-</div>
+        </div>
 
         <!--商品-->
         <div class="commodity">
@@ -109,25 +85,20 @@
 
             <div class="commodity_sum">
                 <ul>
-
                     {%for shop in shopCarts%}
                     <li>
                         <input type="hidden" name="s_id" value="{{shop.id}}">
                         <img src="https://i1.mifile.cn/a1/pms_1527735134.03584233!30x30.jpg">
-                        <a href="javascript:void(0)">{{shop.goods.name}}</a>
+                        <a href="javascript:void(0)">{{shop.goods.name | truncatechars:30}}</a>
                         <span class="right money">{{shop.allTotal}}元</span>
                         <span class="right">{{shop.goods.price}}元x{{shop.count}}</span>
 
                     </li>
                     {% empty %}
-                    <li>
-                        <img src="https://i1.mifile.cn/a1/pms_1527735134.03584233!30x30.jpg">
-                        <a href="javascript:void(0)">小米8 全网通版 6GB内存 64GB 黑色</a>
-                        <span class="right">2499元</span>
-                        <span class="right">2499元x1</span>
+                    <li class="text-center">
+                        无商品
                     </li>
                     {% endfor %}
-
                 </ul>
             </div>
         </div>
@@ -152,11 +123,11 @@
                 <ul class="right text-right">
                     <li>
                         <div class="inline_block">商品件数:</div>
-                        <div class="inline_block js">1件</div>
+                        <div class="inline_block js">?件</div>
                     </li>
                     <li>
                         <div class="inline_block">商品总价:</div>
-                        <div class="inline_block">2499元</div>
+                        <div class="inline_block">????元</div>
                     </li>
                     <li>
                         <div class="inline_block">运费:</div>
@@ -164,21 +135,19 @@
                     </li>
                     <li>
                         <div class="inline_block">应付总额:</div>
-                        <div class="inline_block">2499元</div>
+                        <div class="inline_block">????元</div>
                     </li>
                 </ul>
             </div>
         </div>
+</form>
     </div>
 
-    <!--<div class="container">-->
-        <!--<a href="{% url 'store:pay' %}" class="">去结算</a>-->
-    <!--</div>-->
-</div>
     <div class="container go_shopping">
-            <button type="submit"><a id="submit_link">去结算</a></button>{#% url 'store:pay' %#}
+        <a href="{% url 'store:pay' %}">去结算</a>
     </div>
-</form>
+</div>
+
 {% endblock %}
 {% block script %}
 <script>
@@ -197,11 +166,9 @@
             // var val = $('input:radio[name="1"]:checked').val();
             var val = $('.rad:checked').val();
 
-        $('submit_link').on('click',function (e) {
+        $('#sub').on('click',function (e) {
            $('#confirm_form').submit();
         });
-
-
             console.log(val);
         //     $.ajax({
         //         url:'/store/qwe/',
