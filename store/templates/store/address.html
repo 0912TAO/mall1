@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="ch">
+<head>
+    {% load static %}
+    <title>{% block title %}确认订单{% endblock %}</title>
+    <meta charset="UTF-8">
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'store/css/app/confirm.css' %}">
+        <script src="{% static 'commons/js/distpicker/distpicker.data.js' %}"></script>
+        <script src="{% static 'commons/js/distpicker/distpicker.js' %}"></script>
+    {% endblock %}
+
+
+</head>
+<body>
+
+{% block nav %}
+{% endblock %}
+
+{% block baner %}
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="container_fluid button">
+
+        <div class="container title">
+
+            <!--左-->
+            <img class="title_left left" src="{% static 'store/images/mi.png' %}">
+
+            <!--中-->
+            <div class="title_in">
+                <p class="left">添加地址</p>
+                <span class="left">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span>
+            </div>
+
+            <!--右-->
+            <div class="title_right right">
+                <a href="javascript:void(0);">
+                    这里显示用户名
+                </a>
+                <span>|</span>
+                <a href="javascript:void(0);">
+                    我的订单
+                </a>
+            </div>
+        </div>
+    </div>
+<div class="container-fluid bg">
+    <div class="container prospect">
+        <!--收货地址-->
+        <div class="address">
+            <div class="address_title">
+                <h4 class="inline_block">收货地址</h4>
+                <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;大型商品下单后，收货地址将无法修改。快递公司会电话联系您确认送货时间，收货时需核对身份证信息。</span>
+            </div>
+            <form action="{% url 'store:address' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="address_input">
+                    <input type="text" id="recr_name" name="recr_name" placeholder="收货人姓名" class="address_input_small">
+                    <input type="text" id="recr_tel" name="recr_tel" placeholder="手机号" class="address_input_small"><br/>
+
+                    <div id="distpicker1">
+                        <select id="province" name="province" class="select" style="width:198px;height:40px;"></select>
+                        <select id="city" name="city" class="select" style="width:198px;height:40px;" ></select>
+                        <select id="district" name="area" class="select" style="width:198px;height:40px;" ></select>
+                    </div>
+
+                    <textarea id="street" name="street" placeholder="详细地址" style="resize: vertical;" class="address_input_big"></textarea><br/>
+                    <input type="text" id="postal" name="postal" placeholder="邮政编码" class="address_input_small">
+                    <input type="text" id="add_label" name="add_label" placeholder="地址标签/家/公司" class="address_input_small"><br>
+                    <input type="checkbox" name="is_default" value="true" id=""><h5 style="display: inline-block" >设置为默认地址</h5>
+                    <br>
+                    <p class="text-center" id="msg" style="color: #f54b07">{{msg}}</p>
+                    <button id="sub_btn" class="btn btn-danger" style="margin-top: 40px; margin-left:5px; width: 60%;height: 40px;" type="submit" >提交地址</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+
+
+    $().ready(function () {
+        /*城市选择控件*/
+	    $("#distpicker1").distpicker();
+	    
+	    // 点击提交
+        $('#t').click(function () {
+            console.log($("#province").val()+" "+$('#city').val()+" "+$('#district').val());
+        })
+    })
+
+    // # 收件人
+   $(function () {
+       $("#sub_btn").attr("disabled", true)
+            $("#recr_name").on("blur", function () {
+                console.log("abc")
+                recr_name = $("#recr_name").val()
+                console.log(recr_name.length)
+                if (recr_name.length < 1) {
+                    // $("#pwb").addClass("has-error")
+                    // $("#sub_btn").attr("disabled", true)
+                      $("#sub_btn").attr("disabled", true)
+                    $("#msg").html("<span style='color:red;'>" + "收件人不能为空" + "</span>")
+                } else {
+                    // $("#pwb").addClass("has-success")
+                    $("#sub_btn").attr("disabled", true)
+                    $("#msg").html("<span style='color:green;'>" + "可行" + "</span>")
+                }
+            })
+        })
+
+
+    // # 收件人电话
+   $(function () {
+            $("#recr_tel").on("blur", function () {
+                console.log("abc")
+                recr_name = $("#recr_tel").val()
+                console.log(recr_tel.length)
+                if (recr_tel.length < 1) {
+                    // $("#pwb").addClass("has-error")
+                    // $("#sub_btn").removeAttr("disabled")
+                     $("#sub_btn").attr("disabled", true)
+                    $("#msg").html("<span style='color:red;'>" + "手机号不能为空" + "</span>")
+                }
+                else if ( recr_tel.length = 11 ) {
+                    // $("#pwb").addClass("has-success")
+                    // $("#sub_btn").removeAttr("disabled")
+                     $("#sub_btn").attr("disabled", true)
+                    $("#msg").html("<span style='color:green;'>" + "手机号码合理" + "</span>")
+                }
+                 else if ( recr_tel.length > 11 ) {
+                    // $("#pwb").addClass("has-success")
+                     $("#sub_btn").attr("disabled", true)
+                    $("#msg").html("<span style='color:green;'>" + "手机号码过长不合法" + "</span>")
+                }
+            })
+        })
+     // # 收件人详细地址
+       $(function () {
+                $("#street").on("blur", function () {
+                    console.log("abc")
+                    street = $("#street").val()
+                    console.log(street.length)
+                    if (street.length < 1) {
+                        // $("#pwb").addClass("has-error")
+                        // $("#sub_btn").removeAttr("disabled")
+                         $("#sub_btn").attr("disabled", true)
+                        $("#msg").html("<span style='color:red;'>" + "详细地址不能为空" + "</span>")
+                    }
+                     else {
+                        // $("#pwb").addClass("has-success")
+                         $("#sub_btn").attr("disabled", true)
+                        $("#msg").html("<span style='color:green;'>" + "地址可行" + "</span>")
+                    }
+                })
+            })
+
+         // # 收件人邮编
+           $(function () {
+                    $("#postal").on("blur", function () {
+                        console.log("abc")
+                        street = $("#postal").val()
+                        console.log(postal.length)
+                        if (postal.length < 1) {
+                            // $("#pwb").addClass("has-error")
+                            // $("#sub_btn").removeAttr("disabled")
+                             $("#sub_btn").attr("disabled", true)
+                            $("#msg").html("<span style='color:red;'>" + "邮编不能为空" + "</span>")
+                        }
+                         else {
+                            // $("#pwb").addClass("has-success")
+                             $("#sub_btn").removeAttr("disabled")
+                            $("#msg").html("<span style='color:green;'>" + "可行" + "</span>")
+                        }
+                    })
+                })
+
+
+
+</script>
+{% endblock %}
+</body>
+</html>

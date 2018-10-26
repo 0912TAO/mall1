@@ -220,11 +220,9 @@
 <!--导航结束-->
 
 {% block baner %}
-
 <div id="baner">
     <div class="row">
         <div class="left two-nav">
-
             <ul>
                 {% for g in goods %}
                 <li>
@@ -247,7 +245,6 @@
                 没有数据
                 {% endfor %}
             </ul>
-
         </div>
         <div id="carousel-example-generic" class="carousel slide right" data-ride="carousel" style="width: 80%;">
             <!-- Indicators -->
@@ -273,7 +270,6 @@
                     <!--</div>-->
                 </div>
             </div>
-
             <!-- Controls -->
             <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"
                style="overflow: hidden">
@@ -310,8 +306,8 @@
                             <a href="/goods/{{jd.id}}/product/">
                                 <img src="/{{jd.goodsimage_set.all.first.path}}">
                             </a>
-                            <h5 class="tit"><a href="/goods/product/">{{jd.name}}</a></h5>
-                            <p class="xiangqing text-center">{{jd.intro|truncatechars:20}}</p>
+                            <h5 class="tit"><a href="/goods/product/">{{jd.name|truncatechars:23}}</a></h5>
+                            <p class="xiangqing text-center">{{jd.intro|truncatechars:46}}</p>
                             <div class="jiage text-center">{{jd.price}}</div>
                         </div>
                     </div>
@@ -319,7 +315,6 @@
                 {% endfor %}
             </ul>
             <!--<div class="index2 left">-->
-
             <!--</div>-->
         </div>
     </div>
@@ -327,8 +322,6 @@
     <div class="guanggao">
         <img src="{% static 'image/ds1.jpg' %}" alt="">
     </div>
-
-
     <div class="sj">
         <div class="title">
             <div class="name">手机</div>
@@ -357,7 +350,6 @@
                 {% endfor %}
             </ul>
             <!--<div class="index2 left">-->
-
             <!--</div>-->
         </div>
     </div>
@@ -382,7 +374,8 @@
                     <div class="index2">
                         <div class="top">
                             <span class="top-note">新品</span>
-                            <a href="/goods/{{pj.id}}/product/">
+
+                    <a href="/goods/{{pj.id}}/product/">
                                 <img src="/{{pj.goodsimage_set.all.first.path}}">
                             </a>
                             <h5 class="tit"><a href="/goods/product/">{{pj.name}}</a></h5>
@@ -402,8 +395,6 @@
     <div class="guanggao">
         <img src="{% static 'image/ds1.jpg' %}" alt="">
     </div>
-
-
     <div class="sj">
         <div class="title">
             <div class="name">数码</div>

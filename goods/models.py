@@ -5,6 +5,7 @@ from store.models import store
 
 import store
 
+
 # 商品类型
 class GoodType(models.Model):
     # 商品ID

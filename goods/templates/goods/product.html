@@ -7,6 +7,7 @@
 {% block main %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'goods/css/app/product.css' %}">
+<script src="{% static 'goods/js/lib/jquery.imagezoom.min.js' %}"></script>
 
 <nav class="navbar navbar-default" id="three_nav">
     <div class="container">
@@ -53,14 +54,16 @@
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
+
                         <div class="item active">
                             <img src=" /{{goods.goodsimage_set.all.first.path}}" alt="...">
+                        </div>
+
+
+                        <div class="item">
+                            <img src="/{{goods.goodsimage_set.all.last.path}}" alt="...">
 
                         </div>
-                        <!--<div class="item">-->
-                            <!--<img src="{% static 'image/baner1.jpg' %}" alt="...">-->
-
-                        <!--</div>-->
                     </div>
 
                     <!-- Controls -->
@@ -105,15 +108,15 @@
                 <div class="xuanzebanben">
                     <h4>选择版本</h4>
                     <ul>
-                        <li class="active"><a href="#"><span class="left">8GB+128GB </span><span class="right" style="color: #678;">3599元 </span></a></li>
-                        <li><a href="#"><span class="left">6GB+128GB</span><span class="right" style="color: #678;">3199元  </span></a></li>
+                        <li class="active"><a href="javascript:void(0);"><span class="left">8GB+128GB </span><span class="right" style="color: #678;">3599元 </span></a></li>
+                        <li><a href="javascript:void(0);"><span class="left">6GB+128GB</span><span class="right" style="color: #678;">3199元  </span></a></li>
                     </ul>
                 </div>
                 <div class="xuanzebanben">
                     <h4>选择颜色</h4>
                     <ul>
-                        <li class="active"><a href="#">透明</a></li>
-                        <li><a href="#">暮光金</a></li>
+                        <li class="active"><a href="javascript:void(0);">透明</a></li>
+                        <li><a href="javascript:void(0);">暮光金</a></li>
                     </ul>
                 </div>
                 <div class="pro-list">
@@ -152,5 +155,9 @@
         }
 
     });
+    $("li").click(function(){
+        $(this).toggleClass("active");
+        $(this).siblings().removeClass("active");
+    })
 </script>
 {% endblock %}
