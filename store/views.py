@@ -1,4 +1,4 @@
-from django.shortcuts import render,reverse,redirect
+from django.shortcuts import render, reverse, redirect
 from django.contrib.auth.decorators import login_required   # 需要登陆的装饰器
 from django.shortcuts import render,redirect,reverse
 from django.views.decorators.http import require_GET
@@ -208,17 +208,23 @@ def confirm(request):
     logger = logging.getLogger('require_django')
     logger.info(a + '确认订单页面')
 
-    # # 获取选择的多个数据 列表
-    # g_ids = request.POST.getlist('g_id')
-    # # 查询多个商品
-    # goods = ShopCart.goods.objects.filter(pk__in=g_ids)
-    #
-    # # 生成订单
-    # for g in goods:
-    #     models.OrderItem(good_id=g.id, goods_name=g.name,)
+    # 获取购物车中选择的多个商品数据 列表
+    g_ids = request.POST.getlist('g_id')
+    # 查询购物车商品
+    shopCarts = ShopCart.objects.filter(user=request.user)
 
+    # 根据商品查询多个商品 对象
+    # goods = my_shop_cart.goods.objects.filter(pk__in=g_ids)
 
-    return render(request, 'store/confirm.html', {})
+    # 查询客户地址
+    addresses = Address.objects.filter(user=request.user)
+
+    print("*******************")
+    print(shopCarts)
+    print(addresses)
+    print("*******************")
+
+    return render(request, 'store/confirm.html', {'shopCarts': shopCarts, 'addresses': addresses})
 
 
 # 结算

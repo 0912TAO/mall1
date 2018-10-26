@@ -52,11 +52,21 @@
 <div class="container-fluid bg">
     <div class="container prospect">
         <!--收货地址-->
-        <!--<div class="address">-->
-            <!--<div class="address_title">-->
-                <!--<h4 class="inline_block">收货地址</h4>-->
-                <!--<span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;大型商品下单后，收货地址将无法修改。快递公司会电话联系您确认送货时间，收货时需核对身份证信息。</span>-->
-            <!--</div>-->
+        <div class="address">
+            <div class="address_title">
+                <h4 class="inline_block">收货地址</h4>
+                <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;大型商品下单后，收货地址将无法修改。快递公司会电话联系您确认送货时间，收货时需核对身份证信息。</span>
+            </div>
+            {% for address in addresses %}
+                <a class="address_a">
+                    {{address.province}}
+                    {{address.city}}
+                    {{address.area}}
+                </a>
+            {% empty %}
+                <a href="javascript:void(0);" class="text-center address_a">
+                    点击添加收货地址
+                </a>
 
             <!--<div class="address_input">-->
                 <!--<input type="text" id="recr_name" name="recr_name" placeholder="收货人姓名" class="address_input_small">-->
@@ -73,7 +83,9 @@
                 <!--<input type="text" id="add_label" name="add_label" placeholder="地址标签/家/公司" class="address_input_small"><br>-->
                 <!--<input type="checkbox" name="is_default" value="true" id=""><h5 style="display: inline-block" >设置为默认地址</h5>-->
             <!--</div>-->
-        <!--</div>-->
+        </div>
+
+        {% endfor %}
 
         <!--商品-->
         <div class="commodity">
@@ -84,26 +96,24 @@
 
             <div class="commodity_sum">
                 <ul>
-                    <li>
-                        <img src="https://i1.mifile.cn/a1/pms_1527735134.03584233!30x30.jpg">
-                        <a href="javascript:void(0)">小米8 全网通版 6GB内存 64GB 黑色</a>
-                        <span class="right">2499元</span>
-                        <span class="right">2499元x1</span>
-                    </li>
 
+                    {%for shop in shopCarts%}
+                    <li>
+                        <i class="shop_num"></i>
+                        <img src="https://i1.mifile.cn/a1/pms_1527735134.03584233!30x30.jpg">
+                        <a href="javascript:void(0)">{{shop.goods.name}}</a>
+                        <span class="right money">{{shop.allTotal}}元</span>
+                        <span class="right">{{shop.goods.price}}元x{{shop.count}}</span>
+                    </li>
+                    {% empty %}
                     <li>
                         <img src="https://i1.mifile.cn/a1/pms_1527735134.03584233!30x30.jpg">
                         <a href="javascript:void(0)">小米8 全网通版 6GB内存 64GB 黑色</a>
                         <span class="right">2499元</span>
                         <span class="right">2499元x1</span>
                     </li>
+                    {% endfor %}
 
-                    <li>
-                        <img src="https://i1.mifile.cn/a1/pms_1527735134.03584233!30x30.jpg">
-                        <a href="javascript:void(0)">小米8 全网通版 6GB内存 64GB 黑色</a>
-                        <span class="right">2499元</span>
-                        <span class="right">2499元x1</span>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -127,7 +137,7 @@
                 <ul class="right text-right">
                     <li>
                         <div class="inline_block">商品件数:</div>
-                        <div class="inline_block">1件</div>
+                        <div class="inline_block js">1件</div>
                     </li>
                     <li>
                         <div class="inline_block">商品总价:</div>
@@ -147,7 +157,6 @@
     </div>
 
     <div class="container go_shopping">
-        <a id="t" href="javascript:void(0);" class="right">去结算</a>
         <a href="{% url 'store:pay' %}" class="right">去结算</a>
     </div>
 </div>
@@ -163,7 +172,16 @@
 	    // 点击提交
         $('#t').click(function () {
             console.log($("#province").val()+" "+$('#city').val()+" "+$('#district').val());
-        })
+        });
+
+        // 计算商品总数
+        var num = $('.shop_num').length;
+        $('.js').text(num);
+
+        // 计算商品总价
+        var text = $('.money').text();
+        console.log(text)
+
     })
 </script>
 {% endblock %}

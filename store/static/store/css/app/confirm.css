@@ -79,6 +79,22 @@
 
 }
 
+.address_a{
+    display: block;
+    text-decoration: none;
+    width: 270px;
+    height: 180px;
+    line-height: 180px;;
+    color: #757575;
+    font-size: 14px;
+    border: 1px solid #eee;
+}
+
+.address_a:hover{
+    color: #ffffff;
+    background: #ccc;
+}
+
 .address_title > span{
     color: #757575;
 }
