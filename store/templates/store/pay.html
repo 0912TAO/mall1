@@ -57,12 +57,11 @@
                 <div class="col-md-2">
                     <img src="">
                 </div>
-
                 <div class="col-md-10 order">
                     <ul>
                         <li class="order_li_1">
                             <h3 style="display: inline-block;">订单提交成功!去付款咯~</h3>
-                            <span class="span">????元</span>
+                            <span class="span">{{order.all_price}}元</span>
                         </li>
 
                         <li class="order_li_2">
@@ -70,17 +69,19 @@
                         </li>
 
                         <li class="order_li_3">
-                            <p>订单号：</p><span class="span">000000000000000000</span>
+                            <p>订单号：</p><span class="span">{{order.id}}</span>
                         </li>
 
                         <li class="order_li_4">
                             <p>收货信息：</p>
-                            <span>地雷 185****0517 河南 郑州市 金水区 杜岭街道 河南省郑州市金水区东三街奇酷教育3f</span>
+                            <span>{{order.recv_tel}}</span>
                         </li>
 
                         <li class="order_li_5">
                             <p>商品名称：</p>
-                            <span>红米6 全网通版 32GB内存 巴厘蓝</span>
+                            {% for ord in orderitem%}
+                            <span>{{ord.good_name}}</span>
+                            {% endfor %}
                         </li>
 
                         <li class="order_li_6">

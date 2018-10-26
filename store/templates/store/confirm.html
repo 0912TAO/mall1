@@ -49,7 +49,7 @@
 <div class="container-fluid bg">
     <div class="container prospect">
         <!--收货地址-->
-        <form id="confirm_form" action="{% url 'store:qwe' %}" method="post">
+        <form id="confirm_form" action="{% url 'store:add_pay' %}" method="post">
         {% csrf_token %}
         <div class="address">
             <div class="address_title">
@@ -87,10 +87,10 @@
                 <ul>
                     {%for shop in shopCarts%}
                     <li>
-                        <input type="hidden" name="s_id" value="{{shop.id}}">
+                        <input class="shop_num" type="hidden" name="s_id" value="{{shop.id}}">
                         <img src="https://i1.mifile.cn/a1/pms_1527735134.03584233!30x30.jpg">
                         <a href="javascript:void(0)">{{shop.goods.name | truncatechars:30}}</a>
-                        <span class="right money">{{shop.allTotal}}元</span>
+                        <span class="right money">{{shop.allTotal}}</span>
                         <span class="right">{{shop.goods.price}}元x{{shop.count}}</span>
 
                     </li>
@@ -127,7 +127,7 @@
                     </li>
                     <li>
                         <div class="inline_block">商品总价:</div>
-                        <div class="inline_block">????元</div>
+                        <div class="inline_block all_money"></div>
                     </li>
                     <li>
                         <div class="inline_block">运费:</div>
@@ -135,16 +135,16 @@
                     </li>
                     <li>
                         <div class="inline_block">应付总额:</div>
-                        <div class="inline_block">????元</div>
+                        <div class="inline_block all_money"></div>
                     </li>
                 </ul>
             </div>
         </div>
-</form>
+        </form>
     </div>
 
     <div class="container go_shopping">
-        <a href="{% url 'store:pay' %}">去结算</a>
+        <button type="submit" form="confirm_form">去结算</button>
     </div>
 </div>
 
@@ -157,14 +157,25 @@
         /*城市选择控件*/
 	    $("#distpicker1").distpicker();
 
+
+        // 计算总价
+        var group = $(".money");    // 获取对象数组
+        var money = 0;              // 记录总价
+
+        // 循环对象组
+        group.each(function () {
+            var bout = ($(this).text());
+            money = parseInt(bout) + money;
+
+            console.log(parseInt(bout))
+        });
+        // 输出到位置
+        $('.all_money').text(money);
+        console.log(money);
+
         // 计算商品总数
         var num = $('.shop_num').length;
         $('.js').text(num);
-
-        // 地址
-        $('#tj').click(function () {
-            // var val = $('input:radio[name="1"]:checked').val();
-            var val = $('.rad:checked').val();
 
         $('#sub').on('click',function (e) {
            $('#confirm_form').submit();
@@ -185,8 +196,8 @@
         // })
 
 
-    })
-        })
+    });
+
 </script>
 {% endblock %}
 </body>

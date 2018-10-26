@@ -254,7 +254,7 @@ input { outline:none; }
     padding: 20px;
     margin-bottom: 50px;
 }
-.go_shopping > a{
+.go_shopping > button{
     float: right;
     color: #ffffff;
     padding: 10px 40px;

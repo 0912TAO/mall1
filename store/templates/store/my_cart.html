@@ -65,14 +65,16 @@
                     <div class="col-lg-2 col-sm-2  text-center">操作</div>
                 </div>
             </li>
-
+            <!--表单-->
             <form id="cart_form" action="{% url 'store:confirm' %}" method="post">
                 {% csrf_token %}
                 {% for s in shopcarts%}
                 <li class="list-group-item cookbook_in">
-                    <div style="margin-right: 0;" class="row">                                          <!--购物车id-->
+                    <div style="margin-right: 0;" class="row">
+
                         <div class="col-md-1  cookbook_in_left">
-                        <input class="checkbox" name="g_id" value="{{s.id}}" type="checkbox"></div>
+                            <input class="checkbox" name="g_id" value="{{s.id}}" type="checkbox">
+                        </div>
 
                         <div class="col-md-11 cookbook_in_right">
                             <div class="cookbook_in_right_top row">
@@ -93,9 +95,10 @@
                                     <a class="right" id="plus" href="javascript:void(0)"> &nbsp;+&nbsp;&nbsp;</a>
                                 </div>
                                 <!--jq输出总价-->
-                                <div class="col-md-2 col-sm-2 total_price">2499</div>
+                                <div class="col-md-2 col-sm-2 total_price">{{s.allTotal}}</div>
                                 <!--删除商品-->
-                                <div class="col-md-1 col-sm-1 text-center"><a href="{% url 'store:delete' s.id %}">x</a>
+                                <div class="col-md-1 col-sm-1 text-center">
+                                    <a href="{% url 'store:delete' s.id %}">x</a>
                                 </div>
                             </div>
 
@@ -112,27 +115,31 @@
                         </div>
                     </div>
                 </li>
-                {% endfor %}
+            {% endfor %}
+            </form>
         </ul>
     </div>
     <!--总价-->
 
     <div class="container cookbook_lower">
         <div class="row">
+
             <div class="col-md-6 col-sm-6 left cookbook_lower_left">
                 <a href="">继续购物</a>&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
-                <span>共 1 件商品，已选择 1 件 </span>
+                <!--显示商品数量-->
+                <span class="total">共 1 件商品</span>
+                <!--显示选择的商品数量-->
+                <span class="select">已选择 1 件 </span>
             </div>
 
             <div class="col-md-6 col-sm-6 right cookbook_lower_right">
                 <div class="right">
                     <span>合计:</span>
-                    <p class="inline_block total_price cookbook_lower_right_p">????</p>元
-                    <button type="submit"><a id="submit_link">确认订单</a></button>
+                    <p class="inline_block total_price cookbook_lower_right_p">????</p>元{% for i in shopcarts %} {{i.allTotal}} {%endfor%}
+                    <button form="cart_form" type="submit"><a id="submit_link">确认订单</a></button>
                 </div>
             </div>
 
-            </form>
         </div>
     </div>
 
@@ -252,43 +259,9 @@
            $('#cart_form').submit();
         });
 
-        // 获取单价
-        var price = parseInt($('.price').text());
-        $('.total_price').text(price);
-        // 获取数量
-        var sum = parseInt($('.sum').text());
-
-        // 减
-        $('#less').click(function () {
-            sum = sum - 1;
-
-            // 如果总数小于1
-            if (sum < 1) {
-                sum = 1;
-                $('.sum').text(sum);
-            }
-            else {
-                $('.sum').text(sum);
-                total_price = total_price - price;
-                $('.total_price').text(total_price)
-            }
-        });
-        // 加
-        $('#plus').click(function () {
-            sum = sum + 1;
-
-            // 如果总数小于1
-            if (sum < 1) {
-                sum = 1;
-                $('.sum').text(sum);
-            }
-            else {
-                $('.sum').text(sum);
-                total_price = price * sum;
-                $('.total_price').text(total_price)
-            }
-
-        });
+        // 计算商品总数
+        var num = $('.sum').length;
+        $('.total').text('共'+num+'件商品');
 
         // 全选反选按钮
         $('#all_checkbox').click(function () {
@@ -335,7 +308,6 @@
 
         });
 
-        // $('#add').hide();
 
         // 鼠标放在show块上隐藏价格 显示加入购物车
         $('#show').mouseenter(function () {

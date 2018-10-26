@@ -8,6 +8,8 @@ import logging
 from goods.models import GoodType, Goods
 from user.models import Address,User
 from shopcat.models import ShopCart
+from shopcat.models import Order
+from shopcat.models import OrderItem
 from . import models
 
 
@@ -242,7 +244,15 @@ def pay(request):
     a = request.META['REMOTE_ADDR']
     logger = logging.getLogger('require_django')
     logger.info(a + '结算页面')
-    return render(request, 'store/pay.html', {})
+
+    # 查询订单信息
+    order = Order.objects.get(user=request.user)
+    # 查询订单商品
+    orderitem = OrderItem.objects.filter(order_id=order.id)
+    print(order.recv_address)
+    print(orderitem)
+
+    return render(request, 'store/pay.html', {'order': order, 'orderitem': orderitem})
 
 
 # 宝贝
@@ -303,9 +313,40 @@ def goodsdel(request, g_id):
     return render(request, "store/baobei.html", {"store": store, "type1": type1, "goods": goods})
 
 
-def qwe(request):
-    c_ids = request.POST.getlist['s_id']
-    address = request.POST['address']
+# 添加订单
+def add_pay(request):
+    # 获取订单商品ID 列表
+    c_ids = request.POST.getlist('s_id')
+    # 获取地址id
+    address_id = request.POST['address']
+    # 根据地址id查询地址信息
+    address = Address.objects.get(pk=address_id)
+    # 根据ID查询购物车中的商品
+    shop_carts = ShopCart.objects.filter(pk__in=c_ids)
 
+    # 拼凑成一个完整地址  名称-电话-省-市-县/区-详细地址
+    _address = address.recr_name + " " + address.recr_tel + " " + address.province + " " + address.city + " " + address.area + " " + address.street
 
-    return HttpResponse("111111111111111111")
+    # 生成订单
+    order = Order(user=request.user, recv_name=address.recr_name, recv_tel=address.recr_tel, \
+          recv_address=_address, all_price=0, remark="")
+    order.save()
+
+    allCount = 0
+    # 循环商品
+    for s in shop_carts:
+        # 拿到商品的goods
+        g = s.goods
+        order_item = OrderItem(good_id=g.id, good_img=g.goodsimage_set.all().first().path, \
+                  good_name=g.name, good_price=g.price, good_count=s.count, \
+                  good_price_all=s.allTotal, order=order)
+        order_item.save()
+
+        # 每次都把商品总价统计
+        allCount += s.allTotal
+
+    # 吧统计完成的总价存入
+    order.all_price = allCount
+    order.save()
+
+    return redirect(reverse('store:pay'))

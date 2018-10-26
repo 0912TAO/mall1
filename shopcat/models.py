@@ -49,17 +49,17 @@ class OrderItem(models.Model):
     # 商品编号
     good_id= models.IntegerField(verbose_name="商品编号")
     # 商品图片
-    good_img= models.CharField(max_length=255,verbose_name="商品图片")
+    good_img= models.CharField(max_length=255, verbose_name="商品图片")
     # 商品名称
-    good_name= models.CharField(max_length=100,     verbose_name="商品名称")
+    good_name= models.CharField(max_length=100, verbose_name="商品名称")
     # 商品价格
     good_price = models.IntegerField(verbose_name="商品价格")
-    # 商品价格
+    # 商品数量
     good_count = models.IntegerField(verbose_name="商品数量")
     # 商品总价
     good_price_all = models.IntegerField(verbose_name="商品总价")
     #
     order = models.ForeignKey(Order,on_delete=models.CASCADE,verbose_name="订单")
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='购物车所属用户')
+    # user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='购物车所属用户')
 

@@ -40,6 +40,7 @@ urlpatterns = [
     url(r'^(?P<g_id>\d+)/goodsupdate/$', views.goodsupdate, name='goodsupdate'),
     # 删除
     url(r'^(?P<g_id>\d+)/goodsdel/$', views.goodsdel, name='goodsdel'),
-    url(r'^qwe/$', views.qwe, name='qwe')
+    # 添加订单
+    url(r'^add_pay/$', views.add_pay, name='add_pay'),
 
 ]
