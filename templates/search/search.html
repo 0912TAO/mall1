@@ -4,6 +4,8 @@
 {% endblock %}
 {% block baner %}
 {% endblock %}
+
+
 {% block main %}
 
 <style>
@@ -18,12 +20,13 @@
         text-align: center;
         padding-top: 100px;
     }
+
 </style>
 
 {% load static %}
 {% if query %}
 <!--<h3>搜索结果如下：</h3>-->
-{% for result in page.object_list %}
+
 
 <div class="box" style="background-color: #f1f1f1;width: 100%;">
 
@@ -31,12 +34,13 @@
         <div class="main">
 
             <ul style="padding: 20px">
+                {% for result in page.object_list %}
                 <li>
                     <div class="index2">
                         <div class="top">
                             <span class="top-note">新品</span>
                             <a href="/goods/{{ result.object.id }}/product/">
-                                <img src="{% static 'image/sj2.jpg' %}">
+                                <img src="/{{result.object.goodsimage_set.all.first.path}}">
                             </a>
                             <h5 class="tit"><a href="/goods/{{ result.object.id }}/product/">{{ result.object.name|truncatechars:23 }}</a></h5>
                             <p class="xiangqing text-center">{{ result.object.intro|truncatechars:46 }}</p>
@@ -62,7 +66,7 @@
     <a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">
         {% endif %} &laquo; 上一页 {% if page.has_previous %} </a> {% endif %} | {% if page.has_next %} <a
         href="?q={{ query }}&amp;page={{ page.next_page_number }}"> {% endif %} 下一页 &raquo; {% if page.has_next %}
-    Django
+    <!--Django-->
 </a> {% endif %}
 </div>
 {% endif %}

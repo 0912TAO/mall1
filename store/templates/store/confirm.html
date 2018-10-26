@@ -127,7 +127,7 @@
                     </li>
                     <li>
                         <div class="inline_block">商品总价:</div>
-                        <div class="inline_block">5999.0元</div>
+                        <div class="inline_block"><span class="ssss"></span></div>
                     </li>
                     <li>
                         <div class="inline_block">运费:</div>
@@ -135,7 +135,7 @@
                     </li>
                     <li>
                         <div class="inline_block">应付总额:</div>
-                        <div class="inline_block">5999.0元</div>
+                        <div class="inline_block"><span class="ssss"></span></div>
                     </li>
                 </ul>
             </div>
@@ -160,6 +160,11 @@
         // 计算商品总数
         var num = $('.shop_num').length;
         $('.js').text(num);
+
+        // 获取单价
+        var price = $('.money').text();
+        $('.ssss').text(price);
+
 
         // 地址
         $('#tj').click(function () {
