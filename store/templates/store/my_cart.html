@@ -111,11 +111,11 @@
             <!--</div>-->
             <!--</div>-->
             <!--</li>-->
-            <form action="">
+            <form action="{% url 'store:confirm' %}">
                 {% for s in shopcarts%}
                 <li class="list-group-item cookbook_in">
-                    <div style="margin-right: 0;" class="row">
-                        <div class="col-md-1  cookbook_in_left"><input class="checkbox" value="{{s.goods.id}}"
+                    <div style="margin-right: 0;" class="row">                                          <!--购物车id-->
+                        <div class="col-md-1  cookbook_in_left"><input class="checkbox" name="g_id" value="{{s.id}}"
                                                                        type="checkbox"></div>
 
                         <div class="col-md-11 cookbook_in_right">
