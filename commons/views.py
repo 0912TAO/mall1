@@ -94,3 +94,4 @@ def shuma(request):
 
 def pub(request):
     return render(request, "commons/pub.html", {})
+
