@@ -306,8 +306,8 @@
                             <a href="/goods/{{jd.id}}/product/">
                                 <img src="/{{jd.goodsimage_set.all.first.path}}">
                             </a>
-                            <h5 class="tit"><a href="/goods/product/">{{jd.name}}</a></h5>
-                            <p class="xiangqing text-center">{{jd.intro|truncatechars:20}}</p>
+                            <h5 class="tit"><a href="/goods/product/">{{jd.name|truncatechars:23}}</a></h5>
+                            <p class="xiangqing text-center">{{jd.intro|truncatechars:46}}</p>
                             <div class="jiage text-center">{{jd.price}}</div>
                         </div>
                     </div>
@@ -370,47 +370,6 @@
             </div>
             <ul>
                 {% for pj in peijian %}
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                {% endfor %}
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="index2">
-                        <div class="top">
-                            <span class="top-note">新品</span>
-                            <a href="">
-                                <img src="{% static 'image/sj2.jpg' %}">
-                            </a>
-                            <h5 class="tit"><a href="">小米8 青春版 4GB+64GB</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
-                        </div>
-                    </div>
-                </li>
-                {% for sp in shangpin %}
                 <li>
                     <div class="index2">
                         <div class="top">

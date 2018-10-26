@@ -53,8 +53,8 @@ open_shop
                 </li>
                 <li class="list-group-item">
                     <span>宝贝管理</span>
-                    <a href="javascript:void(0);" id="f">发布宝贝</a>
-                    <a href="javascript:void(0);" id="g">管理宝贝</a>
+                    <a href="/store/{{store.id}}/baobei/">发布宝贝</a>
+                      <a href="/store/{{store.id}}/baobei/">管理宝贝</a>
                 </li>
                 <li class="list-group-item">
                     <span>客户服务</span>
@@ -66,52 +66,34 @@ open_shop
         <!--# 右-->
         <div class="col-md-9 right_menu">
 
-            <div id="manage">
-                <ul>
-                    <h1>管理宝贝</h1>
-                    {% for g in goods %}
-                    <li>
 
-                        <!--<img style="width: 200px;height: 200px" src="{{g.goodsimage_set.all.first}}" alt="">-->
-                        <img style="width: 200px;height: 200px" src="/{{g.goodsimage_set.all.first.path}}"
-                             alt=""><br></br>
-                        商品名：<p>{{g.name}}</p>
-                        商品单价<p>{{g.price}}</p>
-                        商品库存：<p>{{g.stock}}</p>
-                        <a href="/store/{{g.id}}/goodsdel/">下架</a>
-                        <a href="/store/{{g.id}}/goodsupdate/">修改</a>
-
-
-                    </li>
-                    {% empty %}
-                    <p>当前没有商品请上架商品</p>
-                    {% endfor %}
-                </ul>
-
-            </div>
-
-
-            <div id="fabu" style="display: none;">
-                <h1>发布宝贝</h1>
-                <span style="color: #f54b07">图片、介绍发布之后不可修改</span>
-                <form action="{% url 'goods:add' %}" method="post" enctype="multipart/form-data">
+            <div id="fabu">
+                <h1>修改宝贝</h1>
+                <form action="{% url 'store:goodsupdate' s.id %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="store" value="{{store.id}}">
                     <table class="table table-bordered table-hover table-responsive">
-                        <tr>
+                                                <tr>
+
                             <th>商品名称：</th>
-                            <td><input type="text" name="name" id="name"></td>
+                            <td><input type="text" name="price" placeholder="{{s.name}}" readonly></td>
+
+                        </tr>
+                        <tr>
+
                             <th>商品单价：</th>
-                            <td><input type="number" name="price"></td>
+                            <td><input type="number" name="price" value="{{s.price}}"></td>
 
                         </tr>
                         <tr>
                             <th>商品库存：</th>
-                            <td><input type="number" name="stock"></td>
+                            <td><input type="number" name="stock" value="{{s.stock}}"></td>
+                        </tr>
+                        <tr>
                             <th>商品类型：</th>
                             <td colspan="5">
                                 <select name="type1" id="type1">
-                                    <option value="-1">请选择</option>
+                                    <option value="-1">请修改</option>
                                     {%for t in type1 %}
                                     <option value="{{t.id}}">{{t.name}}</option>
                                     {% endfor %}
@@ -121,32 +103,11 @@ open_shop
                                 </select>
                             </td>
                         </tr>
-                        <!--<tr>-->
-                        <!--<th>商品封面</th>-->
-                        <!--<td colspan="3"><input type="file" name="cover1" id="cover1"></td>-->
-                        <!--</tr>-->
-                        <tr>
-                            <th>商品介绍：</th>
-                            <td colspan="3">
-                                <textarea name="intro" id="intro" cols="100" rows="10"></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>商品配图</th>
-                            <td colspan="3">
-                                <input type="file" name="cover" id="cover" multiple/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>图片描述</th>
-                            <td colspan="3">
-                                <textarea name="intro1" id="intro1" cols="100" rows="10"></textarea>
-                            </td>
-                        </tr>
+
                         <tr>
                             <th></th>
                             <td colspan="3">
-                                <button type="submit">上架商品</button>
+                                <button type="submit">修改商品</button>
                             </td>
                         </tr>
                     </table>
@@ -189,15 +150,7 @@ open_shop
     })
 
 
-    $("#g").click(function () {
-        $("#fabu").css("display", "none");
-        $("#manage").css("display", "block");
-    });
 
-    $("#f").click(function () {
-        $("#manage").css("display", "none");
-        $("#fabu").css("display", "block");
-    });
 </script>
 
 {% endblock %}

@@ -110,13 +110,13 @@ def shop(request):
 
 
 # 细节（店铺详情）
-@require_GET
-@login_required()
-def detail(request,s_id):
-    store = models.store.objects.get(pk=s_id)
-    type1 = GoodType.objects.filter(parent__isnull=True)
-    goods = Goods.objects.filter(stores=store)
-    return render(request,"store/detail.html",{"store":store,"type1":type1,"goods":goods})
+# @require_GET
+# @login_required()
+# def detail(request,s_id):
+#     store = models.store.objects.get(pk=s_id)
+#     type1 = GoodType.objects.filter(parent__isnull=True)
+#     goods = Goods.objects.filter(stores=store)
+#     return render(request,"store/detail.html",{"store":store,"type1":type1,"goods":goods})
 
 
 # 店铺状态更改
@@ -139,12 +139,12 @@ def delete(request, s_id):
 
 # 更新数据
 @login_required()
-def update(request,s_id):
+def update(request, s_id):
 
     if request.method == "GET":
         store = models.store.objects.get(pk=s_id)
         print(store.name)
-        return render(request, "store/update.html", {"store": store})
+        return render(request, "store/goodsupdate.html", {"store": store})
     else:
         name = request.POST["name"].strip()
         intro = request.POST["intro"].strip()
@@ -225,13 +225,12 @@ def confirm(request):
 
     # 查询客户地址
     addresses = Address.objects.filter(user=request.user)
-
     print("*******************")
     print(shopCarts)
     print(addresses)
     print("*******************")
-
     return render(request, 'store/confirm.html', {'shopCarts': shopCarts, 'addresses': addresses})
+
 
 
 # 结算
@@ -265,3 +264,38 @@ def delete(request, s_id):
     at = ShopCart.objects.get(pk=s_id)
     at.delete()
     return redirect(reverse("store:my_cart"))
+
+
+# 修改商品
+def goodsupdate(request, g_id):
+    type1 = GoodType.objects.filter(parent__isnull=True)
+    s = Goods.objects.get(pk=g_id)
+    print(s.name, s.id, s.stores_id)
+    store = models.store.objects.get(pk=s.stores_id)
+    if request.method == 'GET':
+        return render(request, "store/goodsupdate.html", {"store": store, "s": s, "type1":type1})
+    if request.method == 'POST':
+        price = request.POST['price']
+        stock = request.POST['stock']
+        type2 = request.POST["type2"]
+
+        goodsType = GoodType.objects.get(pk=type2)
+        # 保存商品
+        g = Goods.objects.get(pk=g_id)
+        g.price=price
+        g.stock=stock
+        g.goodstype=goodsType
+        g.save()
+        goods = Goods.objects.filter(stores=store)
+        return render(request, "store/baobei.html", {"store": store, "type1": type1, "goods": goods})
+
+
+# 永久删除商品
+def goodsdel(request, g_id):
+    s = Goods.objects.get(pk=g_id)
+    store = models.store.objects.get(pk=s.stores_id)
+    type1 = GoodType.objects.filter(parent__isnull=True)
+    goods = Goods.objects.filter(stores=store)
+    g = Goods.objects.get(pk=g_id)
+    g.delete()
+    return render(request, "store/baobei.html", {"store": store, "type1": type1, "goods": goods})

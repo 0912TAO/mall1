@@ -39,8 +39,8 @@
                                 <img src="{% static 'image/sj2.jpg' %}">
                             </a>
                             <h5 class="tit"><a href="/goods/{{ result.object.id }}/product/">{{ result.object.name }}</a></h5>
-                            <p class="xiangqing text-center">潮流镜面渐变色，2400万自拍旗舰</p>
-                            <div class="jiage text-center">1399元</div>
+                            <p class="xiangqing text-center">{{ result.object.intro|truncatechars:46 }}</p>
+                            <div class="jiage text-center">{{ result.object.price }}元</div>
                         </div>
                     </div>
                 </li>

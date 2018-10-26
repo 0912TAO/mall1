@@ -47,7 +47,7 @@ def add(request):
 def findTypeByPID(request):
     parent_id = request.GET["parent_id"]
     type2s = models.GoodType.objects.filter(parent=parent_id)
-    return HttpResponse(serialize("json",type2s))
+    return HttpResponse(serialize("json", type2s))
 
 
 def product(request, sp_id):

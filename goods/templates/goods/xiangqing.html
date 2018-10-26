@@ -53,8 +53,10 @@
             <!--<img src="{% static 'image/sj1.jpg' %}">-->
             <!--<video src="{% static 'mall/images/xiangqingjieshao1.mp4' %}"></video>-->
             <!--<img src="{% static 'image/sj2.jpg' %}">-->
-            <img src="/{{goods.goodsimage_set.all.first.path}}" alt="">
-
+            <!--<img src="/{{goods.goodsimage_set.all.first.path}}" alt="">-->
+            {% for img in goods.goodsimage_set.all %}
+            <img src="/{{img.path}}">
+            {% endfor %}
         </div>
     </div>
 </div>

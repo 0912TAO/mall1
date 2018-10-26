@@ -318,11 +318,13 @@ main{
     text-align: center;
 }
 .sj .main ul li .index2 .top .tit a{
+    display: block;
+    width: 200px;
     color: #333;
     font-size: 13px;
     font-weight: 700;
     margin-top: 10px;
-    height: 14px;
+    height: 15px;
     text-decoration: none;
     text-align: center;
 }
@@ -335,6 +337,7 @@ main{
 }
 .sj .main ul li .index2 .top .jiage{
     color: #ff6700;
+    font-weight: 600;
 }
 .guanggao{
     width: 1226px;

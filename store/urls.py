@@ -35,6 +35,10 @@ urlpatterns = [
     # 添加购物车商品
     url(r'^(?P<goods_id>\d+)/add/$', views.add, name='add'),
     # 删除购物车商品
-    url(r'^(?P<s_id>\d+)/delete/$', views.delete, name='delete')
+    url(r'^(?P<s_id>\d+)/delete/$', views.delete, name='delete'),
+    # 修改
+    url(r'^(?P<g_id>\d+)/goodsupdate/$', views.goodsupdate, name='goodsupdate'),
+    # 删除
+    url(r'^(?P<g_id>\d+)/goodsdel/$', views.goodsdel, name='goodsdel'),
 
 ]
