@@ -190,7 +190,7 @@ def address(request):
             for address in addresses:
                 address.is_default = False
                 address.save()
-            address=  Address(recr_name=recr_name,recr_tel=recr_tel,province=province,city=city,area=area,street=street,postal=postal,add_label=add_label,user=request.user,is_default=True)
+            address = Address(recr_name=recr_name, recr_tel=recr_tel, province=province, city=city, area=area,street=street,postal=postal,add_label=add_label,user=request.user,is_default=True)
             address.save()
         except:
             address = Address(recr_name=recr_name, recr_tel=recr_tel, province=province, city=city, area=area,

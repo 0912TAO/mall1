@@ -1,0 +1,377 @@
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.010) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.006) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '38m4sz43tvalhs3rtezyc020bs6x85on' AND `django_session`.`expire_date` > '2018-10-26 01:12:29.196146'); args=('38m4sz43tvalhs3rtezyc020bs6x85on', '2018-10-26 01:12:29.196146')
+(0.004) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2; args=(2,)
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`user_id` = 2; args=(2,)
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10001; args=(10001,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10002; args=(10002,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10003; args=(10003,)
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10004; args=(10004,)
+(0.004) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10002)); args=(10002,)
+(0.003) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 7 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(7,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10001)); args=(10001,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 2 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(2,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 3 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(3,)
+(0.002) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 5 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(5,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10003)); args=(10003,)
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10004)) LIMIT 21; args=(10004,)
+Exception while resolving variable 'shangpin' in template 'commons/index.html'.
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mall\venv\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'shangpin'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'shangpin'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'shangpin'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [shangpin] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x000001A0C57752F0>>, \'request\': <WSGIRequest: GET \'/\'>, \'user\': <SimpleLazyObject: <User: dilei>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x000001A0C57E5748>, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x000001A0C53C9A58>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'SUCCESS\': 25, \'WARNING\': 30, \'ERROR\': 40}}, {}, {\'store\': <QuerySet []>, \'goods\': <QuerySet [<GoodType: GoodType object>, <GoodType: GoodType object>, <GoodType: GoodType object>, <GoodType: GoodType object>]>, \'shouji\': <QuerySet [<Goods: Goods object>, <Goods: Goods object>, <Goods: Goods object>]>, \'jiadian\': <QuerySet [<Goods: Goods object>]>, \'peijian\': <QuerySet []>, \'shuma\': <QuerySet [<Goods: Goods object>, <Goods: Goods object>]>}, {\'block\': <Block Node: main. Contents: [<TextNode: \'\\n<main>\\n    <div class="s\'>, <django.template.defaulttags.URLNode object at 0x000001A0C5811E48>, <TextNode: \'">\\n                    <i\'>, <django.templatetags.static.StaticNode object at 0x000001A0C5811F28>, <TextNode: \'">\\n                </a>\\n \'>, <For Node: for jd in jiadian, tail_len: 11>, <TextNode: \'\\n            </ul>\\n      \'>, <django.templatetags.static.StaticNode object at 0x000001A0C5818048>, <TextNode: \'" alt="">\\n    </div>\\n    \'>, <django.templatetags.static.StaticNode object at 0x000001A0C5818940>, <TextNode: \'">\\n                </a>\\n \'>, <For Node: for sp in shouji, tail_len: 11>, <TextNode: \'\\n            </ul>\\n      \'>, <django.templatetags.static.StaticNode object at 0x000001A0C5802E80>, <TextNode: \'" alt="">\\n    </div>\\n\\n   \'>, <django.template.defaulttags.URLNode object at 0x000001A0C581B358>, <TextNode: \'">\\n                    <i\'>, <django.templatetags.static.StaticNode object at 0x000001A0C581B438>, <TextNode: \'">\\n                </a>\\n \'>, <For Node: for pj in peijian, tail_len: 3>, <TextNode: \'\\n                <li>\\n   \'>, <django.templatetags.static.StaticNode object at 0x000001A0C581B518>, <TextNode: \'">\\n                      \'>, <django.templatetags.static.StaticNode object at 0x000001A0C581B780>, <TextNode: \'">\\n                      \'>, <For Node: for sp in shangpin, tail_len: 11>, <TextNode: \'\\n            </ul>\\n      \'>, <django.templatetags.static.StaticNode object at 0x000001A0C5806630>, <TextNode: \'" alt="">\\n    </div>\\n    \'>, <django.templatetags.static.StaticNode object at 0x000001A0C581E1D0>, <TextNode: \'">\\n                </a>\\n \'>, <For Node: for sm in shuma, tail_len: 11>, <TextNode: \'\\n            </ul>\\n      \'>]>}, {}]'
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10004)); args=(10004,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 1 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(1,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 6 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(6,)
+"GET / HTTP/1.1" 200 26964
+"GET /static/images/goods/28004.jpg HTTP/1.1" 404 1679
+"GET /static/image/1.png HTTP/1.1" 200 84394
+"GET /static/image/baner1.jpg HTTP/1.1" 200 218218
+"GET /static/image/baner.jpg HTTP/1.1" 200 187982
+"GET /static/image/ds1.jpg HTTP/1.1" 200 205145
+"GET /static/image/sj1.jpg HTTP/1.1" 200 296327
+"GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVZURvYXVtUVAvSzBCRzQ0bHlXTmdSSXVBSzZMWGVtbUdRPT0.jpg HTTP/1.1" 200 636647
+"GET /static/images/goods/b6f9463a80a948c4f74a2c10ef368b4a.jpg HTTP/1.1" 200 89339
+"GET /static/image/sj2.jpg HTTP/1.1" 200 21241
+"GET /static/images/goods/5cf303b248c2ebcd0c8592e6f953f8a0.jpg HTTP/1.1" 200 207112
+"GET /static/images/goods/%E5%8F%AA%E8%A6%81%E6%9C%89%E4%BD%A0%E9%99%AA%E7%9D%80%E6%88%91_%E9%9D%99%E9%9D%99%E7%9A%84%E4%BE%BF%E8%B6%B3%E5%A4%9F5.jpg HTTP/1.1" 404 1865
+"GET /static/images/goods/Zk9jaThsZHBmWEtTWFpXeTNLa0hVV1RxSWF1RDQ2TnVLREpnaVY3djlmWWFmZklGajVJckdnPT0.jpg HTTP/1.1" 200 382352
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '38m4sz43tvalhs3rtezyc020bs6x85on' AND `django_session`.`expire_date` > '2018-10-26 01:12:32.209782'); args=('38m4sz43tvalhs3rtezyc020bs6x85on', '2018-10-26 01:12:32.209782')
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2; args=(2,)
+127.0.0.1打开购物车
+(0.002) SELECT `shopcat_shopcart`.`id`, `shopcat_shopcart`.`goods_id`, `shopcat_shopcart`.`count`, `shopcat_shopcart`.`addTime`, `shopcat_shopcart`.`allTotal`, `shopcat_shopcart`.`user_id` FROM `shopcat_shopcart` WHERE `shopcat_shopcart`.`user_id` = 2; args=(2,)
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` = 2; args=(2,)
+Exception while resolving variable 'goodimage_set' in template 'store/my_cart.html'.
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Goods' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Goods' object has no attribute 'goodimage_set'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'goodimage_set'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [goodimage_set] in 'Goods object'
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` = 1; args=(1,)
+Exception while resolving variable 'goodimage_set' in template 'store/my_cart.html'.
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Goods' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Goods' object has no attribute 'goodimage_set'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'goodimage_set'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [goodimage_set] in 'Goods object'
+"GET /store/my_cart/ HTTP/1.1" 200 23768
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '38m4sz43tvalhs3rtezyc020bs6x85on' AND `django_session`.`expire_date` > '2018-10-26 01:12:32.278742'); args=('38m4sz43tvalhs3rtezyc020bs6x85on', '2018-10-26 01:12:32.278742')
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2; args=(2,)
+"GET /static/store/images/%2B.png HTTP/1.1" 200 739
+"GET /static/store/css/app/my_cart.css HTTP/1.1" 200 4850
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`user_id` = 2; args=(2,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10001; args=(10001,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10002; args=(10002,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10003; args=(10003,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10004; args=(10004,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10002)); args=(10002,)
+(0.002) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 7 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(7,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10001)); args=(10001,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 2 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(2,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 3 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(3,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 5 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(5,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10003)); args=(10003,)
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10004)) LIMIT 21; args=(10004,)
+Exception while resolving variable 'shangpin' in template 'commons/index.html'.
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mall\venv\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'shangpin'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'shangpin'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'shangpin'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [shangpin] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x000001A0C589F620>>, \'request\': <WSGIRequest: GET \'/\'>, \'user\': <SimpleLazyObject: <User: dilei>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x000001A0C58A49B0>, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x000001A0C58114E0>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'SUCCESS\': 25, \'WARNING\': 30, \'ERROR\': 40}}, {}, {\'store\': <QuerySet []>, \'goods\': <QuerySet [<GoodType: GoodType object>, <GoodType: GoodType object>, <GoodType: GoodType object>, <GoodType: GoodType object>]>, \'shouji\': <QuerySet [<Goods: Goods object>, <Goods: Goods object>, <Goods: Goods object>]>, \'jiadian\': <QuerySet [<Goods: Goods object>]>, \'peijian\': <QuerySet []>, \'shuma\': <QuerySet [<Goods: Goods object>, <Goods: Goods object>]>}, {\'block\': <Block Node: main. Contents: [<TextNode: \'\\n<main>\\n    <div class="s\'>, <django.template.defaulttags.URLNode object at 0x000001A0C58D0438>, <TextNode: \'">\\n                    <i\'>, <django.templatetags.static.StaticNode object at 0x000001A0C58D0518>, <TextNode: \'">\\n                </a>\\n \'>, <For Node: for jd in jiadian, tail_len: 11>, <TextNode: \'\\n            </ul>\\n      \'>, <django.templatetags.static.StaticNode object at 0x000001A0C58D05F8>, <TextNode: \'" alt="">\\n    </div>\\n    \'>, <django.templatetags.static.StaticNode object at 0x000001A0C58D0EF0>, <TextNode: \'">\\n                </a>\\n \'>, <For Node: for sp in shouji, tail_len: 11>, <TextNode: \'\\n            </ul>\\n      \'>, <django.templatetags.static.StaticNode object at 0x000001A0C58C71D0>, <TextNode: \'" alt="">\\n    </div>\\n\\n   \'>, <django.template.defaulttags.URLNode object at 0x000001A0C58D38D0>, <TextNode: \'">\\n                    <i\'>, <django.templatetags.static.StaticNode object at 0x000001A0C58D39B0>, <TextNode: \'">\\n                </a>\\n \'>, <For Node: for pj in peijian, tail_len: 3>, <TextNode: \'\\n                <li>\\n   \'>, <django.templatetags.static.StaticNode object at 0x000001A0C58D3A90>, <TextNode: \'">\\n                      \'>, <django.templatetags.static.StaticNode object at 0x000001A0C58D3CC0>, <TextNode: \'">\\n                      \'>, <For Node: for sp in shangpin, tail_len: 11>, <TextNode: \'\\n            </ul>\\n      \'>, <django.templatetags.static.StaticNode object at 0x000001A0C58C7C88>, <TextNode: \'" alt="">\\n    </div>\\n    \'>, <django.templatetags.static.StaticNode object at 0x000001A0C58D66A0>, <TextNode: \'">\\n                </a>\\n \'>, <For Node: for sm in shuma, tail_len: 11>, <TextNode: \'\\n            </ul>\\n      \'>]>}, {}]'
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10004)); args=(10004,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 1 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(1,)
+(0.002) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 6 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(6,)
+"GET / HTTP/1.1" 200 26964
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '38m4sz43tvalhs3rtezyc020bs6x85on' AND `django_session`.`expire_date` > '2018-10-26 01:12:35.582826'); args=('38m4sz43tvalhs3rtezyc020bs6x85on', '2018-10-26 01:12:35.582826')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2; args=(2,)
+127.0.0.1打开购物车
+(0.001) SELECT `shopcat_shopcart`.`id`, `shopcat_shopcart`.`goods_id`, `shopcat_shopcart`.`count`, `shopcat_shopcart`.`addTime`, `shopcat_shopcart`.`allTotal`, `shopcat_shopcart`.`user_id` FROM `shopcat_shopcart` WHERE `shopcat_shopcart`.`user_id` = 2; args=(2,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` = 2; args=(2,)
+Exception while resolving variable 'goodimage_set' in template 'store/my_cart.html'.
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Goods' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Goods' object has no attribute 'goodimage_set'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'goodimage_set'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [goodimage_set] in 'Goods object'
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` = 1; args=(1,)
+Exception while resolving variable 'goodimage_set' in template 'store/my_cart.html'.
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Goods' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Goods' object has no attribute 'goodimage_set'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'goodimage_set'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [goodimage_set] in 'Goods object'
+"GET /store/my_cart/ HTTP/1.1" 200 23768
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '38m4sz43tvalhs3rtezyc020bs6x85on' AND `django_session`.`expire_date` > '2018-10-26 01:12:35.650820'); args=('38m4sz43tvalhs3rtezyc020bs6x85on', '2018-10-26 01:12:35.650820')
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2; args=(2,)
+(0.001) SELECT `store_store`.`id`, `store_store`.`name`, `store_store`.`cover`, `store_store`.`intro`, `store_store`.`opener_time`, `store_store`.`status`, `store_store`.`user_id` FROM `store_store` WHERE `store_store`.`user_id` = 2; args=(2,)
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` IS NULL; args=()
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10001; args=(10001,)
+(0.002) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10002; args=(10002,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10003; args=(10003,)
+(0.001) SELECT `goods_goodtype`.`id`, `goods_goodtype`.`name`, `goods_goodtype`.`cover`, `goods_goodtype`.`intro`, `goods_goodtype`.`parent_id` FROM `goods_goodtype` WHERE `goods_goodtype`.`parent_id` = 10004; args=(10004,)
+(0.003) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10002)); args=(10002,)
+(0.002) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 7 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(7,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10001)); args=(10001,)
+(0.002) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 2 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(2,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 3 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(3,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 5 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(5,)
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10003)); args=(10003,)
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10004)) LIMIT 21; args=(10004,)
+Exception while resolving variable 'shangpin' in template 'commons/index.html'.
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mall\venv\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'shangpin'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'shangpin'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'shangpin'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [shangpin] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x000001A0C589F510>>, \'request\': <WSGIRequest: GET \'/\'>, \'user\': <SimpleLazyObject: <User: dilei>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x000001A0C581EDA0>, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x000001A0C58D3EF0>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'SUCCESS\': 25, \'WARNING\': 30, \'ERROR\': 40}}, {}, {\'store\': <QuerySet []>, \'goods\': <QuerySet [<GoodType: GoodType object>, <GoodType: GoodType object>, <GoodType: GoodType object>, <GoodType: GoodType object>]>, \'shouji\': <QuerySet [<Goods: Goods object>, <Goods: Goods object>, <Goods: Goods object>]>, \'jiadian\': <QuerySet [<Goods: Goods object>]>, \'peijian\': <QuerySet []>, \'shuma\': <QuerySet [<Goods: Goods object>, <Goods: Goods object>]>}, {\'block\': <Block Node: main. Contents: [<TextNode: \'\\n<main>\\n    <div class="s\'>, <django.template.defaulttags.URLNode object at 0x000001A0C58C79E8>, <TextNode: \'">\\n                    <i\'>, <django.templatetags.static.StaticNode object at 0x000001A0C58C7A90>, <TextNode: \'">\\n                </a>\\n \'>, <For Node: for jd in jiadian, tail_len: 11>, <TextNode: \'\\n            </ul>\\n      \'>, <django.templatetags.static.StaticNode object at 0x000001A0C58D0470>, <TextNode: \'" alt="">\\n    </div>\\n    \'>, <django.templatetags.static.StaticNode object at 0x000001A0C58D6E48>, <TextNode: \'">\\n                </a>\\n \'>, <For Node: for sp in shouji, tail_len: 11>, <TextNode: \'\\n            </ul>\\n      \'>, <django.templatetags.static.StaticNode object at 0x000001A0C58D6F28>, <TextNode: \'" alt="">\\n    </div>\\n\\n   \'>, <django.template.defaulttags.URLNode object at 0x000001A0C58D6DA0>, <TextNode: \'">\\n                    <i\'>, <django.templatetags.static.StaticNode object at 0x000001A0C581B748>, <TextNode: \'">\\n                </a>\\n \'>, <For Node: for pj in peijian, tail_len: 3>, <TextNode: \'\\n                <li>\\n   \'>, <django.templatetags.static.StaticNode object at 0x000001A0C581BA58>, <TextNode: \'">\\n                      \'>, <django.templatetags.static.StaticNode object at 0x000001A0C581BEB8>, <TextNode: \'">\\n                      \'>, <For Node: for sp in shangpin, tail_len: 11>, <TextNode: \'\\n            </ul>\\n      \'>, <django.templatetags.static.StaticNode object at 0x000001A0C58D00F0>, <TextNode: \'" alt="">\\n    </div>\\n    \'>, <django.templatetags.static.StaticNode object at 0x000001A0C5818940>, <TextNode: \'">\\n                </a>\\n \'>, <For Node: for sm in shuma, tail_len: 11>, <TextNode: \'\\n            </ul>\\n      \'>]>}, {}]'
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`goodstype_id` IN (SELECT V0.`id` AS Col1 FROM `goods_goodtype` V0 WHERE V0.`parent_id` = (SELECT U0.`id` AS Col1 FROM `goods_goodtype` U0 WHERE U0.`id` = 10004)); args=(10004,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 1 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(1,)
+(0.001) SELECT `goods_goodsimage`.`id`, `goods_goodsimage`.`path`, `goods_goodsimage`.`status`, `goods_goodsimage`.`intro`, `goods_goodsimage`.`goods_id` FROM `goods_goodsimage` WHERE `goods_goodsimage`.`goods_id` = 6 ORDER BY `goods_goodsimage`.`id` ASC LIMIT 1; args=(6,)
+"GET / HTTP/1.1" 200 26964
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '38m4sz43tvalhs3rtezyc020bs6x85on' AND `django_session`.`expire_date` > '2018-10-26 01:12:37.958670'); args=('38m4sz43tvalhs3rtezyc020bs6x85on', '2018-10-26 01:12:37.958670')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2; args=(2,)
+127.0.0.1确认订单页面
+(0.002) SELECT `shopcat_shopcart`.`id`, `shopcat_shopcart`.`goods_id`, `shopcat_shopcart`.`count`, `shopcat_shopcart`.`addTime`, `shopcat_shopcart`.`allTotal`, `shopcat_shopcart`.`user_id` FROM `shopcat_shopcart` WHERE `shopcat_shopcart`.`user_id` = 2 LIMIT 21; args=(2,)
+(0.003) SELECT `user_address`.`id`, `user_address`.`recr_name`, `user_address`.`recr_tel`, `user_address`.`province`, `user_address`.`city`, `user_address`.`area`, `user_address`.`street`, `user_address`.`postal`, `user_address`.`add_label`, `user_address`.`is_default`, `user_address`.`user_id` FROM `user_address` WHERE `user_address`.`user_id` = 2 LIMIT 21; args=(2,)
+(0.001) SELECT `user_address`.`id`, `user_address`.`recr_name`, `user_address`.`recr_tel`, `user_address`.`province`, `user_address`.`city`, `user_address`.`area`, `user_address`.`street`, `user_address`.`postal`, `user_address`.`add_label`, `user_address`.`is_default`, `user_address`.`user_id` FROM `user_address` WHERE `user_address`.`user_id` = 2; args=(2,)
+(0.001) SELECT `shopcat_shopcart`.`id`, `shopcat_shopcart`.`goods_id`, `shopcat_shopcart`.`count`, `shopcat_shopcart`.`addTime`, `shopcat_shopcart`.`allTotal`, `shopcat_shopcart`.`user_id` FROM `shopcat_shopcart` WHERE `shopcat_shopcart`.`user_id` = 2; args=(2,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` = 2; args=(2,)
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` = 1; args=(1,)
+"GET /store/confirm/ HTTP/1.1" 200 10912
+"GET /static/store/css/app/confirm.css HTTP/1.1" 304 0
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.003) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '38m4sz43tvalhs3rtezyc020bs6x85on' AND `django_session`.`expire_date` > '2018-10-26 01:14:01.161251'); args=('38m4sz43tvalhs3rtezyc020bs6x85on', '2018-10-26 01:14:01.161251')
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2; args=(2,)
+127.0.0.1确认订单页面
+(0.002) SELECT `shopcat_shopcart`.`id`, `shopcat_shopcart`.`goods_id`, `shopcat_shopcart`.`count`, `shopcat_shopcart`.`addTime`, `shopcat_shopcart`.`allTotal`, `shopcat_shopcart`.`user_id` FROM `shopcat_shopcart` WHERE `shopcat_shopcart`.`user_id` = 2 LIMIT 21; args=(2,)
+(0.002) SELECT `user_address`.`id`, `user_address`.`recr_name`, `user_address`.`recr_tel`, `user_address`.`province`, `user_address`.`city`, `user_address`.`area`, `user_address`.`street`, `user_address`.`postal`, `user_address`.`add_label`, `user_address`.`is_default`, `user_address`.`user_id` FROM `user_address` WHERE `user_address`.`user_id` = 2 LIMIT 21; args=(2,)
+(0.001) SELECT `user_address`.`id`, `user_address`.`recr_name`, `user_address`.`recr_tel`, `user_address`.`province`, `user_address`.`city`, `user_address`.`area`, `user_address`.`street`, `user_address`.`postal`, `user_address`.`add_label`, `user_address`.`is_default`, `user_address`.`user_id` FROM `user_address` WHERE `user_address`.`user_id` = 2; args=(2,)
+(0.001) SELECT `shopcat_shopcart`.`id`, `shopcat_shopcart`.`goods_id`, `shopcat_shopcart`.`count`, `shopcat_shopcart`.`addTime`, `shopcat_shopcart`.`allTotal`, `shopcat_shopcart`.`user_id` FROM `shopcat_shopcart` WHERE `shopcat_shopcart`.`user_id` = 2; args=(2,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` = 2; args=(2,)
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` = 1; args=(1,)
+"GET /store/confirm/ HTTP/1.1" 200 10908
+"GET /static/store/css/app/confirm.css HTTP/1.1" 304 0
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.004) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '38m4sz43tvalhs3rtezyc020bs6x85on' AND `django_session`.`expire_date` > '2018-10-26 01:14:07.783404'); args=('38m4sz43tvalhs3rtezyc020bs6x85on', '2018-10-26 01:14:07.783404')
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2; args=(2,)
+127.0.0.1确认订单页面
+(0.002) SELECT `shopcat_shopcart`.`id`, `shopcat_shopcart`.`goods_id`, `shopcat_shopcart`.`count`, `shopcat_shopcart`.`addTime`, `shopcat_shopcart`.`allTotal`, `shopcat_shopcart`.`user_id` FROM `shopcat_shopcart` WHERE `shopcat_shopcart`.`user_id` = 2 LIMIT 21; args=(2,)
+(0.001) SELECT `user_address`.`id`, `user_address`.`recr_name`, `user_address`.`recr_tel`, `user_address`.`province`, `user_address`.`city`, `user_address`.`area`, `user_address`.`street`, `user_address`.`postal`, `user_address`.`add_label`, `user_address`.`is_default`, `user_address`.`user_id` FROM `user_address` WHERE `user_address`.`user_id` = 2 LIMIT 21; args=(2,)
+(0.001) SELECT `user_address`.`id`, `user_address`.`recr_name`, `user_address`.`recr_tel`, `user_address`.`province`, `user_address`.`city`, `user_address`.`area`, `user_address`.`street`, `user_address`.`postal`, `user_address`.`add_label`, `user_address`.`is_default`, `user_address`.`user_id` FROM `user_address` WHERE `user_address`.`user_id` = 2; args=(2,)
+(0.001) SELECT `shopcat_shopcart`.`id`, `shopcat_shopcart`.`goods_id`, `shopcat_shopcart`.`count`, `shopcat_shopcart`.`addTime`, `shopcat_shopcart`.`allTotal`, `shopcat_shopcart`.`user_id` FROM `shopcat_shopcart` WHERE `shopcat_shopcart`.`user_id` = 2; args=(2,)
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` = 2; args=(2,)
+(0.002) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` = 1; args=(1,)
+"GET /store/confirm/ HTTP/1.1" 200 10895
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '38m4sz43tvalhs3rtezyc020bs6x85on' AND `django_session`.`expire_date` > '2018-10-26 01:14:10.519359'); args=('38m4sz43tvalhs3rtezyc020bs6x85on', '2018-10-26 01:14:10.519359')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2; args=(2,)
+127.0.0.1确认订单页面
+(0.002) SELECT `shopcat_shopcart`.`id`, `shopcat_shopcart`.`goods_id`, `shopcat_shopcart`.`count`, `shopcat_shopcart`.`addTime`, `shopcat_shopcart`.`allTotal`, `shopcat_shopcart`.`user_id` FROM `shopcat_shopcart` WHERE `shopcat_shopcart`.`user_id` = 2 LIMIT 21; args=(2,)
+(0.001) SELECT `user_address`.`id`, `user_address`.`recr_name`, `user_address`.`recr_tel`, `user_address`.`province`, `user_address`.`city`, `user_address`.`area`, `user_address`.`street`, `user_address`.`postal`, `user_address`.`add_label`, `user_address`.`is_default`, `user_address`.`user_id` FROM `user_address` WHERE `user_address`.`user_id` = 2 LIMIT 21; args=(2,)
+(0.001) SELECT `user_address`.`id`, `user_address`.`recr_name`, `user_address`.`recr_tel`, `user_address`.`province`, `user_address`.`city`, `user_address`.`area`, `user_address`.`street`, `user_address`.`postal`, `user_address`.`add_label`, `user_address`.`is_default`, `user_address`.`user_id` FROM `user_address` WHERE `user_address`.`user_id` = 2; args=(2,)
+(0.001) SELECT `shopcat_shopcart`.`id`, `shopcat_shopcart`.`goods_id`, `shopcat_shopcart`.`count`, `shopcat_shopcart`.`addTime`, `shopcat_shopcart`.`allTotal`, `shopcat_shopcart`.`user_id` FROM `shopcat_shopcart` WHERE `shopcat_shopcart`.`user_id` = 2; args=(2,)
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` = 2; args=(2,)
+(0.001) SELECT `goods_goods`.`id`, `goods_goods`.`name`, `goods_goods`.`price`, `goods_goods`.`stock`, `goods_goods`.`count`, `goods_goods`.`creatTime`, `goods_goods`.`intro`, `goods_goods`.`stores_id`, `goods_goods`.`goodstype_id` FROM `goods_goods` WHERE `goods_goods`.`id` = 1; args=(1,)
+"GET /store/confirm/ HTTP/1.1" 200 10895
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '38m4sz43tvalhs3rtezyc020bs6x85on' AND `django_session`.`expire_date` > '2018-10-26 01:14:11.343637'); args=('38m4sz43tvalhs3rtezyc020bs6x85on', '2018-10-26 01:14:11.343637')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2; args=(2,)
+Exception while resolving variable 'msg' in template 'store/address.html'.
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mall\venv\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'msg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'msg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'msg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mall\venv\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [msg] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'csrf_token\': <SimpleLazyObject: \'n2B6TbmABCSLwXwzvVHICt3jCSo4CMOT6pn4Y4PMIHY74RJhRpB7padwkT5UYoa6\'>, \'request\': <WSGIRequest: GET \'/store/address/\'>, \'user\': <SimpleLazyObject: <User: dilei>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x000001A0C58C7EF0>, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x000001A0C58C7748>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'SUCCESS\': 25, \'WARNING\': 30, \'ERROR\': 40}}, {}, {\'block\': <Block Node: main. Contents: [<TextNode: \'\\n\\n\\n    <div class="contai\'>, <django.templatetags.static.StaticNode object at 0x000001A0C58D6A90>, <TextNode: \'">\\n\\n            <!--中-->\\n\'>, <django.template.defaulttags.URLNode object at 0x000001A0C58D6B70>, <TextNode: \'" method="post" enctype="\'>, <django.template.defaulttags.CsrfTokenNode object at 0x000001A0C58D6CF8>, <TextNode: \'\\n                <div cla\'>, <Variable Node: msg>, <TextNode: \'</p>\\n                    \'>]>}]'
+"GET /store/address/ HTTP/1.1" 200 12324
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.010) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()

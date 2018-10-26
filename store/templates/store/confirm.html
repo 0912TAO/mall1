@@ -51,7 +51,6 @@
     </div>
 <div class="container-fluid bg">
     <div class="container prospect">
-<<<<<<< HEAD
         <!--收货地址-->
         <div class="address">
             <div class="address_title">
@@ -65,7 +64,7 @@
                     {{address.area}}
                 </a>
             {% empty %}
-                <a href="javascript:void(0);" class="text-center address_a">
+                <a href="{% url 'store:address' %}" class="text-center address_a">
                     点击添加收货地址
                 </a>
 
