@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, reverse, redirect, HttpResponse
 from django.contrib.auth.decorators import login_required   # 需要登陆的装饰器
 from django.shortcuts import render,redirect,reverse
 from django.views.decorators.http import require_GET
@@ -217,8 +217,11 @@ def confirm(request):
 
     # 获取购物车中选择的多个商品数据 列表
     g_ids = request.POST.getlist('g_id')
+    print('信息1', g_ids)
     # 查询购物车商品
-    shopCarts = ShopCart.objects.filter(user=request.user)
+    shopCarts = ShopCart.objects.filter(pk__in=g_ids)
+
+    print('信息', shopCarts)
 
     # 根据商品查询多个商品 对象
     # goods = my_shop_cart.goods.objects.filter(pk__in=g_ids)
@@ -229,8 +232,7 @@ def confirm(request):
     print(shopCarts)
     print(addresses)
     print("*******************")
-    return render(request, 'store/confirm.html', {'shopCarts': shopCarts, 'addresses': addresses})
-
+    return render(request, 'store/confirm.html', {'shopCarts': shopCarts, 'addresses': addresses, 'g_ids': g_ids})
 
 
 # 结算
@@ -299,3 +301,11 @@ def goodsdel(request, g_id):
     g = Goods.objects.get(pk=g_id)
     g.delete()
     return render(request, "store/baobei.html", {"store": store, "type1": type1, "goods": goods})
+
+
+def qwe(request):
+    c_ids = request.POST.getlist['s_id']
+    address = request.POST['address']
+
+
+    return HttpResponse("111111111111111111")
