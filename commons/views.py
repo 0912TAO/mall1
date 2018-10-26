@@ -25,22 +25,22 @@ def index(request):
     # 手机类型
     shouji_type1 = GoodType.objects.filter(pk=10001)
     shouji_type2 = GoodType.objects.filter(parent=shouji_type1)
-    shouji = Goods.objects.filter(goodstype__in=shouji_type2)[0:8]
+    shouji = Goods.objects.filter(goodstype__in=shouji_type2).order_by("-id")[0:8]
 
     # 家电类型
     jiadian_type1 = GoodType.objects.filter(pk=10002)
     jiadian_type2 = GoodType.objects.filter(parent=jiadian_type1)
-    jiadian = Goods.objects.filter(goodstype__in=jiadian_type2)[0:8]
+    jiadian = Goods.objects.filter(goodstype__in=jiadian_type2).order_by("-id")[0:8]
 
     # 手机配件
     peijian_type1 = GoodType.objects.filter(pk=10003)
     peijian_type2 = GoodType.objects.filter(parent=peijian_type1)
-    peijian = Goods.objects.filter(goodstype__in=peijian_type2)[0:8]
+    peijian = Goods.objects.filter(goodstype__in=peijian_type2).order_by("-id")[0:8]
 
     # 智能数码
     shuma_type1 = GoodType.objects.filter(pk=10004)
     shuma_type2 = GoodType.objects.filter(parent=shuma_type1)
-    shuma = Goods.objects.filter(goodstype__in=shuma_type2)[0:8]
+    shuma = Goods.objects.filter(goodstype__in=shuma_type2).order_by("-id")[0:8]
 
     return render(request, "commons/index.html", {"store": s, "goods": goods, "shouji": shouji,
                                                   "jiadian": jiadian, "peijian": peijian, "shuma": shuma
