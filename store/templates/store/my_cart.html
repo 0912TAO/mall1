@@ -65,63 +65,22 @@
                     <div class="col-lg-2 col-sm-2  text-center">操作</div>
                 </div>
             </li>
-            <!--中-->
-            <!--<li class="list-group-item cookbook_in">-->
-            <!--<div style="margin-right: 0;" class="row">-->
-            <!--<div class="col-md-1  cookbook_in_left"><input class="checkbox" type="checkbox"></div>-->
 
-            <!--<div class="col-md-11 cookbook_in_right">-->
-            <!--<div class="cookbook_in_right_top row">-->
-            <!--<div class="col-md-1 col-sm-1">-->
-            <!--<img src="{% static 'store/images/phone80x80.jpg' %}">-->
-            <!--</div>-->
-            <!--<div class="col-md-4 col-sm-4"><a href="">小米8全网通 6G内存 64GB 黑色</a></div>-->
-            <!--&lt;!&ndash;jq获取单价&ndash;&gt;-->
-            <!--<div class="col-md-2 col-sm-2 text-center " >-->
-            <!--<span class="price">2499元</span>-->
-            <!--</div>-->
-            <!--<div class="col-md-2 col-sm-2 text-center">-->
-            <!--<a class="left" id="less" href="javascript:void(0)">&nbsp;&nbsp;-&nbsp; </a>-->
-            <!--&lt;!&ndash;jq总数&ndash;&gt;-->
-            <!--<span style="font-size: 18px;font-weight: 500;color: black;" class="sum" >1</span>-->
-            <!--<a class="right" id="plus" href="javascript:void(0)"> &nbsp;+&nbsp;&nbsp;</a>-->
-            <!--</div>-->
-            <!--&lt;!&ndash;jq输出总价&ndash;&gt;-->
-            <!--<div class="col-md-2 col-sm-2 total_price">2499</div>-->
-            <!--<div class="col-md-1 col-sm-1 text-center"><a href="">x</a></div>-->
-            <!--</div>-->
-
-            <!--&lt;!&ndash;<div class="row cookbook_in_right_in">&ndash;&gt;-->
-            <!--&lt;!&ndash;<div class="col-md-1 col-sm-1 text-center">图片</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;<div class="col-md-6 col-sm-6">赠品</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;<div class="col-md-1 col-sm-1 text-center">1</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;<div class="col-md-4 col-sm-4"></div>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-            <!--<div class="cookbook_in_right_lower">-->
-            <!--<div style="margin-top: 10px;">-->
-            <!--<a href="">-->
-            <!--<img src="{% static 'store/images/+.png'%}">意外保障服务249元-->
-            <!--</a>-->
-            <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-            <!--<a style="color: #ff6700;" href="">了解保障服务></a>-->
-
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</li>-->
-            <form action="{% url 'store:confirm' %}">
+            <form id="cart_form" action="{% url 'store:confirm' %}" method="post">
+                {% csrf_token %}
                 {% for s in shopcarts%}
                 <li class="list-group-item cookbook_in">
                     <div style="margin-right: 0;" class="row">                                          <!--购物车id-->
-                        <div class="col-md-1  cookbook_in_left"><input class="checkbox" name="g_id" value="{{s.id}}"
-                                                                       type="checkbox"></div>
+                        <div class="col-md-1  cookbook_in_left">
+                        <input class="checkbox" name="g_id" value="{{s.id}}" type="checkbox" required></div>
 
                         <div class="col-md-11 cookbook_in_right">
                             <div class="cookbook_in_right_top row">
                                 <div class="col-md-1 col-sm-1">
+
                                     <!--<img src="/{{s.goods.goodimage_set.first.path}}">-->
+
+
                                 </div>
                                 <div class="col-md-4 col-sm-4"><a href="">{{s.goods.name}}</a></div>
                                 <!--jq获取单价-->
@@ -142,13 +101,6 @@
                                 <div class="col-md-1 col-sm-1 text-center"><a href="{% url 'store:delete' s.id %}">x</a>
                                 </div>
                             </div>
-
-                            <!--<div class="row cookbook_in_right_in">-->
-                            <!--<div class="col-md-1 col-sm-1 text-center">图片</div>-->
-                            <!--<div class="col-md-6 col-sm-6">赠品</div>-->
-                            <!--<div class="col-md-1 col-sm-1 text-center">1</div>-->
-                            <!--<div class="col-md-4 col-sm-4"></div>-->
-                            <!--</div>-->
 
                             <div class="cookbook_in_right_lower">
                                 <div style="margin-top: 10px;">
@@ -179,7 +131,7 @@
                 <div class="right">
                     <span>合计:</span>
                     <p class="inline_block total_price cookbook_lower_right_p">????</p>元
-                    <button type="submit"><a href="{% url 'store:confirm'  %}">确认订单</a></button>
+                    <button type="submit"><a id="submit_link">确认订单</a></button>
                 </div>
             </div>
 
@@ -298,6 +250,10 @@
 </div>
 <script>
     $().ready(function () {
+
+        $('submit_link').on('click',function (e) {
+           $('#cart_form').submit();
+        });
 
         // 获取单价
         var price = parseInt($('.price').text());

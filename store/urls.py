@@ -13,9 +13,9 @@ urlpatterns = [
     # 商铺列表
     # url(r"^list",views.list,name="list"),
     # 细节（店铺详情）
-    url(r"^(?P<s_id>\d+)/detail/",views.detail,name="detail"),
-    # 添加商品
-    url(r"^release_goods/",views.detail,name="release_goods"),
+    # url(r"^(?P<s_id>\d+)/detail/", views.detail,name="detail"),
+    # # 添加商品
+    # url(r"^release_goods/", views.detail,name="release_goods"),
     # 更新店铺数据
     url(r"^(?P<s_id>\d+)/update/",views.update,name="update"),
     # 店铺状态更改
@@ -40,5 +40,6 @@ urlpatterns = [
     url(r'^(?P<g_id>\d+)/goodsupdate/$', views.goodsupdate, name='goodsupdate'),
     # 删除
     url(r'^(?P<g_id>\d+)/goodsdel/$', views.goodsdel, name='goodsdel'),
+    url(r'^qwe/$', views.qwe, name='qwe')
 
 ]
