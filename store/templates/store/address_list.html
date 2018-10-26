@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 {% extends 'base.html' %}
 <html lang="ch">
@@ -59,21 +60,34 @@
                 <h4 class="inline_block">收货地址</h4>
                 <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;大型商品下单后，收货地址将无法修改。快递公司会电话联系您确认送货时间，收货时需核对身份证信息。</span>
             </div>
-    <h1>地址信息</h1>
-        {% for add in addresses %}
-        收件人:{{add.recr_name}}<br>
-收货人电话：{{add.recr_tel}}<br>
-收货人所在省份：{{add.province}}<br>
-收货人所在城市：{{add.city}}<br>
-收货人所在区县：{{add.area}}<br>
-收货人详细地址：{{add.street}}<br>
-邮政编码：{{add.postal}}<br>
-地址标签：{{add.add_label}}<br>
-{% ifequal add.is_default True %}<br>
-    默认地址
-{% endifequal %}
 
-{% endfor %}
+           <div class="row">
+               <div class="col-md-12">
+                    {% for add in addresses %}
+                   <div class="col-md-4">
+                        <div style="background-color:#eeeeff;height: 280px;" class="panel">
+                            <div class="panel-body">
+                                <p>收货人信息</p>
+                                <input type="radio" id="">选择地址<br>
+                                姓名:{{add.recr_name}}<br>
+                                电话：{{add.recr_tel}}<br>
+                                所在省份：{{add.province}}<br>
+                                所在城市：{{add.city}}<br>
+                                所在区县：{{add.area}}<br>
+                                详细地址：{{add.street}}<br>
+                                邮政编码：{{add.postal}}<br>
+                                地址标签：{{add.add_label}}<br>
+                                {% ifequal add.is_default True %}<br>
+                                    默认地址
+                                {% endifequal %}
+                            </div>
+                        </div>
+                   </div>
+                   {% endfor %}
+               </div>
+           </div>
+
+
             <!--<div class="address_input">-->
                 <!--<input type="text" id="recr_name" name="recr_name" placeholder="收货人姓名" class="address_input_small">-->
                 <!--<input type="text" id="recr_tel" name="recr_tel" placeholder="手机号" class="address_input_small"><br/>-->
@@ -175,7 +189,7 @@
     $().ready(function () {
         /*城市选择控件*/
 	    $("#distpicker1").distpicker();
-	    
+
 	    // 点击提交
         $('#t').click(function () {
             console.log($("#province").val()+" "+$('#city').val()+" "+$('#district').val());

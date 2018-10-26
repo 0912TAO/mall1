@@ -199,6 +199,13 @@ def address(request):
         return redirect(reverse("store:confirm"))
 
 
+def address_list(request):
+    addresses = Address.objects.filter(user=request.user)
+
+    return render(request,"store/address_list.html",{"addresses":addresses})
+
+
+
 # 确认订单
 @login_required
 def confirm(request):

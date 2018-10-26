@@ -24,6 +24,8 @@ urlpatterns = [
     url(r'^confirm/$', views.confirm, name='confirm'),
     # 添加地址
     url(r'^address/$', views.address, name='address'),
+    # 地址列表
+    url(r'^address_list/$', views.address_list, name='address_list'),
     # 结算页面
     url(r'^pay/$', views.pay, name='pay'),
     # 宝贝
