@@ -74,4 +74,4 @@ def pinglun(request, goods_id):
 def fenlei(request, g2_id):
     # goods = models.GoodType.objects.filter(pk=g2_id)
     goods = models.Goods.objects.filter(goodstype=g2_id)
-    return render(request, "goods/fenlei.html", {"goods":goods})
+    return render(request, "goods/fenlei.html", {"goods": goods})

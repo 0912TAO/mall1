@@ -46,6 +46,8 @@ urlpatterns = [
 
 
     url(r"^tiaozhuan/", views.tiaozhuan, name='tiaozhuan'),
+    # 服务
+    url(r"^server/", views.server, name='server'),
 
 
 ]

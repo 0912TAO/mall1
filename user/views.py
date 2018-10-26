@@ -283,3 +283,8 @@ def reg_login(request):
             print("你的邮箱"+email)
         except Exception as e:
             pass
+
+
+# 服务
+def server(request):
+    return render(request, "user/services.html", {})

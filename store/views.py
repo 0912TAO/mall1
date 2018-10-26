@@ -86,7 +86,7 @@ def open_shop(request):
 @login_required()
 def shop(request):
     if request.method == "GET":
-        return render(request, 'store/open_shop.html', {})
+        return render(request, 'store/shop.html', {})
     else:
         name = request.POST["name"].strip()
         intro = request.POST["intro"].strip()
@@ -98,7 +98,7 @@ def shop(request):
 
         store1.save()
         # return redirect(reverse("store:list"))
-        return redirect(reverse("store:open_shop", kwargs={"s_id":store1.id}))
+        return redirect(reverse("store:open_shop"))
 
 
 # 商铺列表
@@ -110,13 +110,13 @@ def shop(request):
 
 
 # 细节（店铺详情）
-# @require_GET
-# @login_required()
-# def detail(request,s_id):
-#     store = models.store.objects.get(pk=s_id)
-#     type1 = GoodType.objects.filter(parent__isnull=True)
-#     goods = Goods.objects.filter(stores=store)
-#     return render(request,"store/detail.html",{"store":store,"type1":type1,"goods":goods})
+@require_GET
+@login_required()
+def detail(request,s_id):
+    store = models.store.objects.get(pk=s_id)
+    type1 = GoodType.objects.filter(parent__isnull=True)
+    goods = Goods.objects.filter(stores=store)
+    return render(request,"store/detail.html",{"store":store,"type1":type1,"goods":goods})
 
 
 # 店铺状态更改
@@ -144,13 +144,13 @@ def update(request, s_id):
     if request.method == "GET":
         store = models.store.objects.get(pk=s_id)
         print(store.name)
-        return render(request, "store/goodsupdate.html", {"store": store})
+        return render(request, "store/update_store.html", {"store": store})
     else:
-        name = request.POST["name"].strip()
+        # name = request.POST["name"].strip()
         intro = request.POST["intro"].strip()
         store = models.store.objects.get(pk=s_id)
 
-        store.name = name
+        # store.name = name
         store.intro = intro
         try:
             cover = request.FILES["cover"]
@@ -158,7 +158,7 @@ def update(request, s_id):
         except:
             pass
         store.save()
-        return redirect(reverse("store:detail", kwargs={"s_id": store.id}))
+        return redirect(reverse("store:open_shop", kwargs={"s_id": store.id}))
 
 
 # 添加地址
@@ -226,16 +226,11 @@ def confirm(request):
     # 查询客户地址
     addresses = Address.objects.filter(user=request.user)
 
-<<<<<<< HEAD
-    return render(request, 'store/confirm.html', {})
-=======
-    print("*******************")
-    print(shopCarts)
-    print(addresses)
-    print("*******************")
+    # return render(request, 'store/confirm.html', {})
+
 
     return render(request, 'store/confirm.html', {'shopCarts': shopCarts, 'addresses': addresses})
->>>>>>> 338b44e8e63bad703f7ccf2bd1d8297c21a3d1e2
+
 
 
 # 结算

@@ -22,8 +22,13 @@ i_want_open_shop
             <ul class="list-group">
                 <li class="list-group-item">
                     <span>店铺管理</span>
-                    <a href="/store/open_shop/">我要开店</a>
-                      <a href="/store/{{store.id}}/detail/">店铺信息</a>
+                    {% if store %}
+                      <a href="/store/open_shop/">店铺信息</a>
+                      <a href="/store/{{store.id}}/update/">修改信息</a>
+
+                      {% else %}
+                      <a href="/store/open_shop/">我要开店</a>
+                      {% endif %}
                 </li>
                 <li class="list-group-item">
                     <span>交易管理</span>
@@ -36,8 +41,8 @@ i_want_open_shop
                 </li>
                 <li class="list-group-item">
                     <span>宝贝管理</span>
-                    <a href="">发布宝贝</a>
-                    <a href="">管理宝贝</a>
+                    <a href="javascript:void(0);"  id="baobeia">发布宝贝</a>
+                      <a href="javascript:void(0);"  id="baobeib">管理宝贝</a>
                 </li>
                 <li class="list-group-item">
                     <span>客户服务</span>
@@ -54,7 +59,7 @@ i_want_open_shop
                 <div class="form-group">
                     <label for="name" class="col-md-2 control-label">店铺名称</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="name" placeholder="店铺名称" name="name">
+                        <input type="text" class="form-control" id="name" placeholder="店铺名称 | 不可修改" name="name">
                     </div>
                 </div>
 
@@ -85,4 +90,12 @@ i_want_open_shop
         </div>
     </div>
 </div>
+
+<script>
+
+    $("#baobeia,#baobeib").click(function () {
+       alert("您还不是店家，请创建店铺使用该功能！！！")
+    })
+    
+</script>
 {% endblock %}

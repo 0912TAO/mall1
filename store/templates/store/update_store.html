@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+i_want_open_shop
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'store/css/app/open_shop.css' %}">
+{% endblock %}
+
+{% block navnav %}
+{% endblock %}
+
+{% block baner %}
+{% endblock %}
+
+{% block main %}
+<div class="container pd">
+    <div class="row">
+        <!--左-->
+        <div class="col-md-3 left_menu">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span>店铺管理</span>
+                    {% if store %}
+                      <a href="/store/open_shop/">店铺信息</a>
+                      <a href="/store/{{store.id}}/update/">修改信息</a>
+
+                      {% else %}
+                      <a href="/store/open_shop/">我要开店</a>
+                      {% endif %}
+                </li>
+                <li class="list-group-item">
+                    <span>交易管理</span>
+                    <a href="">已卖出的宝贝</a>
+                    <a href="">评价管理</a>
+                </li>
+                <li class="list-group-item">
+                    <span>物流管理</span>
+                    <a href="">发货</a>
+                </li>
+                <li class="list-group-item">
+                    <span>宝贝管理</span>
+                    <a href="/store/{{store.id}}/baobei/">发布宝贝</a>
+                      <a href="/store/{{store.id}}/baobei/">管理宝贝</a>
+                </li>
+                <li class="list-group-item">
+                    <span>客户服务</span>
+                    <a href="">举报管理</a>
+                </li>
+            </ul>
+        </div>
+
+        <!--# 右-->
+        <div class="col-md-9 right_menu">
+
+            <form class="form-horizontal" method="post" action="{% url 'store:shop' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name" class="col-md-2 control-label">店铺名称</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="name" value="{{store.name}}" name="name" readonly>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="cover" class="col-md-2 control-label">店铺封面</label>
+                    <div class="col-md-10">
+                        <img src="/{{store.cover}}" width="150">
+                        <input type="file" class="form-control" id="cover" placeholder="店铺封面" name="cover">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="intro" class="col-md-2 control-label">店铺介绍</label>
+                    <div class="col-md-10">
+                        <!--<input type="text" class="form-control" id="intro" placeholder="店铺介绍" name="intro">-->
+                        <textarea id="intro" placeholder="店铺介绍" name="intro" cols="96" rows="10">{{store.intro}}</textarea>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-default">修改店铺</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
