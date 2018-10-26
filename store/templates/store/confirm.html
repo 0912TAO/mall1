@@ -14,7 +14,6 @@
 
 </head>
 <body>
-
 {% block nav %}
 {% endblock %}
 
@@ -58,15 +57,23 @@
                 <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;大型商品下单后，收货地址将无法修改。快递公司会电话联系您确认送货时间，收货时需核对身份证信息。</span>
             </div>
             {% for address in addresses %}
-                <a class="address_a">
+            <div class="container">
+                <a href="javascript:void(0);" class="text-center address_a">
                     {{address.province}}
                     {{address.city}}
                     {{address.area}}
                 </a>
-            {% empty %}
+
                 <a href="{% url 'store:address' %}" class="text-center address_a">
                     点击添加收货地址
                 </a>
+            </div>
+            {% empty %}
+            <div>
+                <a href="{% url 'store:address' %}" class="text-center address_a">
+                    点击添加收货地址
+                </a>
+            </div>
 
 
             <!--<div class="address_input">-->
@@ -157,10 +164,13 @@
         </div>
     </div>
 
-    <div class="container go_shopping">
-        <a href="{% url 'store:pay' %}" class="right">去结算</a>
-    </div>
+    <!--<div class="container">-->
+        <!--<a href="{% url 'store:pay' %}" class="">去结算</a>-->
+    <!--</div>-->
 </div>
+    <div class="container go_shopping">
+            <a href="{% url 'store:pay' %}" class="">去结算</a>
+    </div>
 {% endblock %}
 {% block script %}
 <script>

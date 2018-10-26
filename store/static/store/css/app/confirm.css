@@ -80,7 +80,8 @@
 }
 
 .address_a{
-    display: block;
+    display: inline-block;
+    float: left;
     text-decoration: none;
     width: 270px;
     height: 180px;
@@ -88,11 +89,19 @@
     color: #757575;
     font-size: 14px;
     border: 1px solid #eee;
+    margin-right: 10px;
 }
 
 .address_a:hover{
     color: #ffffff;
     background: #ccc;
+    text-decoration: none;
+}
+
+.address_a:focus{
+    color: #ffffff;
+    background: #ccc;
+    text-decoration: none;
 }
 
 .address_title > span{
@@ -217,6 +226,7 @@ input { outline:none; }
 
 .invoice_info > ul{
     list-style: none;
+    display: block;
 }
 
 .invoice_info > ul > li{
@@ -245,6 +255,7 @@ input { outline:none; }
     margin-bottom: 50px;
 }
 .go_shopping > a{
+    float: right;
     color: #ffffff;
     padding: 10px 40px;
     text-decoration: none;
