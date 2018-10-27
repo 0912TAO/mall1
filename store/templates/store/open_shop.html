@@ -27,6 +27,8 @@ open_shop
                       <span>店铺管理</span>
                       {% if store %}
                       <a href="/store/open_shop/">店铺信息</a>
+                      <a href="/store/{{store.id}}/update/">修改信息</a>
+
                       {% else %}
                       <a href="/store/open_shop/">我要开店</a>
                       {% endif %}
@@ -73,14 +75,14 @@ open_shop
                         </td>
                         <td>
                             <a href="{% url 'store:change' store.id  1%}">暂停营业</a>
-                            <a href="{% url 'store:change' store.id  2%}">删除店铺</a>
+                            <a href="{% url 'store:change' store.id  2%}" onclick="return window.confirm('你确定删除这个用户？')">删除店铺</a>
                         </td>
                         {% else %}
 
                         {% ifequal store.status 1 %}
                         <p style="font-weight: 700;color: #f54b07;">暂停营业</p>
                         <td><a href="{% url 'store:change' store.id  0%}">开始营业</a>
-                            <a href="{% url 'store:change' store.id  2%}">删除店铺</a></td>
+                            <a href="{% url 'store:change' store.id  2%}" onclick="return window.confirm('你确定删除这个用户？')">删除店铺</a></td>
                         {% else %}
                         <td><p style="font-weight: 700;color: #f54b07;">亲，您的店铺已移除如有疑问请联系管理员</p></td>
                         {% endifequal %}
@@ -111,4 +113,7 @@ open_shop
         </div>
     </div>
 </div>
+
+
+
 {% endblock %}

@@ -65,11 +65,13 @@
                     <div class="col-lg-2 col-sm-2  text-center">操作</div>
                 </div>
             </li>
+        </ul>
             <!--表单-->
             <form id="cart_form" action="{% url 'store:confirm' %}" method="post">
                 {% csrf_token %}
-                {% for s in shopcarts%}
-                <li class="list-group-item cookbook_in">
+
+                <div class="list-group-item cookbook_in">
+                    {% for s in shopcarts%}
                     <div style="margin-right: 0;" class="row">
 
                         <div class="col-md-1  cookbook_in_left">
@@ -79,7 +81,7 @@
                         <div class="col-md-11 cookbook_in_right">
                             <div class="cookbook_in_right_top row">
                                 <div class="col-md-1 col-sm-1">
-                                    <img src="/{{s.goods.goodimage_set.first.path}}">
+                                    <!--<img src="/{{s.goods.goodimage_set.first.path}}">-->
                                 </div>
                                 <div class="col-md-4 col-sm-4"><a href="">{{s.goods.name}}</a></div>
                                 <!--jq获取单价-->
@@ -109,16 +111,16 @@
                                     </a>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a style="color: #ff6700;" href="">了解保障服务></a>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-                </li>
-            {% endfor %}
+                    {% endfor %}
+                </div>
             </form>
-        </ul>
-    </div>
+
+
+
     <!--总价-->
 
     <div class="container cookbook_lower">
@@ -135,7 +137,7 @@
             <div class="col-md-6 col-sm-6 right cookbook_lower_right">
                 <div class="right">
                     <span>合计:</span>
-                    <p class="inline_block total_price cookbook_lower_right_p">????</p>元{% for i in shopcarts %} {{i.allTotal}} {%endfor%}
+                    <p class="inline_block total_price cookbook_lower_right_p">{% for i in shopcarts %} {{i.allTotal}} {%endfor%}</p>元
                     <button form="cart_form" type="submit"><a id="submit_link">确认订单</a></button>
                 </div>
             </div>
@@ -151,107 +153,110 @@
     </div>
 
     <!--推荐商品-->
-    <div class="container propose_shop hidden-sm hidden-xs">
-        <ul>
-            <li><img style="width: 218px; height: 300px;"
-                     src="https://c1.mifile.cn/f/i/2014/cn/10046/gouwuche!234x300.jpg"></li>
-            <li>
-                <a id="show" href="">
-                    <div class="text-center">
-                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
-                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
-                        <dd>2099元</dd>
-                        <span id="hp">xxx人好评</span>
+        <div class="container propose_shop hidden-sm hidden-xs">
+            <ul>
+                <li><img style="width: 218px; height: 300px;"
+                         src="https://c1.mifile.cn/f/i/2014/cn/10046/gouwuche!234x300.jpg"></li>
+                <li>
+                    <a id="show" href="">
+                        <div class="text-center">
+                            <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                            <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                            <dd>2099元</dd>
+                            <span id="hp">xxx人好评</span>
 
-                    </div>
-                </a>
-                <a id="add" href="" hidden>加入购物车</a>
-            </li>
-            <li>
-                <a href="">
-                    <div class="text-center">
-                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
-                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
-                        <dd>2099元</dd>
-                        <dd>xxx人好评</dd>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <div class="text-center">
-                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
-                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
-                        <dd>2099元</dd>
-                        <dd>xxx人好评</dd>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <div class="text-center">
-                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
-                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
-                        <dd>2099元</dd>
-                        <dd>xxx人好评</dd>
-                    </div>
-                </a>
-            </li>
+                        </div>
+                    </a>
+                    <a id="add" href="" hidden>加入购物车</a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="text-center">
+                            <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                            <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                            <dd>2099元</dd>
+                            <dd>xxx人好评</dd>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="text-center">
+                            <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                            <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                            <dd>2099元</dd>
+                            <dd>xxx人好评</dd>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="text-center">
+                            <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                            <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                            <dd>2099元</dd>
+                            <dd>xxx人好评</dd>
+                        </div>
+                    </a>
+                </li>
 
-            <li>
-                <a href="">
-                    <div class="text-center">
-                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
-                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
-                        <dd>2099元</dd>
-                        <dd>xxx人好评</dd>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <div class="text-center">
-                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
-                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
-                        <dd>2099元</dd>
-                        <dd>xxx人好评</dd>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <div class="text-center">
-                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
-                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
-                        <dd>2099元</dd>
-                        <dd>xxx人好评</dd>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <div class="text-center">
-                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
-                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
-                        <dd>2099元</dd>
-                        <dd>xxx人好评</dd>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <div class="text-center">
-                        <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
-                        <dd>小米平板4 Plus 10英寸 LTE...</dd>
-                        <dd>2099元</dd>
-                        <dd>xxx人好评</dd>
+                <li>
+                    <a href="">
+                        <div class="text-center">
+                            <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                            <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                            <dd>2099元</dd>
+                            <dd>xxx人好评</dd>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="text-center">
+                            <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                            <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                            <dd>2099元</dd>
+                            <dd>xxx人好评</dd>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="text-center">
+                            <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                            <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                            <dd>2099元</dd>
+                            <dd>xxx人好评</dd>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="text-center">
+                            <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                            <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                            <dd>2099元</dd>
+                            <dd>xxx人好评</dd>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="text-center">
+                            <img src="https://i1.mifile.cn/a1/pms_1536653482.78091231!140x140.jpg">
+                            <dd>小米平板4 Plus 10英寸 LTE...</dd>
+                            <dd>2099元</dd>
+                            <dd>xxx人好评</dd>
 
-                    </div>
-                </a>
-            </li>
-        </ul>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
+{% endblock %}
+{% block script %}
 <script>
     $().ready(function () {
 
@@ -324,6 +329,6 @@
     })
 </script>
 {% endblock %}
-</body>
 
+</body>
 </html>

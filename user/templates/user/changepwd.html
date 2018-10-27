@@ -189,7 +189,7 @@
                             if (data.success) {
                                 $("#sub_btn").removeAttr("disabled")
                                 $("#msg").html("<span style='color:green;'>" + data.msg + "</span>")
-                                window.location.href="/mall/user_logout";
+                                window.location.href="/user/user_logout/";
                             } else {
                                 $("#sub_btn").attr("disabled", true)
                                 $("#msg").html("<span style='color:red;font-size: 12px;line-height: 5px;'>" + data.msg + "</span>")

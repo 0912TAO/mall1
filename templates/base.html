@@ -27,14 +27,14 @@
         <div class="left top-nav-content-l">
             <ul>
                 <li><a href="{% url 'commons:index' %}">商城首页</a></li>
-                <li><a href="#">MIUI</a></li>
-                <li><a href="#">oT</a></li>
-                <li><a href="#">云服务</a></li>
-                <li><a href="#">金融</a></li>
-                <li><a href="#">有品</a></li>
-                <li><a href="#">小爱开放平台</a></li>
-                <li><a href="#">政企服务</a></li>
-                <li><a href="#" class="end">下载app</a></li>
+                <li><a href="{% url 'commons:pub' %}">OS</a></li>
+                <li><a href="{% url 'commons:pub' %}">oT</a></li>
+                <li><a href="{% url 'commons:pub' %}">云服务</a></li>
+                <li><a href="{% url 'commons:pub' %}">金融</a></li>
+                <li><a href="{% url 'commons:pub' %}">有品</a></li>
+                <li><a href="{% url 'commons:pub' %}">大爱开放平台</a></li>
+                <li><a href="{% url 'commons:pub' %}">政企服务</a></li>
+
             </ul>
         </div>
         <div class="right top-nav-content-r">
@@ -62,17 +62,17 @@
                     <li><a href="{% url 'user:user_login' %}">登录</a></li>
                     <li><a href="{% url 'user:register' %}">注册</a></li>
                     {% endif %}
-                    <li><a href="#" class="end">消息通知</a></li>
+                    <!--<li><a href="#" class="end">消息通知</a></li>-->
 
                 </ul>
             </div>
             <div class="car">
                 <a href="{% url 'store:my_cart' %}"><span class="glyphicon glyphicon-shopping-cart"
-                                                          aria-hidden="true"></span>购物车(0)</a>
+                                                          aria-hidden="true"></span>购物车</a>
             </div>
-            <div class="car-neirong" hidden="hidden" style="z-index:auto">
-                购物车中还没有商品，赶紧选购吧！
-            </div>
+            <!--<div class="car-neirong" hidden="hidden" style="z-index:auto">-->
+                <!--购物车中还没有商品，赶紧选购吧！-->
+            <!--</div>-->
         </div>
     </div>
 </div>
@@ -87,120 +87,120 @@
     </div>
     <div class="left daohang">
         <ul>
-            <li id="pingguo"><a href="javascript:void(0)">苹果手机</a>
+            <li id="pingguo"><a href="/commons/shouji/">品牌手机</a>
 
-                <div id="ad" class="ad_pg" hidden>
-                    <ul>
-                        <li>
-                            <div class="top">新品</div>
-                            <div class="img">
-                                <a href="">
-                                    <img src="{% static 'image/1.png' %}" width="110" height="110">
-                                </a>
-                            </div>
-                            <div class="pinpai">
-                                <a href="">
-                                    苹果9
-                                </a>
-                            </div>
-                            <div class="jiage">
-                                ￥999
-                            </div>
-                        </li>
-                        <li>
-                            <div class="top">新品</div>
-                            <div class="img">
-                                <a href="">
-                                    <img src="{% static 'image/1.png' %}" width="110" height="110">
-                                </a>
-                            </div>
-                            <div class="pinpai">
-                                <a href="">
-                                    苹果9
-                                </a>
-                            </div>
-                            <div class="jiage">
-                                ￥999
-                            </div>
-                        </li>
-                        <li>
-                            <div class="top">新品</div>
-                            <div class="img">
-                                <a href="">
-                                    <img src="{% static 'image/1.png' %}" width="110" height="110">
-                                </a>
-                            </div>
-                            <div class="pinpai">
-                                <a href="">
-                                    苹果9
-                                </a>
-                            </div>
-                            <div class="jiage">
-                                ￥999
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                <!--<div id="ad" class="ad_pg" hidden>-->
+                    <!--<ul>-->
+                        <!--<li>-->
+                            <!--<div class="top">新品</div>-->
+                            <!--<div class="img">-->
+                                <!--<a href="">-->
+                                    <!--<img src="{% static 'image/1.png' %}" width="110" height="110">-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="pinpai">-->
+                                <!--<a href="">-->
+                                    <!--苹果9-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="jiage">-->
+                                <!--￥999-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="top">新品</div>-->
+                            <!--<div class="img">-->
+                                <!--<a href="">-->
+                                    <!--<img src="{% static 'image/1.png' %}" width="110" height="110">-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="pinpai">-->
+                                <!--<a href="">-->
+                                    <!--苹果9-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="jiage">-->
+                                <!--￥999-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="top">新品</div>-->
+                            <!--<div class="img">-->
+                                <!--<a href="">-->
+                                    <!--<img src="{% static 'image/1.png' %}" width="110" height="110">-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="pinpai">-->
+                                <!--<a href="">-->
+                                    <!--苹果9-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="jiage">-->
+                                <!--￥999-->
+                            <!--</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
 
             </li>
-            <li><a href="javascript:void(0)">诺基亚</a></li>
-            <li><a href="javascript:void(0)">锤子手机</a></li>
-            <li id="xm"><a href="javascript:void(0)">小米手机</a>
-                <div id="ad" class="ad_xm" hidden>
-                    <ul>
-                        <li>
-                            <div class="top">新品</div>
-                            <div class="img">
-                                <a href="">
-                                    <img src="{% static 'image/1.png' %}" width="110" height="110">
-                                </a>
-                            </div>
-                            <div class="pinpai">
-                                <a href="">
-                                    小米8 青春版
-                                </a>
-                            </div>
-                            <div class="jiage">
-                                ￥1399起
-                            </div>
-                        </li>
-                        <li>
-                            <div class="top">新品</div>
-                            <div class="img">
-                                <a href="">
-                                    <img src="{% static 'image/1.png' %}" width="110" height="110">
-                                </a>
-                            </div>
-                            <div class="pinpai">
-                                <a href="">
-                                    小米8 青春版
-                                </a>
-                            </div>
-                            <div class="jiage">
-                                ￥1399起
-                            </div>
-                        </li>
-                        <li>
-                            <div class="top">新品</div>
-                            <div class="img">
-                                <a href="">
-                                    <img src="{% static 'image/1.png' %}" width="110" height="110">
-                                </a>
-                            </div>
-                            <div class="pinpai">
-                                <a href="">
-                                    小米8 青春版
-                                </a>
-                            </div>
-                            <div class="jiage">
-                                ￥1399起
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <li><a href="/commons/jiadian/">家居电器</a></li>
+            <li><a href="/commons/peijian/">配件大全</a></li>
+            <li id="xm"><a href="/commons/shuma/">智能数码</a>
+                <!--<div id="ad" class="ad_xm" hidden>-->
+                    <!--<ul>-->
+                        <!--<li>-->
+                            <!--<div class="top">新品</div>-->
+                            <!--<div class="img">-->
+                                <!--<a href="">-->
+                                    <!--<img src="{% static 'image/1.png' %}" width="110" height="110">-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="pinpai">-->
+                                <!--<a href="">-->
+                                    <!--小米8 青春版-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="jiage">-->
+                                <!--￥1399起-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="top">新品</div>-->
+                            <!--<div class="img">-->
+                                <!--<a href="">-->
+                                    <!--<img src="{% static 'image/1.png' %}" width="110" height="110">-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="pinpai">-->
+                                <!--<a href="">-->
+                                    <!--小米8 青春版-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="jiage">-->
+                                <!--￥1399起-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="top">新品</div>-->
+                            <!--<div class="img">-->
+                                <!--<a href="">-->
+                                    <!--<img src="{% static 'image/1.png' %}" width="110" height="110">-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="pinpai">-->
+                                <!--<a href="">-->
+                                    <!--小米8 青春版-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--<div class="jiage">-->
+                                <!--￥1399起-->
+                            <!--</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
             </li>
-            <li><a href="javascript:void(0)">华为手机</a></li>
-            <li><a href="javascript:void(0)">蓝绿厂手机</a></li>
+            <!--<li><a href="javascript:void(0)">华为手机</a></li>-->
+            <!--<li><a href="javascript:void(0)">蓝绿厂手机</a></li>-->
         </ul>
     </div>
     <div id="serch" class="right">
@@ -258,16 +258,14 @@
             <div class="carousel-inner" role="listbox">
 
                 <div class="item active">
-                    <img src="{% static 'image/baner1.jpg' %}" alt="...">
-                    <!--<div class="carousel-caption">-->
-                    <!--...-->
-                    <!--</div>-->
+                    <img src="{% static 'image/lb1.jpg' %}" alt="...">
+
                 </div>
                 <div class="item">
                     <img src="{% static 'image/baner.jpg' %}" alt="...">
-                    <!--<div class="carousel-caption">-->
-                    <!--...-->
-                    <!--</div>-->
+                </div>
+                <div class="item">
+                    <img src="{% static 'image/baner1.jpg' %}" alt="...">
                 </div>
             </div>
             <!-- Controls -->
@@ -293,8 +291,8 @@
         </div>
         <div class="main">
             <div class="index1 left">
-                <a href="{% url 'goods:product' %}">
-                    <img src="{% static 'image/sj1.jpg' %}">
+                <a href="/commons/jiadian/">
+                    <img src="{% static 'image/jd1.jpg' %}">
                 </a>
             </div>
             <ul>
@@ -307,7 +305,7 @@
                                 <img src="/{{jd.goodsimage_set.all.first.path}}">
                             </a>
                             <h5 class="tit"><a href="/goods/product/">{{jd.name|truncatechars:23}}</a></h5>
-                            <p class="xiangqing text-center">{{jd.intro|truncatechars:46}}</p>
+                            <p class="xiangqing text-center">{{jd.intro|truncatechars:43}}</p>
                             <div class="jiage text-center">{{jd.price}}</div>
                         </div>
                     </div>
@@ -328,7 +326,7 @@
         </div>
         <div class="main">
             <div class="index1 left">
-                <a href="">
+                <a href="/commons/shouji/">
                     <img src="{% static 'image/sj1.jpg' %}">
                 </a>
             </div>
@@ -342,7 +340,7 @@
                                 <img src="/{{sp.goodsimage_set.all.first.path}}">
                             </a>
                             <h5 class="tit"><a href="/goods/product/">{{sp.name}}</a></h5>
-                            <p class="xiangqing text-center">{{sp.intro|truncatechars:20}}</p>
+                            <p class="xiangqing text-center">{{sp.intro|truncatechars:43}}</p>
                             <div class="jiage text-center">{{sp.price}}</div>
                         </div>
                     </div>
@@ -355,7 +353,7 @@
     </div>
 
         <div class="guanggao">
-        <img src="{% static 'image/ds1.jpg' %}" alt="">
+        <img src="{% static 'image/ad3.jpg' %}" alt="">
     </div>
 
        <div class="sj">
@@ -364,8 +362,8 @@
         </div>
         <div class="main">
             <div class="index1 left">
-                <a href="{% url 'goods:product' %}">
-                    <img src="{% static 'image/sj1.jpg' %}">
+                <a href="/commons/peijian/">
+                    <img src="{% static 'image/pj1.jpg' %}">
                 </a>
             </div>
             <ul>
@@ -378,8 +376,8 @@
                     <a href="/goods/{{pj.id}}/product/">
                                 <img src="/{{pj.goodsimage_set.all.first.path}}">
                             </a>
-                            <h5 class="tit"><a href="/goods/product/">{{pj.name}}</a></h5>
-                            <p class="xiangqing text-center">{{pj.intro|truncatechars:20}}</p>
+                            <h5 class="tit"><a href="/goods/product/">{{pj.name|truncatechars:16}}</a></h5>
+                            <p class="xiangqing text-center">{{pj.intro|truncatechars:43}}</p>
                             <div class="jiage text-center">{{pj.price}}</div>
                         </div>
                     </div>
@@ -393,7 +391,7 @@
     </div>
 
     <div class="guanggao">
-        <img src="{% static 'image/ds1.jpg' %}" alt="">
+        <img src="{% static 'image/ad2.jpg' %}" alt="">
     </div>
     <div class="sj">
         <div class="title">
@@ -401,8 +399,8 @@
         </div>
         <div class="main">
             <div class="index1 left">
-                <a href="">
-                    <img src="{% static 'image/sj1.jpg' %}">
+                <a href="/commons/shuma/">
+                    <img src="{% static 'image/sm1.jpg' %}">
                 </a>
             </div>
             <ul>
@@ -414,8 +412,8 @@
                             <a href="/goods/{{sm.id}}/product/">
                                 <img src="/{{sm.goodsimage_set.all.first.path}}">
                             </a>
-                            <h5 class="tit"><a href="/goods/product/">{{sm.name}}</a></h5>
-                            <p class="xiangqing text-center">{{sm.intro|truncatechars:20}}</p>
+                            <h5 class="tit"><a href="/goods/product/">{{sm.name|truncatechars:23}}</a></h5>
+                            <p class="xiangqing text-center">{{sm.intro|truncatechars:43}}</p>
                             <div class="jiage text-center">{{sm.price}}</div>
                         </div>
                     </div>
@@ -439,50 +437,50 @@
 
 <div class="footer_server">
     <ul>
-        <li><a href="javascript:void(0)">预约维修服务</a></li>
-        <li><a href="javascript:void(0)">7天无理由退货</a></li>
-        <li><a href="javascript:void(0)">15天免费换货</a></li>
-        <li><a href="javascript:void(0)">满50元包邮</a></li>
-        <li><a href="javascript:void(0)">1520余家售后网点</a></li>
+        <li><a href="{% url 'user:server' %}">预约维修服务</a></li>
+        <li><a href="{% url 'user:server' %}">7天无理由退货</a></li>
+        <li><a href="{% url 'user:server' %}">15天免费换货</a></li>
+        <li><a href="{% url 'user:server' %}">满50元包邮</a></li>
+        <li><a href="{% url 'user:server' %}">1520余家售后网点</a></li>
     </ul>
 </div>
 
 <div class="footer-link">
     <dl class="left">
         <dt>帮助中心</dt>
-        <dd><a href="">账户管理</a></dd>
-        <dd><a href="">购物指南</a></dd>
-        <dd><a href="">订单操作</a></dd>
+        <dd><a href="javascript:void(0);">账户管理</a></dd>
+        <dd><a href="javascript:void(0);">购物指南</a></dd>
+        <dd><a href="javascript:void(0);">订单操作</a></dd>
     </dl>
     <dl class="left">
         <dt>帮助中心</dt>
-        <dd><a href="">账户管理</a></dd>
-        <dd><a href="">购物指南</a></dd>
-        <dd><a href="">订单操作</a></dd>
+        <dd><a href="javascript:void(0);">账户管理</a></dd>
+        <dd><a href="javascript:void(0);">购物指南</a></dd>
+        <dd><a href="javascript:void(0);">订单操作</a></dd>
     </dl>
     <dl class="left">
         <dt>帮助中心</dt>
-        <dd><a href="">账户管理</a></dd>
-        <dd><a href="">购物指南</a></dd>
-        <dd><a href="">订单操作</a></dd>
+        <dd><a href="javascript:void(0);">账户管理</a></dd>
+        <dd><a href="javascript:void(0);">购物指南</a></dd>
+        <dd><a href="javascript:void(0);">订单操作</a></dd>
     </dl>
     <dl class="left">
         <dt>帮助中心</dt>
-        <dd><a href="">账户管理</a></dd>
-        <dd><a href="">购物指南</a></dd>
-        <dd><a href="">订单操作</a></dd>
+        <dd><a href="javascript:void(0);">账户管理</a></dd>
+        <dd><a href="javascript:void(0);">购物指南</a></dd>
+        <dd><a href="javascript:void(0);">订单操作</a></dd>
     </dl>
     <dl class="left">
         <dt>帮助中心</dt>
-        <dd><a href="">账户管理</a></dd>
-        <dd><a href="">购物指南</a></dd>
-        <dd><a href="">订单操作</a></dd>
+        <dd><a href="javascript:void(0);">账户管理</a></dd>
+        <dd><a href="javascript:void(0);">购物指南</a></dd>
+        <dd><a href="javascript:void(0);">订单操作</a></dd>
     </dl>
     <dl class="left">
         <dt>帮助中心</dt>
-        <dd><a href="">账户管理</a></dd>
-        <dd><a href="">购物指南</a></dd>
-        <dd><a href="">订单操作</a></dd>
+        <dd><a href="javascript:void(0);">账户管理</a></dd>
+        <dd><a href="javascript:void(0);">购物指南</a></dd>
+        <dd><a href="javascript:void(0);">订单操作</a></dd>
     </dl>
     <div class="kf left">
         <p class="phone text-center">400-600-8888</p>
@@ -496,14 +494,14 @@
 
 <div class="site-info">
     <div class="content">
-        <div class="logo left">MI</div>
+        <div class="logo left"><a style="color: #fff;" href="{% url 'commons:index' %}">MI</a></div>
         <div class="info left">
             <p style="margin-bottom: 0px">
-                小米商城|MIUI|米家|米聊|多看|游戏|路由器|米粉卡|政企服务|小米天猫店|隐私政策|问题反馈|廉正举报|Select Region
+                大米商城|OS|米家|米聊|多看|游戏|路由器|米粉卡|政企服务|大米天猫店|隐私政策|问题反馈|廉正举报|Select Region
             </p>
             <p style="color: #666">
-                © mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2017]1530-131号 <br>
-                （京）网械平台备字（2018）第00005号 互联网药品信息服务资格证 (京) -非经营性-2014-0090 营业执照 <br>
+                © dami.com 京ICP证000号 京ICP备00号 京公网安备000号 京网文[2018]00号 <br>
+                （京）网械平台备字（2018）第00000号 互联网药品信息服务资格证 (京) -非经营性-000-0090 营业执照 <br>
                 违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
             </p>
         </div>
@@ -529,7 +527,7 @@
             </a>
         </li>
         <li>
-            <a href="javascript:void(0);" title="在线客服">
+            <a href="{% url 'user:server' %}" title="我的服务">
                 <span class="glyphicon glyphicon-headphones"></span>
             </a>
         </li>

@@ -41,11 +41,13 @@ urlpatterns = [
 
     # 发送邮箱
     url(r"^start_send_email/",views.start_send_email, name='start_send_email'),
-    url(r"^reg_login/", views.reg_login, name='reg_login'),
+    # url(r"^reg_login/", views.reg_login, name='reg_login'),
     url(r"^save_email/", views.save_email, name='save_email'),
 
 
     url(r"^tiaozhuan/", views.tiaozhuan, name='tiaozhuan'),
+    # 服务
+    url(r"^server/", views.server, name='server'),
 
 
 ]

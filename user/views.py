@@ -214,7 +214,7 @@ def checkusername(requess ,uname):
 
 
 # 退出登录
-@login_required
+# @login_required
 def user_logout(request):
     logout(request)
     return render(request, 'user/user_logout.html', {"msg": "您已成功退出！"})
@@ -255,9 +255,12 @@ def save_email(request):
     if code == 6666:
         u.email = email
         u.save()
-        return render(request, "user/personal.html", {"userA": userA})
+        # return render(request, "user/personal.html", {"userA": userA})
+
+        return JsonResponse({"success": True})
     else:
-        return render(request, "user/email.html", {"msg": "验证码错误"})
+        return JsonResponse({"success": False})
+
 
 
 
@@ -275,11 +278,16 @@ def start_send_email(request):
 
 
 # 邮箱登录
-def reg_login(request):
-    ma = request.POST['ma']
-    if ma == 6666:
-        try:
-            email = request.POST['email']
-            print("你的邮箱"+email)
-        except Exception as e:
-            pass
+# def reg_login(request):
+#     ma = request.POST['ma']
+#     if ma == 6666:
+#         try:
+#             email = request.POST['email']
+#             print("你的邮箱"+email)
+#         except Exception as e:
+#             pass
+
+
+# 服务
+def server(request):
+    return render(request, "user/services.html", {})

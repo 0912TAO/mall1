@@ -25,22 +25,22 @@ def index(request):
     # 手机类型
     shouji_type1 = GoodType.objects.filter(pk=10001)
     shouji_type2 = GoodType.objects.filter(parent=shouji_type1)
-    shouji = Goods.objects.filter(goodstype__in=shouji_type2)
+    shouji = Goods.objects.filter(goodstype__in=shouji_type2).order_by("-id")[0:8]
 
     # 家电类型
     jiadian_type1 = GoodType.objects.filter(pk=10002)
     jiadian_type2 = GoodType.objects.filter(parent=jiadian_type1)
-    jiadian = Goods.objects.filter(goodstype__in=jiadian_type2)
+    jiadian = Goods.objects.filter(goodstype__in=jiadian_type2).order_by("-id")[0:8]
 
     # 手机配件
     peijian_type1 = GoodType.objects.filter(pk=10003)
     peijian_type2 = GoodType.objects.filter(parent=peijian_type1)
-    peijian = Goods.objects.filter(goodstype__in=peijian_type2)
+    peijian = Goods.objects.filter(goodstype__in=peijian_type2).order_by("-id")[0:8]
 
     # 智能数码
     shuma_type1 = GoodType.objects.filter(pk=10004)
     shuma_type2 = GoodType.objects.filter(parent=shuma_type1)
-    shuma = Goods.objects.filter(goodstype__in=shuma_type2)
+    shuma = Goods.objects.filter(goodstype__in=shuma_type2).order_by("-id")[0:8]
 
     return render(request, "commons/index.html", {"store": s, "goods": goods, "shouji": shouji,
                                                   "jiadian": jiadian, "peijian": peijian, "shuma": shuma
@@ -57,3 +57,41 @@ def code(request):
     img.save(file, 'PNG')
 
     return HttpResponse(file.getvalue(), "image/png")
+
+
+# 导航手机
+def shouji(request):
+    shouji_type1 = GoodType.objects.get(pk=10001)
+
+    shouji_type2 = GoodType.objects.filter(parent=shouji_type1)
+    shouji = Goods.objects.filter(goodstype__in=shouji_type2)
+    return render(request, "commons/navfenlei.html", {"value": shouji, "names": shouji_type1})
+
+
+# 导航家居
+def jiadian(request):
+    jiadian_type1 = GoodType.objects.get(pk=10002)
+    jiadian_type2 = GoodType.objects.filter(parent=jiadian_type1)
+    jiadian = Goods.objects.filter(goodstype__in=jiadian_type2)
+    return render(request, "commons/navfenlei.html", {"value": jiadian, "names": jiadian_type1})
+
+
+# 导航配件
+def peijian(request):
+    peijian_type1 = GoodType.objects.get(pk=10003)
+    peijian_type2 = GoodType.objects.filter(parent=peijian_type1)
+    peijian = Goods.objects.filter(goodstype__in=peijian_type2)
+    return render(request, "commons/navfenlei.html", {"value": peijian, "names": peijian_type1})
+
+
+# 导航数码
+def shuma(request):
+    shuma_type1 = GoodType.objects.get(pk=10004)
+    shuma_type2 = GoodType.objects.filter(parent=shuma_type1)
+    shuma = Goods.objects.filter(goodstype__in=shuma_type2)[0:8]
+    return render(request, "commons/navfenlei.html", {"value": shuma, "names": shuma_type1})
+
+
+def pub(request):
+    return render(request, "commons/pub.html", {})
+

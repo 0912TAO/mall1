@@ -23,29 +23,30 @@
 {% block main %}
 
 
-    <div class="container_fluid button">
-        <div class="container title">
-            <!--左-->
-            <a href="{% url 'commons:index' %}">
-                <img class="title_left left" src="{% static 'store/images/mi.png' %}">
-            </a>
-            <!--中-->
-            <div class="title_in">
-                <p class="left">确认订单</p>
-                <span class="left">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span>
-            </div>
-            <!--右-->
-            <!--<div class="title_right right">-->
-                <!--<a href="javascript:void(0);">-->
-                    <!--这里显示用户名-->
-                <!--</a>-->
-                <!--<span>|</span>-->
-                <!--<a href="javascript:void(0);">-->
-                    <!--我的订单-->
-                <!--</a>-->
-            <!--</div>-->
+<div class="container_fluid button">
+    <div class="container title">
+        <!--左-->
+        <a href="{% url 'commons:index' %}">
+            <img class="title_left left" src="{% static 'store/images/mi.png' %}">
+        </a>
+        <!--中-->
+        <div class="title_in">
+            <p class="left">确认订单</p>
+            <span class="left">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span>
         </div>
+        <!--右-->
+        <!--<div class="title_right right">-->
+            <!--<a href="javascript:void(0);">-->
+                <!--这里显示用户名-->
+            <!--</a>-->
+            <!--<span>|</span>-->
+            <!--<a href="javascript:void(0);">-->
+                <!--我的订单-->
+            <!--</a>-->
+        <!--</div>-->
     </div>
+</div>
+
 <div class="container-fluid bg">
     <div class="container prospect">
         <!--收货地址-->
@@ -103,7 +104,6 @@
             </div>
         </div>
 
-
         <!--配送方式-->
         <div class="method">
             <div class="method_title">
@@ -123,11 +123,13 @@
                 <ul class="right text-right">
                     <li>
                         <div class="inline_block">商品件数:</div>
-                        <div class="inline_block js">?件</div>
+                        <div class="inline_block js"> 1 件</div>
                     </li>
                     <li>
                         <div class="inline_block">商品总价:</div>
+
                         <div class="inline_block all_money"></div>
+
                     </li>
                     <li>
                         <div class="inline_block">运费:</div>
@@ -135,6 +137,7 @@
                     </li>
                     <li>
                         <div class="inline_block">应付总额:</div>
+
                         <div class="inline_block all_money"></div>
                     </li>
                 </ul>
@@ -151,12 +154,9 @@
 {% endblock %}
 {% block script %}
 <script>
-
-
     $().ready(function () {
         /*城市选择控件*/
-	    $("#distpicker1").distpicker();
-
+        $("#distpicker1").distpicker();
 
         // 计算总价
         var group = $(".money");    // 获取对象数组
@@ -166,7 +166,6 @@
         group.each(function () {
             var bout = ($(this).text());
             money = parseInt(bout) + money;
-
             console.log(parseInt(bout))
         });
         // 输出到位置
@@ -175,28 +174,28 @@
 
         // 计算商品总数
         var num = $('.shop_num').length;
+        console.log(num);
         $('.js').text(num);
 
-        $('#sub').on('click',function (e) {
-           $('#confirm_form').submit();
+        // form提交
+        $('#sub').on('click', function (e) {
+            $('#confirm_form').submit();
         });
-            console.log(val);
-        //     $.ajax({
-        //         url:'/store/qwe/',
-        //         method:'POST',
-        //         dataType: 'json',
-        //         // 需要地址ID和商品ID
-        //         data:{'address':val, 'csrfmiddlewaretoken':'{{ csrf_token }}'},
-        //         success: function (data) {
-        //             console.log('成功')
-        //         }
-        //
-        //     })
-        //
-        // })
+            //     $.ajax({
+            //         url:'/store/qwe/',
+            //         method:'POST',
+            //         dataType: 'json',
+            //         // 需要地址ID和商品ID
+            //         data:{'address':val, 'csrfmiddlewaretoken':'{{ csrf_token }}'},
+            //         success: function (data) {
+            //             console.log('成功')
+            //         }
+            //
+            //     })
+            //
+            // })
+        })
 
-
-    });
 
 </script>
 {% endblock %}

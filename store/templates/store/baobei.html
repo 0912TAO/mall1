@@ -75,7 +75,7 @@ open_shop
                         <!--<img style="width: 200px;height: 200px" src="{{g.goodsimage_set.all.first}}" alt="">-->
                         <img style="width: 200px;height: 200px" src="/{{g.goodsimage_set.all.first.path}}"
                              alt=""><br></br>
-                        商品名：<p>{{g.name}}</p>
+                        商品名：<p>{{g.name|truncatechars:31}}</p>
                         商品单价<p>{{g.price}}</p>
                         商品库存：<p>{{g.stock}}</p>
                         <a href="/store/{{g.id}}/goodsdel/">下架</a>

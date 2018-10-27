@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% block title %}
+{{names.name}}
+{% endblock %}
+{% block baner %}
+{% endblock %}
+
+{% block main %}
+{% load static %}
+
+<style>
+    .fenlei{
+        min-height: 999px;
+        background-color: #f1f1f1;
+    }
+    .main{
+        width: 1226px;
+        /*background-color: #fff;*/
+        /*min-height: 1500px;*/
+        margin:10px auto;
+    }
+    .main ul li{
+        float: left;
+        width: 280px;
+        height: 300px;
+        margin-left: 20px;
+        background-color: #fff;
+    }
+    .main ul li img{
+        width: 160px;
+        height: 160px;
+    }
+    .sj .main ul li:hover{
+    /*box-shadow: 3px 5px 5px #999;*/
+    /*margin-top: -1px;*/
+}
+.main ul li:nth-child(-n+4){
+    margin-bottom: 15px;
+}
+.main ul li .index2 .top .tit{
+    text-align: center;
+}
+.main ul li .index2 .top .tit a{
+    display: block;
+    width: 200px;
+    color: #333;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 10px;
+    height: 15px;
+    text-decoration: none;
+    text-align: center;
+}
+.main ul li .index2 .top .tit a:hover{
+    text-decoration: none;
+}
+.main ul li .index2 .top .xiangqing{
+    color: #999;
+    font-size: 12px;
+    padding: 2px 5px;
+}
+.main ul li .index2 .top .jiage{
+    color: #ff6700;
+    font-weight: 600;
+}
+.main .index2 .top-note{
+    display: block;
+    background-color: #83c44e;
+    color: #fff;
+    font-size: 12px;
+    width: 64px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    margin: auto;
+}
+.main .index2 a{
+    display: block;
+    width: 160px;
+    height: 160px;
+    margin: auto;
+}
+</style>
+
+
+<div class="box" style="background-color: #f1f1f1;width: 100%;padding-top: 12px;">
+    <div class="fenlei">
+        <div class="main">
+
+            <ul>
+                {% for g in value %}
+                <li>
+                    <div class="index2">
+                        <div class="top">
+                            <span class="top-note">新品</span>
+                            <a href="/goods/{{g.id}}/product/">
+                                <img src="/{{g.goodsimage_set.all.first.path}}">
+                            </a>
+                            <h5 class="tit"><a href="/goods/product/">{{g.name|truncatechars:16}}</a></h5>
+                            <p class="xiangqing text-center">{{g.intro|truncatechars:46}}</p>
+                            <div class="jiage text-center">{{g.price}}</div>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
